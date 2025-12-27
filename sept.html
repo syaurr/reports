@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>september s nya apa?</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Gochi+Hand&family=VT323&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Y2K THEME & LAYOUT */
+        body {
+            /* Full Black Background */
+            background-color: #000000;
+            font-family: 'Gochi Hand', cursive;
+            color: #f0f6fc; /* Light default text color for dark background */
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        .scrapbook-container {
+            position: relative;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            min-height: 2400px; /* Increased height to fit all content */
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        /* --- TYPOGRAPHY --- */
+        .main-title {
+            font-family: 'Press Start 2P', cursive;
+            font-size: clamp(2rem, 10vw, 3.5rem); /* Slightly adjusted for new text */
+            text-align: center;
+            margin-bottom: 50px;
+            text-shadow: 3px 3px 0px rgba(0,0,0,0.1);
+        }
+        .main-title span { display: inline-block; }
+        .c-red { color: #FF4B5C; }
+        .c-orange { color: #FFA500; }
+        .c-yellow { color: #f0e68c; }
+        .c-green { color: #7CFC00; }
+        .c-blue { color: #87CEEB; }
+        .c-purple { color: #9370DB; }
+        .c-pink { color: #FFB6C1; }
+        .c-white { 
+            color: #ffffff; 
+            font-size: 1.5rem;
+            vertical-align: middle;
+            margin: 0 10px;
+            text-shadow: 2px 2px 8px rgba(0, 191, 255, 0.7);
+        }
+
+
+        .font-pixel { font-family: 'VT323', monospace; }
+
+        /* --- NOTE / CARD STYLES --- */
+        .note {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(5px);
+            padding: 20px 25px;
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.2);
+            border: 1px solid rgba(0,0,0,0.1);
+            border-radius: 4px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            color: #333; /* Ensure text inside notes is dark */
+        }
+        .note:hover {
+            transform: scale(1.03) !important; /* Override rotation for focus */
+            box-shadow: 10px 10px 25px rgba(0,0,0,0.3);
+            z-index: 100 !important;
+        }
+        .note h2 {
+            font-family: 'VT323', monospace;
+            font-size: 2rem;
+            color: #333;
+            border-bottom: 2px dashed #FFA500;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+        }
+        .note-list li { margin-bottom: 5px; }
+
+        /* --- STICKERS --- */
+        .sticker {
+            position: absolute;
+            width: clamp(50px, 10vw, 120px);
+            height: auto;
+            pointer-events: all;
+            transition: transform 0.2s ease-in-out;
+            z-index: 50;
+            filter: drop-shadow(3px 3px 5px rgba(0,0,0,0.3));
+        }
+        .sticker:hover {
+            transform: scale(1.15) rotate(5deg);
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        /* --- MODAL FOR FEEDBACK --- */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            display: none; /* Initially hidden */
+            align-items: center;
+            justify-content: center;
+            z-index: 999;
+            padding: 20px;
+        }
+        .modal-content {
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            max-width: 600px;
+            width: 100%;
+            border: 4px solid #FFA500;
+            color: #333;
+            font-family: 'Patrick Hand', cursive; /* <-- TAMBAHKAN BARIS INI */
+        }
+        .modal-content h2 { font-family: 'VT323', monospace; }
+        .modal button {
+            background: #FF4B5C;
+            color: white;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: 'VT323', monospace;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="scrapbook-container">
+        
+        <!-- === STICKERS - Embedded with Base64 to guarantee they appear === -->
+        <img src="data:image/png;base64,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" class="sticker" style="top: 45%; left: 45%; width: 150px; transform: rotate(-8deg); z-index: 5;">
+        <!-- End of Stickers -->
+
+        <header style="position: relative; z-index: 10;">
+            <h1 class="main-title">
+                <span class="c-red">EXEC</span><span class="c-orange">PA</span><span class="c-yellow">!</span><span class="c-green">!</span><span class="c-blue">!</span>
+                <span class="c-purple">t</span><span class="c-pink">i</span><span class="c-red">m</span><span class="c-orange">e</span><span class="c-green">e</span>
+                <span class="c-white">Laporan Kinerja September</span>
+            </h1>
+        </header>
+        
+        <!-- NOTE 1: Status Sistem Operasional (MORE DETAILS) -->
+        <div class="note" style="top: 200px; left: 5%; width: 400px; transform: rotate(-3deg); z-index: 10;">
+            <h2>> Operasional_Status.txt</h2>
+            <ul class="font-pixel note-list" style="font-size: 1.2rem; list-style-type: '✧ ';">
+                <li>Integritas Arsip: <strong style="color: #28a745;">100% OK</strong></li>
+                <li style="font-size: 0.9rem; padding-left: 10px;">(Biaya dokumen & kontrak: Rp105rb)</li>
+                <li>Sinkronisasi Crew: <strong style="color: #28a745;">99% STABLE</strong> (6 Resign, 6 Baru)</li>
+                <li>Efisiensi Sistem HR: <strong style="color: #ffc107;">70% (ATTENTION)</strong></li>
+                 <li style="font-size: 0.9rem; padding-left: 10px;">(Masih ada kendala waktu input)</li>
+                <li>Distribusi Gaji: <strong style="color: #28a745;">H-1 TEPAT WAKTU</strong></li>
+                 <li style="font-size: 0.9rem; padding-left: 10px;">(7 koreksi absen dari crew)</li>
+                <li>Kasbon Crew: <strong style="color: #ffc107;">DELAY 1-2 HARI</strong></li>
+                 <li style="font-size: 0.9rem; padding-left: 10px;">(Total Kasbon: 25.3 Jt, perlu approval)</li>
+            </ul>
+        </div>
+        
+        <!-- NOTE 2: Komunikasi & Dukungan -->
+        <div class="note" style="top: 300px; right: 5%; width: 400px; transform: rotate(2deg); z-index: 12;">
+            <h2>> Sinyal_Dari_Crew.log</h2>
+            <p style="font-size: 1.1rem; margin-bottom: 15px;">Masukan bulan ini cukup krusial (sedikit alay), menyoroti isu <strong style="color: #e74c3c;">kepemimpinan di level leader</strong> dan <strong style="color: #e74c3c;">dinamika internal</strong> yang mengganggu crew baru di outlet Soreang.</p>
+            <button onclick="document.getElementById('feedbackModal').style.display='flex'" style="font-size: 1.1rem; padding: 10px; background: #9370DB; color: white; border: none; cursor: pointer; font-family: 'VT323'; border-radius: 4px;">BACA DRAMA SELENGKAPNYA</button>
+        </div>
+
+        <!-- NOTE 3: Project Updates (MORE DETAILS) -->
+        <div class="note" style="top: 650px; left: 10%; width: 480px; transform: rotate(4deg); z-index: 11;">
+            <h2>> project_dev_update.exe</h2>
+            <div class="font-pixel" style="font-size: 1.2rem;">
+                <p>KPI App to Web: <strong style="color: #28a745;">100% COMPLETE!</strong></p>
+                <p>Training Progress Track: <strong style="color: #28a745;">100% COMPLETE!</strong></p>
+                <p>Admin Section: <strong style="color: #28a745;">100% COMPLETE!</strong></p>
+                <br>
+                <div style="background: #fff8e1; border: 1px dashed #ffc107; padding: 10px; font-size: 1rem;">
+                    <p style="color: #ffc107;"><strong>!! WARNING:</strong></p>
+                    <p style="color: #333;">Fitur 'Generate Certificate' perlu perbaikan teknis di server (masalah user flow).</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- NOTE 4: Next Mission (MORE DETAILS) -->
+        <div class="note" style="top: 1000px; right: 8%; width: 420px; transform: rotate(-2deg); z-index: 13;">
+            <h2>> next_mission.plan</h2>
+            <p style="font-size: 1.2rem;">Fokus utama bulan depan adalah meluncurkan <strong style="color: #3498db;">Dashboard Crew pribadi!</strong></p>
+            <ul style="list-style-type: '★ '; padding-left: 20px; font-size: 1.1rem;">
+                <li>Dashboard berisi:
+                    <ul style="list-style-type: '- '; font-size: 0.9rem; padding-left: 20px;">
+                        <li>Profile & lama kerja</li>
+                        <li>Grafik gaji & peringkat</li>
+                        <li>Sisa kasbon</li>
+                    </ul>
+                </li>
+                <li>Akses mudah ke Handbook & SOP.</li>
+                <li>Training 1-on-1 untuk crew outlet.</li>
+            </ul>
+        </div>
+
+        <!-- NOTE 5: Analisa Bisnis -->
+        <div class="note" style="top: 1350px; left: 5%; width: 300px; transform: rotate(-5deg); z-index: 10;">
+             <h2>> skill_upgrade.dll</h2>
+             <p class="font-pixel" style="font-size: 1.5rem; text-align: center; color: #3498db;">
+                ANALISIS BISNIS & MANAJEMEN PENILAIAN KINERJA<br>
+                <span style="font-size: 1rem; color: #333;">STATUS:</span><br>
+                <strong style="font-size: 2rem;">IN TRAINING!</strong><br>
+                <span style="font-size: 1rem; color: #333;">(Class in progress...)</span>
+             </p>
+        </div>
+        
+    </div>
+
+    <!-- MODAL - For Detailed Feedback -->
+    <div id="feedbackModal" class="modal">
+        <div class="modal-content">
+            <h2>Detail Masukan Crew - September</h2>
+            <div style="max-height: 400px; overflow-y: auto; padding-right: 15px; margin-top: 15px; margin-bottom: 20px;">
+                <h4>1. Isu Manajerial Leader & Profesionalisme</h4>
+                <p style="font-size: 0.9rem; background: #f1f1f1; padding: 10px; border-radius: 4px; margin-bottom: 10px;"><strong>Masukan:</strong> Crew merasa leader kurang efisien, hanya memerintah tanpa mencontohkan, sering main ponsel, dan jarang menegur crew lain yang bercanda saat ramai. Ada perbedaan prinsip kerja yang tidak terjembatani.</p>
+                <p style="font-size: 0.9rem; background: #f1f1f1; padding: 10px; border-radius: 4px; margin-bottom: 10px;"><strong>Pesan Asli:</strong>saya pribadi merasa manajerial leader yang terasa kurang baik dan efisien dalam mengatur para crew untuk menjaga operasional tetap berjalan dengan baik, hanya memerintah, duduk, tanpa banyak mencontohkan. terlalu sering bermain ponsel saat jam kerja dan jarang menegur crew yang terlalu banyak bercanda ketika jam kerja, terlebih saat rush hour dan posisi sudah banyak driver dan customer yang menunggu. Saya berprinsip ingin menyajikan pesanan tepat waktu tetapi rekan saya mungkin tidak memiliki prinsip yang sama dengan saya dan saya menghormati itu. saya sudah mencoba untuk mendiskusikannya namun pihak terkait membela dirinya dengan dalih dirinya adalah leader yang tidak seharusnya selalu 'terjun' langsung untuk membantu pembuatan order dan saya menghormatinya, mungkin karena salah saya sendiri karena tidak paham dengan tugas leader yang sebenarnya itu apa, saya berekspektasi sosok leader adalah sosok yang dewasa, bijaksana baik dalam perkataan maupun dalam tindakan, juga mampu mencontohkan hal yang baik kepada crew, namun yang saya amati pihak terkait masih perlu bimbingan lebih. </p>
+                <p style="font-size: 0.9rem; background: #e8f7ff; padding: 10px; border-radius: 4px;"><strong>💡 Usulan Solusi:</strong> (1) Sesi 1-on-1 khusus dengan leader terkait untuk membahas feedback dan ekspektasi peran. (2) Refreshment training kepemimpinan dengan studi kasus relevan. (3) Menetapkan aturan penggunaan ponsel yang lebih tegas untuk semua, terutama di jam sibuk.</p>
+                
+                <h4 style="margin-top: 20px;">2. Konflik Internal & Dampak pada Crew Baru (Outlet Soreang)</h4>
+                <p style="font-size: 0.9rem; background: #f1f1f1; padding: 10px; border-radius: 4px; margin-bottom: 10px;"><strong>Masukan:</strong> Crew baru merasa sangat tidak nyaman karena terseret ke dalam drama internal antar crew lama. Hal ini membingungkan karena menerima arahan yang berbeda dan menciptakan lingkungan kerja yang tidak sehat sejak awal.</p>
+                <p style="font-size: 0.9rem; background: #f1f1f1; padding: 10px; border-radius: 4px; margin-bottom: 10px;"><strong>Pesan Asli:</strong>halo ibu/bapak management, aku crew baru di outlet soreang, aku cm pengen nyampein keluh kesah aku di waktu 2 minggu aku join balista ini ada hal yg bikin aku agak terganggu, soal masalah internal antar crew yang di omong omongin ke aku& bisa dibilang mau nyeret aku jg kali ya? aku gatau sih tujuan mereka nyeritain problem internal mereka ke aku apa, tp aku ga nyaman dengernya, as anak baru yg bahkan bisa dibilang belum terlalu kenal sama crew lama tapi harus tau semua problem yang bahkan udah lewat & kejadian nya sebelum aku join balista, selain mengganggu kenyaman aku, ini jg agak ngehambat alur kerja aku, karna 2 kasir (cewe) ini ada problem internal jadi ajaran mereka ke aku tuh beda, jujur aku jadi bingung harus apa&gmn, karna aku gapunya hak buat pro ke salahsatunya kan, tapi so far all of them nice banget ke aku (kalo didepan) kalo dibelakang beda lagi & selalu ada aja yg cepu lagi ke aku, begitupun dengan aku kalo cerita or jst say smth pasti disampein ke yg lain & jatohnya jadi fitnah, krn bikin nama aku jadi jelek, maaf ya bu/pak kalo aku ngeluh se early ini, krn jujur ganggu banget ke kerjaan, aku jd males buat kerja karena terlalu banyak drama, padahal aku baru masuk, tapi langsung disuguhin suasana outlet yg gaenak. mungkin bapak/ibu tanya knp aku langsung reachout ke management, bukan aku underestimate leader aku ya, tp aku liat gap umur kita yg agak jauh & perbedaan mindset n segala macem aku rasa better langsung ke management aja (kebetulan sebelum aku isi form ini aku udah sampein cerita lengkapnya secara langsung ke bu tasya kemarin), tujuan aku bilang ini semua bukan apa apa si, purely sharing & kebetulan pihak balista jg nyedian form ini jadi aku bisa isi, aku harap crew outlet soreang bisa embrace each other & berkurang bahkan hilang semua drama personal nya, buat leader jg mungkin bisa perbaiki cara komunikasi sm crew, biar kerja nya sama nyaman, karna jujur better di tegur langsung aja kalo kita salah, dari pada ngomong dibelakang (tp ga selalu ya, cm beberapakali aku selalu liat kejadian gini, walaupun bukan aku yg ngalamin aku ikut ga nyaman), aku harap gaada pihak yg di rugikan krn tindakan aku ini&aku harap semua drama&problem personal antar crew ini cepet selesai, sekali lg maaf ya kalo kesan nya aku lebay atau gmn.. sebenernya ini ceritanya kurang lengkap sih cuman aku malu soalnya udah panjang banget jadi segini dl aja, makasi bapak/ibu management </p>
+                <p style="font-size: 0.9rem; background: #e8f7ff; padding: 10px; border-radius: 4px;"><strong>💡 Usulan Solusi:</strong> (1) Intervensi langsung oleh HR/Manajemen untuk mediasi pihak-pihak yang berkonflik. (2) Mengadakan sesi "Team Re-alignment" di outlet Soreang untuk membangun kembali komitmen profesionalisme. (3) Membuat aturan tegas mengenai larangan menyebarkan gosip atau masalah personal di lingkungan kerja, terutama kepada anggota tim baru.</p>
+            </div>
+            <button onclick="document.getElementById('feedbackModal').style.display='none'">TUTUP</button>
+        </div>
+    </div>
+
+</body>
+</html>
+

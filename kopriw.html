@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kopriiiii</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F3F4F6;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .card {
+            background-color: #FFFFFF;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        h2 {
+            font-size: 1.875rem;
+            font-weight: 700;
+            color: #1E3A8A;
+            margin-bottom: 1rem;
+            border-bottom: 3px solid #F59E0B;
+            padding-bottom: 0.5rem;
+        }
+        h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1E40AF;
+            margin-bottom: 0.75rem;
+        }
+        p {
+            color: #374151;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <header class="bg-white shadow-md">
+        <div class="container mx-auto p-6 text-center">
+            <h1 class="text-4xl font-bold text-blue-900">Kopriagan goes to Bandoeng</h1>
+            <p class="text-xl text-gray-600 mt-2">identity tetep tiam vs ada espresso</p>
+        </div>
+    </header>
+
+    <main class="container mx-auto p-4 md:p-8">
+
+        <section id="pasar" class="mb-8">
+            <div class="card md:col-span-2">
+                <h2>Cek Ombak Pasar</h2>
+                <p>Di kota, 90% orang udah keracunan "kopus = espresso"</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="card">
+                    <h3>Persepsi "Kopi Susu" di Kota</h3>
+                    <p>Faktanya, "Kopi Susu Aren" itu pake espresso. Cuma secuil kalangan yang nyari rasa otentik tiam</p>
+                    <div class="chart-container">
+                        <canvas id="persepsiChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Resiko kalo milih satu</h3>
+                    <p>Mau milih idealis (tiam) atau ngikutin pasar (espresso) doang?</p>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left">
+                            <thead class="bg-gray-50 text-blue-900">
+                                <tr>
+                                    <th class="p-3 font-semibold">Strategi</th>
+                                    <th class="p-3 font-semibold">Risiko Utamanya</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y">
+                                <tr class="hover:bg-gray-50">
+                                    <td class="p-3 font-medium text-orange-600">Cuma Tiam</td>
+                                    <td class="p-3">Udah ga match sama makanan yg di develop. Operasional pas *rush hour* lebih sulit. Lost di pasar hot drink (Latte/Cap)</td>
+                                </tr>
+                                <tr class="hover:bg-gray-50">
+                                    <td class="p-3 font-medium text-blue-600">Cuma Espresso</td>
+                                    <td class="p-3">Jadi "satu dari seribu". Saingan harga + rasa sm yg lain</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="non-espresso" class="mb-8">
+            <div class="card md:col-span-2">
+                <h2>Gimana Kalo Nggak Pake Mesin?</h2>
+                <p>Lost bgt 3 hal penting ini (bukan cuma soal pekat, tapi soal tekstur, kecepatan, dan varian menu)</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="card">
+                    <h3>yang ilang klo gaada espresso</h3>
+                    <p>bisa bikin kopi strong, tapi GAK bisa bikin espresso. yg bakal ilang:</p>
+                    <ul class="list-none space-y-2">
+                        <li class="flex items-center"><span class="text-2xl mr-3">🚫</span><div><strong class="text-blue-800">Crema</strong> atau disebut tekstur & visual awal yang bikin "wow"</div></li>
+                        <li class="flex items-center"><span class="text-2xl mr-3">🚫</span><div><strong class="text-blue-800">Body (Mouthfeel)</strong> karna kopi saring bakal kerasa "encer" dibanding espresso</div></li>
+                        <li class="flex items-center"><span class="text-2xl mr-3">🚫</span><div><strong class="text-blue-800">Steam Wand</strong> gabisa jualan Hot Latte/Cap</div></li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h3>10 Pesanan Pas Rush Hour</h3>
+                    <p>by data yg ada #ea, pake mesin 2-group, 10 pesanan beres 2.5 menit, pake moka pot? lama bgt sih kasian barista</p>
+                    <div class="chart-container">
+                        <canvas id="kecepatanChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>lost market ciwi yang suka latte</h3>
+                    <p>Gak punya steam wand = siap-siap kehilangan 20-30% pasar</p>
+                    <div class="chart-container">
+                        <canvas id="kerugianChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="investasi" class="mb-8">
+            <div class="card md:col-span-2">
+                <h2>Mesin Espresso (budget)<h2>
+                <p>klo beli hrs ada grinder ceunah, "grinder itu RAJA-nya, bukan mesinnya.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="card">
+                    <h3>Budget Realistis Buat Setup Perang</h3>
+                    <p>Jangan mimpi 30 juta dapet setup 2-group siap tempur. 100 juta angka minimum yang realistis mesin + grinder</p>
+                    <div class="chart-container">
+                        <canvas id="budgetChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Alokasi Budget -> Grinder JAUH lebih penting!</h3>
+                    <p>Mending Grinder Bagus + Mesin Biasa daripada sebaliknya. Grinder nentuin 90% rasa</p>
+                    <div class="chart-container">
+                        <canvas id="prioritasChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="biji-sdm" class="mb-8">
+            <div class="card md:col-span-2">
+                <h2>Biji Kopi & SDM</h2>
+                <p>Metode beda, bijinya (input) beda, orangnya (SDM) juga beda cara ngajarinnya !!PENTING BUAT R&D</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="card">
+                    <h3>Beda Biji = Beda Roasting</h3>
+                    <p>Biji buat teko saring (Tiam) sama espresso itu BEDA TOTAL profil roasting-nya</p>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left">
+                            <thead class="bg-gray-50 text-blue-900">
+                                <tr>
+                                    <th class="p-3 font-semibold">Metode</th>
+                                    <th class="p-3 font-semibold">Profil Roasting</th>
+                                    <th class="p-3 font-semibold">Tujuan Rasa</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y">
+                                <tr class="hover:bg-gray-50">
+                                    <td class="p-3 font-medium text-orange-600">Kopi Tiam (Saring)</td>
+                                    <td class="p-3">Light - Medium</td>
+                                    <td class="p-3">Nyari aroma & asem yang asik.</td>
+                                </tr>
+                                <tr class="hover:bg-gray-50">
+                                    <td class="p-3 font-medium text-blue-600">Espresso</td>
+                                    <td class="p-3">Medium - Dark</td>
+                                    <td class="p-3">Nyari body & sweetness</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>Resep Blend Kopi Susu Aren (Anti Tenggelam)</h3>
+                    <p>Jangan pake 100% Arabica, biar gak tenggelam sama susu/gula, WAJIB pake campuran Robusta</p>
+                    <div class="chart-container" style="height: 250px;">
+                        <canvas id="blendChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="rekomendasi">
+            <div class="card md:col-span-2">
+                <h2>rekomen : The Hybrid Bar</h2>
+                <p>sikat dua-duanya!</p>
+                
+                <div class="w-full p-4">
+                    <h3 class="text-center">Alur Kerja Konsep Hybrid Bar</h3>
+                    <p class="text-center mb-6">Satu bar, dua stasiun, ngelayanin dua tipe pelanggan. Efisien!</p>
+                    
+                    <div class="flex flex-col items-center">
+                        <div class="card bg-blue-900 text-white w-full max-w-md text-center">
+                            <strong class="text-lg">PELANGGAN MASUK</strong>
+                        </div>
+                        <div class="text-4xl text-gray-400">⬇️</div>
+                        
+                        <div class="w-full flex flex-col md:flex-row justify-center gap-6">
+                            <div class="flex-1 flex flex-col items-center">
+                                <div class="card border-2 border-orange-500 w-full max-w-md text-center">
+                                    <div class="text-xs font-semibold text-orange-500">PESANAN 1</div>
+                                    <strong class="text-blue-900 text-lg">Menu Signature Tiam</strong>
+                                    <span class="text-gray-600">(Kopi O, Kopi Susu Tiam)</span>
+                                </div>
+                                <div class="text-4xl text-gray-400">⬇️</div>
+                                <div class="card bg-orange-500 text-white w-full max-w-md text-center">
+                                    <strong class="text-lg">STASIUN KOPI TIAM</strong>
+                                    <span class="text-sm">(Metode Saring, buat Branding)</span>
+                                </div>
+                            </div>
+                            
+                            <div class="flex-1 flex flex-col items-center">
+                                <div class="card border-2 border-blue-600 w-full max-w-md text-center">
+                                    <div class="text-xs font-semibold text-blue-600">PESANAN 2</div>
+                                    <strong class="text-blue-900 text-lg">Menu Volume Kekinian</strong>
+                                    <span class="text-gray-600">(Kopi Susu Aren, Latte)</span>
+                                </div>
+                                <div class="text-4xl text-gray-400">⬇️</div>
+                                <div class="card bg-blue-600 text-white w-full max-w-md text-center">
+                                    <strong class="text-lg">STASIUN ESPRESSO</strong>
+                                    <span class="text-sm">(Mesin 2-Group, buat Cuan)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-8 pt-6 border-t">
+                    <h3>Kenapa Hybrid?</h3>
+                    <ul class="list-none space-y-3">
+                        <li class="flex items-start"><span class="text-2xl mr-2">✅</span><strong class="text-gray-800">Jaga Otentisitas,</strong> menu Kopi Tiam jadi brand story dgn beberapa menu yg udah ada</li>
+                        <li class="flex items-start"><span class="text-2xl mr-2">✅</span><strong class="text-gray-800">Cuan #ea,</strong> pelayanan lebih cepat</li>
+                        <li class="flex items-start"><span class="text-2xl mr-2">✅</span><strong class="text-gray-800">Dominasi 2 Market,</strong> nangkep loyalis kopi tiam DAN anak kopsus kalceuuuurrr</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    
+    <footer class="text-center p-6 bg-white shadow-inner mt-8">
+        <p class="text-sm text-gray-500">R&D gak tuh</p>
+    </footer>
+
+    <script>
+        const chartColors = {
+            blue: '#1E3A8A',
+            orange: '#F59E0B',
+            lightBlue: '#3B82F6',
+            yellow: '#FCD34D',
+            gray: '#9CA3AF'
+        };
+
+        const defaultTooltipCallback = {
+            plugins: {
+                tooltip: {
+                    callbacks: {
+                        title: function(tooltipItems) {
+                            const item = tooltipItems[0];
+                            let label = item.chart.data.labels[item.dataIndex];
+                            if (Array.isArray(label)) {
+                              return label.join(' ');
+                            } else {
+                              return label;
+                            }
+                        }
+                    }
+                }
+            }
+        };
+
+        (function initCharts() {
+            
+            const persepsiCtx = document.getElementById('persepsiChart').getContext('2d');
+            new Chart(persepsiCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: [['Mengasumsikan', 'Berbasis Espresso'], ['Mencari Kopi Tiam', '/ Lainnya']],
+                    datasets: [{
+                        label: 'Persepsi Pelanggan',
+                        data: [90, 10],
+                        backgroundColor: [chartColors.blue, chartColors.orange],
+                        borderColor: '#FFFFFF',
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    ...defaultTooltipCallback,
+                    plugins: {
+                        ...defaultTooltipCallback.plugins,
+                        legend: {
+                            position: 'bottom',
+                        },
+                    }
+                }
+            });
+
+            const kecepatanCtx = document.getElementById('kecepatanChart').getContext('2d');
+            new Chart(kecepatanCtx, {
+                type: 'bar',
+                data: {
+                    labels: [['Mesin Espresso', '(2-Group)'], ['Teko Saring /', 'Moka Pot']],
+                    datasets: [{
+                        label: 'Waktu (Menit)',
+                        data: [2.5, 20],
+                        backgroundColor: [chartColors.blue, chartColors.orange],
+                        borderColor: [chartColors.blue, chartColors.orange],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    ...defaultTooltipCallback,
+                    plugins: {
+                        ...defaultTooltipCallback.plugins,
+                        legend: {
+                            display: false
+                        },
+                    },
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Perkiraan Waktu (Menit) untuk 10 Pesanan'
+                            }
+                        }
+                    }
+                }
+            });
+
+            const kerugianCtx = document.getElementById('kerugianChart').getContext('2d');
+            new Chart(kerugianCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: [['Pasar Minuman Panas', '(Hilang 25%)'], 'Pasar Lainnya (75%)'],
+                    datasets: [{
+                        label: 'Potensi Pasar Hilang',
+                        data: [25, 75],
+                        backgroundColor: [chartColors.orange, chartColors.blue],
+                        borderColor: '#FFFFFF',
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    cutout: '60%',
+                    ...defaultTooltipCallback,
+                    plugins: {
+                        ...defaultTooltipCallback.plugins,
+                        legend: {
+                            position: 'bottom',
+                        },
+                    }
+                }
+            });
+
+            const budgetCtx = document.getElementById('budgetChart').getContext('2d');
+            new Chart(budgetCtx, {
+                type: 'bar',
+                data: {
+                    labels: [['30 Jt', '(Risiko Tinggi)'], ['50 Jt', '(Sangat Ketat)'], ['100 Jt', '(Realistis)']],
+                    datasets: [{
+                        label: 'Budget (Juta Rupiah)',
+                        data: [30, 50, 100],
+                        backgroundColor: [chartColors.orange, chartColors.yellow, chartColors.blue],
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    ...defaultTooltipCallback,
+                    plugins: {
+                        ...defaultTooltipCallback.plugins,
+                        legend: {
+                            display: false
+                        },
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Juta Rupiah'
+                            }
+                        }
+                    }
+                }
+            });
+
+            const prioritasCtx = document.getElementById('prioritasChart').getContext('2d');
+            new Chart(prioritasCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Mesin 2-Group (65%)', 'Grinder (25%)', 'Alat Bantu (10%)'],
+                    datasets: [{
+                        label: 'Alokasi Budget',
+                        data: [65, 25, 10],
+                        backgroundColor: [chartColors.lightBlue, chartColors.blue, chartColors.orange],
+                        borderColor: '#FFFFFF',
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    ...defaultTooltipCallback,
+                    plugins: {
+                        ...defaultTooltipCallback.plugins,
+                        legend: {
+                            position: 'bottom',
+                        },
+                    }
+                }
+            });
+
+            const blendCtx = document.getElementById('blendChart').getContext('2d');
+            new Chart(blendCtx, {
+                type: 'bar',
+                data: {
+                    labels: [['Rekomendasi Blend', 'Kopi Susu']],
+                    datasets: [
+                        {
+                            label: 'Arabica (60%)',
+                            data: [60],
+                            backgroundColor: chartColors.blue,
+                        },
+                        {
+                            label: 'Robusta (40%)',
+                            data: [40],
+                            backgroundColor: chartColors.orange,
+                        }
+                    ]
+                },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    ...defaultTooltipCallback,
+                    plugins: {
+                        ...defaultTooltipCallback.plugins,
+                        legend: {
+                            position: 'bottom'
+                        },
+                    },
+                    scales: {
+                        x: {
+                            stacked: true,
+                            max: 100,
+                            ticks: {
+                                callback: function(value) {
+                                    return value + '%'
+                                }
+                            }
+                        },
+                        y: {
+                            stacked: true,
+                            ticks: {
+                                display: false
+                            }
+                        }
+                    }
+                }
+            });
+
+        })();
+    </script>
+</body>
+</html>

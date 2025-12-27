@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laporan Kinerja HR-PA | Juli - Agustus 2025</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-color: #f9e0e9; /* Ashy Cool Tone Pink */
+            --card-bg-color: #FFFFFF;
+            --text-primary: #1F2937; /* Dark Gray */
+            --text-secondary: #6B7280; /* Medium Gray */
+            --border-color: #F3D9E0; /* Lighter Ashy Pink for borders */
+            --primary-green: #10B981; /* Emerald Green */
+            --accent-pink: #EC4899; /* Hot Pink */
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+        }
+        .mission-card {
+            background-color: var(--card-bg-color);
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+        .mission-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(236, 72, 153, 0.1), 0 4px 6px -2px rgba(236, 72, 153, 0.05);
+            border-color: var(--accent-pink);
+        }
+        .text-glow {
+            color: var(--primary-green);
+            text-shadow: 0 0 8px rgba(16, 185, 129, 0.3);
+        }
+        .blinking-cursor {
+            display: inline-block;
+            width: 10px;
+            height: 1.5rem;
+            background-color: var(--accent-pink);
+            animation: blink 1s step-end infinite;
+            margin-left: 8px;
+        }
+        @keyframes blink {
+            from, to { background-color: transparent; }
+            50% { background-color: var(--accent-pink); }
+        }
+        .progress-bar-bg {
+            background-color: var(--border-color);
+        }
+        .progress-bar-fill {
+            background: linear-gradient(90deg, var(--accent-pink), var(--primary-green));
+        }
+        .status-light {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+        .status-green { background-color: #28a745; box-shadow: 0 0 10px #28a745; }
+        .status-yellow { background-color: #ffc107; box-shadow: 0 0 10px #ffc107; }
+        .status-red { background-color: #dc3545; box-shadow: 0 0 10px #dc3545; }
+        
+        /* Modal Styles */
+        .modal-overlay {
+            background-color: rgba(0,0,0,0.6);
+        }
+        .modal-content {
+            background-color: var(--card-bg-color);
+        }
+    </style>
+</head>
+<body class="p-4 sm:p-6 lg:p-8">
+
+    <div class="max-w-7xl mx-auto">
+
+        <header class="text-center mb-10">
+            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-glow flex items-center justify-center">
+                August Executive PA timeeee!<span class="blinking-cursor"></span>
+            </h1>
+            <p class="text-lg text-gray-500 mt-2">Laporan Kinerja Bulanan | HR - PA | Juli - Agustus 2025</p>
+        </header>
+
+        <section id="briefing" class="mb-12">
+            <div class="mission-card rounded-xl p-6" data-aos="fade-up">
+                <h2 class="text-xl font-bold text-emerald-600 mb-2 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                    Ngapain sih bulan juli-agt?
+                </h2>
+                <p class="text-gray-700 text-lg">
+                    bulan  juli - agt berhasil buat <strong class="text-gray-900">implementasi sistem penilaian individu berbasis web</strong>, sekaligus mempertahankan efisiensi administrasi di atas <strong class="text-gray-900">98%</strong>.
+                </p>
+                <p class="mt-4 text-gray-500">
+                    renewal besar pada aplikasi penilaian udah di up, ada peningkatan fitur, stabilitas, dan pengalaman pengguna yang lebih personal berdasarkan masukan langsung dari tim.
+                </p>
+            </div>
+        </section>
+        
+        <section id="dashboard" class="mb-12">
+            <h2 class="text-2xl font-bold mb-6 text-glow">Status Sistem Operasional</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+                <div class="mission-card rounded-xl p-5 flex flex-col justify-between" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-start justify-between">
+                        <h3 class="font-semibold text-gray-700">Integritas Arsip</h3>
+                        <div class="status-light status-green"></div>
+                    </div>
+                    <div>
+                        <p class="text-4xl font-bold text-gray-900 my-2">100<span class="text-2xl text-gray-500">%</span></p>
+                        <p class="text-sm text-gray-500">Semua dokumen terarsip & permintaan terpenuhi.</p>
+                    </div>
+                </div>
+                <div class="mission-card rounded-xl p-5 flex flex-col justify-between" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex items-start justify-between">
+                        <h3 class="font-semibold text-gray-700">Sinkronisasi Data Crew</h3>
+                        <div class="status-light status-green"></div>
+                    </div>
+                    <div>
+                        <p class="text-4xl font-bold text-gray-900 my-2">99<span class="text-2xl text-gray-500">%</span></p>
+                        <p class="text-sm text-gray-500">Data crew & penggajian terupdate.</p>
+                    </div>
+                </div>
+                 <div class="mission-card rounded-xl p-5 flex flex-col justify-between" data-aos="fade-up" data-aos-delay="300">
+                    <div class="flex items-start justify-between">
+                        <h3 class="font-semibold text-gray-700">Efisiensi Sistem HR</h3>
+                        <div class="status-light status-yellow"></div>
+                    </div>
+                    <div>
+                        <p class="text-4xl font-bold text-gray-900 my-2">80<span class="text-2xl text-gray-500">%</span></p>
+                        <p class="text-sm text-gray-500">Target: ≥98%. Perlu optimasi waktu.</p>
+                    </div>
+                </div>
+                <div class="mission-card rounded-xl p-5 flex flex-col justify-between" data-aos="fade-up" data-aos-delay="400">
+                    <div class="flex items-start justify-between">
+                        <h3 class="font-semibold text-gray-700">Distribusi Gaji</h3>
+                        <div class="status-light status-green"></div>
+                    </div>
+                    <div>
+                        <p class="text-4xl font-bold text-gray-900 my-2">H-1</p>
+                        <p class="text-sm text-gray-500">Tercapai. Min. 1-3 koreksi data absen.</p>
+                    </div>
+                </div>
+                <div class="mission-card rounded-xl p-5 flex flex-col justify-between" data-aos="fade-up" data-aos-delay="500">
+                    <div class="flex items-start justify-between">
+                        <h3 class="font-semibold text-gray-700">Integritas Keuangan</h3>
+                        <div class="status-light status-green"></div>
+                    </div>
+                    <div>
+                        <p class="text-4xl font-bold text-gray-900 my-2">100<span class="text-2xl text-gray-500">%</span></p>
+                        <p class="text-sm text-gray-500">Akurasi & ketepatan waktu terjamin.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="dukungan" class="mb-12">
+            <h2 class="text-2xl font-bold mb-6 text-glow">Komunikasi & Dukungan Crew</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <div class="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="mission-card rounded-xl p-6" data-aos="fade-up">
+                        <h3 class="font-semibold text-gray-700 mb-4 text-lg">Kepuasan Layanan HR</h3>
+                        <div class="text-center">
+                            <canvas id="satisfactionChart" width="200" height="200"></canvas>
+                        </div>
+                        <p class="text-center mt-2 text-sm text-gray-500">Berdasarkan 29 responden</p>
+                    </div>
+                    <div class="mission-card rounded-xl p-6 flex flex-col justify-center items-center text-center" data-aos="fade-up" data-aos-delay="100">
+                        <h3 class="font-semibold text-gray-700 text-lg mb-2">Onboarding Crew Baru</h3>
+                        <p class="text-6xl font-bold text-gray-900">16</p>
+                        <p class="text-gray-700 mb-4">Crew baru bergabung (Juni-Agustus)</p>
+                        <div class="flex items-center text-green-700 bg-green-100 px-4 py-2 rounded-full">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>
+                            <span class="font-semibold">100% Sesuai SOP</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mission-card rounded-xl p-6" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="font-semibold text-gray-700 text-lg mb-4">Saluran Komunikasi Crew</h3>
+                    <div class="flex items-center mb-4">
+                        <div class="status-light status-green mr-3"></div>
+                        <p class="font-semibold text-gray-800">100% masukan direkap & dilaporkan</p>
+                    </div>
+                    <p class="text-sm text-gray-500 mb-1">intinya crew pgn...</p>
+                    <p class="text-md font-semibold text-gray-900 mb-4">"pertumbuhan terstruktur, kesejahteraan, dan sinergi antar tim."</p>
+                    
+                    <p class="text-sm text-gray-500 mb-2">Poin inti:</p>
+                    <ul class="list-disc list-inside text-sm text-gray-600 space-y-1">
+                        <li>Permintaan jadwal fleksibel & training skill</li>
+                        <li>Ide pelibatan crew dalam pembuatan konten promosi</li>
+                        <li>Usulan rotasi untuk standarisasi operasional</li>
+                    </ul>
+                     <button id="showFeedbackBtn" class="mt-4 w-full bg-pink-600 hover:bg-pink-700 text-white font-bold py-2 px-4 rounded-lg transition">detailnya disini</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="proyek" class="mb-12">
+            <h2 class="text-2xl font-bold mb-6 text-glow">Project Khusus & Pengembangan Sistem</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="mission-card rounded-xl p-6 md:col-span-2" data-aos="fade-up">
+                    <h3 class="font-semibold text-gray-700 text-lg mb-6">Progress Pengembangan Sistem</h3>
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between items-center mb-1">
+                                <p class="font-semibold text-gray-900">KPI App to Web (Integrasi & Perbaikan)</p>
+                                <p class="font-bold text-emerald-600">85%</p>
+                            </div>
+                            <div class="w-full progress-bar-bg rounded-full h-2.5">
+                                <div class="progress-bar-fill h-2.5 rounded-full" style="width: 85%"></div>
+                            </div>
+                            <p class="text-xs text-gray-500 mt-1">Status: Sesuai jadwal, perbaikan error < 1 hari</p>
+                        </div>
+                        <div>
+                            <div class="flex justify-between items-center mb-1">
+                                <p class="font-semibold text-gray-900">Training Progress Tracking by Web</p>
+                                <p class="font-bold text-emerald-600">30%</p>
+                            </div>
+                            <div class="w-full progress-bar-bg rounded-full h-2.5">
+                                <div class="progress-bar-fill h-2.5 rounded-full" style="width: 30%"></div>
+                            </div>
+                             <p class="text-xs text-gray-500 mt-1">Status: On-going</p>
+                        </div>
+                         <div>
+                            <div class="flex justify-between items-center mb-1">
+                                <p class="font-semibold text-gray-900">Admin Section (Manajemen User, KPI, Training)</p>
+                                <p class="font-bold text-emerald-600">95%</p>
+                            </div>
+                            <div class="w-full progress-bar-bg rounded-full h-2.5">
+                                <div class="progress-bar-fill h-2.5 rounded-full" style="width: 95%"></div>
+                            </div>
+                             <p class="text-xs text-gray-500 mt-1">Status: Milestone tercapai, siap implementasi</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mission-card rounded-xl p-6" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="font-semibold text-gray-700 text-lg mb-4">Status Project Lainnya</h3>
+                     <div class="flex items-start mb-4">
+                        <div class="status-light status-yellow mr-3 mt-1.5"></div>
+                        <div>
+                            <p class="font-semibold text-gray-900">Ketepatan Waktu Proyek</p>
+                            <p class="text-sm text-gray-500">Terdapat delay ~1 minggu karena overlap dengan agenda prioritas (kontrak, rekrutmen, payroll).</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="status-light status-green mr-3 mt-1.5"></div>
+                        <div>
+                            <p class="font-semibold text-gray-900">Dukungan Analisis Bisnis</p>
+                            <p class="text-sm text-gray-500">Status: In-training. Sedang mengikuti bootcamp untuk peningkatan kapabilitas.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="analisa-individu" class="mb-12">
+            <h2 class="text-2xl font-bold mb-6 text-glow">Analisa Penilaian Individu (Juni-Agustus)</h2>
+            
+            <div class="mission-card rounded-xl p-6 mb-6" data-aos="fade-up">
+                <h3 class="font-semibold text-gray-700 text-lg mb-4">Ringkasan Perubahan Peringkat Crew</h3>
+                <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-6">
+                    <div class="h-96"><canvas id="chartMeningkat"></canvas></div>
+                    <div class="h-96"><canvas id="chartMenurun"></canvas></div>
+                    <div class="h-96"><canvas id="chartStabilAtas"></canvas></div>
+                    <div class="h-96"><canvas id="chartStabilBawah"></canvas></div>
+                </div>
+            </div>
+
+            <div class="mission-card rounded-xl p-6" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="font-semibold text-gray-700 text-lg mb-1">Analisis Kandidat Sesi One-on-One</h3>
+                <p class="text-sm text-gray-500 mb-6">Peringkat konsisten rendah, nilai rendah menyeluruh, dan stagnan tanpa perbaikan.</p>
+
+                <div class="space-y-8">
+                    <article class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                        <div>
+                            <h4 class="text-xl font-bold text-gray-900">1. Prayoga Sukmana (Soreang)</h4>
+                            <p class="text-sm text-gray-500 mt-1">Paling kritis dengan penurunan performa yang tajam di semua aspek. Butuhkan intervensi secepatnya</p>
+                            <ul class="list-disc list-inside text-sm text-gray-600 space-y-1 mt-4 pl-2">
+                                <li><strong class="text-red-600">Penurunan Menyeluruh</strong> dan tidak ada satu pun aspek yang membaik</li>
+                                <li><strong class="text-red-600">Skor Terendah:</strong> Nilai Stock Opname (2.8) dan Penerimaan (4.2) sangat mengkhawatirkan</li>
+                                <li><strong class="text-gray-800">Prioritas Utama</strong> karena penurunan paling signifikan di antara semua crew</li>
+                            </ul>
+                        </div>
+                        <div class="h-80"><canvas id="chartPrayoga"></canvas></div>
+                    </article>
+
+                     <hr class="border-gray-200">
+
+                    <article class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                        <div class="h-80 order-last md:order-first"><canvas id="chartTiara"></canvas></div>
+                        <div class="md:text-right">
+                            <h4 class="text-xl font-bold text-gray-900">2. Tiara Nurfadilah (Soreang)</h4>
+                            <p class="text-sm text-gray-500 mt-1">Konsisten di posisi terbawah dengan skor sangat rendah di aspek teknis fundamental</p>
+                             <ul class="list-disc list-inside text-sm text-gray-600 space-y-1 mt-4 pl-2 md:pl-0 md:text-left">
+                                <li><strong class="text-yellow-600">Skor Teknis Rendah:</strong> Nilai Persiapan (6.4) dan Pembuatan (6.0) terendah</li>
+                                <li><strong class="text-yellow-600">Stagnasi di Level Bawah</strong> yaitu performa tidak naik dari level paling bawah</li>
+                                <li>Indikasi adanya <strong class="text-gray-800">ketidakpahaman</strong> mendasar terhadap SOP</li>
+                            </ul>
+                        </div>
+                    </article>
+                    
+                    <hr class="border-gray-200">
+
+                    <article class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                        <div>
+                            <h4 class="text-xl font-bold text-gray-900">3. Muhammad Rizal (Kopo)</h4>
+                            <p class="text-sm text-gray-500 mt-1">Peringkat terus menurun dengan kelemahan merata, terutama di aspek yang membutuhkan ketelitian</p>
+                            <ul class="list-disc list-inside text-sm text-gray-600 space-y-1 mt-4 pl-2">
+                                <li><strong class="text-yellow-600">Kelemahan Merata</strong> dan hampir semua skor di bawah rata-rata dan cenderung menurun</li>
+                                <li><strong class="text-yellow-600">Kurang Inisiatif</strong> Skor Stock Opname (4.0) dan Kebersihan (5.2) sangat rendah</li>
+                                <li><strong class="text-gray-800">Tidak</strong> menunjukkan tanda-tanda perbaikan signifikan.</li>
+                            </ul>
+                        </div>
+                        <div class="h-80"><canvas id="chartRizal"></canvas></div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="panduan-1on1" class="mb-12 text-center">
+            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-glow flex items-center justify-center">
+                NgoPS! (Ngobrolin Performa Solutif!)<span class="blinking-cursor"></span>
+            </h1><br>
+            <p class="text-gray-500 mb-8 max-w-4xl mx-auto">Program pendampingan kinerja selama 4 minggu dengan pendekatan suportif dan dokumentasi yang transparan.</p>
+
+            <div class="mission-card rounded-xl p-6 mb-12 text-left" data-aos="fade-up">
+                <h3 class="font-semibold text-gray-700 text-lg mb-4 text-center">Tujuan Program</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4 text-gray-600">
+                    <div class="flex items-start"><span class="text-emerald-500 mr-3 text-xl">✓</span><span>Memberikan dukungan terstruktur bagi crew untuk mencapai target kinerja.</span></div>
+                    <div class="flex items-start"><span class="text-emerald-500 mr-3 text-xl">✓</span><span>Mengidentifikasi akar masalah performa secara objektif dan kolaboratif.</span></div>
+                    <div class="flex items-start"><span class="text-emerald-500 mr-3 text-xl">✓</span><span>Mendokumentasikan proses pembinaan secara adil sebagai dasar keputusan.</span></div>
+                    <div class="flex items-start"><span class="text-emerald-500 mr-3 text-xl">✓</span><span>Menegakkan standar kualitas dan profesionalisme di seluruh tim.</span></div>
+                </div>
+            </div>
+            
+            <div class="space-y-8 text-left">
+                <div class="mission-card rounded-xl p-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-emerald-500 flex items-center justify-center text-xl font-bold text-white mr-4">1</div>
+                        <div>
+                            <h3 class="font-bold text-gray-900 text-xl">Fase 1: Persiapan & Sesi Awal</h3>
+                            <p class="text-sm text-gray-500">Minggu ke-1: Validasi data & menyamakan persepsi.</p>
+                        </div>
+                    </div>
+                    <div class="pl-16">
+                        <h4 class="font-semibold text-emerald-600 mb-2">Agenda Sesi Awal</h4>
+                        <ul class="list-disc list-inside text-gray-700 space-y-1">
+                            <li><strong>Pembukaan suportif</strong>, jelaskan tujuan dengan tenang.</li>
+                            <li><strong>Sajikan data</strong> performa secara visual dan objektif.</li>
+                            <li><strong>Diskusi 2 arah</strong>, dengarkan perspektif & tantangan dari sisi crew.</li>
+                            <li><strong>Rangkum diskusi</strong>, lalu jelaskan struktur program 4 minggu ke depan.</li>
+                        </ul>
+                        <div class="bg-gray-100 p-4 mt-4 rounded-lg border border-gray-200">
+                            <p class="font-semibold text-gray-800 mb-2">Contoh Pertanyaan:</p>
+                            <p class="text-sm text-gray-500">"Bagaimana tanggapanmu soal data ini? Coba ceritakan kendalanya, dan dukungan seperti apa yang kamu butuhkan dari kami?"</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mission-card rounded-xl p-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-emerald-500 flex items-center justify-center text-xl font-bold text-white mr-4">2</div>
+                        <div>
+                            <h3 class="font-bold text-gray-900 text-xl">Fase 2: Perumusan Rencana Aksi</h3>
+                            <p class="text-sm text-gray-500">Akhir Minggu ke-1: Membuat target yang SMART.</p>
+                        </div>
+                    </div>
+                    <div class="pl-16">
+                        <h4 class="font-semibold text-emerald-600 mb-2">Analisis Akar Masalah</h4>
+                        <p class="text-gray-700 mb-4">Tentukan penyebab utama: masalah <strong class="text-gray-900">skill</strong> (butuh training), <strong class="text-gray-900">motivasi</strong> (jenuh, isu personal), atau <strong class="text-gray-900">lingkungan</strong> (alat, rekan kerja).</p>
+                        <div class="bg-gray-100 p-4 mt-4 rounded-lg border border-gray-200">
+                            <p class="font-semibold text-gray-800 mb-2">Contoh Rencana Aksi (Prayoga):</p>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li><strong>Area Fokus:</strong> Stock Opname & Penerimaan Barang</li>
+                                <li><strong>Target Spesifik:</strong> Naikkan skor Stock Opname dari 2.8 ke min. 7.0 dalam 4 minggu</li>
+                                <li><strong>Tindakan:</strong> Refreshment SOP, supervisi langsung 2x seminggu, gunakan checklist baru</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mission-card rounded-xl p-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-emerald-500 flex items-center justify-center text-xl font-bold text-white mr-4">3</div>
+                        <div>
+                            <h3 class="font-bold text-gray-900 text-xl">Fase 3: Implementasi & Monitoring</h3>
+                            <p class="text-sm text-gray-500">Minggu ke-2 & 3: Eksekusi rencana dan check-in mingguan.</p>
+                        </div>
+                    </div>
+                    <div class="pl-16">
+                        <ul class="list-disc list-inside text-gray-700 space-y-2">
+                            <li>Sesi <strong>check-in 30 menit oleh SPV</strong> setiap akhir minggu untuk membahas progres & kendala.</li>
+                            <li><strong>Dokumentasi di Airtable:</strong> SPV <strong>wajib</strong> mengisi "Log Monitoring Mingguan" setelah sesi untuk transparansi.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="mission-card rounded-xl p-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-emerald-500 flex items-center justify-center text-xl font-bold text-white mr-4">4</div>
+                        <div>
+                            <h3 class="font-bold text-gray-900 text-xl">Fase 4: Evaluasi Akhir & Keputusan</h3>
+                            <p class="text-sm text-gray-500">Minggu ke-4: Meninjau hasil dan menentukan langkah selanjutnya.</p>
+                        </div>
+                    </div>
+                    <div class="pl-16">
+                        <h4 class="font-semibold text-emerald-600 mb-3">Hasil Program & Tindak Lanjut:</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div class="bg-green-100 border border-green-300 rounded-lg p-4 text-center">
+                                <div class="text-4xl mb-2">🚀</div>
+                                <h5 class="font-bold text-green-800">Berhasil</h5>
+                                <p class="text-xs text-green-700">Target tercapai, program selesai. Kembali ke siklus normal.</p>
+                            </div>
+                            <div class="bg-yellow-100 border border-yellow-300 rounded-lg p-4 text-center">
+                                <div class="text-4xl mb-2">🔄</div>
+                                <h5 class="font-bold text-yellow-800">Penyesuaian</h5>
+                                <p class="text-xs text-yellow-700">Ada peningkatan, program diperpanjang atau pertimbangkan mutasi.</p>
+                            </div>
+                            <div class="bg-red-100 border border-red-300 rounded-lg p-4 text-center">
+                                <div class="text-4xl mb-2">📝</div>
+                                <h5 class="font-bold text-red-800">Eskalasi</h5>
+                                <p class="text-xs text-red-700">Tidak ada peningkatan, lanjut ke tahap pembinaan formal (SP).</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 text-center" data-aos="fade-up" data-aos-delay="500">
+                <a href="https://airtable.com/appjCx9tz1jIEYosx/pagmBHNAIHKNGj9AN" target="_blank" class="inline-block bg-pink-600 hover:bg-pink-700 text-white font-bold py-3 px-6 rounded-lg transition-transform transform hover:scale-105 shadow-lg">
+                    Buka Framework Airtable
+                </a>
+            </div>
+        </section>
+
+        <section id="rencana" class="mb-12">
+             <div class="mission-card rounded-xl p-6" data-aos="fade-up">
+                <h2 class="text-xl font-bold text-emerald-600 mb-4 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l5.447 2.724A1 1 0 0021 16.382V5.618a1 1 0 00-1.447-.894L15 7m-6 10h6" /></svg>
+                    Focus Project dalam waktu dekat 
+                </h2>
+                <ul class="list-disc list-inside text-gray-700 space-y-2 text-lg">
+                    <li>Implementasi fitur <strong class="text-gray-900">Tracking Training Progress</strong> di Dashboard Sistem KPI</li>
+                    <li>Pengembangan <strong class="text-gray-900">Hired Employee Digital Handbook</strong> (terintegrasi dashboard individu)</li>
+                    <li>Pelaksanaan program <strong class="text-gray-900">"NgoPS!"</strong> untuk crew dengan hasil penilaian yang perlu ditingkatkan</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+
+    <div id="feedbackModal" class="fixed inset-0 z-50 items-center justify-center hidden">
+        <div class="modal-overlay fixed inset-0"></div>
+        <div class="modal-content relative w-full max-w-2xl mx-auto my-12 rounded-xl p-8 border border-pink-300 shadow-lg">
+            <button id="closeFeedbackBtn" class="absolute top-4 right-4 text-gray-400 hover:text-gray-800">
+                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+            </button>
+            <h2 class="text-xl font-bold text-emerald-600 mb-4">Rekapitulasi Masukan Crew & Usulan Solusi</h2>
+            
+            <div class="space-y-6">
+                <div>
+                    <h3 class="font-semibold text-gray-900">1. Kesejahteraan & Pengembangan Diri</h3>
+                    <p class="text-sm text-gray-500 mt-1 mb-2"><strong>Masukan:</strong> Permintaan jadwal lebih fleksibel (sistem tukar shift), training rutin (pelayanan, komunikasi, manajemen stres), dan sesi feedback langsung dengan HR</p>
+                    <p class="text-sm text-emerald-800 bg-emerald-50 p-2 rounded-md"><strong>💡 Usulan Solusi:</strong> Merancang "Sistem Tukar Shift Terstruktur" untuk 1-2 outlet. Membuat jadwal "Micro-Training" 15 menit setiap 2 minggu dengan topik yang relevan</p>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-gray-900">2. Keterlibatan & Kreativitas</h3>
+                    <p class="text-sm text-gray-500 mt-1 mb-2"><strong>Masukan:</strong> Ide agar setiap outlet membuat konten promosi dengan skrip dari manajemen untuk meningkatkan kreativitas dan kompetensi crew</p>
+                      <p class="text-sm text-emerald-800 bg-emerald-50 p-2 rounded-md"><strong>💡 Usulan Solusi:</strong>  Ide program "Konten Internal Bulanan" dengan konsep "ymma" lewat form</p>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-gray-900">3. Kolaborasi & Standarisasi Operasional</h3>
+                    <p class="text-sm text-gray-500 mt-1 mb-2"><strong>Masukan:</strong> Usulan untuk melakukan rotasi (rolling) crew antar outlet sesering mungkin untuk menyamakan konsep kerja</p>
+                      <p class="text-sm text-emerald-800 bg-emerald-50 p-2 rounded-md"><strong>💡 Usulan Solusi:</strong> Diskusi dengan para leader outlet untuk evaluasi frekuensi rotasi yang paling efektif tanpa mengganggu stabilitas operasional. Fokus pada transfer pengetahuan saat rotasi</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            AOS.init({
+                duration: 800,
+                once: true,
+            });
+
+            // Chart.js for Satisfaction Score
+            const ctx = document.getElementById('satisfactionChart').getContext('2d');
+            const satisfactionScore = 4.45;
+            const maxScore = 5;
+
+            new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    datasets: [{
+                        data: [satisfactionScore, maxScore - satisfactionScore],
+                        backgroundColor: ['#10B981', '#E5E7EB'], // Green and Light Gray
+                        borderWidth: 0,
+                        circumference: 180,
+                        rotation: 270,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    cutout: '70%',
+                    plugins: {
+                        tooltip: { enabled: false },
+                        legend: { display: false }
+                    },
+                    animation: { animateScale: true, animateRotate: true }
+                },
+                plugins: [{
+                    id: 'doughnutText',
+                    afterDraw: (chart) => {
+                        const { width, height, ctx } = chart;
+                        ctx.restore();
+                        const fontSize = (height / 114).toFixed(2);
+                        ctx.font = `bold ${fontSize}em Poppins`;
+                        ctx.textBaseline = 'middle';
+                        ctx.textAlign = 'center';
+                        
+                        const text = `${satisfactionScore}`;
+                        const textX = Math.round(width / 2);
+                        const textY = Math.round(height / 2) + (height * 0.1);
+                        ctx.fillStyle = '#1F2937'; // Dark Text
+                        ctx.fillText(text, textX, textY);
+                        
+                        const subText = `/ ${maxScore}`;
+                        ctx.font = `bold ${fontSize*0.6}em Poppins`;
+                        ctx.fillStyle = '#6B7280'; // Medium Gray Text
+                        ctx.fillText(subText, textX + (ctx.measureText(text).width/1.5), textY);
+                        
+                        const label = 'Rating Kepuasan';
+                        ctx.font = `${fontSize*0.4}em Poppins`;
+                        ctx.fillStyle = '#6B7280'; // Medium Gray Text
+                        ctx.fillText(label, textX, textY - (height * 0.15));
+
+                        ctx.save();
+                    }
+                }]
+            });
+            
+            // Modal Logic
+            const modal = document.getElementById('feedbackModal');
+            const showBtn = document.getElementById('showFeedbackBtn');
+            const closeBtn = document.getElementById('closeFeedbackBtn');
+            const overlay = modal.querySelector('.modal-overlay');
+
+            const openModal = () => { modal.classList.remove('hidden'); modal.classList.add('flex'); };
+            const closeModal = () => { modal.classList.add('hidden'); modal.classList.remove('flex'); };
+            
+            showBtn.addEventListener('click', openModal);
+            closeBtn.addEventListener('click', closeModal);
+            overlay.addEventListener('click', closeModal);
+
+            // --- SCRIPT UNTUK GRAFIK ANALISA INDIVIDU ---
+            Chart.defaults.color = '#1F2937'; // Dark Text
+            Chart.defaults.borderColor = '#E5E7EB'; // Light Gray Border
+            
+            const commonBarOptions = (title, yAxisTitle) => ({
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    title: { display: true, text: title, font: { size: 16 }, color: '#1F2937' },
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: { display: true, text: yAxisTitle },
+                        ticks: { color: '#6B7280' }
+                    },
+                    x: {
+                        ticks: { color: '#6B7280' }
+                    }
+                }
+            });
+
+            new Chart(document.getElementById('chartMeningkat'), { type: 'bar', data: { labels: ['Sukma S.', 'Iklima Y.', 'Alke N.E.', 'Dandi A.T.', 'Assyifa A.'], datasets: [{ label: 'Kenaikan Peringkat', data: [38, 38, 35, 29, 27], backgroundColor: 'rgba(16, 185, 129, 0.7)' }] }, options: commonBarOptions('Peningkatan Peringkat Tertinggi', 'Jumlah Kenaikan Peringkat')});
+            new Chart(document.getElementById('chartMenurun'), { type: 'bar', data: { labels: ['Candra G.', 'Akhmad N.F.', 'Ifda N.A.', 'Hana H.', 'Leni P.A.'], datasets: [{ label: 'Penurunan Peringkat', data: [40, 38, 33, 29, 57], backgroundColor: 'rgba(239, 68, 68, 0.7)' }] }, options: commonBarOptions('Penurunan Peringkat Terbesar', 'Jumlah Penurunan Peringkat')});
+            new Chart(document.getElementById('chartStabilAtas'), { type: 'bar', data: { labels: ['Krisna M.R.', 'Neneng R.', 'Alifya S.', 'Rio H.', 'Hardi S.'], datasets: [{ label: 'Peringkat', data: [1, 2, 3, 4, 5], backgroundColor: 'rgba(5, 150, 105, 0.7)' }] }, options: { ...commonBarOptions('Crew Stabil di Peringkat Atas', 'Peringkat Saat Ini'), scales: { y: { reverse: true, title: { display: true, text: 'Peringkat Saat Ini' }, ticks: { color: '#6B7280' } }, x: { ticks: { color: '#6B7280' } } } }});
+            new Chart(document.getElementById('chartStabilBawah'), { type: 'bar', data: { labels: ['Tiara N.', 'Prayoga S.', 'Nazalla A.', 'Ahyana J.', 'M. Rizal'], datasets: [{ label: 'Peringkat', data: [105, 104, 102, 101, 100], backgroundColor: 'rgba(245, 158, 11, 0.7)' }] }, options: { ...commonBarOptions('Crew Stabil di Peringkat Bawah', 'Peringkat Saat Ini'), scales: { y: { reverse: true, min:80, title: { display: true, text: 'Peringkat Saat Ini' }, ticks: { color: '#6B7280' } }, x: { ticks: { color: '#6B7280' } } } }});
+
+            const radarLabels = ['Persiapan', 'Penerimaan', 'Pembuatan', 'Pengemasan', 'Stock Opname', 'Kebersihan'];
+            const normalizePembuatan = (score) => (score / 30) * 20;
+
+            const createRadarChart = (elementId, dataPeriode1, dataPeriode2) => {
+                new Chart(document.getElementById(elementId), {
+                    type: 'radar',
+                    data: {
+                        labels: radarLabels,
+                        datasets: [
+                            {label: 'Skor Juli', data: dataPeriode1, backgroundColor: 'rgba(236, 72, 153, 0.2)', borderColor: 'rgba(236, 72, 153, 1)', borderWidth: 2,},
+                            {label: 'Skor Agustus', data: dataPeriode2, backgroundColor: 'rgba(16, 185, 129, 0.2)', borderColor: 'rgba(16, 185, 129, 1)', borderWidth: 2,}
+                        ]
+                    },
+                    options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'top', labels: { color: '#1F2937' } } }, scales: {r: {beginAtZero: true, max: 20, pointLabels: { font: { size: 11 }, color: '#1F2937' }, grid: { color: '#E5E7EB' }, angleLines: { color: '#E5E7EB' }, ticks: { display: false }}}}
+                });
+            };
+
+            createRadarChart('chartPrayoga', [12.8, 6.0, normalizePembuatan(21.6), 7.2, 3.6, 5.2], [9.6, 4.2, normalizePembuatan(15.6), 5.4, 2.8, 5.2]);
+            createRadarChart('chartTiara', [8.8, 12.8, normalizePembuatan(7.0), 6.0, 5.2, 2.4], [6.4, 11.2, normalizePembuatan(6.0), 6.0, 5.2, 3.2]);
+            createRadarChart('chartRizal', [12.0, 7.0, normalizePembuatan(20.0), 8.0, 4.3, 6.3], [11.2, 7.8, normalizePembuatan(19.2), 7.8, 4.0, 5.2]);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ngomongin kerja?</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-pink: #FFE6EA;
+            --card-bg: #FFFFFF;
+            --primary-pop: #FF69B4; /* Hot Pink */
+            --secondary-pop: #9D50BB; /* Purple vibe */
+            --text-dark: #333;
+            --text-soft: #555;
+            --success: #00C851;
+            --warning: #ffbb33;
+            --danger: #ff4444;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-pink);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            padding-bottom: 50px;
+        }
+
+        /* Container & Layout */
+        /* Cari bagian ini */
+        .container {
+            max-width: 1200px;  /* <--- GANTI ANGKA INI (Awalnya 800px) */
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 0;
+            animation: fadeInDown 1s ease;
+        }
+
+        h1 {
+            font-weight: 800;
+            font-size: 2.5rem;
+            background: linear-gradient(to right, var(--primary-pop), var(--secondary-pop));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            color: var(--secondary-pop);
+            margin-bottom: 15px;
+            border-bottom: 3px dashed var(--primary-pop);
+            display: inline-block;
+        }
+
+        h3 {
+            font-size: 1.2rem;
+            color: var(--primary-pop);
+            margin-top: 15px;
+        }
+
+        /* Cards Style */
+        .card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 25px rgba(255, 105, 180, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid transparent;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(255, 105, 180, 0.25);
+            border-color: var(--primary-pop);
+        }
+
+        /* Interactive Elements / Prompts */
+        .interactive-badge {
+            background: linear-gradient(45deg, var(--primary-pop), var(--secondary-pop));
+            color: white;
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        /* Charts Simulation */
+        .chart-container {
+            background: #f0f0f0;
+            border-radius: 15px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .bar-wrapper {
+            margin-bottom: 10px;
+        }
+
+        .bar-label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .bar-bg {
+            background: #e0e0e0;
+            height: 15px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 5px;
+        }
+
+        .bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-pop), var(--secondary-pop));
+            width: 0%;
+            transition: width 1.5s ease-out;
+            border-radius: 10px;
+        }
+
+        /* Feedback Cards Grid */
+        .feedback-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .feedback-item {
+            background: #fff0f5;
+            padding: 15px;
+            border-radius: 15px;
+            border-left: 5px solid var(--primary-pop);
+            font-size: 0.9rem;
+        }
+
+        .quote {
+            font-style: italic;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .source {
+            font-weight: bold;
+            font-size: 0.8rem;
+            color: var(--secondary-pop);
+            text-align: right;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            background: linear-gradient(90deg, var(--primary-pop), var(--secondary-pop));
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            text-align: center;
+            margin: 10px 0;
+            transition: transform 0.2s;
+            cursor: pointer;
+            border: none;
+            width: 100%;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary-pop);
+            color: var(--primary-pop);
+        }
+
+        /* Accordion / Dropdown */
+        details {
+            background: #f9f9f9;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+
+        summary {
+            font-weight: bold;
+            cursor: pointer;
+            color: var(--primary-pop);
+            list-style: none; /* Remove default triangle */
+        }
+        
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary::after {
+            content: '+';
+            float: right;
+            font-weight: 800;
+        }
+
+        details[open] summary::after {
+            content: '-';
+        }
+
+        /* Slide Deck Simulation */
+        .slide-deck {
+            display: flex;
+            overflow-x: auto;
+            gap: 15px;
+            padding-bottom: 15px;
+        }
+
+        .slide-card {
+            min-width: 280px;
+            background: linear-gradient(135deg, #fff, #fff0f5);
+            border: 1px solid #ffbad2;
+            padding: 20px;
+            border-radius: 15px;
+            flex-shrink: 0;
+        }
+
+        /* List Styling */
+        ul {
+            list-style-type: none;
+            padding-left: 10px;
+        }
+
+        ul li {
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        ul li::before {
+            content: '🌸';
+            position: absolute;
+            left: 0;
+            font-size: 0.8rem;
+        }
+
+        .danger-list li::before {
+            content: '⚠️';
+        }
+
+        /* Table Style */
+        .custom-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .custom-table th, .custom-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        .custom-table th {
+            background-color: var(--primary-pop);
+            color: white;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .loading-bar {
+            height: 5px;
+            background: var(--primary-pop);
+            width: 50%;
+            animation: loading 2s infinite ease-in-out;
+            border-radius: 5px;
+        }
+
+        @keyframes loading {
+            0% { width: 10%; margin-left: 0; }
+            50% { width: 50%; margin-left: 25%; }
+            100% { width: 10%; margin-left: 90%; }
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>NOVEMBER EXECUTIVE PA TIME!</h1>
+        <p>izin se pink ini yah iziiiiinn</p>
+    </header>
+
+    <div class="card">
+        <span class="interactive-badge">📑 Administrasi & Dokumen HR</span>
+        <h2>Analisis Data & SOP</h2>
+        
+        <div class="chart-container">
+            <div class="bar-wrapper">
+                <div class="bar-label"><span>Kelengkapan Data Personalia</span> <span>97%</span></div>
+                <div class="bar-bg"><div class="bar-fill" style="width: 97%;"></div></div>
+            </div>
+            <div class="bar-wrapper">
+                <div class="bar-label"><span>SOP Terarsip (Canva/G-Drive)</span> <span>100%</span></div>
+                <div class="bar-bg"><div class="bar-fill" style="width: 100%;"></div></div>
+            </div>
+        </div>
+
+        <p><strong>Fokusnya </strong>di Akurasi Data dan Aksesibilitas SOP</p>
+        <p><strong>Pencapaian Data HR</strong> saat ini kelengkapan data mencapai 97% (selisih 1% dari target)</p>
+        <p>Implementasi<strong> tanda tangan kontrak digital</strong> akan dimulai pada Januari 2026 + pembaruan total framework data di akhir Desember 2026 buat make sure validitas 100%</p>
+        
+        <h3>Pengelolaan SOP & Pelatihan</h3>
+        <ul>
+            <li>SOP administratif terarsip 100% pada platform Canva dan Google Drive</li>
+            <li><strong>SOP Menu/Recipe Web Based</strong> kendala subcription untuk deploy dan hosting buat jaga securiy data juga, rencana optimasi efisiensi sampe akhir Desember</li>
+            <li><strong>Training manajemen</strong> so far so goooodd di sistem KPI.<strong> Pelatihan crew</strong> target selesai pasca Grand Opening Pajajaran 28 Desember (kebersihan & grooming)</li>
+            <li><strong>Permintaan dokumen (Paklaring, slip gaji, kontrak, SP)</strong> nice tanpa keterlambatan</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <span class="interactive-badge">💰 Operasional SDM & Payroll</span>
+        
+        <div class="chart-container" style="background: #e3f2fd;">
+             <div class="bar-wrapper">
+                <div class="bar-label"><span style="color:black;">Ketepatan Waktu Payroll</span> <span style="color:green;">Almost On Time</span></div>
+                <div class="bar-bg"><div class="bar-fill" style="width: 90%; background: green;"></div></div>
+            </div>
+        </div>
+
+        <p><strong>Fokusnya di</strong> Ketepatan Waktu dan Manajemen Keluhan</p>
+        
+        <h3>Pengelolaan Payroll & Kasbon</h3>
+        <p>Proses payroll beres tepat waktu, tapi ada <strong>kendala kecepatan karena menunggu konfirmasi absensi dari beberapa outlet</strong></p>
+        <p>Administrasi kasbon berjalan akurat. Namun, ditemukan <strong>pola berulang di mana crew mengajukan penangguhan potongan</strong>. Terantisipasi dengan sistem persetujuan (ACC) yang di adjust kembali</p>
+        
+        <h3>Manajemen Masukan Karyawan</h3>
+        <p>Tercatat 11 masukan dari sept-nov. Masih sbg info, diperlukan tindak lanjut manajemen karena adanya kesamaan pola masalah agar tidak berkembang menjadi isu yang lebih besar⚠️</p>
+        
+        <h3 style="color: var(--danger);">Summary</h3>
+        <p>3 isu paling stand out</p>
+        <ul class="danger-list">
+            <li><strong>Krisis Budaya Kerja (Toxic Environment),</strong> ada masalah antar-crew, praktik adu domba, dan perundungan (bullying) yang sudah sampai ke ranah pribadi</li>
+            <li><strong>Inkonsistensi Kepemimpinan & Standar,</strong> keluhan terkait Leader yang tidak memberikan contoh (main hp), pelecehan verbal, serta audit dari manajemen (A Mika) yang dianggap subjektif dan tidak transparan</li>
+            <li><strong>Kesejahteraan & Beban Kerja,</strong> ketidakpuasan terkait perubahan sistem pembagian persenan/bonus</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <span class="interactive-badge">🗣️ Laporan Detail Masukan Crew</span>
+        <h2>Voices from the Field #ea</h2>
+
+        <h3>1. Budaya Kerja & Hubungan Antar-Crew</h3>
+        <div class="feedback-grid">
+            <div class="feedback-item">
+                <div class="quote">"Boleh ga si tambahin SOP gaboleh pacaran 1 outlet... biar di outlet tu ga terlalu lebay... kadang ga semua org bisa terima atas teguran crew yg mungkin gapunya wewenang lebih."</div>
+                <div class="source">- Web Penilaian</div>
+            </div>
+            <div class="feedback-item">
+                <div class="quote">"Ada karyawan dan karyawati yg selalu menghasut org... di depan terlihat baik, di belakang saling menjatuhkan... memprovokasi dengan mengungkit kesalahan org lain."</div>
+                <div class="source">- Umum</div>
+            </div>
+            <div class="feedback-item">
+                <div class="quote">"Sayang banget. Perusahaan sebesar ini tapi org" Di outlet ini pada toxic semua. Suka nya ngomongin org di belakang."</div>
+                <div class="source">- Umum</div>
+            </div>
+            <div class="feedback-item">
+                <div class="quote">"Ngerasa sedikit di kucilkan... kadang mengerjakan laporan sendiri, keuangan bahkan order kadang cuma sendiri."</div>
+                <div class="source">- Tiara (Soreang)</div>
+            </div>
+             <div class="feedback-item">
+                <div class="quote">"Ada pelecehan verbal berkedok bercanda."</div>
+                <div class="source">- Umum (Anonim)</div>
+            </div>
+            <div class="feedback-item">
+                <div class="quote">"2 cewe selalu ribut karena alasan personal, terlebih ada adik dan kaka yang satu pekerjaan dan ini satu outlet... saran saya pisahkan kaka beradik itu."</div>
+                <div class="source">- Umum (Anonim)</div>
+            </div>
+            <div class="feedback-item">
+                <div class="quote">"Aku di amir dianggap paling ego, so leadership... padahal niat aku buat SOP tertulis biar amir jauh lebih baik... aku cape tapi ini bukan alasan untuk aku mundur."</div>
+                <div class="source">- Maharani (Amir)</div>
+            </div>
+        </div>
+
+        <h3>2. Kepemimpinan & Manajemen (Audit/Penilaian)</h3>
+        <div class="feedback-grid">
+            <div class="feedback-item">
+                <div class="quote">"Tidak adil dalam penilaian... a mika selaku manager outlet yg selalu melakukan kunjungan... penilaian terdapat poin mengenai sopan santun, padahal sangat wajar jika ada hal yg tidak sesuai kami sangkal."</div>
+                <div class="source">- A Mika (Manager)</div>
+            </div>
+            <div class="feedback-item">
+                <div class="quote">"Penilaian crew terbaik kurang efektif... hanya karena faktor kedekatan... audit cuman beri arahan harus gini gitu tanpa arah yang jelas (tidak bawa berkas penilaian)."</div>
+                <div class="source">- Umum</div>
+            </div>
+            <div class="feedback-item">
+                <div class="quote">"Manajerial leader kurang baik... hanya memerintah, duduk, tanpa banyak mencontohkan. Terlalu sering bermain ponsel saat jam kerja... saat rush hour tidak mau terjun langsung."</div>
+                <div class="source">- Amir Machmud</div>
+            </div>
+             <div class="feedback-item">
+                <div class="quote">"Emang harus ya kalo keliling outlet harus dibicarain lagi di outlet lain sehingga outlet lain tau masalah A hingga ke outlet Z... jgn pandang sebelah mata ke crew."</div>
+                <div class="source">- Manajemen</div>
+            </div>
+        </div>
+
+        <h3>3. Operasional, SOP, & Logistik</h3>
+        <div class="feedback-grid">
+            <div class="feedback-item">
+                <div class="quote">"Pengen gitu ada team trainer (buat memantau crew dalam pembuatan sushi didapur serta kasir didepan) agar terpantau kualitas."</div>
+                <div class="source">- Web Penilaian</div>
+            </div>
+            <div class="feedback-item">
+                <div class="quote">"Masukan SOP isian sushi teh, soalnya suka ada yg beda baik tiap outlet maupun individu nya, jadi bingung harus ngikutin yg mna."</div>
+                <div class="source">- Web Penilaian</div>
+            </div>
+            <div class="feedback-item">
+                <div class="quote">"Kirim barang produksi sering banget datang nya malam (jam 9 malam)... itu kan menggangu banget itu waktu nya kita beberes udh mau closing."</div>
+                <div class="source">- Logistik</div>
+            </div>
+            <div class="feedback-item">
+                <div class="quote">"Kenapa tiap outlet peraturan berbeda-beda... soal ijin pulang 1/2 hari, ada yang dapat persenan ada yang enggak... peraturan perusahaan jangan hanya formalitas."</div>
+                <div class="source">- Kebijakan Leader</div>
+            </div>
+        </div>
+
+        <h3>4. Gaji, Bonus, & Kesejahteraan</h3>
+        <div class="feedback-grid">
+            <div class="feedback-item">
+                <div class="quote">"Kerja 10 jam itu sedikit melelahkan... waktu saya di habiskan di pekerjaan... usulan setiap crew mendapatkan EO (Extra Off) selama satu hari setiap bulan nya."</div>
+                <div class="source">- Umum</div>
+            </div>
+            <div class="feedback-item">
+                <div class="quote">"Kasir memegang tanggung jawab lebih berat (Stok Opname, Uang Omset)... berharap kasir di-treat lebih spesial atau gaji sedikit berbeda."</div>
+                <div class="source">- Kasir (Anonim)</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <span class="interactive-badge">🧠 Analisis HR & Action Plan</span>
+        <h3>Rekomendasi Action Plan</h3>
+        <ul>
+            <li><strong>Audit Kepemimpinan (izzhiiiinn) </strong> eval "A Mika" dan Leader di "Amir Machmud" serta "Soreang" terkait cara komunikasi dan objektivitas penilaian</li>
+            <li><strong>Standardisasi SOP & Benefit</strong> eval dan redesign sop izin dan pembagian persenan terdokumentasi cetak maupun digital</li>
+            <li><strong>Rolling</strong>  ketentuan untuk tindak lanjut permintaan pindah outlet (seperti kasus Novi, Faiz, Tiara, dan Nova) untuk memutus rantai toxic environment</li>
+            <li><strong>Saran terdekat</strong> announce draf pengumuman resmi atau pesan dari manajemen yang disusun secara profesional tapi tetep sbg reach out, dengan reply type message crew supaya mereka merasa didengarkan</li>
+            <li><strong>45 interview</strong> (jujuuuurr) selama bulan November dengan laporan analisis terlampir</li>
+        </ul>
+
+        <hr style="border: 1px solid pink; margin: 20px 0;">
+
+        <h3>📊 Rekapitulasi Skor Penilaian (Skala 1-5) dari para suhu balista</h3>
+        <div class="chart-container">
+            <div class="bar-wrapper">
+                <div class="bar-label"><span>Keterlibatan HR/Manager 🤝</span> <span>4.1 (Cukup Terlibat)</span></div>
+                <div class="bar-bg"><div class="bar-fill" style="width: 82%;"></div></div>
+            </div>
+            <div class="bar-wrapper">
+                <div class="bar-label"><span>Kejelasan Ekspektasi 📋</span> <span>3.1 (Cukup)</span></div>
+                <div class="bar-bg"><div class="bar-fill" style="width: 62%;"></div></div>
+            </div>
+             <div class="bar-wrapper">
+                <div class="bar-label"><span>Kepuasan Keseluruhan 😊</span> <span>3.1 (Cukup)</span></div>
+                <div class="bar-bg"><div class="bar-fill" style="width: 62%;"></div></div>
+            </div>
+            <div class="bar-wrapper">
+                <div class="bar-label"><span>Keterampilan Non-Teknis 💡</span> <span>~2.1 (Butuh Pengembangan)</span></div>
+                <div class="bar-bg"><div class="bar-fill" style="width: 42%; background: orange;"></div></div>
+            </div>
+            <div class="bar-wrapper">
+                <div class="bar-label"><span>Keterampilan Teknis 🍣</span> <span>~1.9 (Butuh Training)</span></div>
+                <div class="bar-bg"><div class="bar-fill" style="width: 38%; background: red;"></div></div>
+            </div>
+        </div>
+        <p>Secara keseluruhan, keterlibatan HR dinilai paling tinggi (iziiiin), tapi (jujuuuur) keterampilan teknis dan non-teknis menjadi area yang paling kritis untuk diperbaiki</p>
+        
+        <table class="custom-table">
+            <thead>
+                <tr>
+                    <th>Kategori</th>
+                    <th>Temuan Utama</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Teknis 🍣</strong></td>
+                    <td>Belum mahir membuat sushi roll, kurang paham isian kondimen, dan informasi promo.</td>
+                </tr>
+                <tr>
+                    <td><strong>Non-Teknis 💡</strong></td>
+                    <td>Kurang inisiatif, jarang bertanya, dan sering menunggu instruksi senior.</td>
+                </tr>
+                <tr>
+                    <td><strong>Ekspektasi 📋</strong></td>
+                    <td>Informasi jobdesk ada, namun rincian sistem gaji/persenan sering membingungkan.</td>
+                </tr>
+                 <tr>
+                    <td><strong>Keterlibatan 🤝</strong></td>
+                    <td>Secara umum dinilai hadir, namun ada isu ketepatan waktu saat janji temu.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="card">
+        <span class="interactive-badge">🔍 Analisis Kendala & Rekomendasi</span>
+        <h3 style="color:var(--danger)">⚠️ Kendala Operasional & Administratif</h3>
+        <ul style="margin-bottom: 20px;">
+            <li><strong>Masalah Penjadwalan & Jarak:</strong> Lokasi tanda tangan kontrak terlalu jauh, info mendadak (H-1).</li>
+            <li><strong>Ketepatan Waktu HR:</strong> Tim HR tidak tepat waktu saat janji temu, karyawan menunggu berjam-jam.</li>
+            <li><strong>Proses Rekrutmen:</strong> Prioritas calon dengan background F&B/Dapur diperlukan.</li>
+            <li><strong>Sistem Penggajian:</strong> Kebingungan perhitungan gaji pertama, persenan, dan absensi.</li>
+        </ul>
+
+        <h3>📋 Action Plan untuk Training dan Rekrutmen</h3>
+        <div class="slide-deck">
+             <div class="slide-card">
+                <h4>1. Filter Hari Ke-1 (Teknis) ✅Implemented</h4>
+                <p><strong>Context:</strong> Skor teknis rendah (~1.9). Kendala rolling sushi & promo</p>
+                <p><strong>Action:</strong> "2 Kandidat" di Hari-1. Fokus di kecepatan belajar & inisiatif cuma 1 lanjut</p>
+             </div>
+             <div class="slide-card">
+                <h4>2. Efisiensi Admin & HR ✅Implemented</h4>
+                <p><strong>Context:</strong> Jadwal mendadak, lokasi jauh, HR telat send invitation</p>
+                <p><strong>Action:</strong> Info jadwal lebih awal. HR wajib tepat waktu demi profesionalisme</p>
+             </div>
+             <div class="slide-card">
+                <h4>3. Screening Awal Ketat ✅Implemented</h4>
+                <p><strong>Context:</strong> Leader butuh kru berpengalaman F&B</p>
+                <p><strong>Action:</strong> Perketat screening pengalaman kerja teknis sebelum dikirim ke outlet</p>
+             </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <span class="interactive-badge">📈 Strategi Internal HR Optimization</span>
+        <h2>Analisis & Strategi</h2>
+        <details open>
+            <summary>1. Fungsi Recruitment & Selection (PRIORITAS: HIGH)</summary>
+            <div style="padding:10px;">
+                <p><strong>Masalah:</strong> Rekrutmen reaktif ("dadakan"), seleksi online gagal ukur skill teknis, kandidat no-show</p>
+                <p><strong>Strategi:</strong> Implementasi SLA Rekrutmen, Wajib Tes Teknis di outlet setelah online</p>
+                <p><strong>KPI:</strong> Peningkatan Show-up rate & % lolos Tes Teknis</p>
+            </div>
+        </details>
+
+        <details>
+            <summary>2. Fungsi Training & Performance (PRIORITAS: HIGH)</summary>
+            <div style="padding:10px;">
+                <p><strong>Masalah:</strong> Turnover tinggi di 30 hari pertama, Leader "cuci tangan", syarat SKCK menghambat</p>
+                <p><strong>Strategi:</strong> Keterlibatan Wajib Leader menilai Tes Teknis, Realistic Job Preview (RJP), Relaksasi SKCK (kumpul 30 hari setelah gabung)</p>
+                <p><strong>KPI:</strong> Penurunan turnover 30 hari & 100% kandidat dinilai Leader</p>
+            </div>
+        </details>
+
+        <details>
+            <summary>3. Fungsi Compensation & Benefit (PRIORITAS: HIGH)</summary>
+            <div style="padding:10px;">
+                <p><strong>Masalah:</strong> Gaji pokok dianggap kecil, beban kerja 10 jam, Kasir komplain tanggung jawab besar gaji sama</p>
+                <p><strong>Strategi:</strong> Benchmarking & Struktur Skala Upah (SSU) terdokumentasi, Extra Off (1 hari/bulan), Tunjangan Kasir</p>
+                <p><strong>KPI:</strong> Penurunan turnover rate 20% dalam 6 bulan</p>
+            </div>
+        </details>
+
+        <div style="background: #FFF3CD; padding: 15px; border-radius: 10px;">
+            <p>Diidentifikasi bahwa jika strategi ini tidak segera dijalankan, perusahaan menghadapi risiko biaya rekrutmen yang membengkak, kebocoran biaya training, serta reputasi buruk</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <span class="interactive-badge">📊 Analisis Bisnis & Proyek</span>
+        <p>Dukungan Strategis dan Koordinasi Outlet</p>
+        <p><strong>Kepuasan Outlet:</strong> Oktober 4.41/5.0. Dukungan HR dinilai sangat baik (iziiiin) </p>
+        <p><strong>Laporan Analisis Bisnis:</strong> Terdapat keterlambatan pengiriman email investor selama 3 hari dikarenakan fokus operasional pada masa Soft Opening</p>
+        
+        <div style="margin: 15px 0;">
+             <p><strong>Koordinasi Proyek:</strong> Proyek bulan November berfokus pada R&D Menu Minuman dan Pastry🥐</p>
+             <p>Output : analisis COGS down bellow hehe</p>
+        </div>
+
+        <a href="https://docs.google.com/spreadsheets/d/14EoMzh6tclBwteBgfVzthh_IdLENz9oR/edit?gid=171059358#gid=171059358" class="btn">📂 Buka Laporan COGS</a>
+    </div>
+
+    <div class="card">
+        <span class="interactive-badge">🚀 Modern Service Flow Training</span>
+        <h2>Self-Service, Alarm Paging, & Traffic Control</h2>
+        
+        <div class="slide-deck">
+            <div class="slide-card" style="background: #e8f5e9;">
+                <h4>Tujuan (Objectives)</h4>
+                <ul>
+                    <li><strong>Speed:</strong> Pangkas waktu tunggu dengan Alarm</li>
+                    <li><strong>Flow:</strong> Hindari penumpukan antrian</li>
+                    <li><strong>Problem Solving:</strong> Solusi Full House</li>
+                    <li><strong>Accuracy:</strong> Pembayaran 100% aman (Pay First)</li>
+                </ul>
+            </div>
+            <div class="slide-card" style="background: #e1f5fe;">
+                 <h4>Konsep "Self-Service"</h4>
+                 <ul>
+                     <li>Pelanggan partisipasi pesan & ambil</li>
+                     <li>Peran: "Traffic Controller" & "Host"</li>
+                     <li>Alat: Wireless Pager (Getar & Bunyi = Siap)</li>
+                     <li>Fungsi: Gantikan teriakan nama</li>
+                 </ul>
+            </div>
+             <div class="slide-card" style="background: #fff9c4;">
+                 <h4>The Golden Rules</h4>
+                 <ul>
+                     <li><strong>NO OPEN BILL:</strong> Lunas di awal</li>
+                     <li><strong>ADD-ON LOOP:</strong> Tambah? Antri lagi</li>
+                     <li><strong>HYBRID SEATING:</strong>
+                        <br>Sepi (<80%): Order -> Duduk
+                        <br>Penuh (>90%): Cari Meja -> Order
+                    </li>
+                 </ul>
+            </div>
+        </div>
+
+        <h3>Alur Operasional</h3>
+        <details>
+            <summary>ALUR 1 - KONDISI NORMAL</summary>
+            <p>Greeting -> Arahkan ke Kasir -> Beri Menu saat antri -> Transaksi & Alarm -> Duduk</p>
+        </details>
+        <details>
+            <summary>ALUR 2 - FULL HOUSE (VITAL!)</summary>
+            <p><strong>Peran: Server sbg greeter bisa sekalian PIC es tiris</strong> STOP di pintu. WAITING LIST. CALL & TAG (Tandai meja dulu) -> Baru ke Kasir. Mencegah komplain "Sudah bayar tak dapat duduk"</p>
+        </details>
+        <details>
+            <summary>PENANGANAN MENU (SUSHI/KOPI)</summary>
+            <p><strong>Aturan 2 Menit:</strong> Jika tanya > 2 menit, tarik minggir (Pull Aside). Pastikan menu fisik tersebar di antrian</p>
+        </details>
+        <details>
+            <summary>PROSES PENGAMBILAN (PICK-UP)</summary>
+            <p>Produksi Selesai -> Transmitter -> Tamu Datang (Tukar Alarm dengan Nampan) -> Verifikasi Cepat -> Closing</p>
+        </details>
+
+        <h3>Studi Kasus (FAQ)</h3>
+        <ul>
+            <li>Q: "Mau tambah minum?" -> A: "Order di kasir ya Kak (No Open Bill)"</li>
+            <li>Q: "Rombongan 10 orang booking?" -> A: "Bisa, 1 perwakilan antri bayar dulu"</li>
+            <li>Q: "Alarm gak bunyi?" -> A: Cek struk. Jika rusak, minta maaf & antar pesanan</li>
+        </ul>
+
+        <h3>DOs and DON'Ts</h3>
+        <details>
+            <summary style="color:green;">✅ DO (LAKUKAN)</summary>
+            <ul>
+                <li>Clear Up Cepat (3 menit)</li>
+                <li>Senyum, eye contact, good attitude</li>
+                <li>Cek Kapasitas (Komunikasi Tim Floor)</li>
+            </ul>
+        </details>
+        <details>
+            <summary style="color:red;">❌ DON'T (JANGAN)</summary>
+            <ul>
+                <li>Ghost Table (1 orang di meja isi 6)</li>
+                <li>Teriak nomor order, ngobrol & bercanda keras</li>
+                <li>Input Order Dulu saat Full House (kalau meja belum aman)</li>
+            </ul>
+        </details>
+
+        <div style="text-align: center; margin: 20px 0;">
+            <img src="Flowchart final.png" 
+                alt="Visualisasi Flowchart Modern Service" 
+                style="width: 100%; max-width: 1170px; height: auto; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+        </div>
+    
+    </div>
+
+    <div class="card">
+        <span class="interactive-badge">💻 Penilaian Kinerja & Pengembangan Sistem</span>
+        <p><strong>Sistem Rekrutmen Digital:</strong> Berjalan efektif. Layout, filterisasi, penjadwalan, dashboard interaktif meningkat pesat</p>
+        <p><strong>Kendala:</strong> Limitasi data database antar-loker. Mitigasi: Sinkronisasi manual via spreadsheet</p>
+        <a href="https://airtable.com/app2gKMuXJ9Zkvby4/pagMNoX908dYGIh7Q?5Rks3=b%3AWzAsWyJRYXBVaCIsMTYsbnVsbCwiUUwzNFgiXV0&5Rks3%3Asort=eyJwZWxvQVVUUllqS2VIeW9GNSI6W119&5Rks3%3Agroup=eyJwZWxvQVVUUllqS2VIeW9GNSI6W3siY29sdW1uSWQiOiJmbGRudUQyQzdsNDBlM1NacyIsImFzY2VuZGluZyI6dHJ1ZX1dfQ" class="btn btn-outline" target="_blank">🔗 Akses Database Airtable</a>
+
+        <hr>
+        
+        <h2>Digitalisasi Kontrak (Privy Proposal)</h2>
+        <div class="slide-deck">
+            <div class="slide-card">
+                <h4>Pain Points</h4>
+                <p>Mobilitas Tinggi, Gangguan Jadwal Outlet, Biaya Transport/Makan, Risiko Hukum (Tanda tangan non-PSrE)</p>
+            </div>
+            <div class="slide-card">
+                <h4>Solusi Privy</h4>
+                <p>Legal (PSrE Kominfo), E-Meterai terintegrasi, E-KYC (Scan Wajah), Cepat (5 Menit via HP)</p>
+            </div>
+            <div class="slide-card">
+                <h4>Biaya (Cost)</h4>
+                <p><strong>Lama:</strong> Rp50rb-100rb + 2-4 Jam.<br><strong>Baru:</strong> Rp54rb/bulan + 5 Menit.<br><strong>Kesimpulan:</strong> Lebih murah & efisien</p>
+            </div>
+            <div class="slide-card">
+                <h4>Workflow</h4>
+                <p>Prep (HR) -> Upload -> Signing (Crew via HP) -> Completion (PDF Bermeterai)</p>
+            </div>
+            <div class="slide-card">
+                <h4>SOP Ijazah</h4>
+                <p>TTD Digital -> Serahkan Fisik ke SM -> SM isi BAST Digital -> Titip Logistik ke HQ -> HR Konfirmasi Terima</p>
+            </div>
+             <div class="slide-card">
+                <h4>Rekomendasi</h4>
+                <p>Segera aktivasi akun Privy Personal (Rp54.000) sebagai pilot project</p>
+            </div>
+        </div>
+
+        <p style="margin-top:20px;"><strong>Pengembangan Fitur Web:</strong> Fokus hosting & deployment. Roadmap: Fitur "Penilaian Atas Langsung" dijadwalkan Januari 2026</p>
+        <div class="loading-bar" style="margin: 10px 0;"></div>
+    </div>
+
+    <div class="card" style="text-align: center; background: linear-gradient(135deg, #FFC0CB, #E6E6FA);">
+        <h2>Analisis Ringkas Manajemen</h2>
+        <p>Secara keseluruhan, nov so far so good dgn fokus besar pada persiapan ekspansi (Grand Opening)</p>
+        <p>Area yang memerlukan perhatian khusus adalah <strong>integrasi database pelamar</strong> dan <strong>tindak lanjut masukan karyawan</strong> untuk menjaga iklim kerja yang kondusif</p>
+        <br>
+    </div>
+
+</div>
+
+<script>
+    // Simple script to handle interactivity (Simulasi)
+    document.querySelectorAll('.btn').forEach(button => {
+        button.addEventListener('click', function(e) {
+            if(!this.getAttribute('onclick')) {
+               // Animation effect
+               this.style.transform = 'scale(0.95)';
+               setTimeout(() => {
+                   this.style.transform = 'scale(1)';
+               }, 100);
+            }
+        });
+    });
+
+    // Trigger bar animations on load
+    window.addEventListener('load', () => {
+        const bars = document.querySelectorAll('.bar-fill');
+        bars.forEach(bar => {
+            const width = bar.style.width;
+            bar.style.width = '0';
+            setTimeout(() => {
+                bar.style.width = width;
+            }, 500);
+        });
+    });
+</script>
+
+</body>
+</html>
