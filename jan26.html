@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HR Update - Feb 2026</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- MENGGUNAKAN FONT POPPINS -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        pop: {
+                            pink: '#ff90e8',    // Vibrant pink
+                            blue: '#90e0ff',    // Bright blue
+                            green: '#b5ff90',   // Acid/Lime green
+                            yellow: '#ffe347',  // Sunny yellow
+                            purple: '#c490ff',  // Bright purple
+                            peach: '#ffb38a',   // Peachy orange
+                            bg: '#f4f0ec'       // Warm off-white background
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { 
+            background-color: #f4f0ec; 
+            color: #0f172a; 
+            /* Subtle dotted background for that extra playful vibe */
+            background-image: radial-gradient(#cbd5e1 2px, transparent 2px);
+            background-size: 30px 30px;
+        }
+        
+        /* Gen Z Neo-Brutalism Style */
+        .playful-card {
+            border: 3px solid #0f172a;
+            border-radius: 1.5rem;
+            box-shadow: 6px 6px 0px #0f172a;
+            transition: all 0.2s ease-in-out;
+        }
+        .playful-card:hover {
+            transform: translate(-4px, -4px);
+            box-shadow: 10px 10px 0px #0f172a;
+        }
+        
+        .playful-badge {
+            border: 2px solid #0f172a;
+            box-shadow: 3px 3px 0px #0f172a;
+        }
+
+        .chart-container { position: relative; width: 100%; max-width: 500px; margin: 0 auto; height: 180px; }
+        
+        /* Custom scrollbar */
+        .custom-scroll::-webkit-scrollbar { width: 8px; }
+        .custom-scroll::-webkit-scrollbar-track { background: #f1f5f9; border-left: 2px solid #0f172a; }
+        .custom-scroll::-webkit-scrollbar-thumb { background-color: #0f172a; border-radius: 0px; border: 2px solid #0f172a; }
+    </style>
+    <!-- Chosen Palette: Gen Z Playful / Neo-Brutalism (High Contrast, Solid Shadows, Poppins) -->
+    <!-- Application Structure Plan: 
+         1. Welcoming Hero: Super casual & loud.
+         2. KPI Board: Data-heavy but visually separated with punchy colors.
+         3. Suara Crew: Sticky note grid with thick borders and vibrant colors (100% VERBATIM).
+         4. Action Plan: Dual action plan clearly marked out.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. All text verbatim. -->
+</head>
+<body class="antialiased selection:bg-pop-pink selection:text-slate-900">
+
+    <!-- Navbar -->
+    <nav class="bg-white/90 backdrop-blur-md sticky top-0 z-50 border-b-4 border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div class="flex items-center gap-2">
+                <span class="text-3xl animate-bounce">📥</span>
+                <h1 class="text-2xl font-black text-slate-900 tracking-tight uppercase tracking-widest">HR Update & Crew</h1>
+            </div>
+            <div class="text-sm font-bold text-slate-900 bg-pop-yellow px-4 py-2 rounded-full playful-badge uppercase tracking-widest">
+                Feb '26
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-20 relative">
+
+        <!-- Intro Section -->
+        <section class="text-center max-w-4xl mx-auto bg-white p-8 md:p-12 playful-card transform -rotate-1 relative z-10">
+            <div class="absolute -top-6 -left-6 text-6xl">✨</div>
+            <div class="absolute -bottom-6 -right-6 text-6xl">💣</div>
+            
+            <h2 class="text-4xl md:text-5xl font-black text-slate-900 mb-6 uppercase tracking-tight">HR TIME!👋</h2>
+            <p class="text-slate-800 leading-relaxed text-lg md:text-xl font-medium">
+                Rekap utuh data HR bulan Februari. Highlight point: <span class="bg-pop-pink px-2 playful-badge text-black font-bold">Curhatan anak-anak crew</span> yang belum ada tindak lanjut.
+            </p>
+        </section>
+
+        <!-- Papan Detail KPI (100% Data Included) -->
+        <section class="space-y-8">
+            <div class="flex items-center gap-4 mb-4">
+                <h2 class="text-3xl font-black text-slate-900 bg-white px-6 py-2 playful-card inline-block transform rotate-1">📈 DATA AKTUAL KPI (FEB 2026)</h2>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- A. Administrasi Umum & Dukungan SDM -->
+                <div class="bg-pop-blue p-8 playful-card lg:col-span-2">
+                    <h3 class="font-black text-slate-900 text-2xl mb-6 flex items-center gap-2 uppercase">
+                        <span>🗂️</span> Administrasi & SDM
+                    </h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-white p-5 playful-card">
+                            <h4 class="text-sm font-bold text-slate-500 uppercase tracking-widest mb-3 border-b-2 border-slate-900 pb-2">Dokumen & Pelatihan</h4>
+                            <p class="text-base font-semibold text-slate-700 mb-1">Dokumen wajib kelola: <span class="text-slate-900 font-black text-xl ml-2">6</span></p>
+                            <p class="text-base font-semibold text-slate-700">Berhasil diarsip/update: <span class="bg-pop-green px-2 py-0.5 rounded text-slate-900 font-black text-xl ml-2">6</span></p>
+                        </div>
+                        
+                        <div class="bg-white p-5 playful-card">
+                            <h4 class="text-sm font-bold text-slate-500 uppercase tracking-widest mb-3 border-b-2 border-slate-900 pb-2">Data Personalia</h4>
+                            <p class="text-base font-semibold text-slate-700 mb-1">Total dikelola: <span class="text-slate-900 font-black text-xl ml-2">124 org</span></p>
+                            <p class="text-base font-semibold text-slate-700">Lengkap & terupdate: <span class="bg-pop-green px-2 py-0.5 rounded text-slate-900 font-black text-xl ml-2">122 org</span></p>
+                        </div>
+
+                        <div class="bg-white p-5 playful-card">
+                            <h4 class="text-sm font-bold text-slate-500 uppercase tracking-widest mb-3 border-b-2 border-slate-900 pb-2">Sistem Admin HR</h4>
+                            <p class="text-base font-semibold text-slate-700 mb-1">Total permintaan: <span class="text-slate-900 font-black text-xl ml-2">8 proses</span></p>
+                            <p class="text-base font-semibold text-slate-700">Selesai tepat waktu: <span class="bg-pop-yellow px-2 py-0.5 rounded text-slate-900 font-black text-xl ml-2">6 proses</span></p>
+                        </div>
+
+                        <div class="bg-white p-5 playful-card">
+                            <h4 class="text-sm font-bold text-slate-500 uppercase tracking-widest mb-3 border-b-2 border-slate-900 pb-2">Onboarding & Rekrutmen</h4>
+                            <p class="text-base font-semibold text-slate-700 mb-1">Karyawan baru: <span class="text-slate-900 font-black text-xl ml-2">8 org</span></p>
+                            <p class="text-base font-semibold text-slate-700">Selesai onboarding: <span class="bg-pop-yellow px-2 py-0.5 rounded text-slate-900 font-black text-xl ml-2">6 org</span></p>
+                        </div>
+
+                        <!-- Mini Stats -->
+                        <div class="bg-slate-900 text-white p-6 playful-card md:col-span-2">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                                <div>
+                                    <h4 class="text-xs font-bold text-pop-pink uppercase tracking-widest mb-2">Respon WA</h4>
+                                    <p class="text-base font-bold bg-white/10 p-2 rounded-lg">Rata-rata 1 hari</p>
+                                </div>
+                                <div>
+                                    <h4 class="text-xs font-bold text-pop-green uppercase tracking-widest mb-2">Kasbon Crew</h4>
+                                    <p class="text-base font-bold bg-white/10 p-2 rounded-lg">40/42 pengajuan sesuai</p>
+                                </div>
+                                <div>
+                                    <h4 class="text-xs font-bold text-pop-blue uppercase tracking-widest mb-2">Rekap Masukan</h4>
+                                    <p class="text-base font-bold bg-white/10 p-2 rounded-lg">4/4 berhasil direkap</p>
+                                </div>
+                                <div>
+                                    <h4 class="text-xs font-bold text-pop-yellow uppercase tracking-widest mb-2">Proses Payroll</h4>
+                                    <p class="text-sm font-bold bg-white/10 p-2 rounded-lg">Jadwal: Tgl 3<br>Selesai: Tgl 4</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- C & D. IT, Komunikasi, Rekrutmen -->
+                <div class="space-y-8">
+                    <!-- Komunikasi & Rekrutmen -->
+                    <div class="bg-pop-pink p-8 playful-card">
+                        <h3 class="font-black text-slate-900 text-xl mb-6 uppercase border-b-4 border-slate-900 pb-2">Komunikasi & Sistem</h3>
+                        
+                        <div class="mb-6 bg-white p-4 playful-card">
+                            <h4 class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">12. Komunikasi ke Outlet</h4>
+                            <div class="text-4xl font-black text-slate-900">4.59 <span class="text-lg text-slate-400 font-bold">/ 5.0</span></div>
+                        </div>
+
+                        <div class="bg-white p-4 playful-card">
+                            <h4 class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">14. Rekrutmen Digital</h4>
+                            <div class="chart-container h-[100px] mb-2">
+                                <canvas id="recruitChart"></canvas>
+                            </div>
+                            <p class="text-xs text-slate-700 font-semibold bg-pop-bg p-2 rounded-lg border-2 border-slate-900">
+                                Dari <span class="font-black">962 pelamar</span>, difilterisasi jadi <span class="font-black">277 pelamar</span>.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Aplikasi KPI -->
+                    <div class="bg-pop-green p-8 playful-card transform rotate-1">
+                        <h4 class="text-lg font-black text-slate-900 uppercase tracking-widest mb-4">💻 App Monitoring KPI</h4>
+                        <div class="space-y-4">
+                            <div class="bg-white p-4 playful-card">
+                                <span class="text-xs font-bold text-slate-500 uppercase block mb-1">Target Bulan Ini:</span>
+                                <p class="text-sm font-bold text-slate-900">Penilaian by head division</p>
+                            </div>
+                            <div class="bg-white p-4 playful-card">
+                                <span class="text-xs font-bold text-slate-500 uppercase block mb-1">Realisasi & Kendala:</span>
+                                <p class="text-sm font-semibold text-slate-800 leading-relaxed">
+                                    Fitur assess team berhasil QA namun belum dapat diaplikasikan 100% guna mengamankan data historis penilaian sebelumnya karena memiliki logika penilaian berbeda.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Feedback Wall (100% VERBATIM) -->
+        <section id="feedback-wall">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-10 gap-4 bg-slate-900 p-6 playful-card text-white transform -rotate-1">
+                <div>
+                    <h2 class="text-3xl font-black text-pop-yellow uppercase mb-2">💌 Masukan Crew</h2>
+                    <p class="text-slate-300 font-medium">Real Input</p>
+                </div>
+            </div>
+
+            <!-- Masonry Grid for Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8" id="feedback-grid">
+                <!-- Cards will be injected here by JS -->
+            </div>
+        </section>
+
+        <!-- Action Plan KOMPREHENSIF -->
+        <section class="bg-pop-purple p-8 md:p-12 playful-card">
+            <div class="text-center max-w-3xl mx-auto mb-12 bg-white p-6 playful-card transform rotate-1">
+                <span class="text-5xl mb-4 block">🚀</span>
+                <h2 class="text-4xl font-black text-slate-900 mb-3 uppercase tracking-tight">ACTION PLAN</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-6xl mx-auto">
+                
+                <!-- Action Plan: CREW & CULTURE -->
+                <div class="bg-white p-8 playful-card">
+                    <h3 class="font-black text-slate-900 text-2xl border-b-4 border-slate-900 pb-4 mb-6 uppercase">
+                        👥 Isu Crew & Budaya
+                    </h3>
+                    
+                    <div class="space-y-6">
+                        <div class="bg-pop-pink p-5 playful-card transform transition hover:translate-x-2">
+                            <h4 class="font-black text-slate-900 text-lg mb-2">1. Investigasi Pelecehan Verbal</h4>
+                            <p class="text-sm font-semibold text-slate-900">Turun ke lapangan menginvestigasi aduan "pelecehan verbal berkedok bercanda". Jika terbukti, leader/crew yang terlibat akan diberi SP.</p>
+                        </div>
+
+                        <div class="bg-pop-blue p-5 playful-card transform transition hover:translate-x-2">
+                            <h4 class="font-black text-slate-900 text-lg mb-2">2. Resolusi Konflik Kepentingan</h4>
+                            <p class="text-sm font-semibold text-slate-900">Melakukan mutasi salah satu karyawan memiliki hubungan keluarga untuk menghindari konflik kepentingan satu keluarga dalam satu outlet.</p>
+                        </div>
+
+                        <div class="bg-pop-green p-5 playful-card transform transition hover:translate-x-2">
+                            <h4 class="font-black text-slate-900 text-lg mb-2">3. Keadilan Beban Kerja</h4>
+                            <p class="text-sm font-semibold text-slate-900">Review ulang skema persentase <em>Service Charge</em> atau penambahan <em>Kitchen Allowance</em>.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="text-center pt-8 pb-12">
+            <div class="inline-block bg-slate-900 text-white px-6 py-3 playful-badge rounded-full font-bold">
+                Thank you
+            </div>
+        </footer>
+
+    </main>
+
+    <!-- JavaScript & Data -->
+    <script>
+        // --- DATA MASUKAN CREW (100% COPY PASTE SESUAI SUMBER) ---
+        const feedbacks = [
+            {
+                id: 1,
+                timestamp: '20/12/2025 13:39:48',
+                category: 'Masalah antar crew., dan leader',
+                desc: 'Ada pelecehan verbal berkedok bercanda',
+                bagian: '',
+                pihak: '',
+                solusi: 'Training lg leadernya&crew lki"',
+                harapan: 'Tidak perlu respon, hanya untuk informasi.',
+                nama: '',
+                color: 'bg-pop-pink'
+            },
+            {
+                id: 2,
+                timestamp: '22/12/2025 0:58:57',
+                category: 'Masalah antar crew.',
+                desc: 'dinasty arjasari, 2 cewe selalu ribut bukan karena alasan yang jelas melainkan alasan personal, terlebih ada adik dan kaka yang satu pekerjaan dan ini satu outlet, di luar bahkan ada yang tidak memperbolehkan satu kartu keluarga kerja di perusahaan yang sama dan ini bahkan satu outlet, 2 cewe selalu ribut karena alasan personal, saran saya pisahkan kaka beradik itu, misalnya adik nya pindah outlet ke kopo, karena masalah keluarga sepekerjaan serta masalah internal antara 2 cewe itu',
+                bagian: 'outlet soreang',
+                pihak: 'muy, tiara dan ramdan',
+                solusi: 'pisahkan kaka beradik itu, dari dua cewe itu pindahkan 1 orang, saya menyarankan untuk muy yang pindah di karenakan masalah satu keluarga se outlet serta ada masalah personal antara muy dan tiara',
+                harapan: 'Tidak perlu respon, hanya untuk informasi.',
+                nama: '',
+                color: 'bg-pop-purple'
+            },
+            {
+                id: 3,
+                timestamp: '26/12/2025 19:54:18',
+                category: 'Masalah antar crew.',
+                desc: 'Utk manajemen tlg y diperhatikan & nilai lbh teliti kpd leader, shrsnya leader membimbing semua crew nya bknnya setengah² kesannya pilih kasih ditambah bercandaan yg menurut sy berlebihan, dan tlg jgn normalisasikan pelecehan verbal berkedok bercanda apalagi trhdp perempuan, tdk hanya leader tp crew laki² jg, mks',
+                bagian: '',
+                pihak: '',
+                solusi: 'tlg di evaluasi dngn benar',
+                harapan: 'Tidak perlu respon, hanya untuk informasi.',
+                nama: '',
+                color: 'bg-pop-yellow'
+            },
+            {
+                id: 4,
+                timestamp: '12/01/2026 12:31:04',
+                category: 'Masalah antar crew.',
+                desc: 'Saya ingin curhat kak, saya kan asalnya ex crew balista yg kerja kembali di balista, akan tetapi sekarang di tempatkan di cabang berbeda dari sebelum resign dulu.... Dari awal bahkan sejak dulu bekerja sebelum resign saya memang mengakui memiliki banyak kekurangan akan tetapi saya tidak pernah berhenti untuk terus mencoba dan belajar lagi. Saya selalu menerima complain dan teguran semuanya dari para senior serta menerima masukan dan arahan. Akan tetapi semenjak saya bekerja disini entah mungkin saya yg terlalu lembek atau mungkin lingkungan nya yg memang agak kasar?? Saya merasa banyak sekali tekanan yg muncul berbeda terbalik jauh dibanding saya di tempatkan di outlet dulu bekerja sebelum resign... Saya juga mengalami beberapa kejanggalan yah memang sebelumnya saya terkadang sering membuat kesalahan, akan tetapi saya slalu meminta maaf dan membereskan kesalahan yg saya buat. Nah kejanggalan yg di maksud itu ada di kepala toko... Saya merasa sepertinya kepala toko tidak mau satu shift dengan saya?? Atau bagaimana? Karena kebetulan hari senin (12 Januari) dan esok selasa (13 Januari) beliau meminta tukar shift terus menerus... Saya bingung saja apakah benar dia tidak mau se shift dengan saya karena apa? Jika misal Iyah karena kemampuan saya yg kurang masa harus sampai segitunya?? Lagian saya pun tidak merasa seburuk itu dengan kemampuan saya... Sekali lagi saya hanya bingung dan yah sedikit menjadi beban pikiran untuk saya, karena saya merasa tidak enak bekerja disini, akan tetapi syaa tetap memilih bertahan karena bituh perkerjaan ini. Mohon maaf dan Terima kasih 🙏🙏',
+                bagian: 'Kota baru..',
+                pihak: 'Kepala Toko ( Krisna) dan saya',
+                solusi: 'Jujur sebenarnya jika bisa mutasi saya ingin mutasi kembali ke tempat sebelumnya, akan tetapi jika misal Iyah bisa pun saya tidak berani untuk meminta pengajuan kepada kepala toko disini, karena takut😞',
+                harapan: 'Ingin diskusi lebih lanjut. (Wajib sebut nama jika memilih opsi ini)',
+                nama: 'Muhaemin Nul Azis - Kotabaru',
+                color: 'bg-pop-blue'
+            },
+            {
+                id: 5,
+                timestamp: '12/01/2026 12:37:16',
+                category: 'Masalah antar crew.',
+                desc: 'Ini hanya notes untuk form sebelumnya saya hanya kebingungan saja takutnya mungkin ada salah paham atau bagaimana antara saya dengan yg bersangkutan, hanya saja saya terlalu takut untuk berbicara dengan beliau secara langsung',
+                bagian: 'Kotabaru',
+                pihak: 'Kepala Toko (Krisna) dan Saya',
+                solusi: 'Saya hsnya ingin bisa mutasi tanpa terlihat saya yg meminta di mutasi agar saya bisa pindah dari outlet ini tanpa ada meninggalkan kesan buruk terhadap pegawai lain dan termasuk kepala toko juga🙏🙏',
+                harapan: 'Ingin diskusi lebih lanjut. (Wajib sebut nama jika memilih opsi ini)',
+                nama: 'Muhaemin Nul Azis - Kotabaru',
+                color: 'bg-pop-blue'
+            },
+            {
+                id: 6,
+                timestamp: '19/01/2026 19:24:40',
+                category: 'Ide atau saran untuk perbaikan.',
+                desc: 'Mengenai pembuatan sushi, kadang suka bingung tiap outlet sama tiap org isian sushi nya suka beda, sama bentuk sushi nya suka beda ada yg gendut sama nasi ada yg engga	Balista Cihanjuang sushi nya besar besar, Balista amir kecil tapi pas. Isian Sushi nya kadang suka beda beda kayak isian Tuna Roll ada yg (Kani, Tamago, Kyuri) ada (Kani, Tamago, Crunchy)',
+                bagian: '',
+                pihak: '',
+                solusi: 'Dibuatkan SOP tertulis isian dan pembuatan sushi yg jelas agar serentak sama semua tiap Outlet nya tidak ada yg berbeda beda🙏🏻',
+                harapan: 'Tidak perlu respon, hanya untuk informasi.',
+                nama: '',
+                color: 'bg-pop-green'
+            },
+            {
+                id: 7,
+                timestamp: '21/01/2026 3:21:06',
+                category: 'Masalah antar crew.,',
+                desc: '"atasan berprilaku tidak adil dan pilih kasihh "',
+                bagian: 'ambon',
+                pihak: '-',
+                solusi: 'menurut saya bisa dengan cara rolling shift untuk bisa pendekatan sesama crew lain,sudah dilakukan cuman tetap yang di rolling nya hanya diluar crew yang di tuju',
+                harapan: 'Tidak perlu respon, hanya untuk informasi.',
+                nama: '-',
+                color: 'bg-pop-peach'
+            },
+            {
+                id: 8,
+                timestamp: '02/02/2026 16:13:29',
+                category: 'Masalah antar crew.',
+                desc: '"maaf ya aku ga pake bahasa baku, karena biar leluasa aku vanessa dari cabang amir, mau curhat aja soal hal yang jadi alesan males masuk kerja, karena selalu di cari letak salah yang bahkan orang yang menyalahkan punya kesalahan dan melanggar SOP balista, vanessa di bilang kalo prepare selalu vc , memang benar adanya tapi vanes selalu vc ketika kerjaan sudah selesaj, atau vc pun di simpen di suatu tempat vanes nya tetep kerja contoh sambil isi kondimen untuk online atau take away, tapi selalu bilang lewat orang yang bahkan bisa menggiring opini, untung nya topik itu sampai ke orang yg cerdas dan tepat, dia nanya dulu ke aku tapi, leader ini sering mergokin vanes vc, maksudnya kenapa ga langsung negur aja, dari awal masuk sampe sekarang selalu vanessa yang jadi target dia soal kesalahan, sedangkan yang lain aja kalo vanes harus menghakimi mungkin ada, vanessa cuma jadi males aja punya leader yang tinggkahnya kaya anak kecil,ga sepatutnya leader seperti itu, niat vanes kerja itu buat cari uang karena kebutuhan juga, tapi usil terus padahal vanes ga pernah ngurusin dia sebegitunya,vanes cerita ke sini karena ngerasa lebih leluasa aja, dan ga satu dua orang yg memang kurang nyaman sama perbuatan leader tersebut"',
+                bagian: 'amir machmud',
+                pihak: 'fadlan, leader',
+                solusi: 'gaada solusi mungkin ya karena udah jadi tabiat nya begitu ke beberapa orang, vanessa dan maharani, cuma kalo terus menerus begini vanessa juga ga betah dan jadi males kerja',
+                harapan: 'Tidak perlu respon, hanya untuk informasi.',
+                nama: '',
+                color: 'bg-pop-pink'
+            },
+            {
+                id: 9,
+                timestamp: '08/02/2026 21:07:32',
+                category: 'Masalah antar crew.',
+                desc: 'mohon maaf a/teh sebelum nya, bukan maksud menjelekkan atau ngadu cuma mau menyampaikan keluh kesah aja, perkenalkan aku Medina dari cabang Cimahi Amir. Sebelumnya udh sempet cerita juga sama temen yg ngerasain kaya gini juga, dan gatau hrs gimana🙏🏻 maaf bangett, aku merasa fadlan kurang dewasa dan adil sebagai leader, misal…. ada crew yg mau ganti shift dri siang jadi pagi karena ada acara, tapi posisinya bukan pacar, sodara atau bahkan sodara pacarnya, itu pasti jadi bahan omongan disebut egois, seenaknya dll, NAH klo pacar, sodara atau sodara pacarnya yg kaya gitu pasti bakal sangat amat diperbolehkan wkwkw, dia seenaknya ngubah” jadwal yg hrsnya masuk siang jdi pagi tanpa ngeliat jadwal malem nya aman/tdk, alhasil yg closingan cm ber2 karena pacarnya jadi masuk pagi (bagian depan) dan posisi nya outlet lgi rame, disitu rasanya kesel bangett, karena fadlan sendiri yg bilang klo mau tuker shift hrs konfirmasi dri awal, tapiii dia sendiri seenaknya tuker” jadwal mana dadakan lagii😭🙏🏻 sekarang pun rasanya canggung untuk sekedar ngobrol/bercanda antar crew karena pasti ada yang cemburu😄 paling kesel nya tuh pas ada masalah sm 1 org dia suka pasang muka badmood yang buat kita bertanya” giliran ditanya “kenapa?” jawabnya “gapapa” tapi ber koar” tentang masalahnya ke orang lain, ANEH BGT😭 kenapa ga lgsg ngomong ke orang nya???sebenernya masih banyak lagi yg pengen diceritain tapi kalo untuk sekarang kayanya masalah ini dulu, terimakasih sebelumnya a/teh yang udah baca keluh kesah ini🤗🙏🏻',
+                bagian: 'Cimahi Amir',
+                pihak: 'Fadlan',
+                solusi: 'semoga bisa lebih adil lagi yaa sama semua crew, jangan melihat siapa orang nya, jangan karena di Amir ada pacar, sodara, dan sodara pacarnya jadi lebih mengutamakan orang” itu.',
+                harapan: 'Tidak perlu respon, hanya untuk informasi.',
+                nama: '',
+                color: 'bg-pop-yellow'
+            },
+            {
+                id: 10,
+                timestamp: '21/02/2026 19:39:21',
+                category: 'Masalah antar crew.',
+                desc: 'Katanya leader harus ngebimbing crew lain yaa tapi gak ada tuh ngebimbing, pelecehan verbal ga sopan cewe lagi duduk yg diliat bawahnya, padahal seorang leader loh?!!, masalah selalu dimulai dri leader, pilih pilih crew, semua crew gak dirangkul dgn baik, bukannya di bimbing ini malah pelecehan verbal, mana baperan, leader yg mulai gangguin dibilangin ehh malah pundung sampe berhari hari bikin makin gak nyaman kerja, padahal niat dari rumah buat kerja ehh malah dilecehin, didiemin padahal crew lain diajak ngobrol, klo kayak gitu perilakunya mending gausah dijadiin leader deh gabecuss!!.',
+                bagian: '',
+                pihak: '',
+                solusi: 'Diteliti lagi klo milih leader, bilangin ke leader nya jangan suka milih milih orang + pundungan, cowo kok lenjeh',
+                harapan: 'Tidak perlu respon, hanya untuk informasi.',
+                nama: '',
+                color: 'bg-pop-pink'
+            },
+            {
+                id: 11,
+                timestamp: '24/02/2026 0:17:01',
+                category: 'Masalah operasional.,',
+                desc: '"Pak/Bu, saya ingin mengajukan evaluasi terkait pembagian workload antara kitchen dan barista/waiters. Saat ini kitchen menangani mayoritas order-terutama di sushi/kitchen—yang membuat intensitas kerja jauh lebih tinggi di banding bar/waiters.menjadikan kecemburuan sosial antar tim.\nDengan kondisi beban seperti ini, saya ingin mengusulkan pertimbangan penyesuaian, seperti allowance khusus kitchen atau pembagian service charge yang lebih proporsional sesuai kontribusi operasional.\nTujuannya bukan membandingkan divisi, tapi agar tim bisa bekerja lebih seimbang dan tetap termotivasi."',
+                bagian: 'Padjajaran',
+                pihak: '',
+                solusi: 'Untuk sistem nya saya blm cukup paham tapi saya mengusulkan atas usulan pribadi saya sendiri merevisi service charge persentase jadinya service charge dibagi bukan rata, tapi proporsional atau tambahan kitchen allowance agar adil dan seimbang.',
+                harapan: 'Tidak perlu respon, hanya untuk informasi.',
+                nama: 'Pajajaran',
+                color: 'bg-pop-green'
+            }
+        ];
+
+        // --- RENDER CHARTS ---
+        document.addEventListener('DOMContentLoaded', () => {
+            renderCharts();
+            initFeedbackWall();
+        });
+
+        function renderCharts() {
+            // Recruit Chart (Bar) - Gen Z Colors
+            const ctxRecruit = document.getElementById('recruitChart').getContext('2d');
+            Chart.defaults.font.family = 'Poppins';
+            new Chart(ctxRecruit, {
+                type: 'bar',
+                indexAxis: 'y',
+                data: {
+                    labels: ['Pelamar Masuk', 'Terfilter Sistem'],
+                    datasets: [{
+                        label: 'Jumlah Orang',
+                        data: [962, 185],
+                        backgroundColor: ['#0f172a', '#ffe347'], // slate-900, pop-yellow
+                        borderColor: '#0f172a',
+                        borderWidth: 2,
+                        borderRadius: 8,
+                        borderSkipped: false
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        x: { display: true, grid: { color: '#0f172a', drawBorder: true } },
+                        y: { grid: { display: false }, ticks: { font: { weight: 'bold', size: 12 }, color: '#0f172a' } }
+                    }
+                }
+            });
+        }
+
+        // --- FEEDBACK WALL LOGIC ---
+        function initFeedbackWall() {
+            renderCards();
+        }
+
+        function renderCards() {
+            const container = document.getElementById('feedback-grid');
+            container.innerHTML = '';
+            
+            feedbacks.forEach(item => {
+                const cardHtml = `
+                    <div class="${item.color} p-6 playful-card flex flex-col h-full relative">
+                        <!-- Decorative tape/pin effect -->
+                        <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 w-12 h-4 bg-white/50 border-2 border-slate-900 rotate-2"></div>
+
+                        <div class="border-b-4 border-slate-900 pb-4 mb-4 mt-2">
+                            <div class="flex justify-between items-start mb-3">
+                                <span class="text-xs font-black bg-slate-900 text-white px-3 py-1 playful-badge uppercase tracking-widest">${item.category}</span>
+                                <span class="text-xs font-bold text-slate-800 bg-white/80 px-2 py-1 rounded border-2 border-slate-900">${item.timestamp}</span>
+                            </div>
+                            
+                            <div class="grid grid-cols-2 gap-3 text-xs font-bold text-slate-900 mt-4 bg-white/40 p-3 rounded-xl border-2 border-slate-900">
+                                <div><span class="opacity-70 text-[10px] uppercase">📍 Outlet:</span><br/> <span class="text-sm">${item.bagian || '-'}</span></div>
+                                <div><span class="opacity-70 text-[10px] uppercase">⚠️ Terlibat:</span><br/> <span class="text-sm">${item.pihak || '-'}</span></div>
+                                <div class="col-span-2"><span class="opacity-70 text-[10px] uppercase">👤 Dari:</span><br/> <span class="text-sm bg-white px-2 py-0.5 rounded border border-slate-900 inline-block mt-1">${item.nama || 'Anonim'}</span></div>
+                            </div>
+                        </div>
+
+                        <div class="flex-grow mb-6">
+                            <h4 class="text-xs font-black text-slate-900 uppercase tracking-widest mb-2 flex items-center gap-1"><span>📝</span> Curhatan (No Filter):</h4>
+                            <div class="bg-white p-4 playful-card">
+                                <p class="text-slate-900 text-sm leading-relaxed whitespace-pre-wrap font-medium">"${item.desc}"</p>
+                            </div>
+                        </div>
+
+                        <div class="space-y-4 pt-4 border-t-4 border-slate-900">
+                            <div>
+                                <h4 class="text-[10px] font-black text-slate-900 uppercase tracking-widest mb-1">💡 Ide Solusi:</h4>
+                                <p class="text-sm text-slate-900 bg-white/60 border-2 border-slate-900 p-3 rounded-xl font-bold">${item.solusi || '-'}</p>
+                            </div>
+                            <div>
+                                <h4 class="text-[10px] font-black text-slate-900 uppercase tracking-widest mb-1">🎯 Harapan:</h4>
+                                <p class="text-sm text-slate-900 bg-white/60 border-2 border-slate-900 p-3 rounded-xl font-bold">${item.harapan || '-'}</p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += cardHtml;
+            });
+        }
+    </script>
+</body>
+</html>

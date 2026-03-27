@@ -2,7 +2,9 @@
     --pink: #FFC0CB;
     --orange: #FFD580;
     --green: #CCFFCC;
-    --neon-green: #CCFF00; /* Hijau Stabilo */
+    --neon-green: #CCFF00;
+    --red: #fc7b7b;
+    --purple: #fe8fed;
     --dark: #2D3436;
     --glass: rgba(255, 255, 255, 0.6);
 }
@@ -136,6 +138,8 @@ body {
 .card-orange { background: var(--orange); }
 .card-green { background: var(--green); }
 .card-neon { background: var(--neon-green); }
+.card-purple { background: var(--purple); }
+.card-red { background: var(--red); }
 
 .card h3 {
     margin: 0;
