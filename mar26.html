@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laporan HR Strategis & Analisis Data Operasional (Maret-April 2026)</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Tailwind Config for Custom Colors (Warm Neutrals) -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            bg: '#fdfbf7',       // Warm white/cream background
+                            card: '#ffffff',     // Pure white for cards
+                            text: '#2d3748',     // Dark slate text
+                            accent: '#d97706',   // Amber for primary highlights
+                            danger: '#dc2626',   // Red for risks/alerts
+                            success: '#059669',  // Emerald for positive metrics
+                            border: '#e2e8f0'    // Soft gray borders
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Chosen Palette: Warm Neutrals with Amber, Emerald, and Crimson accents -->
+    <!-- Application Structure Plan: A tabbed Executive Dashboard structure was chosen. Because the report covers distinct operational areas (Recruitment, Culture, Finance, Project KBP), a dashboard allows executives to view high-level summaries and click into specific tabs to explore deep dives without losing context. This avoids infinite scrolling and conceptually separates quantitative metrics from qualitative behavioral analysis (like the toxic culture insights). -->
+    <!-- Visualization & Content Choices:
+         1. Funnel Data -> Goal: Analyze drop-off -> Viz: Chart.js Horizontal Bar (simulated funnel) -> Justification: Clearly shows where candidates are lost.
+         2. Cost of Vacancy -> Goal: Demonstrate financial impact of delays -> Viz: Interactive JS Calculator -> Justification: Makes the abstract concept of 'lost time' tangible for executives.
+         3. Culture Issues -> Goal: Explain complex interpersonal conflicts -> Viz: Interactive flip/expand cards -> Justification: Keeps UI clean while allowing deep dives into Adams' Equity Theory and Nepotism.
+         4. Kasbon Surge -> Goal: Highlight liquidity risk -> Viz: Chart.js Grouped Bar -> Justification: Directly compares the massive spike between March and April.
+         5. KBP Project -> Goal: Show 'System-Ready but Resource-Starved' paradox -> Viz: Chart.js Radar Chart -> Justification: Contrasts high scores in SOP adherence against terrible scores in hardware availability.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+
+    <style>
+        /* Strict Chart Container Styling */
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px; /* Constrain max width for readability */
+            margin-left: auto;
+            margin-right: auto;
+            height: 45vh; /* Responsive height */
+            min-height: 300px;
+            max-height: 450px;
+        }
+
+        /* Prevent scrollbars on sidebar */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Smooth transitions */
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-brand-bg text-brand-text font-sans antialiased overflow-hidden flex h-screen">
+
+    <!-- Sidebar Navigation -->
+    <aside class="w-64 bg-brand-card border-r border-brand-border flex flex-col h-full shadow-sm z-10 flex-shrink-0">
+        <div class="p-6 border-b border-brand-border">
+            <h1 class="text-xl font-bold text-brand-text leading-tight">HR Strategic<br><span class="text-brand-accent">Dashboard</span></h1>
+            <p class="text-xs text-gray-500 mt-2">Maret - April 2026</p>
+        </div>
+        <nav class="flex-1 overflow-y-auto no-scrollbar p-4 space-y-2">
+            <button onclick="switchTab('rekrutmen')" id="nav-rekrutmen" class="nav-btn w-full flex items-center gap-3 px-4 py-3 text-sm font-medium rounded-lg bg-brand-accent/10 text-brand-accent transition-colors">
+                <span class="text-lg">&#128101;</span> Rekrutmen & Risiko
+            </button>
+            <button onclick="switchTab('kultur')" id="nav-kultur" class="nav-btn w-full flex items-center gap-3 px-4 py-3 text-sm font-medium rounded-lg text-gray-600 hover:bg-gray-50 transition-colors">
+                <span class="text-lg">&#127960;</span> Kultur & Konflik
+            </button>
+            <button onclick="switchTab('keuangan')" id="nav-keuangan" class="nav-btn w-full flex items-center gap-3 px-4 py-3 text-sm font-medium rounded-lg text-gray-600 hover:bg-gray-50 transition-colors">
+                <span class="text-lg">&#128176;</span> Finansial & Admin
+            </button>
+            <button onclick="switchTab('operasional')" id="nav-operasional" class="nav-btn w-full flex items-center gap-3 px-4 py-3 text-sm font-medium rounded-lg text-gray-600 hover:bg-gray-50 transition-colors">
+                <span class="text-lg">&#9749;</span> Operasional KBP
+            </button>
+            <button onclick="switchTab('action')" id="nav-action" class="nav-btn w-full flex items-center gap-3 px-4 py-3 text-sm font-medium rounded-lg text-gray-600 hover:bg-gray-50 transition-colors">
+                <span class="text-lg">&#128640;</span> Action Plan
+            </button>
+        </nav>
+        <div class="p-4 border-t border-brand-border text-xs text-gray-400 text-center">
+            Internal Confidential &copy; 2026
+        </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="flex-1 h-full overflow-y-auto relative">
+        <!-- Top Bar -->
+        <header class="bg-brand-card shadow-sm px-8 py-4 flex justify-between items-center sticky top-0 z-20">
+            <h2 id="page-title" class="text-2xl font-bold text-brand-text">Rekrutmen & Risiko Kepatuhan</h2>
+            <div class="flex items-center gap-4 text-sm">
+                <span class="px-3 py-1 bg-brand-success/10 text-brand-success rounded-full font-semibold">&#10003; Zero Error Payroll</span>
+                <span class="px-3 py-1 bg-brand-danger/10 text-brand-danger rounded-full font-semibold">&#9888; 137 Kandidat Ghosting</span>
+            </div>
+        </header>
+
+        <div class="p-8 pb-20">
+            
+            <!-- SECTION 1: REKRUTMEN & RISIKO -->
+            <section id="tab-rekrutmen" class="tab-content active">
+                <div class="mb-6">
+                    <p class="text-gray-600 leading-relaxed text-lg">
+                        <strong>Konteks Bagian:</strong> Bagian ini menganalisis efisiensi saluran rekrutmen selama bulan Maret dan April. Anda akan melihat visualisasi penyusutan jumlah pelamar akibat filter kualifikasi (Funnel), kalkulator interaktif untuk menghitung kerugian finansial akibat kekosongan posisi (Cost of Vacancy), serta daftar risiko hukum terkait keterlambatan dokumen legal (SKCK).
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+                    <!-- Funnel Chart -->
+                    <div class="bg-brand-card p-6 rounded-xl border border-brand-border shadow-sm">
+                        <h3 class="text-lg font-bold mb-2">Analisis Corong Rekrutmen (April)</h3>
+                        <p class="text-sm text-gray-500 mb-4">Penyusutan drastis terjadi akibat filter "Pengalaman Kerja". Indikasi saluran iklan menjaring banyak audiens non-target.</p>
+                        <div class="chart-container">
+                            <canvas id="funnelChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- COV Calculator -->
+                    <div class="bg-brand-card p-6 rounded-xl border border-brand-border shadow-sm flex flex-col">
+                        <h3 class="text-lg font-bold mb-2">Kalkulator Cost of Vacancy (COV)</h3>
+                        <p class="text-sm text-gray-500 mb-6">Akibat birokrasi HR, terjadi <span class="text-brand-danger font-bold">137 kasus Candidate Ghosting</span>. Hitung kerugian finansial murni per posisi yang kosong.</p>
+                        
+                        <div class="flex-1 bg-gray-50 p-6 rounded-lg border border-gray-200">
+                            <div class="mb-4">
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Estimasi Gaji per Bulan (Rp)</label>
+                                <input type="number" id="cov-gaji" value="2800000" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-brand-accent focus:border-brand-accent" onchange="calculateCOV()" onkeyup="calculateCOV()">
+                            </div>
+                            <div class="mb-6">
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Lama Penundaan / Posisi Kosong (Hari Kalender)</label>
+                                <input type="range" id="cov-hari" min="1" max="30" value="14" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-brand-accent" oninput="updateHariLabel(); calculateCOV()">
+                                <div class="text-right text-sm font-bold text-brand-accent mt-1"><span id="hari-label">14</span> Hari</div>
+                            </div>
+                            <div class="mt-auto pt-4 border-t border-gray-300">
+                                <span class="text-sm text-gray-500 block mb-1">Estimasi Kerugian (COV) per 1 Posisi:</span>
+                                <span id="cov-result" class="text-3xl font-bold text-brand-danger">Rp 1.755.376</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Compliance Risk -->
+                <div class="bg-white p-6 rounded-xl border border-red-200 border-l-4 border-l-brand-danger shadow-sm">
+                    <div class="flex items-start gap-4">
+                        <div class="text-3xl">&#9888;</div>
+                        <div class="w-full">
+                            <h3 class="text-xl font-bold text-brand-danger mb-2">Risiko Kepatuhan: Keterlambatan Fatal SKCK</h3>
+                            <p class="text-gray-700 mb-4">Mayoritas kru menyerahkan SKCK berminggu-minggu setelah beroperasi di kasir. Ini mengekspos perusahaan pada ancaman hukum <strong>Negligent Hiring (Kelalaian Perekrutan)</strong>.</p>
+                            
+                            <div class="bg-red-50 p-4 rounded-md text-sm text-red-800">
+                                <div class="flex justify-between items-center border-b border-red-200 pb-2 mb-2 font-bold">
+                                    <span>Karyawan</span>
+                                    <span>Keterlambatan Penyerahan SKCK</span>
+                                </div>
+                                <div class="flex justify-between items-center py-1">
+                                    <span>Desi Widiasari</span>
+                                    <span>26 Hari</span>
+                                </div>
+                                <div class="flex justify-between items-center py-1">
+                                    <span>Jaenal arif</span>
+                                    <span>2 Bulan 5 Hari</span>
+                                </div>
+                                <div class="flex justify-between items-center py-1 bg-red-100 rounded px-2 font-bold">
+                                    <span>Muhammad Rafie Rashad</span>
+                                    <span>3 Bulan 30 Hari (Melewati masa probation)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 2: KULTUR & KONFLIK -->
+            <section id="tab-kultur" class="tab-content">
+                <div class="mb-6">
+                    <p class="text-gray-600 leading-relaxed text-lg">
+                        <strong>Konteks Bagian:</strong> Area ini menyoroti laporan survei anonim dari garda depan. Ini bukan sekadar komplain, melainkan indikasi terbentuknya budaya kerja toksik (Toxic Workplace Culture). Anda dapat mengklik setiap kartu masalah untuk melihat rincian pengaduan riil dan dasar teori psikologi SDM yang menjelaskan mengapa insiden tersebut merusak produktivitas dan moral karyawan.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Issue 1 -->
+                    <div class="bg-brand-card rounded-xl border border-brand-border shadow-sm overflow-hidden flex flex-col">
+                        <div class="p-6 border-b border-brand-border bg-gray-50 flex-1">
+                            <div class="text-2xl mb-3">&#128104;&#8205;&#128102;</div>
+                            <h3 class="text-lg font-bold text-brand-text mb-2">Nepotisme Organisasional</h3>
+                            <span class="inline-block px-2 py-1 bg-gray-200 text-gray-700 text-xs rounded font-semibold mb-3">Outlet Soreang</span>
+                            <p class="text-sm text-gray-600 line-clamp-3">Pasangan kakak-beradik (Ramdan & Mulya) memanipulasi jadwal sepihak melangkahi wewenang Leader. Crew lain merasa terintimidasi dan kehilangan ruang gerak (Psychological Safety hancur).</p>
+                        </div>
+                        <div class="p-4 bg-white">
+                            <button onclick="toggleCard('insight-1')" class="w-full py-2 bg-brand-text text-white rounded text-sm font-semibold hover:bg-gray-800 transition-colors">Bongkar Analisis Strategis</button>
+                        </div>
+                        <div id="insight-1" class="hidden p-6 bg-brand-accent/10 border-t border-brand-accent/20 text-sm">
+                            <strong class="text-brand-accent block mb-2">Conflict of Interest</strong>
+                            Solusi "rolling 10 hari" sebelumnya terbukti gagal. Membiarkan kekerabatan biologis dalam satu regu merusak pengawasan objektif. Karyawan yang protes akan dilabeli "susah diatur". Wajib dilakukan mutasi permanen mutlak.
+                        </div>
+                    </div>
+
+                    <!-- Issue 2 -->
+                    <div class="bg-brand-card rounded-xl border border-brand-border shadow-sm overflow-hidden flex flex-col">
+                        <div class="p-6 border-b border-brand-border bg-gray-50 flex-1">
+                            <div class="text-2xl mb-3">&#9886;&#9887;</div>
+                            <h3 class="text-lg font-bold text-brand-text mb-2">Ketimpangan Keadilan (Dating Policy)</h3>
+                            <span class="inline-block px-2 py-1 bg-gray-200 text-gray-700 text-xs rounded font-semibold mb-3">Ambon & Pajajaran</span>
+                            <p class="text-sm text-gray-600 line-clamp-3">Crew bernama Agil dimutasi paksa dari Ambon ke Pajajaran karena pacaran (rugi finansial), namun pasangan Rahma & Rafi di Ambon dibiarkan kebal aturan meski terang-terangan pacaran.</p>
+                        </div>
+                        <div class="p-4 bg-white">
+                            <button onclick="toggleCard('insight-2')" class="w-full py-2 bg-brand-text text-white rounded text-sm font-semibold hover:bg-gray-800 transition-colors">Bongkar Analisis Strategis</button>
+                        </div>
+                        <div id="insight-2" class="hidden p-6 bg-brand-accent/10 border-t border-brand-accent/20 text-sm">
+                            <strong class="text-brand-accent block mb-2">Adams' Equity Theory</strong>
+                            Bukan sekadar iri. Saat karyawan melihat ketimpangan perlakuan kedisiplinan ("tebang pilih"), terjadi Disonansi Kognitif. Untuk meredakan ketidakadilan, kru akan otomatis menurunkan produktivitas kerja (bekerja malas) dan kepercayaan pada HR hancur lebur.
+                        </div>
+                    </div>
+
+                    <!-- Issue 3 -->
+                    <div class="bg-brand-card rounded-xl border border-brand-border shadow-sm overflow-hidden flex flex-col">
+                        <div class="p-6 border-b border-brand-border bg-gray-50 flex-1">
+                            <div class="text-2xl mb-3">&#128227;</div>
+                            <h3 class="text-lg font-bold text-brand-text mb-2">Silo Effect Marketing vs Ops</h3>
+                            <span class="inline-block px-2 py-1 bg-gray-200 text-gray-700 text-xs rounded font-semibold mb-3">Semua Cabang</span>
+                            <p class="text-sm text-gray-600 line-clamp-3">Admin Instagram mengiyakan konsumen memakai Voucher Grab demi engagement, padahal sistem POS outlet tidak bisa. Crew garda depan dimarahi customer secara langsung.</p>
+                        </div>
+                        <div class="p-4 bg-white">
+                            <button onclick="toggleCard('insight-3')" class="w-full py-2 bg-brand-text text-white rounded text-sm font-semibold hover:bg-gray-800 transition-colors">Bongkar Analisis Strategis</button>
+                        </div>
+                        <div id="insight-3" class="hidden p-6 bg-brand-accent/10 border-t border-brand-accent/20 text-sm">
+                            <strong class="text-brand-accent block mb-2">Customer Abuse & Brand Equity</strong>
+                            Miskomunikasi antar departemen menjadikan kru operasional sebagai tameng operasional tanpa solusi. Ini merusak moral karyawan dan secara simultan menghancurkan Brand Equity di mata konsumen yang kecewa.
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 3: KEUANGAN & ADMIN -->
+            <section id="tab-keuangan" class="tab-content">
+                <div class="mb-6">
+                    <p class="text-gray-600 leading-relaxed text-lg">
+                        <strong>Konteks Bagian:</strong> Bagian ini menyajikan data kontras terkait administrasi keuangan internal. Di satu sisi, ada pencapaian teknis luar biasa berupa Zero Error pada perhitungan Payroll. Di sisi lain, terjadi lonjakan tak wajar pada pengajuan Kasbon (Pinjaman Karyawan) di bulan April yang berisiko menguras likuiditas (Working Capital) perusahaan jika tidak direm secara strategis.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <div class="lg:col-span-1 flex flex-col gap-6">
+                        <!-- Success Card -->
+                        <div class="bg-brand-success/10 border border-brand-success/30 p-6 rounded-xl flex items-center gap-4">
+                            <div class="text-4xl text-brand-success">&#127942;</div>
+                            <div>
+                                <h4 class="font-bold text-brand-success">Zero Error Payroll</h4>
+                                <p class="text-sm text-gray-700 mt-1">Kalkulasi rumit Daily Worker & Full-time diselesaikan dalam <strong>1 Hari</strong> tanpa komplain (Hygiene Factor terpenuhi).</p>
+                            </div>
+                        </div>
+
+                        <!-- Info Card -->
+                        <div class="bg-brand-card p-6 rounded-xl border border-brand-border shadow-sm">
+                            <h4 class="font-bold mb-3 border-b pb-2">IT & Eksekutif Log</h4>
+                            <ul class="text-sm space-y-3">
+                                <li class="flex items-start gap-2">
+                                    <span class="text-brand-success mt-0.5">&#10003;</span>
+                                    <span>25 kali deployment sistem web HR sukses (Zero Downtime).</span>
+                                </li>
+                                <li class="flex items-start gap-2 text-brand-danger">
+                                    <span class="mt-0.5">&#10007;</span>
+                                    <span>Laporan Dividen Investor terlambat 6 hari (Deadline 10 April, rilis 16 April).</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Kasbon Chart -->
+                    <div class="lg:col-span-2 bg-brand-card p-6 rounded-xl border border-brand-border shadow-sm">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <h3 class="text-lg font-bold">Ledakan Pengajuan Kasbon</h3>
+                                <p class="text-sm text-gray-500">Kenaikan nilai pengajuan mencapai <span class="font-bold text-brand-danger">+345.9%</span> di bulan April.</p>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-2xl font-bold text-brand-danger">Rp 32.35M</div>
+                                <div class="text-xs font-semibold uppercase text-gray-500">Diajukan di April</div>
+                            </div>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="kasbonChart"></canvas>
+                        </div>
+                        <div class="mt-4 p-3 bg-red-50 text-red-800 text-sm rounded border border-red-200">
+                            <strong>Risiko Likuiditas:</strong> Menjadi entitas peminjaman mikro menguras Working Capital. HR terpaksa menolak 60% pengajuan di April, yang memposisikan HR sebagai tokoh antagonis secara subjektif.
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 4: OPERASIONAL KBP -->
+            <section id="tab-operasional" class="tab-content">
+                <div class="mb-6">
+                    <p class="text-gray-600 leading-relaxed text-lg">
+                        <strong>Konteks Bagian:</strong> Menganalisis kegagalan target proyek Optimasi Kopi Priangan (KBP). Grafik radar di bawah menunjukkan diskrepansi (kesenjangan) yang sangat tajam antara kesiapan kognitif kru (kepatuhan pada SOP, Form MRD) dibandingkan dengan ketersediaan infrastruktur fisik (Mesin Kopi, Mixer, Bahan Baku Roti) yang diabaikan oleh manajemen pusat.
+                    </p>
+                </div>
+
+                <div class="bg-brand-card p-8 rounded-xl border border-brand-border shadow-sm">
+                    <h3 class="text-xl font-bold text-center mb-2">Paradoks Manajemen: "System-Ready but Resource-Starved"</h3>
+                    <p class="text-center text-gray-600 max-w-2xl mx-auto mb-8">Kru patuh pada SOP administratif, namun tidak dibekali permesinan dan bahan baku premium layaknya standar flagship Pajajaran. Akibatnya, kualitas dan antusiasme anjlok.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                        <div class="chart-container">
+                            <canvas id="kbpRadarChart"></canvas>
+                        </div>
+                        
+                        <div>
+                            <h4 class="font-bold text-lg mb-4 border-b border-brand-border pb-2">Suara Lapangan (Data Survei)</h4>
+                            <div class="space-y-4">
+                                <div class="bg-gray-50 p-4 rounded-lg border-l-4 border-brand-accent">
+                                    <strong class="block text-sm text-gray-500 uppercase">Staf Pembuatan Makanan</strong>
+                                    <p class="text-brand-text font-medium">"Membutuhkan Mesin Kopi, Mixer, dan kelangkaan suplai Roti Priangan."</p>
+                                </div>
+                                <div class="bg-gray-50 p-4 rounded-lg border-l-4 border-brand-accent">
+                                    <strong class="block text-sm text-gray-500 uppercase">Staf Pelayanan</strong>
+                                    <p class="text-brand-text font-medium">"Menu baru nihil, mesin kopi tidak tersedia, alat penyajian sangat seadanya (dibawah standar)."</p>
+                                </div>
+                                <div class="bg-gray-50 p-4 rounded-lg border-l-4 border-brand-accent">
+                                    <strong class="block text-sm text-gray-500 uppercase">Tuntutan Bersama</strong>
+                                    <p class="text-brand-text font-medium">"Mohon alat dan bahan baku disamakan spesifikasi premiumnya dengan standar cabang Pajajaran demi cita rasa."</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 5: ACTION PLAN -->
+            <section id="tab-action" class="tab-content">
+                <div class="mb-6">
+                    <p class="text-gray-600 leading-relaxed text-lg">
+                        <strong>Konteks Bagian:</strong> Ini adalah rangkuman dari seluruh rekomendasi strategis tingkat tinggi. Berdasarkan temuan operasional, risiko kepatuhan, dan isu kultur yang dijabarkan di tab sebelumnya, berikut adalah 7 langkah taktis (Master Action Plan) yang wajib segera dieksekusi oleh manajemen eksekutif dan HR.
+                    </p>
+                </div>
+
+                <div class="bg-brand-card rounded-xl border border-brand-border shadow-sm overflow-hidden">
+                    <div class="bg-brand-text text-white p-6">
+                        <h2 class="text-2xl font-bold">Master Action Plan</h2>
+                        <p class="text-gray-300">Rekomendasi Strategis Eksekusi Lanjutan</p>
+                    </div>
+                    <div class="p-6">
+                        <ul class="space-y-4">
+                            <li class="flex items-start gap-4 p-4 hover:bg-gray-50 rounded-lg transition-colors border border-transparent hover:border-gray-200">
+                                <div class="w-8 h-8 rounded-full bg-brand-accent/20 text-brand-accent flex items-center justify-center font-bold flex-shrink-0">1</div>
+                                <div>
+                                    <h4 class="font-bold text-lg">Desentralisasi Penjadwalan Wawancara (Anti-Ghosting)</h4>
+                                    <p class="text-gray-600">Delegasikan screening awal dan jadwal ke HR part-time untuk menangani ledakan pelamar dan menghilangkan 137 angka ghosting.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-4 p-4 hover:bg-gray-50 rounded-lg transition-colors border border-transparent hover:border-gray-200">
+                                <div class="w-8 h-8 rounded-full bg-brand-danger/20 text-brand-danger flex items-center justify-center font-bold flex-shrink-0">2</div>
+                                <div>
+                                    <h4 class="font-bold text-lg">Zero-Tolerance SKCK Policy (Hard Lock)</h4>
+                                    <p class="text-gray-600">SKCK asli mutlak diserahkan H-1. Hapus toleransi 3 bulan untuk memitigasi risiko hukum <em>Corporate Liability</em>.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-4 p-4 hover:bg-gray-50 rounded-lg transition-colors border border-transparent hover:border-gray-200">
+                                <div class="w-8 h-8 rounded-full bg-brand-accent/20 text-brand-accent flex items-center justify-center font-bold flex-shrink-0">3</div>
+                                <div>
+                                    <h4 class="font-bold text-lg">Pemisahan Mutlak Kekerabatan (Anti-Nepotism)</h4>
+                                    <p class="text-gray-600">Mutasi permanen untuk kakak-beradik di Soreang guna merestorasi keamanan psikologis kru operasional setempat.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-4 p-4 hover:bg-gray-50 rounded-lg transition-colors border border-transparent hover:border-gray-200">
+                                <div class="w-8 h-8 rounded-full bg-brand-accent/20 text-brand-accent flex items-center justify-center font-bold flex-shrink-0">4</div>
+                                <div>
+                                    <h4 class="font-bold text-lg">Restorasi Keadilan Kebijakan (Blind Justice)</h4>
+                                    <p class="text-gray-600">Mutasi paksa pasangan di Ambon untuk menyamakan perlakuan dan mencegah disonansi kognitif (Teori Ekuitas) pada staf lain.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-4 p-4 hover:bg-gray-50 rounded-lg transition-colors border border-transparent hover:border-gray-200">
+                                <div class="w-8 h-8 rounded-full bg-brand-accent/20 text-brand-accent flex items-center justify-center font-bold flex-shrink-0">5</div>
+                                <div>
+                                    <h4 class="font-bold text-lg">Sinkronisasi H-1 Promosi (Marketing SLA)</h4>
+                                    <p class="text-gray-600">Terapkan <em>One Door Policy</em> untuk integrasi teknis promosi (Voucher Grab) antara Admin IG dan sistem POS outlet.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-4 p-4 hover:bg-gray-50 rounded-lg transition-colors border border-transparent hover:border-gray-200">
+                                <div class="w-8 h-8 rounded-full bg-brand-accent/20 text-brand-accent flex items-center justify-center font-bold flex-shrink-0">6</div>
+                                <div>
+                                    <h4 class="font-bold text-lg">Pengetatan Plafon Kasbon</h4>
+                                    <p class="text-gray-600">Tetapkan limitasi finansial algoritma absolut secara sistemik agar menekan lonjakan pengajuan yang menggerus <em>Cash Flow</em>.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-4 p-4 hover:bg-gray-50 rounded-lg transition-colors border border-transparent hover:border-gray-200">
+                                <div class="w-8 h-8 rounded-full bg-brand-accent/20 text-brand-accent flex items-center justify-center font-bold flex-shrink-0">7</div>
+                                <div>
+                                    <h4 class="font-bold text-lg">Suspensi KPI Inovasi KBP & Audit Rantai Suplai</h4>
+                                    <p class="text-gray-600">Bekukan target sales KBP sementara hingga <em>Purchasing</em> mendistribusikan mesin espresso, mixer, dan roti sesuai standar operasi.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Vanilla JavaScript for Interactivity -->
+    <script>
+        // --- State Management & Navigation ---
+        const tabTitles = {
+            'rekrutmen': 'Rekrutmen & Risiko Kepatuhan',
+            'kultur': 'Kultur Kerja & Konflik Internal',
+            'keuangan': 'Reliabilitas Finansial & Administrasi',
+            'operasional': 'Evaluasi Proyek Optimasi KBP',
+            'action': 'Master Action Plan'
+        };
+
+        function switchTab(tabId) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+            // Reset nav styling
+            document.querySelectorAll('.nav-btn').forEach(el => {
+                el.classList.remove('bg-brand-accent/10', 'text-brand-accent');
+                el.classList.add('text-gray-600', 'hover:bg-gray-50');
+            });
+
+            // Show selected tab
+            document.getElementById('tab-' + tabId).classList.add('active');
+            
+            // Highlight active nav
+            const activeNav = document.getElementById('nav-' + tabId);
+            activeNav.classList.remove('text-gray-600', 'hover:bg-gray-50');
+            activeNav.classList.add('bg-brand-accent/10', 'text-brand-accent');
+
+            // Update Header Title
+            document.getElementById('page-title').innerText = tabTitles[tabId];
+            
+            // Trigger chart updates to fix resizing issues if they were hidden
+            if(tabId === 'keuangan' && kasbonChart) kasbonChart.resize();
+            if(tabId === 'operasional' && radarChart) radarChart.resize();
+        }
+
+        // --- Interaction Logic (Cost of Vacancy) ---
+        function updateHariLabel() {
+            const val = document.getElementById('cov-hari').value;
+            document.getElementById('hari-label').innerText = val;
+        }
+
+        function calculateCOV() {
+            const gaji = parseFloat(document.getElementById('cov-gaji').value) || 0;
+            const hari = parseFloat(document.getElementById('cov-hari').value) || 0;
+            // Formula specified in report: Gaji / 260 days = Daily rate
+            const dailyRate = gaji * 12 / 260; // Assuming input is monthly, annualize it then divide by 260
+            const total = dailyRate * hari;
+            
+            document.getElementById('cov-result').innerText = new Intl.NumberFormat('id-ID', {
+                style: 'currency', 
+                currency: 'IDR',
+                maximumFractionDigits: 0
+            }).format(total);
+        }
+        // Initialize COV on load
+        calculateCOV();
+
+        // --- Interaction Logic (Culture Cards) ---
+        function toggleCard(id) {
+            const el = document.getElementById(id);
+            if(el.classList.contains('hidden')) {
+                el.classList.remove('hidden');
+            } else {
+                el.classList.add('hidden');
+            }
+        }
+
+        // --- Chart.js Implementations ---
+        Chart.defaults.font.family = "'Inter', sans-serif";
+        Chart.defaults.color = '#4b5563';
+
+        // 1. Funnel Chart (Simulated via Horizontal Bar)
+        const ctxFunnel = document.getElementById('funnelChart').getContext('2d');
+        const funnelChart = new Chart(ctxFunnel, {
+            type: 'bar',
+            data: {
+                labels: ['Total Pelamar', 'Lolos Usia (<26)', 'Lolos Domisili', 'Lolos Pendidikan', 'Bukan Pelajar Aktif', 'Lolos Pengalaman (Final)'],
+                datasets: [{
+                    label: 'Jumlah Kandidat (April)',
+                    data: [738, 709, 677, 643, 615, 380], // Derived from Report
+                    backgroundColor: [
+                        '#e5e7eb',
+                        '#d1d5db',
+                        '#9ca3af',
+                        '#6b7280',
+                        '#4b5563',
+                        '#d97706' // Accent for final pool
+                    ],
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                let label = context.dataset.label || '';
+                                if (label) label += ': ';
+                                if (context.parsed.x !== null) label += context.parsed.x + ' Orang';
+                                return label;
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: { beginAtZero: true, grid: {display: false} },
+                    y: { grid: {display: false} }
+                }
+            }
+        });
+
+        // 2. Kasbon Chart (Grouped Bar)
+        let kasbonChart;
+        const ctxKasbon = document.getElementById('kasbonChart').getContext('2d');
+        kasbonChart = new Chart(ctxKasbon, {
+            type: 'bar',
+            data: {
+                labels: ['Bulan Maret (16 Orang)', 'Bulan April (31 Orang)'],
+                datasets: [
+                    {
+                        label: 'Total Nominal Diajukan',
+                        data: [9350000, 32350000],
+                        backgroundColor: '#dc2626', // Danger red
+                        borderRadius: 4
+                    },
+                    {
+                        label: 'Total Nominal Disetujui (Cair)',
+                        data: [7300000, 12500000],
+                        backgroundColor: '#059669', // Success green
+                        borderRadius: 4
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return context.dataset.label + ': Rp ' + context.parsed.y.toLocaleString('id-ID');
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: { 
+                        beginAtZero: true,
+                        ticks: {
+                            callback: function(value) {
+                                return 'Rp ' + (value/1000000) + 'M';
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        // 3. KBP Radar Chart
+        let radarChart;
+        const ctxRadar = document.getElementById('kbpRadarChart').getContext('2d');
+        radarChart = new Chart(ctxRadar, {
+            type: 'radar',
+            data: {
+                labels: [
+                    ['Penggunaan', 'Form/SOP'], 
+                    ['Sistem', 'Target & Reward'], 
+                    ['Distribusi', 'Bahan Rutin'], 
+                    ['Kualitas', 'Mesin & Alat'], 
+                    ['Antusiasme', 'Pelanggan']
+                ],
+                datasets: [{
+                    label: 'Skor Evaluasi (1-5)',
+                    data: [4.4, 3.8, 3.5, 1.8, 2.0], // Estimated averages from raw data
+                    backgroundColor: 'rgba(217, 119, 6, 0.2)', // Accent transparent
+                    borderColor: '#d97706',
+                    pointBackgroundColor: '#d97706',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    r: {
+                        angleLines: { color: 'rgba(0, 0, 0, 0.1)' },
+                        grid: { color: 'rgba(0, 0, 0, 0.1)' },
+                        pointLabels: {
+                            font: { family: 'Inter', size: 12 },
+                            color: '#4b5563'
+                        },
+                        min: 0,
+                        max: 5,
+                        ticks: { stepSize: 1, display: false }
+                    }
+                },
+                plugins: {
+                    legend: { display: false }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
