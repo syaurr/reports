@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Laporan HR Strategis & Analisis Data Operasional (Maret-April 2026)</title>
+    <title>Rports EXPA (Maret-April 2026)</title>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -88,8 +88,8 @@
     <!-- Sidebar Navigation -->
     <aside class="w-64 bg-brand-card border-r border-brand-border flex flex-col h-full shadow-sm z-10 flex-shrink-0">
         <div class="p-6 border-b border-brand-border">
-            <h1 class="text-xl font-bold text-brand-text leading-tight">HR Strategic<br><span class="text-brand-accent">Dashboard</span></h1>
-            <p class="text-xs text-gray-500 mt-2">Maret - April 2026</p>
+            <h1 class="text-xl font-bold text-brand-text leading-tight">EXPA Reports<br><span class="text-brand-accent">Maret - April 2026</span></h1>
+            <p class="text-xs text-gray-500 mt-2">Fokus Analis Rekrutmen</p>
         </div>
         <nav class="flex-1 overflow-y-auto no-scrollbar p-4 space-y-2">
             <button onclick="switchTab('rekrutmen')" id="nav-rekrutmen" class="nav-btn w-full flex items-center gap-3 px-4 py-3 text-sm font-medium rounded-lg bg-brand-accent/10 text-brand-accent transition-colors">
@@ -109,7 +109,7 @@
             </button>
         </nav>
         <div class="p-4 border-t border-brand-border text-xs text-gray-400 text-center">
-            Internal Confidential &copy; 2026
+            EXPA 2026
         </div>
     </aside>
 
@@ -130,15 +130,15 @@
             <section id="tab-rekrutmen" class="tab-content active">
                 <div class="mb-6">
                     <p class="text-gray-600 leading-relaxed text-lg">
-                        <strong>Konteks Bagian:</strong> Bagian ini menganalisis efisiensi saluran rekrutmen selama bulan Maret dan April. Anda akan melihat visualisasi penyusutan jumlah pelamar akibat filter kualifikasi (Funnel), kalkulator interaktif untuk menghitung kerugian finansial akibat kekosongan posisi (Cost of Vacancy), serta daftar risiko hukum terkait keterlambatan dokumen legal (SKCK).
+                        Analisis efisiensi saluran rekrutmen selama bulan <strong>Maret dan April</strong>. Visualisasi penyusutan jumlah pelamar akibat filter kualifikasi (Funnel), kalkulator interaktif untuk menghitung kerugian finansial akibat kekosongan posisi (Cost of Vacancy), serta daftar risiko hukum terkait keterlambatan dokumen legal (SKCK).
                     </p>
                 </div>
 
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
                     <!-- Funnel Chart -->
                     <div class="bg-brand-card p-6 rounded-xl border border-brand-border shadow-sm">
-                        <h3 class="text-lg font-bold mb-2">Analisis Corong Rekrutmen (April)</h3>
-                        <p class="text-sm text-gray-500 mb-4">Penyusutan drastis terjadi akibat filter "Pengalaman Kerja". Indikasi saluran iklan menjaring banyak audiens non-target.</p>
+                        <h3 class="text-lg font-bold mb-2">Analisis Rekrutmen Funnel (April)</h3>
+                        <p class="text-sm text-gray-500 mb-4">Penyusutan drastis terjadi akibat filter "Pengalaman Kerja". Filterisasi digital masih berjalan sangat efektif, portal loker yang digunakan mencakup demografi luas yaitu Kota Bandung.</p>
                         <div class="chart-container">
                             <canvas id="funnelChart"></canvas>
                         </div>
@@ -172,8 +172,8 @@
                     <div class="flex items-start gap-4">
                         <div class="text-3xl">&#9888;</div>
                         <div class="w-full">
-                            <h3 class="text-xl font-bold text-brand-danger mb-2">Risiko Kepatuhan: Keterlambatan Fatal SKCK</h3>
-                            <p class="text-gray-700 mb-4">Mayoritas kru menyerahkan SKCK berminggu-minggu setelah beroperasi di kasir. Ini mengekspos perusahaan pada ancaman hukum <strong>Negligent Hiring (Kelalaian Perekrutan)</strong>.</p>
+                            <h3 class="text-xl font-bold text-brand-danger mb-2">Keterlambatan SKCK dan Kontrak</h3>
+                            <p class="text-gray-700 mb-4">Mayoritas kru menyerahkan SKCK berminggu-minggu setelah bekerja. Mengekspos perusahaan pada ancaman hukum <strong>Negligent Hiring (Kelalaian Perekrutan)</strong>.</p>
                             
                             <div class="bg-red-50 p-4 rounded-md text-sm text-red-800">
                                 <div class="flex justify-between items-center border-b border-red-200 pb-2 mb-2 font-bold">
@@ -202,7 +202,7 @@
             <section id="tab-kultur" class="tab-content">
                 <div class="mb-6">
                     <p class="text-gray-600 leading-relaxed text-lg">
-                        <strong>Konteks Bagian:</strong> Area ini menyoroti laporan survei anonim dari garda depan. Ini bukan sekadar komplain, melainkan indikasi terbentuknya budaya kerja toksik (Toxic Workplace Culture). Anda dapat mengklik setiap kartu masalah untuk melihat rincian pengaduan riil dan dasar teori psikologi SDM yang menjelaskan mengapa insiden tersebut merusak produktivitas dan moral karyawan.
+                         Laporan survei anonim. Indikasi terbentuknya budaya kerja toksik (Toxic Workplace Culture). Klik kartu masalah untuk melihat rincian pengaduan riil dan dasar teori psikologi SDM yang menjelaskan mengapa insiden tersebut merusak produktivitas dan moral karyawan.
                     </p>
                 </div>
 
@@ -213,7 +213,7 @@
                             <div class="text-2xl mb-3">&#128104;&#8205;&#128102;</div>
                             <h3 class="text-lg font-bold text-brand-text mb-2">Nepotisme Organisasional</h3>
                             <span class="inline-block px-2 py-1 bg-gray-200 text-gray-700 text-xs rounded font-semibold mb-3">Outlet Soreang</span>
-                            <p class="text-sm text-gray-600 line-clamp-3">Pasangan kakak-beradik (Ramdan & Mulya) memanipulasi jadwal sepihak melangkahi wewenang Leader. Crew lain merasa terintimidasi dan kehilangan ruang gerak (Psychological Safety hancur).</p>
+                            <p class="text-sm text-gray-600 line-clamp-3">Pasangan kakak-beradik (Ramdan & Mulya) memanipulasi jadwal sepihak melangkahi wewenang Leader. Crew lain merasa terintimidasi dan kehilangan ruang gerak (Psychological Safety menurun).</p>
                         </div>
                         <div class="p-4 bg-white">
                             <button onclick="toggleCard('insight-1')" class="w-full py-2 bg-brand-text text-white rounded text-sm font-semibold hover:bg-gray-800 transition-colors">Bongkar Analisis Strategis</button>
@@ -237,7 +237,7 @@
                         </div>
                         <div id="insight-2" class="hidden p-6 bg-brand-accent/10 border-t border-brand-accent/20 text-sm">
                             <strong class="text-brand-accent block mb-2">Adams' Equity Theory</strong>
-                            Bukan sekadar iri. Saat karyawan melihat ketimpangan perlakuan kedisiplinan ("tebang pilih"), terjadi Disonansi Kognitif. Untuk meredakan ketidakadilan, kru akan otomatis menurunkan produktivitas kerja (bekerja malas) dan kepercayaan pada HR hancur lebur.
+                            Bukan sekadar iri. Saat karyawan melihat ketimpangan perlakuan kedisiplinan ("tebang pilih"), terjadi Disonansi Kognitif. Untuk meredakan ketidakadilan, kru akan otomatis menurunkan produktivitas kerja (bekerja malas) dan SOP HR dipertanyakan.
                         </div>
                     </div>
 
@@ -264,7 +264,7 @@
             <section id="tab-keuangan" class="tab-content">
                 <div class="mb-6">
                     <p class="text-gray-600 leading-relaxed text-lg">
-                        <strong>Konteks Bagian:</strong> Bagian ini menyajikan data kontras terkait administrasi keuangan internal. Di satu sisi, ada pencapaian teknis luar biasa berupa Zero Error pada perhitungan Payroll. Di sisi lain, terjadi lonjakan tak wajar pada pengajuan Kasbon (Pinjaman Karyawan) di bulan April yang berisiko menguras likuiditas (Working Capital) perusahaan jika tidak direm secara strategis.
+                        Data kontras terkait administrasi keuangan internal. 
                     </p>
                 </div>
 
@@ -299,11 +299,11 @@
                     <div class="lg:col-span-2 bg-brand-card p-6 rounded-xl border border-brand-border shadow-sm">
                         <div class="flex justify-between items-start mb-4">
                             <div>
-                                <h3 class="text-lg font-bold">Ledakan Pengajuan Kasbon</h3>
-                                <p class="text-sm text-gray-500">Kenaikan nilai pengajuan mencapai <span class="font-bold text-brand-danger">+345.9%</span> di bulan April.</p>
+                                <h3 class="text-lg font-bold">Peningkatan Pengajuan Kasbon</h3>
+                                <p class="text-sm text-gray-500">Kenaikan nilai pengajuan mencapai <span class="font-bold text-brand-danger">+345.9%</span> di bulan April. Pengajuan maret dibatasi karena distribusi THR diwaktu yang sama.</p>
                             </div>
                             <div class="text-right">
-                                <div class="text-2xl font-bold text-brand-danger">Rp 32.35M</div>
+                                <div class="text-2xl font-bold text-brand-danger">Rp 32.35jt</div>
                                 <div class="text-xs font-semibold uppercase text-gray-500">Diajukan di April</div>
                             </div>
                         </div>
@@ -311,7 +311,7 @@
                             <canvas id="kasbonChart"></canvas>
                         </div>
                         <div class="mt-4 p-3 bg-red-50 text-red-800 text-sm rounded border border-red-200">
-                            <strong>Risiko Likuiditas:</strong> Menjadi entitas peminjaman mikro menguras Working Capital. HR terpaksa menolak 60% pengajuan di April, yang memposisikan HR sebagai tokoh antagonis secara subjektif.
+                             Menunda 60% pengajuan di April, memposisikan HR sebagai pihak yang dinilai sedikit negatif secara subjektif yaitu pihak yang memutuskan proses kasbon.
                         </div>
                     </div>
                 </div>
@@ -321,13 +321,13 @@
             <section id="tab-operasional" class="tab-content">
                 <div class="mb-6">
                     <p class="text-gray-600 leading-relaxed text-lg">
-                        <strong>Konteks Bagian:</strong> Menganalisis kegagalan target proyek Optimasi Kopi Priangan (KBP). Grafik radar di bawah menunjukkan diskrepansi (kesenjangan) yang sangat tajam antara kesiapan kognitif kru (kepatuhan pada SOP, Form MRD) dibandingkan dengan ketersediaan infrastruktur fisik (Mesin Kopi, Mixer, Bahan Baku Roti) yang diabaikan oleh manajemen pusat.
+                        Analisa target proyek Optimasi Kopi Priangan (KBP). Grafik radar di bawah menunjukkan diskrepansi (kesenjangan) yang sangat tajam antara kesiapan kognitif kru (kepatuhan pada SOP, Form MRD) dibandingkan dengan ketersediaan infrastruktur fisik yang belum dikai ulang oleh manajemen pusat.
                     </p>
                 </div>
 
                 <div class="bg-brand-card p-8 rounded-xl border border-brand-border shadow-sm">
-                    <h3 class="text-xl font-bold text-center mb-2">Paradoks Manajemen: "System-Ready but Resource-Starved"</h3>
-                    <p class="text-center text-gray-600 max-w-2xl mx-auto mb-8">Kru patuh pada SOP administratif, namun tidak dibekali permesinan dan bahan baku premium layaknya standar flagship Pajajaran. Akibatnya, kualitas dan antusiasme anjlok.</p>
+                    <h3 class="text-xl font-bold text-center mb-2">System-Ready but Resource-Starved</h3>
+                    <p class="text-center text-gray-600 max-w-2xl mx-auto mb-8">Kru patuh pada SOP administratif, namun tidak dibekali permesinan dan bahan baku sesuai standar flagship Pajajaran. Akibatnya, kualitas dan antusiasme menurun.</p>
                     
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                         <div class="chart-container">
@@ -335,7 +335,7 @@
                         </div>
                         
                         <div>
-                            <h4 class="font-bold text-lg mb-4 border-b border-brand-border pb-2">Suara Lapangan (Data Survei)</h4>
+                            <h4 class="font-bold text-lg mb-4 border-b border-brand-border pb-2">Data Survei dari Crew KBP</h4>
                             <div class="space-y-4">
                                 <div class="bg-gray-50 p-4 rounded-lg border-l-4 border-brand-accent">
                                     <strong class="block text-sm text-gray-500 uppercase">Staf Pembuatan Makanan</strong>
@@ -343,7 +343,7 @@
                                 </div>
                                 <div class="bg-gray-50 p-4 rounded-lg border-l-4 border-brand-accent">
                                     <strong class="block text-sm text-gray-500 uppercase">Staf Pelayanan</strong>
-                                    <p class="text-brand-text font-medium">"Menu baru nihil, mesin kopi tidak tersedia, alat penyajian sangat seadanya (dibawah standar)."</p>
+                                    <p class="text-brand-text font-medium">"Menu baru tidak ada, mesin kopi tidak tersedia, alat penyajian sangat seadanya (dibawah standar)."</p>
                                 </div>
                                 <div class="bg-gray-50 p-4 rounded-lg border-l-4 border-brand-accent">
                                     <strong class="block text-sm text-gray-500 uppercase">Tuntutan Bersama</strong>
@@ -359,21 +359,20 @@
             <section id="tab-action" class="tab-content">
                 <div class="mb-6">
                     <p class="text-gray-600 leading-relaxed text-lg">
-                        <strong>Konteks Bagian:</strong> Ini adalah rangkuman dari seluruh rekomendasi strategis tingkat tinggi. Berdasarkan temuan operasional, risiko kepatuhan, dan isu kultur yang dijabarkan di tab sebelumnya, berikut adalah 7 langkah taktis (Master Action Plan) yang wajib segera dieksekusi oleh manajemen eksekutif dan HR.
+                        Summary dari seluruh rekomendasi strategis tingkat tinggi. Berdasarkan temuan operasional, risiko kepatuhan, dan isu kultur yang dijabarkan di tab sebelumnya, berikut adalah 7 langkah taktis (Master Action Plan) yang disarankan segera dieksekusi oleh manajemen eksekutif dan HR.
                     </p>
                 </div>
 
                 <div class="bg-brand-card rounded-xl border border-brand-border shadow-sm overflow-hidden">
                     <div class="bg-brand-text text-white p-6">
                         <h2 class="text-2xl font-bold">Master Action Plan</h2>
-                        <p class="text-gray-300">Rekomendasi Strategis Eksekusi Lanjutan</p>
                     </div>
                     <div class="p-6">
                         <ul class="space-y-4">
                             <li class="flex items-start gap-4 p-4 hover:bg-gray-50 rounded-lg transition-colors border border-transparent hover:border-gray-200">
                                 <div class="w-8 h-8 rounded-full bg-brand-accent/20 text-brand-accent flex items-center justify-center font-bold flex-shrink-0">1</div>
                                 <div>
-                                    <h4 class="font-bold text-lg">Desentralisasi Penjadwalan Wawancara (Anti-Ghosting)</h4>
+                                    <h4 class="font-bold text-lg">Desentralisasi Penjadwalan Wawancara</h4>
                                     <p class="text-gray-600">Delegasikan screening awal dan jadwal ke HR part-time untuk menangani ledakan pelamar dan menghilangkan 137 angka ghosting.</p>
                                 </div>
                             </li>
@@ -387,7 +386,7 @@
                             <li class="flex items-start gap-4 p-4 hover:bg-gray-50 rounded-lg transition-colors border border-transparent hover:border-gray-200">
                                 <div class="w-8 h-8 rounded-full bg-brand-accent/20 text-brand-accent flex items-center justify-center font-bold flex-shrink-0">3</div>
                                 <div>
-                                    <h4 class="font-bold text-lg">Pemisahan Mutlak Kekerabatan (Anti-Nepotism)</h4>
+                                    <h4 class="font-bold text-lg">Pemisahan Mutlak Kekerabatan</h4>
                                     <p class="text-gray-600">Mutasi permanen untuk kakak-beradik di Soreang guna merestorasi keamanan psikologis kru operasional setempat.</p>
                                 </div>
                             </li>
@@ -395,7 +394,7 @@
                                 <div class="w-8 h-8 rounded-full bg-brand-accent/20 text-brand-accent flex items-center justify-center font-bold flex-shrink-0">4</div>
                                 <div>
                                     <h4 class="font-bold text-lg">Restorasi Keadilan Kebijakan (Blind Justice)</h4>
-                                    <p class="text-gray-600">Mutasi paksa pasangan di Ambon untuk menyamakan perlakuan dan mencegah disonansi kognitif (Teori Ekuitas) pada staf lain.</p>
+                                    <p class="text-gray-600">Perancangan dan pematuhan SOP pasangan di Ambon untuk menyamakan perlakuan dan mencegah disonansi kognitif (Teori Ekuitas) pada staf lain.</p>
                                 </div>
                             </li>
                             <li class="flex items-start gap-4 p-4 hover:bg-gray-50 rounded-lg transition-colors border border-transparent hover:border-gray-200">
