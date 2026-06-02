@@ -1,0 +1,2124 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>April Report EXPA</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Poppins', sans-serif; background-color: #ffffff; color: #202124; overflow-x: hidden; }
+        .text-google-blue { color: #4285F4; }
+        .text-google-red { color: #EA4335; }
+        .text-google-yellow { color: #FBBC05; }
+        .text-google-green { color: #34A853; }
+        .bg-google-blue { background-color: #4285F4; }
+        .bg-google-red { background-color: #EA4335; }
+        .bg-google-yellow { background-color: #FBBC05; }
+        .bg-google-green { background-color: #34A853; }
+        .border-google-blue { border-color: #4285F4; }
+        .shadow-google { box-shadow: 0 4px 6px -1px rgba(66, 133, 244, 0.1), 0 2px 4px -1px rgba(66, 133, 244, 0.06); }
+        .glass-card { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); border: 1px solid #e8eaed; }
+        
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f3f4; }
+        ::-webkit-scrollbar-thumb { background: #dadce0; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #9aa0a6; }
+    </style>
+</head>
+<body class="antialiased selection:bg-blue-200 selection:text-blue-900">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-card transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex-shrink-0 flex items-center gap-2">
+                    <div class="w-3 h-3 rounded-full bg-google-blue"></div>
+                    <div class="w-3 h-3 rounded-full bg-google-red"></div>
+                    <div class="w-3 h-3 rounded-full bg-google-yellow"></div>
+                    <div class="w-3 h-3 rounded-full bg-google-green"></div>
+                    <span class="ml-2 font-semibold text-lg tracking-tight">EXPA REPORT</span>
+                </div>
+                <div class="hidden md:flex space-x-6">
+                    <a href="#sourcing" class="text-sm font-medium text-gray-600 hover:text-google-blue transition-colors">Sourcing</a>
+                    <a href="#onboarding" class="text-sm font-medium text-gray-600 hover:text-google-red transition-colors">Onboarding</a>
+                    <a href="#compliance" class="text-sm font-medium text-gray-600 hover:text-google-yellow transition-colors">Dokumen</a>
+                    <a href="#crew-issues" class="text-sm font-medium text-gray-600 hover:text-google-blue transition-colors">Troubleshooting</a>
+                    <a href="#salary-benchmark" class="text-sm font-medium text-gray-600 hover:text-google-green transition-colors">Salary Benchmark</a>
+                    <a href="#hris-admin" class="text-sm font-medium text-gray-600 hover:text-google-blue transition-colors">Administratif</a>
+                    <a href="#crew-assessment" class="text-sm font-medium text-gray-600 hover:text-google-green transition-colors">Penilaian</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto flex flex-col items-center text-center">
+        <div data-aos="zoom-in" data-aos-duration="1000" class="max-w-4xl mx-auto">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+                Health Check <B></B> <br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#4285F4] to-[#EA4335]">SDM Operasional - April</span>
+            </h1>
+            <p class="text-lg text-gray-600 mb-8 leading-relaxed max-w-2xl mx-auto">
+                EXPA Report detail bulan April
+            </p>
+            <div class="flex justify-center gap-4">
+                <a href="#sourcing" class="px-8 py-3 rounded-full bg-gray-900 text-white font-medium hover:bg-gray-800 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1">Scroll Down</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 1: Sourcing & Screening -->
+    <section id="sourcing" class="py-20 bg-gray-50 border-t border-gray-100 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-12" data-aos="fade-right">
+                <h2 class="text-3xl font-bold mb-4 flex items-center gap-3">
+                    <span class="w-8 h-8 rounded-lg bg-google-blue text-white flex items-center justify-center text-lg shadow-md">1</span>
+                    Data Pelamar dan Metode Optimasi Sourcing 
+                </h2>
+                <p class="text-gray-600 max-w-2xl text-lg">
+                    Volume pelamar tinggi berujung pada gugur massal di tahap kualifikasi dasar. Fokus utama ada pada angka eliminasi yang menguras waktu produktif staf HR.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Volume Data & Chart -->
+                <div class="space-y-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="glass-card rounded-2xl p-8 shadow-sm">
+                        <h3 class="text-xl font-semibold mb-6">Total CV Masuk Berdasarkan Airtable</h3>
+                        <div class="flex gap-4 mb-6">
+                            <div class="flex-1 bg-blue-50 rounded-xl p-4 border border-blue-100">
+                                <div class="text-sm font-medium text-blue-600 mb-1">Februari - Maret</div>
+                                <div class="text-3xl font-bold text-gray-900">962 <span class="text-base font-normal text-gray-500">Pelamar</span></div>
+                            </div>
+                            <div class="flex-1 bg-blue-50 rounded-xl p-4 border border-blue-100">
+                                <div class="text-sm font-medium text-blue-600 mb-1">Bulan April</div>
+                                <div class="text-3xl font-bold text-gray-900">738 <span class="text-base font-normal text-gray-500">Pelamar</span></div>
+                            </div>
+                        </div>
+                        <p class="text-sm text-gray-600 leading-relaxed mb-4">
+                            Dari total pelamar, porsi terbesar yang menguras waktu HR adalah menyeleksi kandidat tanpa pengalaman relevan yang secara otomatis langsung ditolak.
+                        </p>
+                    </div>
+
+                    <div class="glass-card rounded-2xl p-8 shadow-sm h-96 relative">
+                        <h3 class="text-xl font-semibold mb-4 text-red-600">Grafik Jumlah Pelamar Tereliminasi</h3>
+                        <p class="text-xs text-gray-500 mb-4">Menyoroti volume data mentah yang harus disortir hingga akhirnya dibuang.</p>
+                        <canvas id="screeningChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Riset dan Data Asli -->
+                <div class="space-y-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="glass-card rounded-2xl p-8 shadow-sm h-full flex flex-col bg-white">
+                        
+                        <div class="mb-6">
+                            <h3 class="text-xl font-semibold mb-2">Langkah Eliminasi Kandidat (Data Asli)</h3>
+                            <p class="text-gray-500 text-sm mb-4">Rincian administratif screening.</p>
+                            
+                            <div class="overflow-y-auto max-h-[300px] pr-2 space-y-3">
+                                <div class="p-3 rounded-lg bg-gray-50 border border-gray-100">
+                                    <div class="font-medium text-gray-900 mb-1 text-sm">Filter Usia Maksimal 26 Tahun</div>
+                                    <div class="text-xs text-gray-600 flex justify-between">
+                                        <span>April (738 kandidat)</span> <span class="text-red-500 font-medium">Mengeliminasi 29 pelamar</span>
+                                    </div>
+                                    <div class="text-xs text-gray-600 flex justify-between">
+                                        <span>Feb-Mar (962 kandidat)</span> <span class="text-red-500 font-medium">Mengeliminasi 73 pelamar</span>
+                                    </div>
+                                </div>
+                                <div class="p-3 rounded-lg bg-gray-50 border border-gray-100">
+                                    <div class="font-medium text-gray-900 mb-1 text-sm">Filter Tidak Tinggal Diluar Kota Bandung</div>
+                                    <div class="text-xs text-gray-600 flex justify-between">
+                                        <span>April (738 kandidat)</span> <span class="text-red-500 font-medium">Mengeliminasi 71 pelamar</span>
+                                    </div>
+                                    <div class="text-xs text-gray-600 flex justify-between">
+                                        <span>Feb-Mar (962 kandidat)</span> <span class="text-red-500 font-medium">Mengeliminasi 70 pelamar</span>
+                                    </div>
+                                </div>
+                                <div class="p-3 rounded-lg bg-gray-50 border border-gray-100">
+                                    <div class="font-medium text-gray-900 mb-1 text-sm">Filter Pendidikan SMP - SMA/SMK</div>
+                                    <div class="text-xs text-gray-600 flex justify-between">
+                                        <span>April (738 kandidat)</span> <span class="text-red-500 font-medium">Mengeliminasi 34 pelamar</span>
+                                    </div>
+                                    <div class="text-xs text-gray-600 flex justify-between">
+                                        <span>Feb-Mar (962 kandidat)</span> <span class="text-red-500 font-medium">Mengeliminasi 75 pelamar</span>
+                                    </div>
+                                </div>
+                                <div class="p-3 rounded-lg bg-gray-50 border border-gray-100">
+                                    <div class="font-medium text-gray-900 mb-1 text-sm">Filter Tidak Sedang Kuliah/Sekolah</div>
+                                    <div class="text-xs text-gray-600 flex justify-between">
+                                        <span>April (738 kandidat)</span> <span class="text-red-500 font-medium">Mengeliminasi 28 pelamar</span>
+                                    </div>
+                                    <div class="text-xs text-gray-600 flex justify-between">
+                                        <span>Feb-Mar (962 kandidat)</span> <span class="text-red-500 font-medium">Mengeliminasi 46 pelamar</span>
+                                    </div>
+                                </div>
+                                <div class="p-3 rounded-lg bg-red-50 border border-red-100">
+                                    <div class="font-medium text-red-800 mb-1 text-sm">Filter Pengalaman Tidak Sesuai (Penyebab Utama)</div>
+                                    <div class="text-xs text-red-600 flex justify-between">
+                                        <span>April (738 kandidat)</span> <span class="font-bold">Mengeliminasi 244 pelamar</span>
+                                    </div>
+                                    <div class="text-xs text-red-600 flex justify-between">
+                                        <span>Feb-Mar (962 kandidat)</span> <span class="font-bold">Mengeliminasi 323 pelamar</span>
+                                    </div>
+                                </div>
+                                <div class="p-3 rounded-lg bg-gray-50 border border-gray-100">
+                                    <div class="font-medium text-gray-900 mb-1 text-sm">Filter Operasional (Belum Bekerja & Menikah)</div>
+                                    <div class="text-xs text-gray-600 flex justify-between">
+                                        <span>April</span> <span class="text-red-500 font-medium">Mengeliminasi 95 pelamar</span>
+                                    </div>
+                                    <div class="text-xs text-gray-600 flex justify-between">
+                                        <span>Feb-Mar</span> <span class="text-red-500 font-medium">Mengeliminasi 122 pelamar</span>
+                                    </div>
+                                </div>
+                                <div class="p-3 rounded-lg bg-blue-50 border border-blue-100 mt-2">
+                                    <div class="font-bold text-blue-900 mb-1 text-sm">Sisa Pelamar Bersih yang Siap Diproses</div>
+                                    <div class="text-sm text-blue-700 flex justify-between">
+                                        <span>Bulan April</span> <span class="font-bold">285 Pelamar</span>
+                                    </div>
+                                    <div class="text-sm text-blue-700 flex justify-between">
+                                        <span>Bulan Feb - Mar</span> <span class="font-bold">352 Pelamar</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-4 rounded-xl border border-gray-100 bg-gray-50 shadow-sm">
+                            <h4 class="font-bold text-gray-800 mb-2 flex items-center gap-2">
+                                <svg class="w-5 h-5 text-google-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                Efektifitas Implementasi Knock-out Questions
+                            </h4>
+                            <p class="text-sm text-gray-600 mb-3">
+                                Menyaring secara otomatis ratusan kandidat "unqualified" dengan pemanfaatan teknologi Airtable (free). Otomasi AI perlu berlangganan.
+                            </p>
+                            <div class="text-xs text-gray-500 mb-2">Referensi platfotm lain: https://www.mokahr.io/myblog/ai-chatbots-in-indonesian-hiring-software/</div>
+                            <div class="text-xs text-gray-500 mb-3">Referensi platfotm lain: https://medium.com/@leighmckiernon/whatsapp-recruitment-in-indonesia-the-fast-food-approach-to-hiring-1aae4477b088</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Onboarding & Training -->
+    <section id="onboarding" class="py-20 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-12" data-aos="fade-left">
+                <h2 class="text-3xl font-bold mb-4 flex items-center gap-3">
+                    <span class="w-8 h-8 rounded-lg bg-google-red text-white flex items-center justify-center text-lg shadow-md">2</span>
+                    Realitas Ghosting & Kualitas Onboarding
+                </h2>
+                <p class="text-gray-600 max-w-2xl text-lg">
+                    Tingkat kegagalan training dan Ghosting pelamar sangat masif. Akar masalahnya di tabiat demografi pekerja di lapangan.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                
+                <!-- Ghosting Chart & Realita Gen Z -->
+                <div class="glass-card rounded-2xl p-6 shadow-sm col-span-1" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="text-lg font-semibold mb-2 text-gray-900">137 Kandidat Menghilang (No Show)</h3>
+                    <p class="text-sm text-gray-600 mb-6">Total 137 dari 209 undangan interview di bulan Maret-April.</p>
+                    
+                    <div class="relative h-48 mb-6 flex justify-center">
+                        <canvas id="ghostingChart"></canvas>
+                    </div>
+
+                    <div class="mt-4 p-4 rounded-xl bg-red-50 border border-red-100">
+                        <h4 class="font-bold text-red-800 mb-2 text-sm">Fakta Lapangan & Perilaku Gen Z:</h4>
+                        <p class="text-xs text-red-700 mb-3 leading-relaxed">
+                            Ghosting <strong>bukan karena proses recrewtmen kaku dsb</strong>. Perusahaan telah menyediakan jadwal fleksibel menggunakan <strong>Calendly</strong> (kesepakatan dua arah). Masalah terjadi akibat <em>gap</em> slot waktu dan tabiat khas pekerja muda usia labil:
+                        </p>
+                        <ul class="text-xs text-red-700 mb-4 list-disc list-inside space-y-1">
+                            <li>Terbatasnya slot (Misal: 15 undangan untuk 10 slot waktu HR).</li>
+                            <li>Kandidat yang sudah mem-booking jadwal sendiri pun batal hadir mendadak.</li>
+                            <li>Tingkat "job shopping" tinggi; langsung mengambil tawaran kompetitor.</li>
+                            <li>Ekspektasi gaji yang jauh dari realita saat menerima undangan.</li>
+                            <li>Belum memiliki kesiapan mental untuk bekerja produktif.</li>
+                        </ul>
+                        
+                        <div class="pt-3 border-t border-red-200">
+                            <p class="text-[10px] text-red-600 mb-1 font-semibold">Studi Fenomena Global "Career Catfishing"</p>
+                            <div class="text-[10px] text-red-500 mb-2 break-all">https://www.infeedo.ai/blog/career-catfishing-gen-z-ghosting-dream-jobs</div>
+                            <a href="https://www.infeedo.ai/blog/career-catfishing-gen-z-ghosting-dream-jobs" target="_blank" class="inline-block bg-white text-red-700 px-3 py-1 rounded text-xs font-semibold border border-red-200 hover:bg-red-50 transition">Baca Jurnal Ghosting Gen Z</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Benchmarking Case Studies -->
+                <div class="glass-card rounded-2xl p-6 shadow-sm col-span-1 lg:col-span-2 flex flex-col" data-aos="fade-up" data-aos-delay="200">
+                    <div class="mb-6">
+                        <h3 class="text-xl font-semibold mb-2 text-gray-900">Rasio Kegagalan Training di Outlet</h3>
+                        <p class="text-sm text-gray-600">Pemaksaan recrewtmen dalam 2 hari merusak tahapan culture fit. Kandidat yang berhasil dijadwalkan seringkali mengundurkan diri bahkan sebelum hari pertama training, atau mundur di tengah jalan.</p>
+                        
+                        <div class="space-y-4 mt-6">
+                            <div>
+                                <div class="flex justify-between text-sm font-medium mb-1">
+                                    <span class="text-gray-700">Kiaracondong</span>
+                                    <span class="text-red-500">Berhasil 2 dari 11 undangan (18%)</span>
+                                </div>
+                                <div class="w-full bg-gray-100 rounded-full h-2"><div class="bg-red-500 h-2 rounded-full" style="width: 18%"></div></div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm font-medium mb-1">
+                                    <span class="text-gray-700">Tubagus Ismail</span>
+                                    <span class="text-orange-500">Berhasil 3 dari 9 undangan (33%)</span>
+                                </div>
+                                <div class="w-full bg-gray-100 rounded-full h-2"><div class="bg-orange-500 h-2 rounded-full" style="width: 33%"></div></div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm font-medium mb-1">
+                                    <span class="text-gray-700">Cihanjuang</span>
+                                    <span class="text-red-500">Berhasil 1 dari 5 undangan (20%)</span>
+                                </div>
+                                <div class="w-full bg-gray-100 rounded-full h-2"><div class="bg-red-500 h-2 rounded-full" style="width: 20%"></div></div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm font-medium mb-1">
+                                    <span class="text-gray-700">Ambon</span>
+                                    <span class="text-yellow-600">Berhasil 1 dari 4 undangan (25%)</span>
+                                </div>
+                                <div class="w-full bg-gray-100 rounded-full h-2"><div class="bg-yellow-500 h-2 rounded-full" style="width: 25%"></div></div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm font-medium mb-1">
+                                    <span class="text-gray-700">Cimahi Amir Machmud</span>
+                                    <span class="text-green-500">Berhasil 1 dari 2 undangan (50%)</span>
+                                </div>
+                                <div class="w-full bg-gray-100 rounded-full h-2"><div class="bg-green-500 h-2 rounded-full" style="width: 50%"></div></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-auto">
+                        <h3 class="text-lg font-semibold mb-4 text-gray-900 flex items-center gap-2 border-t pt-6">
+                            <svg class="w-5 h-5 text-google-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                            Referensi Solusi Berbasis Studi Kasus F&B Indonesia
+                        </h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="border border-gray-200 rounded-lg p-4 bg-gray-50">
+                                <h4 class="font-bold text-gray-900 text-sm mb-1">Mixue: Microlearning</h4>
+                                <p class="text-xs text-gray-600 mb-2">Mereka tidak melatih crew dari nol di outlet, melainkan mewajibkan konsumsi materi video interaktif via WhatsApp sebelum hari kerja pertama dimulai.</p>
+                                <div class="text-[9px] text-gray-400 mb-2 break-all">https://journal.metansi.unipol.ac.id/index.php/jurnalmetansi/article/view/395</div>
+                            </div>
+                            <div class="border border-gray-200 rounded-lg p-4 bg-gray-50">
+                                <h4 class="font-bold text-gray-900 text-sm mb-1">Kopi Kenangan: Training Hub</h4>
+                                <p class="text-xs text-gray-600 mb-2">Mengurangi kegagalan dengan "Kenangan Academy". crew dilatih massal di satu titik, disertifikasi, baru didistribusikan ke outlet sesuai kebutuhan.</p>
+                                <div class="text-[9px] text-gray-400 mb-2 break-all">https://kopikenangan.com/career</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Compliance & Legal Risks -->
+    <section id="compliance" class="py-20 bg-gray-50 border-t border-gray-100 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-12" data-aos="fade-right">
+                <h2 class="text-3xl font-bold mb-4 flex items-center gap-3">
+                    <span class="w-8 h-8 rounded-lg bg-google-yellow text-white flex items-center justify-center text-lg shadow-md">3</span>
+                    Kepatuhan Administrasi Hukum
+                </h2>
+                <p class="text-gray-600 max-w-2xl text-lg">
+                    Membiarkan crew bekerja berbulan-bulan tanpa SKCK: risiko <em>negligent hiring</em> (kelalaian hukum di mana perusahaan gagal melakukan pemeriksaan latar belakang atau penilaian kompetensi secara menyeluruh terhadap kandidat, sehingga mempekerjakan seseorang yang berisiko membahayakan pelanggan atau rekan kerja)
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                <!-- Legal Framework -->
+                <div class="lg:col-span-4 space-y-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="glass-card rounded-2xl p-6 shadow-sm border-l-4 border-l-google-blue">
+                        <h3 class="text-lg font-bold text-gray-900 mb-3">Solusi Legal "No-Document, No-Shift"</h3>
+                        <p class="text-sm text-gray-700 mb-4">
+                            Gunakan instrumen <strong>Klausul Syarat Batal (Pasal 1266 KUHPerdata)</strong>. Diterapkan batas waktu submit dokumen wajib untuk Kontrak maksimal 7 hari, lebih dari itu kontrak mundur dan skema service charge mengikuti.
+                        </p>
+                        <div class="text-[10px] text-gray-500 mb-2 break-all">Jurnal Kajian Pasal 1266 KUHPerdata: https://scholarhub.ui.ac.id/cgi/viewcontent.cgi?article=1044&context=lexpatri</div>
+                        <a href="https://scholarhub.ui.ac.id/cgi/viewcontent.cgi?article=1044&context=lexpatri" target="_blank" class="inline-flex items-center gap-1 bg-blue-50 text-blue-700 px-3 py-1.5 rounded text-xs font-semibold hover:bg-blue-100 transition">
+                            Kajian Pasal 1266
+                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Table Data -->
+                <div class="lg:col-span-8 glass-card rounded-2xl overflow-hidden shadow-sm flex flex-col" data-aos="fade-up" data-aos-delay="200">
+                    <div class="p-6 bg-white border-b border-gray-200 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-900">Log Keterlambatan Submit SKCK</h3>
+                            <p class="text-sm text-gray-500 mt-1">Rentang waktu sejak penandatanganan hingga dokumen fisik diterima.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="overflow-y-auto max-h-[500px]">
+                        <table class="w-full text-left border-collapse">
+                            <thead class="sticky top-0 bg-gray-50 z-10 shadow-sm">
+                                <tr class="text-gray-600 text-sm">
+                                    <th class="py-4 px-6 font-medium border-b border-gray-200">Nama Lengkap Crew</th>
+                                    <th class="py-4 px-6 font-medium border-b border-gray-200">Gap Tunggakan Waktu</th>
+                                    <th class="py-4 px-6 font-medium border-b border-gray-200 text-center">Status Risiko Operasional</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-sm divide-y divide-gray-100 bg-white">
+                                <!-- Data Asli -->
+                                <tr class="hover:bg-red-50 transition-colors">
+                                    <td class="py-3 px-6 font-medium text-gray-900">Muhammad Rafie Rashad Ramadhan</td>
+                                    <td class="py-3 px-6 text-red-600 font-bold">0 Tahun 3 Bulan 30 Hari</td>
+                                    <td class="py-3 px-6 text-center"><span class="bg-red-100 text-red-700 px-3 py-1 rounded-full text-xs font-semibold">Tingkat Fatal</span></td>
+                                </tr>
+                                <tr class="hover:bg-orange-50 transition-colors">
+                                    <td class="py-3 px-6 font-medium text-gray-900">Arif wijoyo</td>
+                                    <td class="py-3 px-6 text-orange-600 font-medium">0 Tahun 2 Bulan 9 Hari</td>
+                                    <td class="py-3 px-6 text-center"><span class="bg-orange-100 text-orange-700 px-3 py-1 rounded-full text-xs font-semibold">Sangat Tinggi</span></td>
+                                </tr>
+                                <tr class="hover:bg-orange-50 transition-colors">
+                                    <td class="py-3 px-6 font-medium text-gray-900">Jaenal arif</td>
+                                    <td class="py-3 px-6 text-orange-600 font-medium">0 Tahun 2 Bulan 5 Hari</td>
+                                    <td class="py-3 px-6 text-center"><span class="bg-orange-100 text-orange-700 px-3 py-1 rounded-full text-xs font-semibold">Sangat Tinggi</span></td>
+                                </tr>
+                                <tr class="hover:bg-yellow-50 transition-colors">
+                                    <td class="py-3 px-6 font-medium text-gray-900">resyahdan seva akbar</td>
+                                    <td class="py-3 px-6 text-yellow-600 font-medium">0 Tahun 1 Bulan 6 Hari</td>
+                                    <td class="py-3 px-6 text-center"><span class="bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full text-xs font-semibold">Risiko Sedang</span></td>
+                                </tr>
+                                <tr class="hover:bg-yellow-50 transition-colors">
+                                    <td class="py-3 px-6 font-medium text-gray-900">MOCH RUZAENI</td>
+                                    <td class="py-3 px-6 text-yellow-600 font-medium">0 Tahun 1 Bulan 0 Hari</td>
+                                    <td class="py-3 px-6 text-center"><span class="bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full text-xs font-semibold">Risiko Sedang</span></td>
+                                </tr>
+                                <tr class="hover:bg-gray-50 transition-colors">
+                                    <td class="py-3 px-6 font-medium text-gray-900">Desi Widiasari</td>
+                                    <td class="py-3 px-6 text-gray-600">0 Tahun 0 Bulan 26 Hari</td>
+                                    <td class="py-3 px-6 text-center"><span class="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-xs font-medium">Peringatan Dini</span></td>
+                                </tr>
+                                <tr class="hover:bg-gray-50 transition-colors">
+                                    <td class="py-3 px-6 font-medium text-gray-900">Wina Fitria</td>
+                                    <td class="py-3 px-6 text-gray-600">0 Tahun 0 Bulan 22 Hari</td>
+                                    <td class="py-3 px-6 text-center"><span class="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-xs font-medium">Peringatan Dini</span></td>
+                                </tr>
+                                <tr class="hover:bg-gray-50 transition-colors">
+                                    <td class="py-3 px-6 font-medium text-gray-900">Lexsa Azka Bintang Azzallea</td>
+                                    <td class="py-3 px-6 text-gray-600">0 Tahun 0 Bulan 19 Hari</td>
+                                    <td class="py-3 px-6 text-center"><span class="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-xs font-medium">Peringatan Dini</span></td>
+                                </tr>
+                                <tr class="hover:bg-gray-50 transition-colors">
+                                    <td class="py-3 px-6 font-medium text-gray-900">Arya Raihan Mandiri</td>
+                                    <td class="py-3 px-6 text-gray-600">0 Tahun 0 Bulan 18 Hari</td>
+                                    <td class="py-3 px-6 text-center"><span class="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-xs font-medium">Peringatan Dini</span></td>
+                                </tr>
+                                <tr class="hover:bg-gray-50 transition-colors">
+                                    <td class="py-3 px-6 font-medium text-gray-900">Yesi Herdiani</td>
+                                    <td class="py-3 px-6 text-gray-600">0 Tahun 0 Bulan 16 Hari</td>
+                                    <td class="py-3 px-6 text-center"><span class="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-xs font-medium">Peringatan Dini</span></td>
+                                </tr>
+                                <tr class="hover:bg-gray-50 transition-colors">
+                                    <td class="py-3 px-6 font-medium text-gray-900">Nazwa Maulani Azkia</td>
+                                    <td class="py-3 px-6 text-gray-600">0 Tahun 0 Bulan 14 Hari</td>
+                                    <td class="py-3 px-6 text-center"><span class="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-xs font-medium">Peringatan Dini</span></td>
+                                </tr>
+                                <tr class="hover:bg-gray-50 transition-colors">
+                                    <td class="py-3 px-6 font-medium text-gray-900">Rafi Rifaldy</td>
+                                    <td class="py-3 px-6 text-gray-600">0 Tahun 0 Bulan 13 Hari</td>
+                                    <td class="py-3 px-6 text-center"><span class="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-xs font-medium">Peringatan Dini</span></td>
+                                </tr>
+                                <tr class="hover:bg-gray-50 transition-colors">
+                                    <td class="py-3 px-6 font-medium text-gray-900">Langgeng septiadi</td>
+                                    <td class="py-3 px-6 text-gray-600">0 Tahun 0 Bulan 7 Hari</td>
+                                    <td class="py-3 px-6 text-center"><span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-medium">Batas Aman</span></td>
+                                </tr>
+                                <tr class="hover:bg-gray-50 transition-colors">
+                                    <td class="py-3 px-6 font-medium text-gray-900">Nela Maula Anjani</td>
+                                    <td class="py-3 px-6 text-gray-600">0 Tahun 0 Bulan 4 Hari</td>
+                                    <td class="py-3 px-6 text-center"><span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-medium">Batas Aman</span></td>
+                                </tr>
+                                <tr class="hover:bg-gray-50 transition-colors">
+                                    <td class="py-3 px-6 font-medium text-gray-900">Karismayanti</td>
+                                    <td class="py-3 px-6 text-gray-600">0 Tahun 0 Bulan 2 Hari</td>
+                                    <td class="py-3 px-6 text-center"><span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-medium">Batas Aman</span></td>
+                                </tr>
+                                <tr class="hover:bg-gray-50 transition-colors">
+                                    <td class="py-3 px-6 font-medium text-gray-900">Dani setiawan</td>
+                                    <td class="py-3 px-6 text-gray-600">0 Tahun 0 Bulan 2 Hari</td>
+                                    <td class="py-3 px-6 text-center"><span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-medium">Batas Aman</span></td>
+                                </tr>
+                                <tr class="hover:bg-gray-50 transition-colors">
+                                    <td class="py-3 px-6 font-medium text-gray-900">Alif Miqel Asyadan</td>
+                                    <td class="py-3 px-6 text-gray-600">0 Tahun 0 Bulan 0 Hari</td>
+                                    <td class="py-3 px-6 text-center"><span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-medium">Sangat Disiplin</span></td>
+                                </tr>
+                                <tr class="hover:bg-gray-50 transition-colors">
+                                    <td class="py-3 px-6 font-medium text-gray-900">Salsabilla Amanah</td>
+                                    <td class="py-3 px-6 text-gray-600">0 Tahun 0 Bulan 0 Hari</td>
+                                    <td class="py-3 px-6 text-center"><span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-medium">Sangat Disiplin</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Section 4: Crew Issues (Bento Box & Interactive Cards) -->
+    <section id="crew-issues" class="py-20 border-t border-gray-100 bg-[#f8f9fa] overflow-hidden relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Header Section -->
+            <div class="mb-12 text-center" data-aos="fade-down">
+                <span class="bg-red-100 text-google-red text-xs font-bold px-4 py-1.5 rounded-full tracking-wider uppercase mb-4 inline-block">Krisis Operasional Level Bawah</span>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
+                    Rekap Masukan Anonim April dan Hasil Interview SPV
+                </h2>
+                <p class="text-gray-600 max-w-3xl mx-auto text-lg">
+                    Pembiaran konflik personal dan pelanggaran SOP kecil bukan sekadar "drama karyawan", melainkan akar dari keruntuhan sistemik yang mengancam profitabilitas (Teori <i>Broken Windows</i>).
+                </p>
+            </div>
+
+            <!-- SLIDER 1: BENTO BOX MASUKAN ANONIM (3 Baris = 1 Slide) -->
+            <div class="mb-20" data-aos="fade-up" data-aos-delay="100">
+                <div class="flex justify-between items-end mb-6">
+                    <div>
+                        <h3 class="text-2xl font-bold text-gray-900 flex items-center gap-2">
+                            <svg class="w-7 h-7 text-google-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path></svg>
+                            Log Masukan Anonim (Maret - April)
+                        </h3>
+                        <p class="text-sm text-gray-500">Geser untuk melihat keresahan riil crew lini depan.</p>
+                    </div>
+                    <div class="flex gap-2">
+                        <button onclick="prevAnonim()" class="w-10 h-10 rounded-full bg-white border border-gray-200 flex items-center justify-center hover:bg-gray-50 text-gray-600 shadow-sm transition"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg></button>
+                        <button onclick="nextAnonim()" class="w-10 h-10 rounded-full bg-white border border-gray-200 flex items-center justify-center hover:bg-gray-50 text-gray-600 shadow-sm transition"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></button>
+                    </div>
+                </div>
+
+                <div class="relative overflow-hidden w-full">
+                    <div id="anonim-slider" class="flex transition-transform duration-500 ease-in-out w-full">
+                        
+                        <!-- BENTO SLIDE 1 (Data 1-3) -->
+                        <div class="min-w-full grid grid-cols-1 lg:grid-cols-3 gap-6 px-1">
+                            <!-- Card 1 -->
+                            <div class="glass-card rounded-3xl p-6 shadow-sm border border-gray-100 flex flex-col bg-white hover:shadow-md transition">
+                                <div class="flex justify-between items-start mb-4">
+                                    <span class="bg-gray-100 text-gray-600 text-[10px] font-bold px-2 py-1 rounded">08/03/2026</span>
+                                    <span class="bg-green-100 text-green-700 text-[10px] font-bold px-2 py-1 rounded uppercase">Solved</span>
+                                </div>
+                                <h4 class="font-bold text-gray-900 mb-1">Permasalah sama rider</h4>
+                                <div class="text-xs text-gray-500 mb-4 flex gap-2"><span class="font-semibold text-google-blue">Tubagus</span> | Pihak: Sukma</div>
+                                <div class="p-3 bg-gray-50 rounded-xl text-sm text-gray-700 flex-1 border border-gray-100">
+                                    "Tentang menu"
+                                </div>
+                            </div>
+                            <!-- Card 2 -->
+                            <div class="glass-card rounded-3xl p-6 shadow-sm border border-gray-100 flex flex-col bg-white hover:shadow-md transition">
+                                <div class="flex justify-between items-start mb-4">
+                                    <span class="bg-gray-100 text-gray-600 text-[10px] font-bold px-2 py-1 rounded">08/03/2026</span>
+                                    <span class="bg-green-100 text-green-700 text-[10px] font-bold px-2 py-1 rounded uppercase">Solved</span>
+                                </div>
+                                <h4 class="font-bold text-gray-900 mb-1">Masalah antar crew</h4>
+                                <div class="text-xs text-gray-500 mb-4 flex gap-2"><span class="font-semibold text-google-blue">Tubagus Ismail</span> | Pihak: Sukma</div>
+                                <div class="p-3 bg-gray-50 rounded-xl text-sm text-gray-700 flex-1 border border-gray-100">
+                                    "Permasalah untuk menu, tidak mau memberi tau."
+                                    <hr class="my-2 border-gray-200">
+                                    <span class="text-xs font-semibold text-gray-900">Solusi Diusulkan:</span> Mengasih tau untuk yg belom tau tentang menu.
+                                </div>
+                            </div>
+                            <!-- Card 3 -->
+                            <div class="glass-card rounded-3xl p-6 shadow-sm border-t-4 border-t-google-yellow flex flex-col bg-yellow-50/30 hover:shadow-md transition">
+                                <div class="flex justify-between items-start mb-4">
+                                    <span class="bg-yellow-100 text-yellow-800 text-[10px] font-bold px-2 py-1 rounded">12/03/2026</span>
+                                    <span class="bg-green-100 text-green-700 text-[10px] font-bold px-2 py-1 rounded uppercase">Solved</span>
+                                </div>
+                                <h4 class="font-bold text-gray-900 mb-1">Dampak Mutasi & Iming-iming Gaji</h4>
+                                <div class="text-xs text-gray-500 mb-4 flex flex-col gap-1">
+                                    <span class="font-semibold text-google-blue">Ambon → Pajajaran</span>
+                                    <span class="text-gray-400">Oleh: Agil-pajajaran</span>
+                                </div>
+                                <div class="p-3 bg-white rounded-xl text-sm text-gray-700 flex-1 border border-yellow-100 shadow-inner overflow-y-auto max-h-40">
+                                    "Kak saya kan di pindahkan dari ambon bukan kemauan saya dengan alasan saya berpacaran tapi untuk saat ini saya sudah tidak berpacaran lagi malahan berpacaran dengan orang yang sama di outlet itu dan saya dipindahkan dengan di iming imingin naik gajii tapi ternyata engga kak"
+                                    <hr class="my-2 border-yellow-100">
+                                    <span class="text-xs font-semibold text-gray-900">Tuntutan:</span> "Saya ingin aju banding dengan ini saya ingin kembali ke outlet awal saya karena bukanya tidak nyaman... tapi dari segi keuangan (persenan) jauh kak."
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- BENTO SLIDE 2 (Data 4-6) -->
+                        <div class="min-w-full grid grid-cols-1 lg:grid-cols-3 gap-6 px-1">
+                            <!-- Card 4 (Huge Text) -->
+                            <div class="glass-card rounded-3xl p-6 shadow-sm border-t-4 border-t-google-red lg:col-span-2 flex flex-col bg-red-50/20 hover:shadow-md transition">
+                                <div class="flex justify-between items-start mb-4">
+                                    <span class="bg-red-100 text-red-800 text-[10px] font-bold px-2 py-1 rounded">14/03/2026</span>
+                                    <span class="bg-red-100 text-red-800 text-[10px] font-bold px-2 py-1 rounded uppercase">Rolling & Resign</span>
+                                </div>
+                                <h4 class="font-bold text-gray-900 mb-1">Nepotisme & Monopoli Adik-Kakak</h4>
+                                <div class="text-xs text-gray-500 mb-4 flex gap-2"><span class="font-semibold text-google-blue">Soreang</span> | Anonim</div>
+                                <div class="p-4 bg-white rounded-xl text-sm text-gray-700 flex-1 border border-red-100 shadow-inner overflow-y-auto h-48">
+                                    "halo ibu/bapak manajemen balista, aku cm mau nyampein keresahan aku aja soal crew adik kakak di satu outlet ini... adik kakak ini bikin peraturan seenaknya without any diskusi w another crew... tb tb ngatur jadwal sesuai keinginan mereka... leadernya juga malah terkesan kurang tegas ya? imo leader ini tuh kayak kehalang ikatan personal as a tetangga mungkin? especially kakak nya yg cowok ya, beliau ini selalu ngerasa superior... pas leader kita lg gaada kemarin kemarin, aduh gila gila ngatur deh si abang ini... kalo ada yg ga setuju pasti dibilang susah diatur lah apalah..."
+                                    <br><br>
+                                    "tindakan yg diambil ternyata cuman rolling ke outlet lain selama 10 hari, yg dimana menurut aku itu kurang efektif ya, krn ujung ujungnya jadi 1 outlet lagi... sewajarnya kakak pasti bela ke adiknya, jadi kita semua banyak nahan apa yg mau kita omongin... dibilang susah diatur, keras kepala jst bcs of aku gamau ikutin aturan yg dia mau??... waktu kemarin pertama ketauan kalo mereka berdua adik kakak, mereka langsung nyecer aku dengan semua pertanyaan&kecurigaan mereka terhadap aku, secara ga langsung mereka nuduh aku yang ngadu... ngisi gform ini pun butuh keberanian yg besar, karena we need to take a high risk, after ini pasti harus siap buat disalahin karena berani ngadu..."
+                                </div>
+                            </div>
+                            <!-- Card 5 & 6 Column -->
+                            <div class="flex flex-col gap-6">
+                                <div class="glass-card rounded-3xl p-5 shadow-sm border border-gray-100 flex flex-col bg-white hover:shadow-md transition flex-1">
+                                    <div class="flex justify-between items-start mb-3">
+                                        <span class="bg-gray-100 text-gray-600 text-[10px] font-bold px-2 py-1 rounded">25/03/2026</span>
+                                        <span class="bg-green-100 text-green-700 text-[10px] font-bold px-2 py-1 rounded">Solved</span>
+                                    </div>
+                                    <h4 class="font-bold text-gray-900 text-sm mb-1">Miskomunikasi Marketing Promo</h4>
+                                    <div class="p-3 bg-gray-50 rounded-xl text-xs text-gray-700 border border-gray-100 overflow-y-auto max-h-24">
+                                        "tolong buat tim marketing harus lebih teliti lagi. soalnya kalau ada apa2 yg kena ttp anak2 outlet... admin IG balista sring beda penyampaiannya, sring juga ada yg kkeh pake voc grab tapi di promo tersbut gbs pke vcr grb... crew outlet lagi yg kena kompln sm cust lngsng."
+                                    </div>
+                                </div>
+                                <div class="glass-card rounded-3xl p-5 shadow-sm border border-gray-100 flex flex-col bg-white hover:shadow-md transition flex-1">
+                                    <div class="flex justify-between items-start mb-3">
+                                        <span class="bg-gray-100 text-gray-600 text-[10px] font-bold px-2 py-1 rounded">30/03/2026</span>
+                                        <span class="bg-blue-100 text-blue-800 text-[10px] font-bold px-2 py-1 rounded">Mutasi</span>
+                                    </div>
+                                    <h4 class="font-bold text-gray-900 text-sm mb-1">Pacaran & Libur Bareng</h4>
+                                    <div class="p-3 bg-gray-50 rounded-xl text-xs text-gray-700 border border-gray-100 overflow-y-auto max-h-24">
+                                        "Ada yang pacaran satu outlet kadang satu shift libur nya barengan juga, kita Diem aja karena males untuk ikut campur... Alangkah baiknya cepat di pisah outlet karena ada beberapa yang mungkin tida suka atau mungkin iri..."
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- BENTO SLIDE 3 (Data 7-9) -->
+                        <div class="min-w-full grid grid-cols-1 lg:grid-cols-3 gap-6 px-1">
+                            <!-- Card 7 -->
+                            <div class="glass-card rounded-3xl p-6 shadow-sm border border-gray-100 flex flex-col bg-white hover:shadow-md transition">
+                                <div class="flex justify-between items-start mb-4">
+                                    <span class="bg-gray-100 text-gray-600 text-[10px] font-bold px-2 py-1 rounded">02/04/2026</span>
+                                    <span class="bg-blue-100 text-blue-700 text-[10px] font-bold px-2 py-1 rounded uppercase">Mutasi</span>
+                                </div>
+                                <h4 class="font-bold text-gray-900 mb-1">Pasangan Satu Shift</h4>
+                                <div class="p-3 bg-gray-50 rounded-xl text-sm text-gray-700 flex-1 border border-gray-100">
+                                    "Ada pasangan satu outlet satu shift liburnya bareng Padahal ada hari yang kosong. Segera pisahkan."
+                                </div>
+                            </div>
+                            <!-- Card 8 -->
+                            <div class="glass-card rounded-3xl p-6 shadow-sm border border-red-100 flex flex-col bg-white hover:shadow-md transition">
+                                <div class="flex justify-between items-start mb-4">
+                                    <span class="bg-red-100 text-red-800 text-[10px] font-bold px-2 py-1 rounded">14/04/2026</span>
+                                    <span class="bg-red-100 text-red-800 text-[10px] font-bold px-2 py-1 rounded uppercase">Rolling & Resign</span>
+                                </div>
+                                <h4 class="font-bold text-gray-900 mb-1">Kelanjutan Adik-Kakak Soreang</h4>
+                                <div class="text-xs text-gray-500 mb-2 flex gap-2"><span class="font-semibold text-google-blue">Soreang</span> | Prayoga Sukmana</div>
+                                <div class="p-3 bg-red-50/50 rounded-xl text-xs text-gray-700 flex-1 border border-red-100 overflow-y-auto max-h-40">
+                                    "Mau menyampaikan keresahan soal keberadaan adik kaka di satu outlet... ga jarang juga mereka yg tentuin tanpa tanya persetujuan crew lain, untuk operasional juga jujur mengganggu... kasarnya kita jadi kagok karena kita takut kakak/adiknya tersinggung. Untk soal mutasi juga kenapa leadernya tidak secara tegas menyampaikan kalo memang harus mutasi... leadernya hanya iya iya saja... malah mengulur waktu... org yg jadi inti masalah malah enak kerja sedangkan kita yg lain merasa terganggu."
+                                </div>
+                            </div>
+                            <!-- Card 9 -->
+                            <div class="glass-card rounded-3xl p-6 shadow-sm border border-orange-100 flex flex-col bg-white hover:shadow-md transition">
+                                <div class="flex justify-between items-start mb-4">
+                                    <span class="bg-orange-100 text-orange-800 text-[10px] font-bold px-2 py-1 rounded">19/04/2026</span>
+                                    <span class="bg-yellow-100 text-yellow-800 text-[10px] font-bold px-2 py-1 rounded uppercase">Not Yet</span>
+                                </div>
+                                <h4 class="font-bold text-gray-900 mb-1">Inkonsistensi Aturan Pacaran</h4>
+                                <div class="text-xs text-gray-500 mb-2 flex gap-2"><span class="font-semibold text-google-blue">Ambon</span> | Rahma & Rafi</div>
+                                <div class="p-3 bg-orange-50/30 rounded-xl text-sm text-gray-700 flex-1 border border-orange-100">
+                                    "Bukanya ada aturan dilarang pacaran 1 outlet yaa dari jaman a rio sama teh eka... tapi ada rahma sama rafi tidak di pindahkan padahal secara terang terangan mempublish hubungan nya... Solusi saya, supaya tidak ada kecemburuan sosial disamakan lah di pindahkan atau kebijakan lainya..."
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDER 2: SPV INTERVIEW LOG (1 Baris 1 Slide Card dengan Analisa Eksekutif) -->
+            <div class="pt-10 border-t border-gray-200" data-aos="fade-up">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-8">
+                    <div>
+                        <h3 class="text-2xl font-bold text-gray-900 flex items-center gap-2 mb-2">
+                            <svg class="w-7 h-7 text-google-red" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                            Log Investigasi SPV & Analisis
+                        </h3>
+                        <p class="text-sm text-gray-500">18 Temuan riil lapangan yang dibedah dengan teori Manajemen SDM. Gunakan tombol untuk menggeser data.</p>
+                    </div>
+                    <div class="flex gap-2 mt-4 md:mt-0">
+                        <button onclick="prevSpv()" class="px-4 py-2 rounded-full bg-white border border-gray-200 hover:bg-gray-50 text-gray-700 text-sm font-semibold shadow-sm transition inline-flex items-center gap-1"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg> Prev</button>
+                        <span id="spv-counter" class="px-4 py-2 rounded-full bg-gray-900 text-white text-sm font-bold shadow-md">1 / 18</span>
+                        <button onclick="nextSpv()" class="px-4 py-2 rounded-full bg-white border border-gray-200 hover:bg-gray-50 text-gray-700 text-sm font-semibold shadow-sm transition inline-flex items-center gap-1">Next <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></button>
+                    </div>
+                </div>
+
+                <div class="relative overflow-hidden w-full rounded-3xl shadow-lg border border-gray-200 bg-white">
+                    <div id="spv-slider" class="flex transition-transform duration-500 ease-in-out w-full">
+                        
+                        <!-- SPV Data 1 -->
+                        <div class="min-w-full grid grid-cols-1 md:grid-cols-2">
+                            <div class="p-8 md:p-10 border-b md:border-b-0 md:border-r border-gray-100">
+                                <span class="bg-red-100 text-red-800 text-[10px] font-bold px-3 py-1.5 rounded-full uppercase mb-4 inline-block">Urgensi: High</span>
+                                <h3 class="text-2xl font-bold text-gray-900 mb-6">Masalah Hubungan Asmara</h3>
+                                <div class="bg-gray-50 p-5 rounded-2xl border border-gray-100 mb-6 relative">
+                                    <div class="absolute -top-3 -left-2 text-4xl text-gray-300">"</div>
+                                    <p class="text-gray-700 relative z-10 italic">Masalah hubungan asmara masih menggantung karna tidak ada aturan yang jelas. Keputusan atasan, harus diatasi secara eksplisit.</p>
+                                </div>
+                                <h4 class="text-sm font-bold text-gray-900 mb-1">Rencana Tindak Lanjut Lapangan:</h4>
+                                <p class="text-sm text-gray-600">Verifikasi masukan yang melaporkan adanya pelanggaran SOP tsb (terindikasi menyebabkan kerugian maupun tidak) akan melibatkan aspek kepemimpinan dari leader khususnya kejujuran dan keadilan.</p>
+                            </div>
+                            <div class="p-8 md:p-10 bg-gradient-to-br from-blue-50 to-white flex flex-col justify-center">
+                                <h4 class="font-bold text-google-blue mb-4 flex items-center gap-2"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg> Analisis Strategis</h4>
+                                <p class="text-gray-700 leading-relaxed text-sm">
+                                    Berdasarkan konsep <strong>Keadilan Organisasional</strong>, inkonsistensi perlakuan terhadap pasangan asmara (ada yang dimutasi, ada yang dibiarkan) memicu kecemburuan sosial. Sesuai Putusan MK No. 13/PUU-XV/2017, perusahaan dilarang melakukan PHK karena pernikahan/asmara sekantor, namun sah melakukan mutasi. Eksekutif wajib merumuskan <em>Fraternization Policy</em> tertulis agar HR memiliki landasan bertindak.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- SPV Data 2 -->
+                        <div class="min-w-full grid grid-cols-1 md:grid-cols-2">
+                            <div class="p-8 md:p-10 border-b md:border-b-0 md:border-r border-gray-100">
+                                <span class="bg-red-100 text-red-800 text-[10px] font-bold px-3 py-1.5 rounded-full uppercase mb-4 inline-block">Urgensi: High</span>
+                                <h3 class="text-2xl font-bold text-gray-900 mb-6">Pengabaian Aturan Owner</h3>
+                                <div class="bg-gray-50 p-5 rounded-2xl border border-gray-100 mb-6 relative">
+                                    <div class="absolute -top-3 -left-2 text-4xl text-gray-300">"</div>
+                                    <p class="text-gray-700 relative z-10 italic">Banyak aturan yang di buat oleh owner tetapi masih diabaikan oleh crew.</p>
+                                </div>
+                                <h4 class="text-sm font-bold text-gray-900 mb-1">Rencana Tindak Lanjut Lapangan:</h4>
+                                <p class="text-sm text-gray-600">Setiap ada aturan baru, harus tertulis sebelum diterapkan di lapangan.</p>
+                            </div>
+                            <div class="p-8 md:p-10 bg-gradient-to-br from-red-50 to-white flex flex-col justify-center">
+                                <h4 class="font-bold text-google-red mb-4 flex items-center gap-2"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg> Analisis Strategis</h4>
+                                <p class="text-gray-700 leading-relaxed text-sm">
+                                    Ini adalah manifestasi murni dari <strong>Teori Broken Windows</strong>. Aturan lisan dari eksekutif tidak memiliki daya ikat eksekutorial di lapangan jika tidak disahkan dalam bentuk Surat Keputusan (SOP Tertulis) bersanksi. Pembiaran aturan kecil yang dilanggar mengirimkan pesan bahwa perusahaan tidak memiliki fungsi pengawasan nyata.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- SPV Data 3 -->
+                        <div class="min-w-full grid grid-cols-1 md:grid-cols-2">
+                            <div class="p-8 md:p-10 border-b md:border-b-0 md:border-r border-gray-100">
+                                <span class="bg-yellow-100 text-yellow-800 text-[10px] font-bold px-3 py-1.5 rounded-full uppercase mb-4 inline-block">Urgensi: Middle</span>
+                                <h3 class="text-2xl font-bold text-gray-900 mb-6">Perseteruan & Ketakutan Lapor</h3>
+                                <div class="bg-gray-50 p-5 rounded-2xl border border-gray-100 mb-6 relative">
+                                    <div class="absolute -top-3 -left-2 text-4xl text-gray-300">"</div>
+                                    <p class="text-gray-700 relative z-10 italic">Ada crew yang berseteru dengan leader dan ingin meminta mutasi tetapi sungkan untuk bercerita (merasa takut).</p>
+                                </div>
+                                <h4 class="text-sm font-bold text-gray-900 mb-1">Rencana Tindak Lanjut Lapangan:</h4>
+                                <p class="text-sm text-gray-600">Menyangkut spesifikasi leader, aspek leadership salah satunya dapat merangkul karyawan dengan lebih baik.</p>
+                            </div>
+                            <div class="p-8 md:p-10 bg-gradient-to-br from-yellow-50 to-white flex flex-col justify-center">
+                                <h4 class="font-bold text-yellow-700 mb-4 flex items-center gap-2"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg> Analisis Strategis</h4>
+                                <p class="text-gray-700 leading-relaxed text-sm">
+                                    Menunjukkan hancurnya keamanan psikologis (<strong>Psychological Safety</strong>). crew memilih <em>Culture of Silence</em> karena sistem pengaduan yang ada berisiko menimbulkan retaliasi (serangan balik) dari oknum.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- SPV Data 4 -->
+                        <div class="min-w-full grid grid-cols-1 md:grid-cols-2">
+                            <div class="p-8 md:p-10 border-b md:border-b-0 md:border-r border-gray-100">
+                                <span class="bg-yellow-100 text-yellow-800 text-[10px] font-bold px-3 py-1.5 rounded-full uppercase mb-4 inline-block">Urgensi: Middle</span>
+                                <h3 class="text-2xl font-bold text-gray-900 mb-6">Blind Spot Kinerja Leader</h3>
+                                <div class="bg-gray-50 p-5 rounded-2xl border border-gray-100 mb-6 relative">
+                                    <div class="absolute -top-3 -left-2 text-4xl text-gray-300">"</div>
+                                    <p class="text-gray-700 relative z-10 italic">Ada beberapa leader yang merasa cukup dengan kinerjanya tetapi masih merasa banyak kekurangan di mata crew yang lain.</p>
+                                </div>
+                                <h4 class="text-sm font-bold text-gray-900 mb-1">Rencana Tindak Lanjut Lapangan:</h4>
+                                <p class="text-sm text-gray-600">SPV diminta untuk mengarahkan segala bentuk penilaian dari crew terkait Leader harus tertulis sebagai pengaduan dan diterapkan prosedur yang berlaku (Mengisi formulir masukan sebagai kritik).</p>
+                            </div>
+                            <div class="p-8 md:p-10 bg-gradient-to-br from-gray-50 to-white flex flex-col justify-center">
+                                <h4 class="font-bold text-gray-800 mb-4 flex items-center gap-2"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg> Analisis Strategis</h4>
+                                <p class="text-gray-700 leading-relaxed text-sm">
+                                    Terjadi bias evaluasi. Diperlukan tindak lanjut dari instrumen evaluasi performa 360 derajat di mana crew dapat secara objektif menilai leadernya tanpa takut dinilai tidak baik.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- SPV Data 5 -->
+                        <div class="min-w-full grid grid-cols-1 md:grid-cols-2">
+                            <div class="p-8 md:p-10 border-b md:border-b-0 md:border-r border-gray-100">
+                                <span class="bg-red-100 text-red-800 text-[10px] font-bold px-3 py-1.5 rounded-full uppercase mb-4 inline-block">Urgensi: High</span>
+                                <h3 class="text-2xl font-bold text-gray-900 mb-6">Leader Melanggar Aturan</h3>
+                                <div class="bg-gray-50 p-5 rounded-2xl border border-gray-100 mb-6 relative">
+                                    <div class="absolute -top-3 -left-2 text-4xl text-gray-300">"</div>
+                                    <p class="text-gray-700 relative z-10 italic font-medium text-red-800">Disaat leader jadi yang pertama mengetahui aturan tetapi leader tersebut yang melanggar.</p>
+                                </div>
+                                <h4 class="text-sm font-bold text-gray-900 mb-1">Rencana Tindak Lanjut Lapangan:</h4>
+                                <p class="text-sm text-gray-600">Training dan refactor spesifikasi leader</p>
+                            </div>
+                            <div class="p-8 md:p-10 bg-gradient-to-br from-red-50 to-white flex flex-col justify-center">
+                                <h4 class="font-bold text-google-red mb-4 flex items-center gap-2"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg> Analisis Strategis</h4>
+                                <p class="text-gray-700 leading-relaxed text-sm">
+                                    Fenomena <strong>Toxic Leadership</strong> yang akut. Standar ganda pemangku jabatan menjadi katalis tercepat yang merusak kedisiplinan dan meningkatkan <em>turnover</em> akibat hilangnya respek.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- SPV Data 6 -->
+                        <div class="min-w-full grid grid-cols-1 md:grid-cols-2">
+                            <div class="p-8 md:p-10 border-b md:border-b-0 md:border-r border-gray-100">
+                                <span class="bg-red-100 text-red-800 text-[10px] font-bold px-3 py-1.5 rounded-full uppercase mb-4 inline-block">Urgensi: High</span>
+                                <h3 class="text-2xl font-bold text-gray-900 mb-6">Ambiguitas Jobdesk Dine-in</h3>
+                                <div class="bg-gray-50 p-5 rounded-2xl border border-gray-100 mb-6 relative">
+                                    <div class="absolute -top-3 -left-2 text-4xl text-gray-300">"</div>
+                                    <p class="text-gray-700 relative z-10 italic">Khusus dine-in, ingin mempunyai jobdesk yang jelas. Perbantuan dengan berbeda tipe outlet dianggap tidak membantu karena skill dan kemampuan beda.</p>
+                                </div>
+                                <h4 class="text-sm font-bold text-gray-900 mb-1">Rencana Tindak Lanjut Lapangan:</h4>
+                                <p class="text-sm text-gray-600">Setelah studi kasus segmentasi posisi dan tanggung jawab di Garut diterapkan dan berjalan baik, hasil evalusasi akan dijadikan blueprint untuk implementasi outlet Bandung</p>
+                            </div>
+                            <div class="p-8 md:p-10 bg-gradient-to-br from-blue-50 to-white flex flex-col justify-center">
+                                <h4 class="font-bold text-google-blue mb-4 flex items-center gap-2"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 002-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg> Analisis Strategis</h4>
+                                <p class="text-gray-700 leading-relaxed text-sm">
+                                    Tidak adanya spesifikasi peran operasional (Role Clarity) menciptakan kekacauan layanan (*Service Breakdown*). Merotasi staf tanpa menyamakan standar sertifikasi dasar pelatihan antar outlet hanya akan merugikan *customer experience* karena ketidaksiapan kompetensi spesifik (misal: kasir biasa vs sistem dine-in resto).
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- SPV Data 7 -->
+                        <div class="min-w-full grid grid-cols-1 md:grid-cols-2">
+                            <div class="p-8 md:p-10 border-b md:border-b-0 md:border-r border-gray-100">
+                                <span class="bg-red-100 text-red-800 text-[10px] font-bold px-3 py-1.5 rounded-full uppercase mb-4 inline-block">Urgensi: High</span>
+                                <h3 class="text-2xl font-bold text-gray-900 mb-6">Tuntutan Kompensasi Mutasi</h3>
+                                <div class="bg-gray-50 p-5 rounded-2xl border border-gray-100 mb-6 relative">
+                                    <div class="absolute -top-3 -left-2 text-4xl text-gray-300">"</div>
+                                    <p class="text-gray-700 relative z-10 italic">Untuk crew yang terdampak terkena mutasi karna ada perpindahan dari yang (hubungan adik/kaka atau yang pacaran) apakah ada timbal balik atau uang kompensasi.</p>
+                                </div>
+                                <h4 class="text-sm font-bold text-gray-900 mb-1">Rencana Tindak Lanjut Lapangan:</h4>
+                                <p class="text-sm text-gray-600">Regulasi kompensasi harus diperjelas.</p>
+                            </div>
+                            <div class="p-8 md:p-10 bg-gradient-to-br from-yellow-50 to-white flex flex-col justify-center">
+                                <h4 class="font-bold text-yellow-700 mb-4 flex items-center gap-2"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> Analisis Strategis</h4>
+                                <p class="text-gray-700 leading-relaxed text-sm">
+                                    Ketakutan crew seperti Agil (Ambon ke Pajajaran) yang mengalami penurunan upah bagi hasil paska mutasi merusak esensi mutasi itu sendiri. Rencana rilis <strong>"Make-Whole Provision"</strong> (Subsidi kompensasi transisional), yakni jaminan pendapatan minimal setara selama 3 bulan adaptasi di outlet baru agar mutasi tidak dipersepsikan sebagai hukuman finansial.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- SPV Data 8 -->
+                        <div class="min-w-full grid grid-cols-1 md:grid-cols-2">
+                            <div class="p-8 md:p-10 border-b md:border-b-0 md:border-r border-gray-100">
+                                <span class="bg-red-100 text-red-800 text-[10px] font-bold px-3 py-1.5 rounded-full uppercase mb-4 inline-block">Urgensi: High</span>
+                                <h3 class="text-2xl font-bold text-red-900 mb-6">Pelecehan Verbal di Lapangan</h3>
+                                <div class="bg-red-50 p-5 rounded-2xl border border-red-100 mb-6 relative">
+                                    <div class="absolute -top-3 -left-2 text-4xl text-red-200">"</div>
+                                    <p class="text-red-900 font-medium relative z-10 italic">Orang tidak disangka karena terlihat baik, namun tindak lanjut dikhawatirkan membawa akibat lain karena korban menyampaikan takut.</p>
+                                </div>
+                                <h4 class="text-sm font-bold text-gray-900 mb-1">Rencana Tindak Lanjut Lapangan:</h4>
+                                <p class="text-sm text-gray-600">Opsi tindak lanjut bisa diatasi dengan mutasi korban.</p>
+                            </div>
+                            <div class="p-8 md:p-10 bg-gradient-to-br from-red-50 to-white flex flex-col justify-center">
+                                <h4 class="font-bold text-google-red mb-4 flex items-center gap-2"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg> Analisis Strategis</h4>
+                                <p class="text-gray-700 leading-relaxed text-sm">
+                                    Jika perusahaan terbukti abai dalam memberikan perlindungan terhadap korban pelecehan di area kerja, korporasi dapat digugat secara pidana/perdata. Seharusnya, HR tidak boleh membiarkan korban yang mengalah. Terduga pelaku harus dinonaktifkan sementara (skorsing) selama komite pusat melakukan investigasi tanpa syarat.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- SPV Data 9 -->
+                        <div class="min-w-full grid grid-cols-1 md:grid-cols-2">
+                            <div class="p-8 md:p-10 border-b md:border-b-0 md:border-r border-gray-100">
+                                <span class="bg-red-100 text-red-800 text-[10px] font-bold px-3 py-1.5 rounded-full uppercase mb-4 inline-block">Urgensi: High</span>
+                                <h3 class="text-2xl font-bold text-gray-900 mb-6">Pencurian Kasir (Fraud)</h3>
+                                <div class="bg-gray-50 p-5 rounded-2xl border border-gray-100 mb-6 relative">
+                                    <div class="absolute -top-3 -left-2 text-4xl text-gray-300">"</div>
+                                    <p class="text-gray-700 relative z-10 italic">Ketika pergantian kasir ada serah terima terlebih dahulu, tapi tidak diterapkan semua outler, segala tindak lanjut FRAUD diperlukan bukti dan bukti didapatkan dengan proses yang memakan waktu.</p>
+                                </div>
+                                <h4 class="text-sm font-bold text-gray-900 mb-1">Rencana Tindak Lanjut Lapangan:</h4>
+                                <p class="text-sm text-gray-600 font-bold text-red-600">Tingkat SP, harus disamaratakan prosedur serah terima.</p>
+                            </div>
+                            <div class="p-8 md:p-10 bg-gradient-to-br from-blue-50 to-white flex flex-col justify-center">
+                                <h4 class="font-bold text-google-blue mb-4 flex items-center gap-2"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg> Analisis Strategis</h4>
+                                <p class="text-gray-700 leading-relaxed text-sm">
+                                    Ketidakseragaman *Cash Drawer Reconciliation* antar outlet. Kebijakan wajib serah terima tertulis (Group Accountability) di area kasir.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- SPV Data 10 -->
+                        <div class="min-w-full grid grid-cols-1 md:grid-cols-2">
+                            <div class="p-8 md:p-10 border-b md:border-b-0 md:border-r border-gray-100">
+                                <span class="bg-red-100 text-red-800 text-[10px] font-bold px-3 py-1.5 rounded-full uppercase mb-4 inline-block">Urgensi: High</span>
+                                <h3 class="text-2xl font-bold text-gray-900 mb-6">Penataan Waktu Ibadah</h3>
+                                <div class="bg-gray-50 p-5 rounded-2xl border border-gray-100 mb-6 relative">
+                                    <div class="absolute -top-3 -left-2 text-4xl text-gray-300">"</div>
+                                    <p class="text-gray-700 relative z-10 italic">Waktu ibadah dipertanyakan. Saran tutup dulu.</p>
+                                </div>
+                                <h4 class="text-sm font-bold text-gray-900 mb-1">Rencana Tindak Lanjut Lapangan:</h4>
+                                <p class="text-sm text-gray-600">PENGAJUAN : Peraturan tertulis, Solat 5 waktu Maksimal 10menit, Sholat Jumat Maksimal 45menit.</p>
+                            </div>
+                            <div class="p-8 md:p-10 bg-gradient-to-br from-gray-50 to-white flex flex-col justify-center">
+                                <h4 class="font-bold text-gray-800 mb-4 flex items-center gap-2"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> Analisis Strategis</h4>
+                                <p class="text-gray-700 leading-relaxed text-sm">
+                                    Konflik waktu ibadah vs pelayanan (Rush Hour). Menutup outlet berisiko kehilangan pendapatan (*Loss of Sales*). Usulan pengaturan batas waktu (10-15 menit ibadah bergilir) membutuhkan Surat Keputusan sah agar tidak terjadi sabotase waktu berkedok ibadah.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- SPV Data 11 -->
+                        <div class="min-w-full grid grid-cols-1 md:grid-cols-2">
+                            <div class="p-8 md:p-10 border-b md:border-b-0 md:border-r border-gray-100">
+                                <span class="bg-red-100 text-red-800 text-[10px] font-bold px-3 py-1.5 rounded-full uppercase mb-4 inline-block">Urgensi: High</span>
+                                <h3 class="text-2xl font-bold text-gray-900 mb-6">Grooming & Catokan di Kasir</h3>
+                                <div class="bg-gray-50 p-5 rounded-2xl border border-gray-100 mb-6 relative">
+                                    <div class="absolute -top-3 -left-2 text-4xl text-gray-300">"</div>
+                                    <p class="text-gray-700 relative z-10 italic">Rambut, seragam cuma 1 (ada yang nyuci di outlet), atribut diajukan 13rb (nametag awet), celemek, sendal baim warna gelap dan tidak beraksesoris, CELANA MASIH PAKAI WARNA TERANG DAN MOTIF(?), Pemakaian topi yang benar, SPESIFIKASI SOPAN (MASIH KETAT DAN SEKSI KARENA BELUM DI KASIH), gaboleh dikecilin.</p>
+                                </div>
+                                <h4 class="text-sm font-bold text-gray-900 mb-1">Rencana Tindak Lanjut Lapangan:</h4>
+                                <p class="text-sm text-gray-600">SOP tertulis baru, karena leader kebanyakan cuek, berlaku denda 15rb baru ambon dan pajajaran.</p>
+                            </div>
+                            <div class="p-8 md:p-10 bg-gradient-to-br from-red-50 to-white flex flex-col justify-center">
+                                <h4 class="font-bold text-google-red mb-4 flex items-center gap-2"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg> Analisis Strategis</h4>
+                                <p class="text-gray-700 leading-relaxed text-sm">
+                                    Tingkat ketidakdisiplinan yang mematikan Brand Image. Denda Rp 15.000 harus segera di-eskalsi menjadi regulasi mengikat ke seluruh cabang.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- SPV Data 12 -->
+                        <div class="min-w-full grid grid-cols-1 md:grid-cols-2">
+                            <div class="p-8 md:p-10 border-b md:border-b-0 md:border-r border-gray-100">
+                                <span class="bg-red-100 text-red-800 text-[10px] font-bold px-3 py-1.5 rounded-full uppercase mb-4 inline-block">Urgensi: High</span>
+                                <h3 class="text-2xl font-bold text-gray-900 mb-6">Penyalahgunaan Hak Makan</h3>
+                                <div class="bg-gray-50 p-5 rounded-2xl border border-gray-100 mb-6 relative">
+                                    <div class="absolute -top-3 -left-2 text-4xl text-gray-300">"</div>
+                                    <p class="text-gray-700 relative z-10 italic">Kerja siang, absen udah, makan dulu, ngerokok, belum kerja, istirahat lagi, banyaknya senior, masih banyak senioritas.</p>
+                                </div>
+                                <h4 class="text-sm font-bold text-gray-900 mb-1">Rencana Tindak Lanjut Lapangan:</h4>
+                                <p class="text-sm text-gray-600">SOP tertulis baru.</p>
+                            </div>
+                            <div class="p-8 md:p-10 bg-gradient-to-br from-yellow-50 to-white flex flex-col justify-center">
+                                <h4 class="font-bold text-yellow-700 mb-4 flex items-center gap-2"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> Analisis Strategis</h4>
+                                <p class="text-gray-700 leading-relaxed text-sm">
+                                    crew memanfaatkan status absen untuk menipu produktivitas operasional. Diperlukan penegakan sistem dengan kerjasama Leader: *Clock-in* absensi hanya sah bila crew sudah memakai seragam lengkap dan siap di meja pelayanan operasional.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- SPV Data 13 -->
+                        <div class="min-w-full grid grid-cols-1 md:grid-cols-2">
+                            <div class="p-8 md:p-10 border-b md:border-b-0 md:border-r border-gray-100">
+                                <span class="bg-red-100 text-red-800 text-[10px] font-bold px-3 py-1.5 rounded-full uppercase mb-4 inline-block">Urgensi: High</span>
+                                <h3 class="text-2xl font-bold text-gray-900 mb-6">Dugaan CCTV Mati</h3>
+                                <div class="bg-gray-50 p-5 rounded-2xl border border-gray-100 mb-6 relative">
+                                    <div class="absolute -top-3 -left-2 text-4xl text-gray-300">"</div>
+                                    <p class="text-gray-700 relative z-10 italic text-red-700 font-medium">Tidak aktif karena wifi dan lain sebagainya.</p>
+                                </div>
+                                <h4 class="text-sm font-bold text-gray-900 mb-1">Rencana Tindak Lanjut Lapangan:</h4>
+                                <p class="text-sm text-gray-600">Ditunjuk penanggung jawab untuk selalu cek CCTV.</p>
+                            </div>
+                            <div class="p-8 md:p-10 bg-gradient-to-br from-red-50 to-white flex flex-col justify-center">
+                                <h4 class="font-bold text-google-red mb-4 flex items-center gap-2"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg> Analisis Strategis</h4>
+                                <p class="text-gray-700 leading-relaxed text-sm">
+                                    Dapat berkorelasi dengan Fraud.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- SPV Data 14 -->
+                        <div class="min-w-full grid grid-cols-1 md:grid-cols-2">
+                            <div class="p-8 md:p-10 border-b md:border-b-0 md:border-r border-gray-100">
+                                <span class="bg-red-100 text-red-800 text-[10px] font-bold px-3 py-1.5 rounded-full uppercase mb-4 inline-block">Urgensi: High</span>
+                                <h3 class="text-2xl font-bold text-gray-900 mb-6">Batas Waktu Merokok</h3>
+                                <div class="bg-gray-50 p-5 rounded-2xl border border-gray-100 mb-6 relative">
+                                    <div class="absolute -top-3 -left-2 text-4xl text-gray-300">"</div>
+                                    <p class="text-gray-700 relative z-10 italic">Maksimal 10 menit, 2 org.</p>
+                                </div>
+                                <h4 class="text-sm font-bold text-gray-900 mb-1">Rencana Tindak Lanjut Lapangan:</h4>
+                                <p class="text-sm text-gray-600">SOP Tertulis diperbaharui dan penegasan ulang oleh owner.</p>
+                            </div>
+                            <div class="p-8 md:p-10 bg-gradient-to-br from-blue-50 to-white flex flex-col justify-center">
+                                <h4 class="font-bold text-google-blue mb-4 flex items-center gap-2"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> Analisis Strategis</h4>
+                                <p class="text-gray-700 leading-relaxed text-sm">
+                                    Kebijakan maksimal durasi dan pembatasan jumlah crew harus diterapkan dan ditegaskan ulang agar crew tidak merokok di area operasional.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- SPV Data 15 -->
+                        <div class="min-w-full grid grid-cols-1 md:grid-cols-2">
+                            <div class="p-8 md:p-10 border-b md:border-b-0 md:border-r border-gray-100">
+                                <span class="bg-red-100 text-red-800 text-[10px] font-bold px-3 py-1.5 rounded-full uppercase mb-4 inline-block">Urgensi: High</span>
+                                <h3 class="text-2xl font-bold text-gray-900 mb-6">Polemik Pengemasan (Hekter)</h3>
+                                <div class="bg-gray-50 p-5 rounded-2xl border border-gray-100 mb-6 relative">
+                                    <div class="absolute -top-3 -left-2 text-4xl text-gray-300">"</div>
+                                    <p class="text-gray-700 relative z-10 italic">Apakah ganti packaging atau gimana? Karena crew alasannya akan tumpah dan ribet kalo pake solusi.</p>
+                                </div>
+                                <h4 class="text-sm font-bold text-gray-900 mb-1">Rencana Tindak Lanjut Lapangan:</h4>
+                                <p class="text-sm text-gray-600">R&D Packaging.</p>
+                            </div>
+                            <div class="p-8 md:p-10 bg-gradient-to-br from-gray-50 to-white flex flex-col justify-center">
+                                <h4 class="font-bold text-gray-800 mb-4 flex items-center gap-2"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path></svg> Analisis Strategis</h4>
+                                <p class="text-gray-700 leading-relaxed text-sm">
+                                    Kepentingan keamanan makanan (*Food Safety*) vs kendala eksekusi logistik di lapangan. Koordinasi dengan tim Purchasing alat alat (misal sealer) untuk merancang desain kemasan yang praktis bagi operasional (anti-tumpah) tanpa menggunakan material membahayakan.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- SPV Data 16 -->
+                        <div class="min-w-full grid grid-cols-1 md:grid-cols-2">
+                            <div class="p-8 md:p-10 border-b md:border-b-0 md:border-r border-gray-100">
+                                <span class="bg-red-100 text-red-800 text-[10px] font-bold px-3 py-1.5 rounded-full uppercase mb-4 inline-block">Urgensi: High</span>
+                                <h3 class="text-2xl font-bold text-gray-900 mb-6">Perawatan Alat Produksi</h3>
+                                <div class="bg-gray-50 p-5 rounded-2xl border border-gray-100 mb-6 relative">
+                                    <div class="absolute -top-3 -left-2 text-4xl text-gray-300">"</div>
+                                    <p class="text-gray-700 relative z-10 italic">SOP nya gimana, tanggung jawab siapa.</p>
+                                </div>
+                                <h4 class="text-sm font-bold text-gray-900 mb-1">Rencana Tindak Lanjut Lapangan:</h4>
+                                <p class="text-sm text-gray-600">Penunjukan tanggung jawab.</p>
+                            </div>
+                            <div class="p-8 md:p-10 bg-gradient-to-br from-yellow-50 to-white flex flex-col justify-center">
+                                <h4 class="font-bold text-yellow-700 mb-4 flex items-center gap-2"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg> Analisis Strategis</h4>
+                                <p class="text-gray-700 leading-relaxed text-sm">
+                                    Tanpa ada individu spesifik yang ditunjuk sebagai penanggung jawab alat per shift, umur alat berat komersial akan lebih pendek, dengan saling lepas tangan, dan membengkakkan biaya modal investasi.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- SPV Data 17 -->
+                        <div class="min-w-full grid grid-cols-1 md:grid-cols-2">
+                            <div class="p-8 md:p-10 border-b md:border-b-0 md:border-r border-gray-100">
+                                <span class="bg-red-100 text-red-800 text-[10px] font-bold px-3 py-1.5 rounded-full uppercase mb-4 inline-block">Urgensi: High</span>
+                                <h3 class="text-2xl font-bold text-gray-900 mb-6">Pengadaan HP atau Elektronik Lambat</h3>
+                                <div class="bg-gray-50 p-5 rounded-2xl border border-gray-100 mb-6 relative">
+                                    <div class="absolute -top-3 -left-2 text-4xl text-gray-300">"</div>
+                                    <p class="text-gray-700 relative z-10 italic">SOP nya, alur nya, dan waktu tunggu dianggap terlalu mengganggu operasional.</p>
+                                </div>
+                                <h4 class="text-sm font-bold text-gray-900 mb-1">Rencana Tindak Lanjut Lapangan:</h4>
+                                <p class="text-sm text-gray-600">- (SLA belum disepakati)</p>
+                            </div>
+                            <div class="p-8 md:p-10 bg-gradient-to-br from-blue-50 to-white flex flex-col justify-center">
+                                <h4 class="font-bold text-google-blue mb-4 flex items-center gap-2"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg> Analisis Strategis</h4>
+                                <p class="text-gray-700 leading-relaxed text-sm">
+                                    Kendala pasokan HP & Tablet untuk layanan pemesanan, disarankan divisi *Purchasing*  memiliki Service Level Agreement (SLA) waktu penyelesaian maksimal.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- SPV Data 18 -->
+                        <div class="min-w-full grid grid-cols-1 md:grid-cols-2">
+                            <div class="p-8 md:p-10 border-b md:border-b-0 md:border-r border-gray-100">
+                                <span class="bg-red-100 text-red-800 text-[10px] font-bold px-3 py-1.5 rounded-full uppercase mb-4 inline-block">Urgensi: High</span>
+                                <h3 class="text-2xl font-bold text-gray-900 mb-6">Standar Alat Produksi Terbelah</h3>
+                                <div class="bg-gray-50 p-5 rounded-2xl border border-gray-100 mb-6 relative">
+                                    <div class="absolute -top-3 -left-2 text-4xl text-gray-300">"</div>
+                                    <p class="text-gray-700 relative z-10 italic font-medium">Sejauh ini beli sendiri masing masing outlet jadi beda gapunya standar.</p>
+                                </div>
+                                <h4 class="text-sm font-bold text-gray-900 mb-1">Rencana Tindak Lanjut Lapangan:</h4>
+                                <p class="text-sm text-gray-600 font-bold text-google-blue">Penyatuan Standardisasi</p>
+                            </div>
+                            <div class="p-8 md:p-10 bg-gradient-to-br from-gray-50 to-white flex flex-col justify-center">
+                                <h4 class="font-bold text-gray-800 mb-4 flex items-center gap-2"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2"></path></svg> Analisis Strategis</h4>
+                                <p class="text-gray-700 leading-relaxed text-sm">
+                                    Praktik desentralisasi pengadaan alat produksi (beli masing-masing) secara fundamental akan merusak konsistensi Mutu (Quality Control) rasa dan pelayanan yang dirasakan pelanggan antar cabang (*Customer Journey*).
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- Section 5: Market Salary Benchmark (Interactive Bento Cards) -->
+    <section id="salary-benchmark" class="py-20 border-t border-gray-100 bg-white overflow-hidden relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Header Section -->
+            <div class="mb-12 text-center" data-aos="fade-down">
+                <span class="bg-blue-100 text-google-blue text-xs font-bold px-4 py-1.5 rounded-full tracking-wider uppercase mb-4 inline-block">Analisis Keuangan SDM</span>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
+                    Market Salary Benchmark (April 2026)
+                </h2>
+                <p class="text-gray-600 max-w-3xl mx-auto text-lg">
+                    Pemetaan kompensasi kompetitor di wilayah Bandung & Garut berdasarkan hasil ekstraksi wawancara kandidat. Analisis ini membandingkan posisi Take Home Pay (THP) Balista terhadap realitas pasar.
+                </p>
+            </div>
+
+            <!-- Disclaimer Banner -->
+            <div class="max-w-4xl mx-auto mb-12 bg-gray-50 border border-gray-200 rounded-2xl p-5 shadow-sm" data-aos="fade-up">
+                <div class="flex items-start gap-4">
+                    <div class="bg-gray-200 rounded-full p-2 text-gray-600 shrink-0">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-gray-800 mb-2">Disclaimer Validitas Data Interview</h4>
+                        <ul class="text-xs text-gray-600 list-disc list-inside space-y-1">
+                            <li>Data bersifat estimasi referensi. Kandidat mungkin tidak mendetailkan seluruh benefit karena faktor lupa atau privasi.</li>
+                            <li>Sesi interview diprioritaskan menggali kompetensi, bukan audit finansial mendalam pada perusahaan sebelumnya agar proses tetap singkat.</li>
+                            <li>Pertanyaan gaji dibatasi secukupnya demi menjaga citra profesional perusahaan (menghindari kesan <em>low-cost focus</em>).</li>
+                            <li>Berfungsi sebagai acuan komparasi kewajaran penawaran gaji kita di mata kandidat.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BENTO BOX: KOMPARASI BANDUNG, GARUT, & BALISTA -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-16" data-aos="fade-up" data-aos-delay="100">
+                
+                <!-- Bandung Area Data -->
+                <div class="lg:col-span-5 glass-card rounded-3xl p-6 shadow-sm border border-gray-100 bg-white">
+                    <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                        <span class="w-3 h-3 rounded-full bg-google-blue"></span> Benchmark Kota Bandung
+                    </h3>
+                    <div class="overflow-y-auto max-h-[400px] pr-2 space-y-3">
+                        <!-- Sushi Focus -->
+                        <div class="p-3 bg-blue-50/50 rounded-xl border border-blue-100">
+                            <div class="flex justify-between items-start mb-1">
+                                <h4 class="font-bold text-blue-900 text-sm">Sushi Mate (Kepala Outlet)</h4>
+                                <span class="text-blue-700 font-bold text-sm">Rp 5.000.000</span>
+                            </div>
+                            <p class="text-xs text-blue-800">SOP 8+1 jam. Crew ada lembur, Kepala tidak ada lembur.</p>
+                        </div>
+                        <div class="p-3 bg-blue-50/50 rounded-xl border border-blue-100">
+                            <div class="flex justify-between items-start mb-1">
+                                <h4 class="font-bold text-blue-900 text-sm">Sushi Yay (Cook Sushi)</h4>
+                                <span class="text-blue-700 font-bold text-sm">Rp 4.000.000</span>
+                            </div>
+                            <p class="text-xs text-blue-800">7 jam kerja, 1 jam istirahat. Potong seragam 200rb (bulan 1).</p>
+                        </div>
+                        <div class="p-3 bg-blue-50/50 rounded-xl border border-blue-100">
+                            <div class="flex justify-between items-start mb-1">
+                                <h4 class="font-bold text-blue-900 text-sm">Sushi Ya (Cook Sushi)</h4>
+                                <span class="text-blue-700 font-bold text-sm">Rp 3.400.000</span>
+                            </div>
+                            <p class="text-xs text-blue-800">Dipotong BPJS. 8 jam + lembur dorong jumat malam (15rb/jam).</p>
+                        </div>
+                        <div class="p-3 bg-blue-50/50 rounded-xl border border-blue-100">
+                            <div class="flex justify-between items-start mb-1">
+                                <h4 class="font-bold text-blue-900 text-sm">Nobu Ramen Sushi (Cook)</h4>
+                                <span class="text-blue-700 font-bold text-sm">Rp 2.800.000</span>
+                            </div>
+                            <p class="text-xs text-blue-800">Gaji bersih, uang makan include, 8 jam inc. istirahat.</p>
+                        </div>
+                        <!-- Non Sushi / Others -->
+                        <div class="p-3 bg-gray-50 rounded-xl border border-gray-100">
+                            <div class="flex justify-between items-start mb-1">
+                                <h4 class="font-bold text-gray-900 text-sm">Jatinangor House (Leader)</h4>
+                                <span class="text-gray-700 font-bold text-sm">Rp 3.500.000</span>
+                            </div>
+                            <p class="text-xs text-gray-600">Ada lembur dan jatah makan.</p>
+                        </div>
+                        <div class="p-3 bg-gray-50 rounded-xl border border-gray-100">
+                            <div class="flex justify-between items-start mb-1">
+                                <h4 class="font-bold text-gray-900 text-sm">Arasso (Crew Kitchen)</h4>
+                                <span class="text-gray-700 font-bold text-sm">Rp 3.000.000</span>
+                            </div>
+                            <p class="text-xs text-gray-600">All in service, 8 jam kerja, mobile rolling.</p>
+                        </div>
+                        <div class="p-3 bg-gray-50 rounded-xl border border-gray-100">
+                            <div class="flex justify-between items-start mb-1">
+                                <h4 class="font-bold text-gray-900 text-sm">Ayam Bersih Berkah (Crew)</h4>
+                                <span class="text-gray-700 font-bold text-sm">Rp 2.500.000</span>
+                            </div>
+                            <p class="text-xs text-gray-600">Bonus tgl 15 (25-50rb). 8 jam tanpa istirahat formal.</p>
+                        </div>
+                        <div class="p-3 bg-gray-50 rounded-xl border border-gray-100">
+                            <div class="flex justify-between items-start mb-1">
+                                <h4 class="font-bold text-gray-900 text-sm">Ayam Kalasan Jogja (Waiters)</h4>
+                                <span class="text-gray-700 font-bold text-sm">Rp 2.300.000</span>
+                            </div>
+                            <p class="text-xs text-gray-600">Full day (07.00 - 20.00), makan 3x sehari.</p>
+                        </div>
+                        <div class="p-3 bg-gray-50 rounded-xl border border-gray-100">
+                            <div class="flex justify-between items-start mb-1">
+                                <h4 class="font-bold text-gray-900 text-sm">Cotta Haus (Cook)</h4>
+                                <span class="text-gray-700 font-bold text-sm">Rp 2.200.000</span>
+                            </div>
+                            <p class="text-xs text-gray-600">SOP 8+1. Termasuk persenan & bonus target (uang kanyaah). Makan subsidi uang tunai (75rb untuk barengan).</p>
+                        </div>
+                        <div class="p-3 bg-gray-50 rounded-xl border border-gray-100">
+                            <div class="flex justify-between items-start mb-1">
+                                <h4 class="font-bold text-gray-900 text-sm">Wizzmie (Kitchen Noodle)</h4>
+                                <span class="text-gray-700 font-bold text-sm">Rp 2.100.000</span>
+                            </div>
+                            <p class="text-xs text-gray-600">Ada BPJS, tanpa bonus. 8 jam termasuk istirahat.</p>
+                        </div>
+                        <div class="p-3 bg-gray-50 rounded-xl border border-gray-100">
+                            <div class="flex justify-between items-start mb-1">
+                                <h4 class="font-bold text-gray-900 text-sm">Kabin (Cook)</h4>
+                                <span class="text-gray-700 font-bold text-sm">Rp 2.100.000</span>
+                            </div>
+                            <p class="text-xs text-gray-600">Service 800rb/bln, KPI 3 bln sekali. 9+1 jam kerja. Subsidi makan 15rb/bln.</p>
+                        </div>
+                        <div class="p-3 bg-gray-50 rounded-xl border border-gray-100">
+                            <div class="flex justify-between items-start mb-1">
+                                <h4 class="font-bold text-gray-900 text-sm">Sei Sapi (Crew All Section)</h4>
+                                <span class="text-gray-700 font-bold text-sm">Rp 1.500.000</span>
+                            </div>
+                            <p class="text-xs text-gray-600">Bonus target harian 100rb dibagi rata. 11 jam santai tanpa istirahat baku.</p>
+                        </div>
+                        <div class="p-3 bg-gray-50 rounded-xl border border-gray-100">
+                            <div class="flex justify-between items-start mb-1">
+                                <h4 class="font-bold text-gray-900 text-sm">Dapoer Sereh Wangi (Kasir)</h4>
+                                <span class="text-gray-700 font-bold text-sm">Rp 1.500.000</span>
+                            </div>
+                            <p class="text-xs text-gray-600">10.00 - 20.30. Jatah makan kolektif 35rb/13 orang.</p>
+                        </div>
+                        <div class="p-3 bg-gray-50 rounded-xl border border-gray-100">
+                            <div class="flex justify-between items-start mb-1">
+                                <h4 class="font-bold text-gray-900 text-sm">Tusik Bogor (Waiters)</h4>
+                                <span class="text-gray-700 font-bold text-sm">Rp 1.400.000</span>
+                            </div>
+                            <p class="text-xs text-gray-600">12 jam kerja, 1 kali makan.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Balista Focus Center & Garut -->
+                <div class="lg:col-span-7 flex flex-col gap-6">
+                    
+                    <!-- Balista Status Card -->
+                    <div class="glass-card rounded-3xl p-8 shadow-md border-2 border-google-green bg-gradient-to-br from-green-50 to-white relative overflow-hidden">
+                        <div class="absolute -right-4 -bottom-4 opacity-10">
+                            <svg class="w-40 h-40 text-google-green" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"></path></svg>
+                        </div>
+                        
+                        <h3 class="text-2xl font-bold text-green-900 mb-6 flex items-center gap-2 relative z-10">
+                            BALISTA SUSHI & TEA (Status Saat Ini)
+                        </h3>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 relative z-10">
+                            <div class="bg-white p-4 rounded-xl border border-green-100 shadow-sm">
+                                <div class="text-[10px] uppercase font-bold text-gray-500 mb-1">Struktur Basic Salary</div>
+                                <div class="font-bold text-gray-900 text-lg">Rp 1.500.000 <span class="text-xs font-normal text-gray-500">/ Crew</span></div>
+                                <div class="font-bold text-gray-900 text-lg">Rp 1.900.000 <span class="text-xs font-normal text-gray-500">/ Leader</span></div>
+                                <p class="text-xs text-green-700 mt-1 font-medium">*Mengalami kenaikan bertahap</p>
+                            </div>
+                            
+                            <div class="bg-white p-4 rounded-xl border border-green-100 shadow-sm">
+                                <div class="text-[10px] uppercase font-bold text-gray-500 mb-1">Estimasi Take Home Pay (THP)</div>
+                                <div class="font-extrabold text-google-green text-2xl">Rp 2.800.000</div>
+                                <p class="text-[10px] text-gray-500 leading-tight mt-1">Rata-rata THP Bulan April untuk 107 Crew & 12 Leader</p>
+                            </div>
+
+                            <div class="bg-white p-4 rounded-xl border border-green-100 shadow-sm md:col-span-2">
+                                <div class="text-[10px] uppercase font-bold text-gray-500 mb-2">Komponen Benefit Tambahan</div>
+                                <ul class="text-xs text-gray-700 space-y-1.5 list-disc list-inside">
+                                    <li><strong class="text-gray-900">Service Charge:</strong> Dicairkan per 10 hari (3x Sebulan). Rata-rata 1.3 Juta/bulan dari total 12 outlet (Data Maret).</li>
+                                    <li><strong class="text-gray-900">Uang Makan:</strong> Rp 10.000 (Hanya untuk hari Sabtu).</li>
+                                    <li><strong class="text-gray-900">Bonus Penilaian:</strong> Extra ± Rp 150.000 - Rp 200.000 (Khusus pemenang KPI).</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Garut Area Data -->
+                    <div class="glass-card rounded-3xl p-6 shadow-sm border border-gray-100 bg-white flex-1">
+                        <h3 class="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+                            <span class="w-3 h-3 rounded-full bg-google-yellow"></span> Benchmark Area Garut
+                        </h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 overflow-y-auto max-h-[160px] pr-2">
+                            <div class="p-3 bg-gray-50 rounded-lg border border-gray-100 text-xs">
+                                <div class="font-bold text-gray-900">Jatinangor House (Leader)</div>
+                                <div class="text-google-blue font-bold">Rp 3.500.000</div>
+                                <div class="text-gray-500 mt-1">Inc. insentif, lembur event, makan produk.</div>
+                            </div>
+                            <div class="p-3 bg-gray-50 rounded-lg border border-gray-100 text-xs">
+                                <div class="font-bold text-gray-900">Han's Karaoke (Kitchen)</div>
+                                <div class="text-gray-700 font-bold">Rp 2.500.000</div>
+                                <div class="text-gray-500 mt-1">Makan masak sendiri, 8 jam full.</div>
+                            </div>
+                            <div class="p-3 bg-gray-50 rounded-lg border border-gray-100 text-xs">
+                                <div class="font-bold text-gray-900">Sushikun (Waiters)</div>
+                                <div class="text-gray-700 font-bold">Rp 2.100.000</div>
+                            </div>
+                            <div class="p-3 bg-gray-50 rounded-lg border border-gray-100 text-xs">
+                                <div class="font-bold text-gray-900">Sushikun (Kitchen)</div>
+                                <div class="text-gray-700 font-bold">Rp 2.080.000</div>
+                                <div class="text-gray-500 mt-1">SOP 8+1 jam. Ada bonus dari audit dsb.</div>
+                            </div>
+                            <div class="p-3 bg-gray-50 rounded-lg border border-gray-100 text-xs">
+                                <div class="font-bold text-gray-900">Core Garden (Crew)</div>
+                                <div class="text-gray-700 font-bold">Rp 1.800.000</div>
+                                <div class="text-red-500 mt-1">Denda tak solat 50rb. Lembur 10rb/jam.</div>
+                            </div>
+                            <div class="p-3 bg-gray-50 rounded-lg border border-gray-100 text-xs">
+                                <div class="font-bold text-gray-900">Garland, Casacola (Waiters)</div>
+                                <div class="text-gray-700 font-bold">Rp 1.500.000</div>
+                                <div class="text-gray-500 mt-1">Ada catering, bonus KPI 150rb, 8+1 jam.</div>
+                            </div>
+                            <div class="p-3 bg-gray-50 rounded-lg border border-gray-100 text-xs">
+                                <div class="font-bold text-gray-900">Daigo (Crew Kitchen)</div>
+                                <div class="text-gray-700 font-bold">Rp 1.150.000</div>
+                                <div class="text-gray-500 mt-1">SOP 9 jam. Makan + Transport + Bonus 350rb.</div>
+                            </div>
+                            <div class="p-3 bg-gray-50 rounded-lg border border-gray-100 text-xs">
+                                <div class="font-bold text-gray-900">Daigo (Waiters)</div>
+                                <div class="text-gray-700 font-bold">Rp 1.000.000</div>
+                                <div class="text-gray-500 mt-1">10 jam, lembur 5rb/jam, Bonus 300rb, THP 1.5jt.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Analisa Profesional HR & Saran -->
+            <div class="glass-card rounded-3xl p-8 shadow-lg border border-gray-200 bg-white" data-aos="fade-up">
+                <h3 class="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+                    <svg class="w-6 h-6 text-google-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                    Analisis HR
+                </h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Analisa -->
+                    <div>
+                        <h4 class="font-bold text-gray-900 mb-3 border-b border-gray-200 pb-2">Posisi Balista di Mata Pasar (Competitive Analysis)</h4>
+                        <ul class="text-sm text-gray-700 space-y-3 leading-relaxed">
+                            <li class="flex gap-2">
+                                <span class="text-google-green font-bold">✓</span>
+                                <span><strong>Kekuatan THP (Take Home Pay):</strong> Rata-rata THP kita <strong>Rp 2.800.000</strong> berkat pembagian <em>Service Charge</em> (rata-rata 1.3 juta/bulan). Ini menempatkan kita <strong>sangat kompetitif</strong> untuk level pemula (Crew) di Bandung, mengungguli standar kompetitor kelas menengah seperti Ayam Bersih Berkah (2.5jt), Cotta Haus (2.2jt), dan Wizzmie (2.1jt).</span>
+                            </li>
+                            <li class="flex gap-2">
+                                <span class="text-google-red font-bold">⚠</span>
+                                <span><strong>Kelemahan Persepsi Gaji Pokok:</strong> Meskipun THP tinggi, angka tawaran Gaji Pokok awal kita (<strong>Rp 1.500.000</strong>) berisiko menurunkan minat pelamar berkualitas di tahap awal wawancara, terutama mereka yang melihat angka bersih 2.8jt - 4jt di <em>Japanese F&B competitor</em> seperti Nobu, Sushi Ya, dan Sushi Yay. Gen Z cenderung skeptis terhadap skema "gaji kecil + service/bonus besar" karena dianggap tidak stabil.</span>
+                            </li>
+                            <li class="flex gap-2">
+                                <span class="text-google-yellow font-bold">⚠</span>
+                                <span><strong>Perbedaan Fasilitas Makan:</strong> Mayoritas kompetitor F&B (Nobu, Cotta Haus, Dapoer Sereh, Garland) memberikan proteksi makan harian (baik berupa makanan fisik atau subsidi uang). Kita memberikan uang makan Rp 10.000 di hari Sabtu dan Jatah makan 1x sehari (mie dan telur).</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Rekomendasi -->
+                    <div class="bg-gray-50 rounded-2xl p-6 border border-gray-200">
+                        <h4 class="font-bold text-gray-900 mb-3 border-b border-gray-300 pb-2">Langkah yang diterapkan sejauh ini:</h4>
+                        <ul class="text-sm text-gray-700 space-y-4 leading-relaxed">
+                            <li>
+                                <strong class="text-google-blue">Re-branding Tawaran Kompensasi (Marketing HR):</strong><br>
+                                Menegaskan <strong>"Estimasi Take Home Pay: Rp 2.500.000 - Rp 3.000.000++"</strong> agar setara <em>Sushi Yay</em> dan <em>Nobu</em> di pasar Bandung.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+    
+    <!-- Section 6: Service Charge Analysis -->
+    <section id="service-charge" class="py-20 border-t border-gray-100 bg-[#f8f9fa] overflow-hidden relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Header Section -->
+            <div class="mb-12 text-center" data-aos="fade-down">
+                <span class="bg-red-100 text-google-red text-xs font-bold px-4 py-1.5 rounded-full tracking-wider uppercase mb-4 inline-block">Anatomi Kompensasi</span>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
+                    Sistem Bagi Rata "Persenan"
+                </h2>
+                <p class="text-gray-600 max-w-3xl mx-auto text-lg">
+                    Mekanisme <b>3% dibagi rata</b> yang direkap mandiri oleh crew di lapangan bisa mengubah kebijakan strategis manajemen.
+                </p>
+            </div>
+
+            <!-- Root Cause Highlight -->
+            <div class="max-w-4xl mx-auto mb-12 bg-white border-l-4 border-google-red rounded-2xl p-6 shadow-md" data-aos="fade-up">
+                <div class="flex flex-col md:flex-row gap-6 items-center">
+                    <div class="bg-red-50 p-4 rounded-full text-google-red shrink-0">
+                        <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-xl text-gray-900 mb-2">Akar Masalah: Munculnya Pola Pikir "Hak Milik"</h3>
+                        <p class="text-sm text-gray-700 leading-relaxed">
+                            Karena crew merekap sendiri omset hariannya secara transparan, persenan perlahan tidak lagi dilihat sebagai <i>bonus performa</i> dari perusahaan, melainkan sebagai "hak mutlak" mereka. Pola pikir ini membuat crew menjadi sangat reaktif dan menolak setiap perubahan operasional yang dianggap akan mengurangi jatah uang mereka.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BENTO BOX: 3 HAMBATAN OPERASIONAL -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-12">
+                
+                <!-- Card 1 -->
+                <div class="glass-card rounded-3xl p-8 shadow-sm border border-gray-100 bg-white flex flex-col hover:shadow-md transition" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center mb-6 text-google-blue">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                    </div>
+                    <h4 class="font-bold text-xl text-gray-900 mb-3">Timbulnya Senioritas & Mentoring Terhenti</h4>
+                    <p class="text-sm text-gray-600 mb-4 leading-relaxed flex-1">
+                        crew senior yang memegang tanggung jawab lebih besar merasa <b>tidak adil</b> karena nominal persenan yang mereka dapatkan sama persis dengan crew baru. Akibatnya, senior enggan membimbing dan menuntut crew baru harus "langsung jago" agar beban kerja mereka sepadan dengan uang yang dibagi rata.
+                    </p>
+                    <div class="pt-4 border-t border-gray-100">
+                        <span class="text-xs font-bold text-google-blue uppercase tracking-wider">Apa Yang Terhambat?</span>
+                        <p class="text-xs text-gray-800 mt-1 font-medium">Proses regenerasi crew melambat, serta terciptanya budaya kerja yang menekan (<i>toxic</i>) bagi karyawan baru.</p>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="glass-card rounded-3xl p-8 shadow-sm border border-gray-100 bg-white flex flex-col hover:shadow-md transition" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-12 h-12 rounded-xl bg-yellow-50 flex items-center justify-center mb-6 text-google-yellow">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
+                    </div>
+                    <h4 class="font-bold text-xl text-gray-900 mb-3">Segmentasi Posisi Terhambat untuk Diterapkan</h4>
+                    <p class="text-sm text-gray-600 mb-4 leading-relaxed flex-1">
+                        Upaya segmentasi crew menjadi spesialis <i>Kitchen</i> dan <i>Server/Bar</i> agar lebih rapi tidak sinkron dengan lapangan. crew <i>Kitchen</i> merasa beban fisik di dapur jauh lebih berat daripada <i>Server</i>, karena kondisi penjualan dine in menurun, sementara bayaran persenannya sama rata.
+                    </p>
+                    <div class="pt-4 border-t border-gray-100">
+                        <span class="text-xs font-bold text-google-yellow uppercase tracking-wider">Apa Yang Terhambat?</span>
+                        <p class="text-xs text-gray-800 mt-1 font-medium">Standardisasi dan spesialisasi SOP terhenti. crew senior akan merasa lebih adil All Section, namun hal tsb sangat tidak efektif untuk spesialisasi dan delegasi tanggung jawab</p>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="glass-card rounded-3xl p-8 shadow-sm border border-gray-100 bg-white flex flex-col hover:shadow-md transition" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-12 h-12 rounded-xl bg-red-50 flex items-center justify-center mb-6 text-google-red">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path></svg>
+                    </div>
+                    <h4 class="font-bold text-xl text-gray-900 mb-3">Mutasi & Perbantuan Jadi Sulit</h4>
+                    <p class="text-sm text-gray-600 mb-4 leading-relaxed flex-1">
+                        Sistem ini membuat crew sangat pemilih (<i>cherry-picking</i>). Mereka hanya mau ditempatkan di outlet yang ramai pengunjung. Jika diinstruksikan mutasi sementara ke outlet sepi untuk menutupi kekosongan, mereka komplain dan merasa sedang "dihukum" karena persenannya otomatis turun.
+                    </p>
+                    <div class="pt-4 border-t border-gray-100">
+                        <span class="text-xs font-bold text-google-red uppercase tracking-wider">Apa Yang Terhambat?</span>
+                        <p class="text-xs text-gray-800 mt-1 font-medium">Kurangnya fleksibilitas manajemen untuk (<i>rolling</i>) crew antar outlet saat kondisi darurat.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 7: HRIS Dashboard & Administratif Crew -->
+    <section id="hris-admin" class="py-20 border-t border-gray-100 bg-white overflow-hidden relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Header Section -->
+            <div class="mb-12 text-center" data-aos="fade-down">
+                <span class="bg-blue-100 text-google-blue text-xs font-bold px-4 py-1.5 rounded-full tracking-wider uppercase mb-4 inline-block">Eksekusi Digital & Data Lini Depan</span>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
+                    Rekapitulasi Administratif
+                </h2>
+            </div>
+
+            <!-- Bagian 2: Data Absensi (Heatmap & Metrik) -->
+            <div class="mb-16" data-aos="fade-up">
+                <h3 class="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+                    <svg class="w-6 h-6 text-google-red" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                    Rekapitulasi Absensi & Kedisiplinan
+                </h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                    <!-- Metrics Cards -->
+                    <div class="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm">
+                        <div class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-1">Total crew Aktif</div>
+                        <div class="flex items-baseline gap-2">
+                            <span class="text-3xl font-bold text-gray-900">116</span>
+                            <span class="text-xs text-gray-500">(Mar)</span>
+                            <span class="text-gray-300">|</span>
+                            <span class="text-xl font-bold text-gray-700">120</span>
+                            <span class="text-xs text-gray-500">(Apr)</span>
+                        </div>
+                    </div>
+                    <div class="bg-red-50 border border-red-100 rounded-2xl p-5 shadow-sm">
+                        <div class="text-xs font-bold text-red-500 uppercase tracking-wider mb-1">Izin & Sakit (Absen Sah)</div>
+                        <div class="flex items-baseline gap-2">
+                            <span class="text-3xl font-bold text-red-700">134</span>
+                            <span class="text-xs text-red-500">(Mar)</span>
+                            <span class="text-red-300">|</span>
+                            <span class="text-xl font-bold text-red-600">138</span>
+                            <span class="text-xs text-red-500">(Apr)</span>
+                        </div>
+                    </div>
+                    <div class="bg-orange-50 border border-orange-100 rounded-2xl p-5 shadow-sm">
+                        <div class="text-xs font-bold text-orange-500 uppercase tracking-wider mb-1">Alpa (Tanpa Kabar)</div>
+                        <div class="flex items-baseline gap-2">
+                            <span class="text-3xl font-bold text-orange-700">22</span>
+                            <span class="text-xs text-orange-500">(Mar)</span>
+                            <span class="text-orange-300">|</span>
+                            <span class="text-xl font-bold text-orange-600">24</span>
+                            <span class="text-xs text-orange-500">(Apr)</span>
+                        </div>
+                    </div>
+                    <div class="bg-yellow-50 border border-yellow-100 rounded-2xl p-5 shadow-sm">
+                        <div class="text-xs font-bold text-yellow-600 uppercase tracking-wider mb-1">Hadir Telat & Bolos Sabtu</div>
+                        <div class="flex flex-col gap-1 mt-1">
+                            <div class="text-sm font-bold text-yellow-800">Telat: 59 (Mar) → 45 (Apr)</div>
+                            <div class="text-sm font-bold text-yellow-800">Bolos Sabtu: 95 (Mar) → 64 (Apr)</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-3xl p-6 border border-gray-200 bg-white">
+                    <h4 class="font-bold text-gray-900 mb-2">Analisis Perilaku Absensi</h4>
+                    <p class="text-sm text-gray-700 leading-relaxed mb-4">
+                        Data menunjukkan angka <b>Bolos di Hari Sabtu</b> sangat tinggi (95 kejadian di Maret, 64 di April). Hari Sabtu adalah puncak kepadatan operasional (<i>weekend rush</i>).
+                    </p>
+                </div>
+            </div>
+
+            <!-- Bagian 2: Data Absensi (Komparasi Antar Outlet Berdasarkan Fakta) -->
+            <div class="mb-16" data-aos="fade-up">
+                <h3 class="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+                    <svg class="w-6 h-6 text-google-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                    Data Absensi (Periode Maret & April 2026)
+                </h3>
+
+                <!-- Top 4 Metrics Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                    <!-- Fakta Lateness -->
+                    <div class="bg-white border-t-4 border-t-google-yellow rounded-2xl p-6 shadow-sm flex flex-col">
+                        <div class="flex items-center justify-between mb-4">
+                            <h4 class="text-sm font-bold text-gray-500 uppercase tracking-wider">Rekap Hadir Telat (HT)</h4>
+                        </div>
+                        <div class="text-xl font-bold text-gray-900 mb-1">Outlet Pajajaran</div>
+                        <div class="text-sm font-medium text-google-yellow mb-3">Maret: 9 | April: 11 Insiden</div>
+                        <p class="text-xs text-gray-600 leading-relaxed mt-auto">
+                            Data disesuaikan (tanpa Sdr. Fajar). Pajajaran mencatat angka keterlambatan tertinggi dalam dua bulan berturut-turut.
+                        </p>
+                    </div>
+
+                    <!-- Fakta Absences -->
+                    <div class="bg-white border-t-4 border-t-google-red rounded-2xl p-6 shadow-sm flex flex-col">
+                        <div class="flex items-center justify-between mb-4">
+                            <h4 class="text-sm font-bold text-gray-500 uppercase tracking-wider">Rekap Alpa (A)</h4>
+                        </div>
+                        <div class="text-xl font-bold text-gray-900 mb-1">Pajajaran & Ujung Berung</div>
+                        <div class="text-sm font-medium text-google-red mb-3">April: Masing-masing 7 Insiden</div>
+                        <p class="text-xs text-gray-600 leading-relaxed mt-auto">
+                            Tercatat 7 insiden ketidakhadiran tanpa keterangan (Alpa) di dua outlet ini selama periode April 2026.
+                        </p>
+                    </div>
+
+                    <!-- Fakta Izin -->
+                    <div class="bg-white border-t-4 border-t-blue-500 rounded-2xl p-6 shadow-sm flex flex-col">
+                        <div class="flex items-center justify-between mb-4">
+                            <h4 class="text-sm font-bold text-gray-500 uppercase tracking-wider">Rekap Izin (I)</h4>
+                        </div>
+                        <div class="text-xl font-bold text-gray-900 mb-1">Outlet KBP</div>
+                        <div class="text-sm font-medium text-blue-600 mb-3">April: 16 Insiden</div>
+                        <p class="text-xs text-gray-600 leading-relaxed mt-auto">
+                            Outlet KBP mencatat frekuensi ketidakhadiran dengan keterangan Izin (I) tertinggi dibandingkan seluruh outlet lainnya pada bulan April.
+                        </p>
+                    </div>
+
+                    <!-- Fakta Discipline -->
+                    <div class="bg-white border-t-4 border-t-google-green rounded-2xl p-6 shadow-sm flex flex-col">
+                        <div class="flex items-center justify-between mb-4">
+                            <h4 class="text-sm font-bold text-gray-500 uppercase tracking-wider">Kedisiplinan Hadir</h4>
+                        </div>
+                        <div class="text-xl font-bold text-gray-900 mb-1">Kiaracondong & Setrasari</div>
+                        <div class="text-sm font-medium text-google-green mb-3">0 Alpa, 0 Telat</div>
+                        <p class="text-xs text-gray-600 leading-relaxed mt-auto">
+                            Berdasarkan tarikan data absensi, kedua outlet ini bersih dari insiden Alpa maupun Hadir Telat (HT) selama periode pencatatan.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Grafik Komparasi Absensi Outlet -->
+                <div class="glass-card rounded-3xl p-6 md:p-8 shadow-sm border border-gray-100 bg-white flex flex-col mb-8">
+                    <div class="flex justify-between items-start mb-6">
+                        <div>
+                            <h4 class="font-bold text-gray-900 text-lg mb-1">Peta Sebaran Insiden Kedisiplinan per Cabang (April 2026)</h4>
+                            <p class="text-sm text-gray-500">Menampilkan akumulasi faktual dari data Hadir Telat (HT), Alpa (A), Izin (I), dan Sakit (S)</p>
+                        </div>
+                    </div>
+                    <div class="flex-1 min-h-[350px] relative">
+                        <canvas id="outletChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Fakta Eksekutif (Tanpa Konklusi Opini) -->
+                <div class="bg-gray-900 rounded-3xl p-8 shadow-xl text-white">
+                    <h3 class="text-xl font-bold mb-4 flex items-center gap-3">
+                        <svg class="w-6 h-6 text-google-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                        Fakta Catatan Administratif (Maret - April)
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                        <div>
+                            <p class="text-gray-300 text-sm leading-relaxed mb-4">
+                                <strong class="text-white block mb-1">1. Angka Ketidakhadiran di Hari Sabtu</strong>
+                                Terdapat total <b>95 insiden</b> mangkir/tidak hadir di hari Sabtu pada bulan Maret, dan <b>64 insiden</b> pada bulan April. Angka ini dicatat spesifik pada kolom (-) di tabel absensi yang merujuk pada ketidakhadiran di akhir pekan.
+                            </p>
+                        </div>
+                        <div>
+                            <p class="text-gray-300 text-sm leading-relaxed mb-4">
+                                <strong class="text-white block mb-1">2. Perbandingan Data Izin & Sakit</strong>
+                                <br>- <b>Maret:</b> Tercatat 55 insiden Sakit (S) dan 81 insiden Izin (I).
+                                <br>- <b>April:</b> Tercatat 72 insiden Sakit (S) dan 65 insiden Izin (I).
+                                <br>Secara faktual, terjadi peningkatan jumlah pengajuan absen dengan status Sakit dari bulan Maret ke bulan April.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bagian 3: Matriks Turnover -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16" data-aos="fade-up">
+                
+                <div class="glass-card rounded-3xl p-8 shadow-sm border border-gray-100 bg-white flex flex-col">
+                    <h3 class="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+                        <svg class="w-6 h-6 text-google-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path></svg>
+                        Arus Turnover (Keluar-Masuk)
+                    </h3>
+                    <div class="flex-1 flex items-center justify-center relative min-h-[250px]">
+                        <canvas id="turnoverChart"></canvas>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-gray-100">
+                        <p class="text-sm text-gray-700">
+                            Di bulan April, jumlah crew yang keluar (10 orang) melampaui jumlah rekrutan baru (6 orang), dan <b>4 di antaranya adalah <i>resign</i> dadakan</b> tanpa pemberitahuan.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 8: Individual 360 Assessment (Crew Evaluation) -->
+    <section id="crew-assessment" class="py-20 border-t border-gray-100 bg-[#f8f9fa] overflow-hidden relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Header Section -->
+            <div class="mb-12 text-center" data-aos="fade-down">
+                <span class="bg-green-100 text-google-green text-xs font-bold px-4 py-1.5 rounded-full tracking-wider uppercase mb-4 inline-block">Hasil Penilaian Individu Terakhir</span>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
+                    Analisis Penilaian Individu crew (April 2026)
+                </h2>
+                <p class="text-gray-600 max-w-3xl mx-auto text-lg">
+                    Data diambil dari sistem penilaian 360-derajat terhadap 107 crew.
+                </p>
+            </div>
+
+            <!-- Bagian 1: Komparasi Rata-rata Outlet -->
+            <div class="glass-card rounded-3xl p-6 md:p-8 shadow-sm border border-gray-200 bg-white mb-8" data-aos="fade-up">
+                <div class="flex justify-between items-start mb-6 border-b border-gray-100 pb-4">
+                    <div>
+                        <h3 class="font-bold text-gray-900 text-xl flex items-center gap-2">
+                            <svg class="w-6 h-6 text-google-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                            Peringkat Rata-Rata Kualitas Outlet
+                        </h3>
+                        <p class="text-sm text-gray-500 mt-1">Nilai Akhir (Skala 0-100) gabungan seluruh crew di cabang tersebut.</p>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    <div class="lg:col-span-8 min-h-[300px] relative">
+                        <canvas id="outletScoreChart"></canvas>
+                    </div>
+                    <div class="lg:col-span-4 flex flex-col gap-4">
+                        <div class="bg-blue-50 border border-blue-100 rounded-xl p-5">
+                            <h4 class="text-xs font-bold text-google-blue uppercase tracking-wider mb-2">Top Tier Outlets (Skor > 84)</h4>
+                            <ul class="text-sm text-gray-800 space-y-1 font-medium">
+                                <li>1. Tubagus Ismail (85.10)</li>
+                                <li>2. Kota Baru Parahyangan (84.95)</li>
+                                <li>3. Cimahi Cihanjuang (84.52)</li>
+                            </ul>
+                        </div>
+                        <div class="bg-red-50 border border-red-100 rounded-xl p-5">
+                            <h4 class="text-xs font-bold text-google-red uppercase tracking-wider mb-2">Bottom Tier Outlets (Skor < 76)</h4>
+                            <ul class="text-sm text-gray-800 space-y-1 font-medium">
+                                <li>10. Buah Batu (76.07)</li>
+                                <li>11. Soreang (75.06)</li>
+                                <li>12. Kiaracondong (73.32)</li>
+                            </ul>
+                            <p class="text-xs text-gray-600 mt-3">Kiaracondong mencatat rata-rata terendah. Hal ini berkorelasi langsung dengan tingginya rasio kegagalan <i>training</i> crew (80%) di cabang ini seperti yang dibahas pada analisis <i>Onboarding</i> sebelumnya.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bagian 2: Top & Bottom Performers -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8" data-aos="fade-up">
+                
+                <!-- Hall of Fame (Top 5) -->
+                <div class="glass-card rounded-3xl p-6 border-t-4 border-t-google-green bg-white shadow-sm">
+                    <h3 class="font-bold text-gray-900 text-lg flex items-center gap-2 mb-4">
+                        <span class="text-2xl">🏆</span> Hall of Fame (Top 5 crew)
+                    </h3>
+                    <div class="space-y-3">
+                        <!-- Rank 1 -->
+                        <div class="flex items-center justify-between p-3 bg-green-50 rounded-xl border border-green-100">
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-full bg-google-green text-white flex items-center justify-center font-bold">1</div>
+                                <div>
+                                    <div class="font-bold text-gray-900 text-sm">Sukma Sanjaya</div>
+                                    <div class="text-xs text-green-700">Tubagus Ismail</div>
+                                </div>
+                            </div>
+                            <div class="text-lg font-black text-gray-900">92.56</div>
+                        </div>
+                        <!-- Rank 2 -->
+                        <div class="flex items-center justify-between p-3 bg-gray-50 rounded-xl border border-gray-100">
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-full bg-gray-200 text-gray-700 flex items-center justify-center font-bold">2</div>
+                                <div>
+                                    <div class="font-bold text-gray-900 text-sm">Agung Minargo</div>
+                                    <div class="text-xs text-gray-500">Ambon</div>
+                                </div>
+                            </div>
+                            <div class="text-lg font-bold text-gray-700">89.25</div>
+                        </div>
+                        <!-- Rank 3 -->
+                        <div class="flex items-center justify-between p-3 bg-gray-50 rounded-xl border border-gray-100">
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-full bg-gray-200 text-gray-700 flex items-center justify-center font-bold">3</div>
+                                <div>
+                                    <div class="font-bold text-gray-900 text-sm">Febri Purnamasari</div>
+                                    <div class="text-xs text-gray-500">KBP</div>
+                                </div>
+                            </div>
+                            <div class="text-lg font-bold text-gray-700">88.36</div>
+                        </div>
+                        <!-- Rank 4 -->
+                        <div class="flex items-center justify-between p-3 bg-gray-50 rounded-xl border border-gray-100">
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-full bg-gray-200 text-gray-700 flex items-center justify-center font-bold">4</div>
+                                <div>
+                                    <div class="font-bold text-gray-900 text-sm">Jamilia Shabirah</div>
+                                    <div class="text-xs text-gray-500">Cimahi Cihanjuang</div>
+                                </div>
+                            </div>
+                            <div class="text-lg font-bold text-gray-700">87.70</div>
+                        </div>
+                        <!-- Rank 5 -->
+                        <div class="flex items-center justify-between p-3 bg-gray-50 rounded-xl border border-gray-100">
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-full bg-gray-200 text-gray-700 flex items-center justify-center font-bold">5</div>
+                                <div>
+                                    <div class="font-bold text-gray-900 text-sm">Wina Fitria</div>
+                                    <div class="text-xs text-gray-500">Tubagus Ismail</div>
+                                </div>
+                            </div>
+                            <div class="text-lg font-bold text-gray-700">87.24</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Needs Improvement (Bottom 5) -->
+                <div class="glass-card rounded-3xl p-6 border-t-4 border-t-google-red bg-white shadow-sm">
+                    <h3 class="font-bold text-gray-900 text-lg flex items-center gap-2 mb-4">
+                        <span class="text-2xl">⚠️</span> Intervensi Darurat (Bottom 5 crew)
+                    </h3>
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between p-3 bg-red-50 rounded-xl border border-red-200">
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-full bg-google-red text-white flex items-center justify-center font-bold">107</div>
+                                <div>
+                                    <div class="font-bold text-red-900 text-sm">Alif Miqel Asyadan</div>
+                                    <div class="text-xs text-red-700">Kiaracondong</div>
+                                </div>
+                            </div>
+                            <div class="text-lg font-black text-red-900">56.80</div>
+                        </div>
+                        <div class="flex items-center justify-between p-3 bg-red-50 rounded-xl border border-red-100">
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-full bg-red-200 text-red-800 flex items-center justify-center font-bold">106</div>
+                                <div>
+                                    <div class="font-bold text-gray-900 text-sm">Muhammad Saeful Anwar</div>
+                                    <div class="text-xs text-gray-500">Cimahi Amir</div>
+                                </div>
+                            </div>
+                            <div class="text-lg font-bold text-gray-700">64.58</div>
+                        </div>
+                        <div class="flex items-center justify-between p-3 bg-gray-50 rounded-xl border border-gray-100">
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-full bg-gray-200 text-gray-700 flex items-center justify-center font-bold">105</div>
+                                <div>
+                                    <div class="font-bold text-gray-900 text-sm">Dani Setiawan</div>
+                                    <div class="text-xs text-gray-500">Soreang</div>
+                                </div>
+                            </div>
+                            <div class="text-lg font-bold text-gray-700">67.80</div>
+                        </div>
+                        <div class="flex items-center justify-between p-3 bg-gray-50 rounded-xl border border-gray-100">
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-full bg-gray-200 text-gray-700 flex items-center justify-center font-bold">104</div>
+                                <div>
+                                    <div class="font-bold text-gray-900 text-sm">Mochamad Ruzaeni</div>
+                                    <div class="text-xs text-gray-500">Buah Batu</div>
+                                </div>
+                            </div>
+                            <div class="text-lg font-bold text-gray-700">68.40</div>
+                        </div>
+                        <div class="flex items-center justify-between p-3 bg-gray-50 rounded-xl border border-gray-100">
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-full bg-gray-200 text-gray-700 flex items-center justify-center font-bold">103</div>
+                                <div>
+                                    <div class="font-bold text-gray-900 text-sm">Anisa Sakinah Ramadanti</div>
+                                    <div class="text-xs text-gray-500">Buah Batu</div>
+                                </div>
+                            </div>
+                            <div class="text-lg font-bold text-gray-700">68.75</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Bagian 3: Analisis Komponen Kinerja (Radar) -->
+            <div class="glass-card rounded-3xl p-6 md:p-8 shadow-sm border border-gray-100 bg-white" data-aos="fade-up">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h3 class="font-bold text-gray-900 text-xl flex items-center gap-2 mb-4">
+                            <svg class="w-6 h-6 text-google-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                            Anatomi Titik Lemah Operasional (SOP)
+                        </h3>
+                        <p class="text-sm text-gray-600 leading-relaxed mb-6">
+                            Jika kita membedah nilai rata-rata dari seluruh 107 crew berdasarkan 6 komponen teknis penilaian, terlihat jelas bagian mana dari proses operasional kita yang sering diabaikan atau menjadi kelemahan massal di lapangan.
+                        </p>
+                        
+                        <div class="space-y-4">
+                            <!-- Insight 1 -->
+                            <div class="bg-gray-50 p-4 rounded-xl border-l-4 border-l-google-blue">
+                                <h4 class="font-bold text-gray-900 text-sm mb-1">Skor Tertinggi: Proses "Pembuatan"</h4>
+                                <p class="text-xs text-gray-600">Rata-rata 21.39 poin. Menunjukkan bahwa secara *hard-skill*, mayoritas crew kita sangat mampu memproduksi dan meracik menu makanan/minuman dengan standar yang baik.</p>
+                            </div>
+                            <!-- Insight 2 -->
+                            <div class="bg-red-50 p-4 rounded-xl border-l-4 border-l-google-red">
+                                <h4 class="font-bold text-red-900 text-sm mb-1">Skor Terendah (Kritis): "Stock Opname" & "Kebersihan"</h4>
+                                <p class="text-xs text-red-700">Rata-rata <i>Stock Opname</i> hanya 7.39 dan <i>Kebersihan</i> hanya 8.02. Ini membunyikan alarm keras bagi perusahaan! Kelemahan akurasi hitung bahan baku (<i>stock opname</i>) sangat rentan terhadap kebocoran aset (<i>fraud</i> bahan). Rendahnya kebersihan memvalidasi temuan audit SPV terkait pelanggaran standar *grooming* dan *food safety*.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="relative min-h-[350px] flex items-center justify-center bg-gray-50 rounded-2xl border border-gray-100 p-4">
+                        <canvas id="komponenRadarChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Script Chart -->
+    <script>
+        const ctxTurnover = document.getElementById('turnoverChart').getContext('2d');
+        new Chart(ctxTurnover, {
+            type: 'bar',
+            data: {
+                labels: ['Bulan Maret', 'Bulan April'],
+                datasets: [
+                    {
+                        label: 'crew Baru Masuk',
+                        data: [1, 6],
+                        backgroundColor: '#34A853',
+                        borderRadius: 4,
+                    },
+                    {
+                        label: 'crew Keluar / Resign',
+                        data: [2, 10],
+                        backgroundColor: '#EA4335',
+                        borderRadius: 4,
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { position: 'bottom', labels: { font: { family: 'Poppins' } } },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                let label = context.dataset.label + ': ' + context.parsed.y + ' Orang';
+                                if(context.dataset.label === 'crew Keluar / Resign' && context.label === 'Bulan April') {
+                                    label += ' (4 Resign Dadakan)';
+                                }
+                                return label;
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: { beginAtZero: true, grid: { color: '#f3f4f6' }, ticks: { stepSize: 2 } },
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+    </script>
+
+    <!-- Init Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Init AOS animation
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+
+        // Data for Screening Chart (Menampilkan jumlah yang tereliminasi)
+        const ctxScreening = document.getElementById('screeningChart').getContext('2d');
+        new Chart(ctxScreening, {
+            type: 'bar',
+            data: {
+                labels: ['Usia Lewat Batas', 'Luar Bandung', 'Pendidikan Tdk Sesuai', 'Masih Sekolah/Kuliah', 'Tanpa Pengalaman (Mayoritas)', 'Kandidat Menikah/Bekerja'],
+                datasets: [
+                    {
+                        label: 'Gugur (Feb-Mar)',
+                        data: [73, 70, 75, 46, 323, 122],
+                        backgroundColor: '#EA4335',
+                        borderRadius: 6,
+                    },
+                    {
+                        label: 'Gugur (April)',
+                        data: [29, 71, 34, 28, 244, 95],
+                        backgroundColor: '#FBBC05',
+                        borderRadius: 6,
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { position: 'bottom', labels: { font: { family: 'Poppins' } } },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return context.dataset.label + ': ' + context.parsed.y + ' Pelamar Tereliminasi';
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: { beginAtZero: true, grid: { color: '#f3f4f6' } },
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+
+        // Data for Ghosting Chart
+        const ctxGhosting = document.getElementById('ghostingChart').getContext('2d');
+        new Chart(ctxGhosting, {
+            type: 'doughnut',
+            data: {
+                labels: ['Kandidat Menghilang (No Show)', 'Berpartisipasi / Merespons'],
+                datasets: [{
+                    data: [137, 72],
+                    backgroundColor: ['#EA4335', '#e5e7eb'],
+                    borderWidth: 0,
+                    cutout: '75%'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                let label = context.label || '';
+                                if (label) {
+                                    label += ' = ';
+                                }
+                                label += context.parsed + ' Orang';
+                                return label;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+        
+        Chart.register({
+            id: 'centerText',
+            beforeDraw: function(chart) {
+                if (chart.config.type === 'doughnut') {
+                    var width = chart.width,
+                        height = chart.height,
+                        ctx = chart.ctx;
+            
+                    ctx.restore();
+                    var fontSize = (height / 114).toFixed(2);
+                    ctx.font = "bold " + fontSize + "em Poppins";
+                    ctx.textBaseline = "middle";
+                    ctx.fillStyle = "#EA4335";
+            
+                    var text = "65.5%",
+                        textX = Math.round((width - ctx.measureText(text).width) / 2),
+                        textY = height / 2;
+            
+                    ctx.fillText(text, textX, textY);
+                    
+                    var subTextFontSize = (height / 250).toFixed(2);
+                    ctx.font = "normal " + subTextFontSize + "em Poppins";
+                    ctx.fillStyle = "#6b7280";
+                    var subText = "Ghosting Rate";
+                    var subTextX = Math.round((width - ctx.measureText(subText).width) / 2);
+                    var subTextY = height / 2 + 25;
+                    ctx.fillText(subText, subTextX, subTextY);
+                    
+                    ctx.save();
+                }
+            }
+        });
+
+        let currentAnonimIndex = 0;
+        const totalAnonimSlides = 3;
+        
+        function updateAnonimSlider() {
+            const slider = document.getElementById('anonim-slider');
+            slider.style.transform = `translateX(-${currentAnonimIndex * 100}%)`;
+        }
+
+        function nextAnonim() {
+            if (currentAnonimIndex < totalAnonimSlides - 1) {
+                currentAnonimIndex++;
+                updateAnonimSlider();
+            }
+        }
+
+        function prevAnonim() {
+            if (currentAnonimIndex > 0) {
+                currentAnonimIndex--;
+                updateAnonimSlider();
+            }
+        }
+
+        // Logika Slider Log SPV (18 Slides)
+        let currentSpvIndex = 0;
+        const totalSpvSlides = 18;
+        
+        function updateSpvSlider() {
+            const slider = document.getElementById('spv-slider');
+            slider.style.transform = `translateX(-${currentSpvIndex * 100}%)`;
+            document.getElementById('spv-counter').innerText = `${currentSpvIndex + 1} / 18`;
+        }
+
+        function nextSpv() {
+            if (currentSpvIndex < totalSpvSlides - 1) {
+                currentSpvIndex++;
+                updateSpvSlider();
+            }
+        }
+
+        function prevSpv() {
+            if (currentSpvIndex > 0) {
+                currentSpvIndex--;
+                updateSpvSlider();
+            }
+        }
+        
+        // Chart Kedisiplinan Per Outlet (Data Faktual April)
+        // Data Pajajaran HT telah diupdate menjadi 11 (tanpa Sdr. Fajar)
+        const ctxOutlet = document.getElementById('outletChart').getContext('2d');
+        new Chart(ctxOutlet, {
+            type: 'bar',
+            data: {
+                labels: ['Pajajaran', 'Ambon', 'KBP', 'Tubagus', 'Cimahi AM', 'Cihanjuang', 'Buah Batu', 'Kopo', 'Ujung Berung', 'Soreang', 'Kiaracondong', 'Setrasari'],
+                datasets: [
+                    {
+                        label: 'Hadir Telat (HT)',
+                        data: [11, 9, 8, 6, 4, 4, 0, 2, 0, 0, 0, 0],
+                        backgroundColor: '#FBBC05',
+                        borderRadius: 4,
+                    },
+                    {
+                        label: 'Alpa / Tanpa Kabar (A)',
+                        data: [7, 3, 0, 3, 3, 0, 1, 0, 7, 0, 0, 0],
+                        backgroundColor: '#EA4335',
+                        borderRadius: 4,
+                    },
+                    {
+                        label: 'Sakit (S)',
+                        data: [8, 14, 4, 7, 12, 2, 12, 1, 0, 9, 1, 2],
+                        backgroundColor: '#4285F4',
+                        borderRadius: 4,
+                    },
+                    {
+                        label: 'Izin (I)',
+                        data: [3, 12, 16, 3, 6, 5, 7, 2, 1, 5, 3, 2],
+                        backgroundColor: '#34A853',
+                        borderRadius: 4,
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { position: 'top', labels: { font: { family: 'Poppins' } } },
+                    tooltip: {
+                        mode: 'index',
+                        intersect: false,
+                    }
+                },
+                scales: {
+                    y: { 
+                        stacked: true, 
+                        beginAtZero: true, 
+                        grid: { color: '#f3f4f6' } 
+                    },
+                    x: { 
+                        stacked: true, 
+                        grid: { display: false },
+                        ticks: { font: { size: 11 } }
+                    }
+                }
+            }
+        });
+
+        // Chart 1: Rata-Rata Outlet (Bar Chart Horizontal)
+        const ctxOutletScore = document.getElementById('outletScoreChart').getContext('2d');
+        new Chart(ctxOutletScore, {
+            type: 'bar',
+            data: {
+                labels: ['Tubagus Ismail', 'KBP', 'Cihanjuang', 'Ujung Berung', 'Pajajaran', 'Setrasari', 'Ambon', 'Cimahi Amir', 'Kopo', 'Buah Batu', 'Soreang', 'Kiaracondong'],
+                datasets: [{
+                    label: 'Nilai Rata-Rata Outlet',
+                    data: [85.10, 84.95, 84.52, 80.75, 79.81, 79.60, 78.89, 77.30, 77.12, 76.07, 75.06, 73.32],
+                    backgroundColor: [
+                        '#4285F4', '#4285F4', '#4285F4', // Top 3 Blue
+                        '#e5e7eb', '#e5e7eb', '#e5e7eb', '#e5e7eb', '#e5e7eb', '#e5e7eb', // Middle Gray
+                        '#EA4335', '#EA4335', '#EA4335'  // Bottom 3 Red
+                    ],
+                    borderRadius: 4,
+                }]
+            },
+            options: {
+                indexAxis: 'y', // Membuat chart menyamping
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return 'Skor Rata-Rata: ' + context.parsed.x;
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: { 
+                        min: 65, // Supaya jarak barnya lebih terlihat dramatis
+                        max: 90,
+                        grid: { color: '#f3f4f6' }
+                    },
+                    y: { grid: { display: false } }
+                }
+            }
+        });
+
+        // Chart 2: Analisis Komponen Kinerja (Radar Chart)
+        const ctxKomponen = document.getElementById('komponenRadarChart').getContext('2d');
+        new Chart(ctxKomponen, {
+            type: 'radar',
+            data: {
+                labels: ['Persiapan', 'Penerimaan', 'Pembuatan', 'Pengemasan', 'Stock Opname', 'Kebersihan'],
+                datasets: [{
+                    label: 'Rata-Rata Skor Seluruh crew',
+                    data: [15.57, 13.17, 21.39, 11.47, 7.39, 8.02],
+                    backgroundColor: 'rgba(66, 133, 244, 0.2)', // Google Blue transparent
+                    borderColor: '#4285F4',
+                    pointBackgroundColor: '#EA4335', // Google Red for points
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: '#EA4335'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                elements: { line: { borderWidth: 3 } },
+                scales: {
+                    r: {
+                        angleLines: { color: '#e5e7eb' },
+                        grid: { color: '#e5e7eb' },
+                        pointLabels: {
+                            font: { family: 'Poppins', size: 12, weight: 'bold' },
+                            color: '#374151'
+                        },
+                        ticks: { display: false } // Sembunyikan angka di jaring agar bersih
+                    }
+                },
+                plugins: { legend: { display: false } }
+            }
+        });
+    </script>
+</body>
+</html>
