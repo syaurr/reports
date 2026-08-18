@@ -1,0 +1,3023 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Report Kinerja EXPA — Juli 2026</title>
+  <meta name="description" content="Laporan Kinerja Executive PA PT Altri periode Juli 2026, presentasi ke HRVP">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
+  <style>
+    :root {
+      --bg-primary: #f8fafc;
+      --bg-secondary: #f1f5f9;
+      --bg-card: rgba(255, 255, 255, 0.85);
+      --bg-glass: rgba(255, 255, 255, 0.6);
+      --border-glass: rgba(0, 0, 0, 0.08);
+      --border-hover: rgba(0, 0, 0, 0.15);
+      --text-primary: #0f172a;
+      --text-secondary: #475569;
+      --text-muted: #64748b;
+      --accent-violet: #8b5cf6;
+      --accent-violet-dim: rgba(139, 92, 246, 0.12);
+      --accent-cyan: #06b6d4;
+      --accent-cyan-dim: rgba(6, 182, 212, 0.12);
+      --accent-emerald: #10b981;
+      --accent-emerald-dim: rgba(16, 185, 129, 0.12);
+      --accent-rose: #f43f5e;
+      --accent-rose-dim: rgba(244, 63, 94, 0.12);
+      --accent-amber: #f59e0b;
+      --accent-amber-dim: rgba(245, 158, 11, 0.12);
+      --accent-blue: #3b82f6;
+      --accent-blue-dim: rgba(59, 130, 246, 0.12);
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 18px;
+      --shadow-card: 0 8px 30px rgba(0, 0, 0, 0.06);
+      --transition-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scrollbar-width: thin;
+      scrollbar-color: var(--accent-violet) var(--bg-secondary);
+    }
+
+    body {
+      font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.7;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    ::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--bg-secondary);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--accent-violet);
+      border-radius: 10px;
+    }
+
+    /* ===== BACKGROUND ===== */
+    .bg-mesh {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      background:
+        radial-gradient(ellipse 600px 400px at 10% 15%, rgba(139, 92, 246, 0.08) 0%, transparent 70%),
+        radial-gradient(ellipse 500px 500px at 90% 55%, rgba(6, 182, 212, 0.08) 0%, transparent 70%),
+        radial-gradient(ellipse 400px 300px at 50% 85%, rgba(244, 63, 94, 0.06) 0%, transparent 70%);
+    }
+
+    /* ===== NAV ===== */
+    .nav-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      backdrop-filter: blur(24px) saturate(1.4);
+      background: rgba(255, 255, 255, 0.85);
+      border-bottom: 1px solid var(--border-glass);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+    }
+
+    .nav-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+    }
+
+    .nav-brand {
+      font-weight: 800;
+      font-size: 0.95rem;
+      background: linear-gradient(135deg, var(--accent-violet), var(--accent-cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: -0.3px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .nav-links::-webkit-scrollbar {
+      display: none;
+    }
+
+    .nav-link {
+      font-size: 0.68rem;
+      font-weight: 500;
+      padding: 5px 11px;
+      border-radius: 6px;
+      white-space: nowrap;
+      cursor: pointer;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: all 0.25s var(--transition-smooth);
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--accent-violet);
+      background: var(--accent-violet-dim);
+    }
+
+    .nav-progress {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent-violet), var(--accent-cyan));
+      transition: width 0.1s linear;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 100px 2rem 60px;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--accent-violet);
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      animation: fadeInUp 0.6s var(--transition-smooth) both;
+    }
+
+    .hero-eyebrow .dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--accent-emerald);
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1)
+      }
+
+      50% {
+        opacity: .4;
+        transform: scale(1.6)
+      }
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 4.5vw, 3.6rem);
+      font-weight: 900;
+      line-height: 1.08;
+      letter-spacing: -2px;
+      background: linear-gradient(135deg, #0f172a 20%, var(--accent-violet) 80%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.8rem;
+      animation: fadeInUp 0.6s 0.08s var(--transition-smooth) both;
+    }
+
+    .hero .subtitle {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      max-width: 560px;
+      font-weight: 400;
+      animation: fadeInUp 0.6s 0.16s var(--transition-smooth) both;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 2rem;
+      animation: fadeInUp 0.6s 0.24s var(--transition-smooth) both;
+    }
+
+    .meta-chip {
+      padding: 6px 14px;
+      border-radius: 6px;
+      background: var(--bg-glass);
+      border: 1px solid var(--border-glass);
+      font-size: 0.72rem;
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 10px;
+      margin-top: 2.5rem;
+      width: 100%;
+      max-width: 820px;
+      animation: fadeInUp 0.6s 0.32s var(--transition-smooth) both;
+    }
+
+    .stat-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-glass);
+      border-radius: var(--radius-md);
+      padding: 1rem 0.8rem;
+      text-align: center;
+      backdrop-filter: blur(10px);
+      transition: border-color 0.3s, transform 0.3s var(--transition-smooth);
+    }
+
+    .stat-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--border-hover);
+    }
+
+    .stat-card .number {
+      font-size: 1.6rem;
+      font-weight: 800;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .stat-card .label {
+      font-size: 0.66rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .scroll-cue {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: bounce 2.5s ease-in-out infinite;
+      color: var(--text-muted);
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      text-align: center;
+    }
+
+    .scroll-cue::after {
+      content: '';
+      display: block;
+      width: 1px;
+      height: 28px;
+      background: linear-gradient(180deg, var(--text-muted), transparent);
+      margin: 8px auto 0;
+    }
+
+    @keyframes bounce {
+
+      0%,
+      100% {
+        transform: translateX(-50%) translateY(0)
+      }
+
+      50% {
+        transform: translateX(-50%) translateY(8px)
+      }
+    }
+
+    /* ===== SECTIONS ===== */
+    .section {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 80px 2rem 40px;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s var(--transition-smooth), transform 0.6s var(--transition-smooth);
+    }
+
+    .section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .section-label {
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-label::before {
+      content: '';
+      width: 24px;
+      height: 1px;
+      background: var(--accent-violet);
+    }
+
+    .section h2 {
+      font-size: clamp(1.4rem, 2.8vw, 2rem);
+      font-weight: 800;
+      letter-spacing: -0.8px;
+      margin-bottom: 0.4rem;
+      line-height: 1.2;
+    }
+
+    .section .section-desc {
+      color: var(--text-secondary);
+      font-size: 0.88rem;
+      margin-bottom: 2rem;
+      max-width: 640px;
+    }
+
+    /* ===== GLASS PANELS ===== */
+    .glass-panel {
+      background: var(--bg-card);
+      border: 1px solid var(--border-glass);
+      border-radius: var(--radius-lg);
+      padding: 1.8rem;
+      backdrop-filter: blur(12px);
+      box-shadow: var(--shadow-card);
+      margin-bottom: 1.2rem;
+      transition: border-color 0.3s;
+    }
+
+    .glass-panel:hover {
+      border-color: var(--border-hover);
+    }
+
+    .glass-panel h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .glass-panel p,
+    .glass-panel li {
+      color: var(--text-secondary);
+      font-size: 0.84rem;
+      line-height: 1.7;
+    }
+
+    .glass-panel ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .glass-panel ul li {
+      padding: 5px 0 5px 16px;
+      position: relative;
+    }
+
+    .glass-panel ul li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 13px;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--accent-violet);
+    }
+
+    /* ===== GRIDS ===== */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.2rem;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.2rem;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+    }
+
+    /* ===== KPI ROWS ===== */
+    .kpi-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--border-glass);
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .kpi-row:last-child {
+      border-bottom: none;
+    }
+
+    .kpi-row .kpi-label {
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      flex: 1;
+      min-width: 120px;
+    }
+
+    .kpi-row .kpi-value {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+
+    /* ===== TAGS ===== */
+    .tag {
+      font-size: 0.62rem;
+      font-weight: 700;
+      padding: 3px 9px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      white-space: nowrap;
+    }
+
+    .tag-green {
+      background: var(--accent-emerald-dim);
+      color: var(--accent-emerald);
+    }
+
+    .tag-red {
+      background: var(--accent-rose-dim);
+      color: var(--accent-rose);
+    }
+
+    .tag-amber {
+      background: var(--accent-amber-dim);
+      color: var(--accent-amber);
+    }
+
+    .tag-blue {
+      background: var(--accent-blue-dim);
+      color: var(--accent-blue);
+    }
+
+    .tag-violet {
+      background: var(--accent-violet-dim);
+      color: var(--accent-violet);
+    }
+
+    /* ===== TABLES ===== */
+    .table-wrap {
+      overflow-x: auto;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-glass);
+      margin: 0.8rem 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.75rem;
+    }
+
+    thead th {
+      background: rgba(139, 92, 246, 0.08);
+      color: var(--accent-violet);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-size: 0.65rem;
+      padding: 10px 12px;
+      text-align: left;
+      white-space: nowrap;
+      border-bottom: 1px solid rgba(139, 92, 246, 0.15);
+      position: sticky;
+      top: 0;
+      z-index: 2;
+    }
+
+    tbody td {
+      padding: 8px 12px;
+      color: var(--text-secondary);
+      border-bottom: 1px solid var(--border-glass);
+      white-space: nowrap;
+    }
+
+    tbody tr {
+      transition: background 0.15s;
+    }
+
+    tbody tr:hover {
+      background: rgba(139, 92, 246, 0.04);
+    }
+
+    tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* ===== CHART ===== */
+    .chart-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-glass);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      margin: 1rem 0;
+      backdrop-filter: blur(10px);
+    }
+
+    .chart-box canvas {
+      max-height: 320px;
+    }
+
+    .chart-title {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+    }
+
+    /* ===== CALLOUTS ===== */
+    .callout {
+      display: flex;
+      gap: 12px;
+      padding: 1rem 1.3rem;
+      border-radius: var(--radius-md);
+      margin: 0.8rem 0;
+      border-left: 3px solid;
+      font-size: 0.82rem;
+    }
+
+    .callout.insight {
+      background: var(--accent-violet-dim);
+      border-color: var(--accent-violet);
+    }
+
+    .callout.warning {
+      background: var(--accent-amber-dim);
+      border-color: var(--accent-amber);
+    }
+
+    .callout.success {
+      background: var(--accent-emerald-dim);
+      border-color: var(--accent-emerald);
+    }
+
+    .callout.danger {
+      background: var(--accent-rose-dim);
+      border-color: var(--accent-rose);
+    }
+
+    .callout-icon {
+      flex-shrink: 0;
+      font-weight: 800;
+      font-size: 0.72rem;
+      padding-top: 2px;
+    }
+
+    .callout.insight .callout-icon {
+      color: var(--accent-violet);
+    }
+
+    .callout.warning .callout-icon {
+      color: var(--accent-amber);
+    }
+
+    .callout.success .callout-icon {
+      color: var(--accent-emerald);
+    }
+
+    .callout.danger .callout-icon {
+      color: var(--accent-rose);
+    }
+
+    .callout-text {
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .callout-text strong {
+      color: var(--text-primary);
+    }
+
+    /* ===== TIMELINE ===== */
+    .timeline {
+      position: relative;
+      padding-left: 24px;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 6px;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: linear-gradient(180deg, var(--accent-violet), var(--accent-cyan), transparent);
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-bottom: 1.8rem;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -22px;
+      top: 4px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent-violet);
+      border: 2px solid var(--bg-primary);
+      box-shadow: 0 0 0 3px var(--accent-violet-dim);
+    }
+
+    .timeline-item .tl-title {
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 3px;
+    }
+
+    .timeline-item .tl-desc {
+      font-size: 0.78rem;
+      color: var(--text-secondary);
+    }
+
+    /* ===== ACCORDION ===== */
+    .accordion-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border-glass);
+      border-radius: var(--radius-md);
+      margin-bottom: 6px;
+      overflow: hidden;
+    }
+
+    .accordion-header {
+      padding: 0.9rem 1.3rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-weight: 600;
+      font-size: 0.84rem;
+      transition: background 0.2s;
+    }
+
+    .accordion-header:hover {
+      background: rgba(139, 92, 246, 0.04);
+    }
+
+    .accordion-header .arrow {
+      transition: transform 0.3s;
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+
+    .accordion-item.open .accordion-header .arrow {
+      transform: rotate(180deg);
+    }
+
+    .accordion-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s var(--transition-smooth), padding 0.3s;
+      padding: 0 1.3rem;
+    }
+
+    .accordion-item.open .accordion-body {
+      max-height: 4000px;
+      padding: 0 1.3rem 1.3rem;
+    }
+
+    /* ===== BADGES ===== */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      font-size: 0.62rem;
+      font-weight: 700;
+      padding: 3px 9px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+
+    .badge-solved {
+      background: var(--accent-emerald-dim);
+      color: var(--accent-emerald);
+    }
+
+    .badge-reported {
+      background: var(--accent-amber-dim);
+      color: var(--accent-amber);
+    }
+
+    .badge-done {
+      background: var(--accent-emerald-dim);
+      color: var(--accent-emerald);
+    }
+
+    .badge-ongoing {
+      background: var(--accent-blue-dim);
+      color: var(--accent-blue);
+    }
+
+    /* ===== TABS ===== */
+    .tab-group {
+      display: flex;
+      gap: 3px;
+      margin-bottom: 1.2rem;
+      flex-wrap: wrap;
+    }
+
+    .tab-btn {
+      padding: 7px 16px;
+      border-radius: 6px;
+      border: 1px solid var(--border-glass);
+      background: transparent;
+      color: var(--text-muted);
+      font-size: 0.72rem;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: 'Poppins', sans-serif;
+      transition: all 0.25s var(--transition-smooth);
+    }
+
+    .tab-btn:hover {
+      background: var(--bg-glass);
+      color: var(--text-secondary);
+    }
+
+    .tab-btn.active {
+      background: var(--accent-violet-dim);
+      border-color: rgba(139, 92, 246, 0.25);
+      color: var(--accent-violet);
+    }
+
+    .tab-content {
+      display: none;
+      animation: fadeIn 0.3s var(--transition-smooth);
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    /* ===== MASUKAN CARD ===== */
+    .masukan-card {
+      background: var(--bg-glass);
+      border: 1px solid var(--border-glass);
+      border-radius: var(--radius-md);
+      padding: 1.1rem;
+      margin-bottom: 0.8rem;
+      transition: border-color 0.2s;
+    }
+
+    .masukan-card:hover {
+      border-color: var(--border-hover);
+    }
+
+    .masukan-card .mc-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.4rem;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .masukan-card .mc-date {
+      font-size: 0.68rem;
+      color: var(--text-muted);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .masukan-card .mc-body {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      font-style: italic;
+    }
+
+    .masukan-card .mc-footer {
+      margin-top: 0.6rem;
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .masukan-card .mc-tag {
+      font-size: 0.62rem;
+      padding: 2px 8px;
+      border-radius: 4px;
+      background: var(--bg-glass);
+      color: var(--text-muted);
+      border: 1px solid var(--border-glass);
+    }
+
+    /* ===== SEARCH ===== */
+    .table-search {
+      padding: 7px 12px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-glass);
+      background: var(--bg-glass);
+      color: var(--text-primary);
+      font-size: 0.76rem;
+      font-family: 'Poppins', sans-serif;
+      width: 100%;
+      max-width: 260px;
+      transition: border-color 0.2s;
+      outline: none;
+    }
+
+    .table-search:focus {
+      border-color: var(--accent-violet);
+    }
+
+    .table-search::placeholder {
+      color: var(--text-muted);
+    }
+
+    /* ===== FUNNEL ===== */
+    .funnel {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 1.2rem 0;
+      gap: 0;
+    }
+
+    .funnel-step {
+      padding: 12px 16px;
+      text-align: center;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: #fff;
+      clip-path: polygon(0 0, 100% 0, 96% 100%, 4% 100%);
+      transition: transform 0.2s;
+    }
+
+    .funnel-step:hover {
+      transform: scale(1.02);
+    }
+
+    .funnel-step .funnel-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.2rem;
+      font-weight: 800;
+    }
+
+    .funnel-step .funnel-label {
+      font-size: 0.68rem;
+      opacity: 0.85;
+      margin-top: 1px;
+    }
+
+    /* ===== DIVIDER ===== */
+    .divider {
+      height: 1px;
+      margin: 2rem 0;
+      background: linear-gradient(90deg, transparent, var(--border-glass), transparent);
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      text-align: center;
+      padding: 2.5rem 2rem 1.5rem;
+      color: var(--text-muted);
+      font-size: 0.7rem;
+      border-top: 1px solid var(--border-glass);
+    }
+
+    /* ===== ANIMATIONS ===== */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+
+      .section {
+        padding: 50px 1rem 30px;
+      }
+
+      .glass-panel {
+        padding: 1.2rem;
+      }
+
+      .hero-stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .grid-2,
+      .grid-3 {
+        grid-template-columns: 1fr;
+      }
+
+      table {
+        font-size: 0.68rem;
+      }
+
+      thead th,
+      tbody td {
+        padding: 6px 8px;
+      }
+    }
+
+    /* Summary stat block */
+    .summary-stat {
+      text-align: center;
+      padding: 1.2rem 0.8rem;
+      border-right: 1px solid var(--border-glass);
+    }
+
+    .summary-stat:last-child {
+      border-right: none;
+    }
+
+    .summary-stat .ss-value {
+      font-size: 1.4rem;
+      font-weight: 800;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .summary-stat .ss-label {
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* Tier card */
+    .tier-card {
+      border: 1px solid var(--border-glass);
+      border-radius: var(--radius-md);
+      padding: 1.3rem;
+      text-align: center;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+
+    .tier-card:hover {
+      border-color: var(--border-hover);
+      transform: translateY(-2px);
+    }
+
+    .tier-card .tier-num {
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 0.4rem;
+    }
+
+    .tier-card .tier-title {
+      font-size: 0.88rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+    }
+
+    .tier-card .tier-desc {
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="bg-mesh"></div>
+
+  <!-- NAV -->
+  <nav class="nav-bar" id="navbar">
+    <div class="nav-inner">
+      <div class="nav-brand">EXPA Report</div>
+      <div class="nav-links">
+        <a href="#hero" class="nav-link active">Home</a>
+        <a href="#ringkasan" class="nav-link">Ringkasan</a>
+        <a href="#administrasi" class="nav-link">Administrasi</a>
+        <a href="#rekrutmen" class="nav-link">Rekrutmen</a>
+        <a href="#payroll" class="nav-link">Payroll</a>
+        <a href="#evaluasi" class="nav-link">Evaluasi</a>
+        <a href="#proyek" class="nav-link">Proyek</a>
+        <a href="#executive" class="nav-link">Executive</a>
+        <a href="#sistem" class="nav-link">Sistem</a>
+        <a href="#absensi" class="nav-link">Absensi</a>
+        <a href="#barista" class="nav-link">Barista</a>
+        <a href="#gaji" class="nav-link">Gaji Pokok</a>
+        <a href="#bukuresep" class="nav-link">Buku Resep</a>
+        <a href="#dailyworker" class="nav-link">Daily Worker</a>
+        <a href="#penutup" class="nav-link">Penutup</a>
+      </div>
+    </div>
+    <div class="nav-progress" id="navProgress"></div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="hero">
+    <div class="hero-eyebrow"><span class="dot"></span> LIVE REPORT</div>
+    <h1>Kinerja EPA<br>Juli 2026</h1>
+    <div class="hero-meta">
+      <div class="meta-chip">Periode Juli 2026</div>
+      <div class="meta-chip">Executive PA</div>
+      <div class="meta-chip">Presentasi HRVP</div>
+      <div class="meta-chip">Durasi 15 Menit</div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-card">
+        <div class="number" style="color:var(--accent-violet)" data-target="1902">0</div>
+        <div class="label">Total Pelamar</div>
+      </div>
+      <div class="stat-card">
+        <div class="number" style="color:var(--accent-cyan)" data-target="7">0</div>
+        <div class="label">Dokumen Terarsip</div>
+      </div>
+      <div class="stat-card">
+        <div class="number" style="color:var(--accent-emerald)" data-target="6">0</div>
+        <div class="label">Crew Baru Masuk</div>
+      </div>
+      <div class="stat-card">
+        <div class="number" style="color:var(--accent-rose)" data-target="5">0</div>
+        <div class="label">Crew Resign FT</div>
+      </div>
+      <div class="stat-card">
+        <div class="number" style="color:var(--accent-amber)">4.3<span style="font-size:0.6em">/5</span></div>
+        <div class="label">Skor Kepuasan</div>
+      </div>
+    </div>
+    <div class="scroll-cue">Scroll</div>
+  </section>
+
+  <!-- ===== RINGKASAN ===== -->
+  <section class="section" id="ringkasan">
+    <div class="section-label">OVERVIEW</div>
+    <h2>Ringkasan Juli 2026</h2>
+    <p class="section-desc">Bulan penuh analisa dari berbagai aspek untuk menyusun action plan.</p>
+
+    <div class="glass-panel">
+      <h3>3 Capaian Utama</h3>
+      <ul>
+        <li><strong>SOP Baru Tersampaikan</strong> — Penyampaian SOP baru sudah dilakukan ke seluruh outlet</li>
+        <li><strong>Renewal UI & Security SOP Menu</strong> — Pembaharuan tampilan dan keamanan SOP Menu berhasil
+          dirilis</li>
+        <li><strong>Form Sidak Airtable Berjalan</strong> — Sudah aktif lebih dari 1 bulan</li>
+      </ul>
+    </div>
+
+    <div class="callout warning">
+      <div class="callout-icon">!</div>
+      <div class="callout-text"><strong>Catatan:</strong> Turnover meningkat lagi sedikit di bulan ini.</div>
+    </div>
+
+    <div class="glass-panel">
+      <h3>Follow-Up dari Juni — Semua Selesai</h3>
+      <div class="grid-3" style="margin-top:0.8rem">
+        <div style="text-align:center;padding:0.8rem"><span class="badge badge-done">DONE</span>
+          <p style="margin-top:0.4rem;font-size:0.8rem;color:var(--text-secondary)">Tracker Rekrutmen</p>
+        </div>
+        <div style="text-align:center;padding:0.8rem"><span class="badge badge-done">DONE</span>
+          <p style="margin-top:0.4rem;font-size:0.8rem;color:var(--text-secondary)">Framework Airtable Sidak</p>
+        </div>
+        <div style="text-align:center;padding:0.8rem"><span class="badge badge-done">DONE</span>
+          <p style="margin-top:0.4rem;font-size:0.8rem;color:var(--text-secondary)">Renewal UI SOP Menu</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ADMINISTRASI ===== -->
+  <section class="section" id="administrasi">
+    <div class="section-label">KPI 01</div>
+    <h2>Administrasi, Dokumen & Masukan</h2>
+    <p class="section-desc">Arsip dokumen, SLA respon, dan feedback karyawan bulan Juli.</p>
+
+    <div class="grid-2">
+      <div class="glass-panel">
+        <h3>Dokumen Terarsip</h3>
+        <div class="kpi-row"><span class="kpi-label">ToR (Terms of Reference)</span><span class="kpi-value">1</span>
+        </div>
+        <div class="kpi-row"><span class="kpi-label">Kontrak Kerja</span><span class="kpi-value">6</span></div>
+        <div class="kpi-row"><span class="kpi-label">Total Dokumen</span><span class="kpi-value"
+            style="color:var(--accent-violet)">7</span><span class="tag tag-amber" style="margin-left:8px">vs Juni:
+            18</span></div>
+      </div>
+      <div class="glass-panel">
+        <h3>SLA & Prosedur</h3>
+        <div class="kpi-row"><span class="kpi-label">Absensi & Surat Sakit</span><span class="kpi-value">Sesuai
+            SLA</span><span class="tag tag-green" style="margin-left:8px">On Track</span></div>
+        <div class="kpi-row"><span class="kpi-label">Respon Permintaan Dokumen</span><span class="kpi-value">1
+            Hari</span><span class="tag tag-green" style="margin-left:8px">Fast</span></div>
+        <div class="kpi-row"><span class="kpi-label">Stok Materai Privy</span><span
+            class="kpi-value">Tersedia</span><span class="tag tag-green" style="margin-left:8px">OK</span></div>
+        <div class="kpi-row"><span class="kpi-label">Delegasi Absensi ke PT HR</span><span class="kpi-value"
+            style="font-size:0.78rem">Minor fix rumus kolom</span><span class="tag tag-amber"
+            style="margin-left:8px">Fix</span></div>
+      </div>
+    </div>
+
+    <div class="glass-panel" style="margin-top:1.2rem">
+      <h3>Masukan Karyawan — 4 Masukan Masuk <span class="tag tag-green" style="margin-left:auto">vs Juni: 0</span></h3>
+      <p style="margin-bottom:0.8rem">Akhirnya ada feedback. Empat masukan tercatat — tidak ada yang berulang, semua
+        topik berbeda.</p>
+
+      <div class="masukan-card">
+        <div class="mc-header"><span class="badge badge-solved">Solved</span><span class="mc-date">17/07/2026
+            16:27</span></div>
+        <div class="mc-body">"Karena sekarang ada SOP baru dengan crew tidak boleh makan — hanya bisa makan di jam
+          istirahat saja — mungkin saran saya jam kerjanya menjadi 8 jam agar lebih sebanding... atau gaji crew cukup
+          dinaikkan dengan jam kerja 10 jam tersebut."</div>
+        <div class="mc-footer"><span class="mc-tag">Masalah Operasional</span><span class="mc-tag">Aldi Zidan
+            Fadilah</span><span class="mc-tag">Outlet Amir Mahmud</span><span class="mc-tag">Ingin diskusi</span></div>
+      </div>
+      <div class="masukan-card">
+        <div class="mc-header"><span class="badge badge-reported">Reported</span><span class="mc-date">10/07/2026
+            15:49</span></div>
+        <div class="mc-body">"Untuk saus-sausan lebih baik pakai label daripada ditulis pakai spidol, karena ketika mau
+          refill saus spidolnya ikut kebawa — takut terkontaminasi."</div>
+        <div class="mc-footer"><span class="mc-tag">Ide/Saran</span><span class="mc-tag">Fazar Ali</span><span
+            class="mc-tag">Outlet Amir Machmud</span></div>
+      </div>
+      <div class="masukan-card">
+        <div class="mc-header"><span class="badge badge-solved">Solved</span><span class="mc-date">25/07/2026
+            12:44</span></div>
+        <div class="mc-body">"Saya baru lihat peraturan ibadah 5 waktu hanya diberi waktu 5 menit. Menurut saya itu
+          waktu yang sangat kurang bagi crew perempuan karena harus tuma'ninah dan khusyu... apalagi harus merapikan
+          kerudung. Mohon kasih waktu lebih dari 5 menit."</div>
+        <div class="mc-footer"><span class="mc-tag">Ide/Saran</span><span class="mc-tag">Anonim</span></div>
+      </div>
+      <div class="masukan-card">
+        <div class="mc-header"><span class="badge badge-solved">Solved</span><span class="mc-date">25/07/2026
+            12:54</span></div>
+        <div class="mc-body">"Pliss waktu sholatnya jangan 5 menit, masa sholat aku disamain kayak bikin mumer, sholat 5
+          menit mah keburu diangkat saber."</div>
+        <div class="mc-footer"><span class="mc-tag">Ide/Saran</span><span class="mc-tag">Anonim</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== REKRUTMEN ===== -->
+  <section class="section" id="rekrutmen">
+    <div class="section-label">KPI 02</div>
+    <h2>Rekrutmen, Sourcing & Onboarding</h2>
+    <p class="section-desc">Total pelamar, funnel filtering, dan dinamika on/off-boarding bulan Juli.</p>
+
+    <div class="chart-box">
+      <div class="chart-title">Tren Total Pelamar (3 Bulan)</div>
+      <canvas id="chartPelamar"></canvas>
+    </div>
+
+    <div class="glass-panel">
+      <h3>Funnel Filtering — Dari 1.902 Pelamar</h3>
+      <div class="funnel">
+        <div class="funnel-step" style="width:100%;background:linear-gradient(135deg,#8b5cf6,#6d28d9)">
+          <div class="funnel-num">1.902</div>
+          <div class="funnel-label">Total Pelamar (474 Garut)</div>
+        </div>
+        <div class="funnel-step" style="width:82%;background:linear-gradient(135deg,#7c3aed,#5b21b6)">
+          <div class="funnel-num">743</div>
+          <div class="funnel-label">Terkurasi Pengalaman</div>
+        </div>
+        <div class="funnel-step" style="width:64%;background:linear-gradient(135deg,#6d28d9,#4c1d95)">
+          <div class="funnel-num">94</div>
+          <div class="funnel-label">Terkurasi Usia (maks 25 thn)</div>
+        </div>
+        <div class="funnel-step" style="width:50%;background:linear-gradient(135deg,#5b21b6,#3b0764)">
+          <div class="funnel-num">159</div>
+          <div class="funnel-label">Terkurasi Domisili</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="glass-panel">
+        <h3>Drop-off Proses Rekrutmen</h3>
+        <div class="kpi-row"><span class="kpi-label">Invited tapi Unresponsive</span><span class="kpi-value"
+            style="color:var(--accent-amber)">40</span></div>
+        <div class="kpi-row"><span class="kpi-label">No Show Interview</span><span class="kpi-value"
+            style="color:var(--accent-rose)">10</span></div>
+        <div class="kpi-row"><span class="kpi-label">No Show Training</span><span class="kpi-value"
+            style="color:var(--accent-rose)">4</span></div>
+        <div class="kpi-row"><span class="kpi-label">Withdrawn Pre-Training</span><span class="kpi-value">1</span></div>
+        <div class="kpi-row"><span class="kpi-label">Withdrawn On Training</span><span class="kpi-value">3 <span
+              style="font-size:0.7em;color:var(--text-muted)">(1 sudah dibayar)</span></span></div>
+      </div>
+      <div class="glass-panel">
+        <h3>Pergerakan Headcount</h3>
+        <div class="kpi-row"><span class="kpi-label">Crew Baru Fulltime</span><span class="kpi-value"
+            style="color:var(--accent-emerald)">+6</span><span class="tag tag-green" style="margin-left:8px">Hire</span>
+        </div>
+        <div class="kpi-row"><span class="kpi-label">Crew Fulltime Resign</span><span class="kpi-value"
+            style="color:var(--accent-rose)">-5</span><span class="tag tag-red" style="margin-left:8px">Exit</span>
+        </div>
+        <div class="kpi-row"><span class="kpi-label">— Resign Dadakan</span><span class="kpi-value"
+            style="color:var(--accent-rose)">2</span><span class="tag tag-red" style="margin-left:8px">1 Fraud</span>
+        </div>
+        <div class="kpi-row"><span class="kpi-label">PT Barista Resign</span><span class="kpi-value"
+            style="color:var(--accent-rose)">-1</span></div>
+        <div class="kpi-row"><span class="kpi-label" style="font-weight:700;color:var(--text-primary)">Net
+            Movement</span><span class="kpi-value" style="color:var(--accent-emerald)">+1 FT</span></div>
+      </div>
+    </div>
+
+    <div class="glass-panel">
+      <h3>SLA Kontrak — Jarak Absen Pertama ke Tanda Tangan</h3>
+      <p style="margin-bottom:0.8rem">Target SLA: maksimal 7 hari. Semua dalam SLA — improvement dari Juni (2 kasus di
+        luar SLA).</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Nama</th>
+              <th>Durasi</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Muhamad Hasan Gaos</td>
+              <td>6 Hari</td>
+              <td><span class="badge badge-done">Dalam SLA</span></td>
+            </tr>
+            <tr>
+              <td>Nadila</td>
+              <td>0 Hari</td>
+              <td><span class="badge badge-done">Hari Pertama</span></td>
+            </tr>
+            <tr>
+              <td>Vania Listiani</td>
+              <td>0 Hari</td>
+              <td><span class="badge badge-done">Hari Pertama</span></td>
+            </tr>
+            <tr>
+              <td>Permana Abdul Roup</td>
+              <td>0 Hari</td>
+              <td><span class="badge badge-done">Hari Pertama</span></td>
+            </tr>
+            <tr>
+              <td>Karlina Sawaliah</td>
+              <td>1 Hari</td>
+              <td><span class="badge badge-done">Dalam SLA</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="callout danger">
+      <div class="callout-icon">!</div>
+      <div class="callout-text"><strong>Kasus Penting:</strong> Leader merekrut crew lewat referensi kenalan tanpa
+        prosedur (interview & pengisian formulir). Konfirmasi dari Supervisor & Marketing menunjukkan kondisi penjualan
+        masih standar, jadi alasan urgent tidak valid.</div>
+    </div>
+    <div class="callout warning">
+      <div class="callout-icon">i</div>
+      <div class="callout-text"><strong>Soreang gagal training terus:</strong> 4 ghosting setelah 1–2 hari masuk, 1
+        keluar karena masalah keluarga, 1 no-show training.</div>
+    </div>
+  </section>
+
+  <!-- ===== PAYROLL ===== -->
+  <section class="section" id="payroll">
+    <div class="section-label">KPI 03</div>
+    <h2>Payroll & Kasbon</h2>
+    <p class="section-desc">Status gaji, slip, dan tren pinjaman crew.</p>
+
+    <div class="grid-2">
+      <div class="glass-panel">
+        <h3>Status Payroll Juli</h3>
+        <div class="kpi-row"><span class="kpi-label">Payroll FT / DW / PT</span><span class="kpi-value">H-1</span><span
+            class="tag tag-green" style="margin-left:8px">On Time</span></div>
+        <div class="kpi-row"><span class="kpi-label">Error Perhitungan</span><span class="kpi-value">0</span><span
+            class="tag tag-green" style="margin-left:8px">Clean</span></div>
+        <div class="kpi-row"><span class="kpi-label">Subsidi Kecelakaan Kerja</span><span
+            class="kpi-value">Menyusul</span><span class="tag tag-amber" style="margin-left:8px">Pending</span></div>
+        <div class="kpi-row"><span class="kpi-label">Susulan Gaji Resign Dadakan</span><span class="kpi-value">1
+            orang</span><span class="tag tag-amber" style="margin-left:8px">Processed</span></div>
+        <div class="kpi-row"><span class="kpi-label">Slip Gaji</span><span class="kpi-value">Di atas tgl 8</span><span
+            class="tag tag-amber" style="margin-left:8px">Terlambat</span></div>
+      </div>
+      <div class="glass-panel">
+        <h3>Tren Kasbon (3 Bulan)</h3>
+        <div style="margin-bottom:1rem"><canvas id="chartKasbon" style="max-height:200px"></canvas></div>
+        <div class="kpi-row"><span class="kpi-label">Sisa Pinjaman Juni</span><span class="kpi-value"
+            style="color:var(--text-secondary)">Rp 30.150.000</span></div>
+        <div class="kpi-row"><span class="kpi-label">Total Pinjaman Juli</span><span class="kpi-value"
+            style="color:var(--accent-violet)">Rp 10.800.000</span></div>
+        <div class="kpi-row"><span class="kpi-label">Sisa Pinjaman Juli</span><span class="kpi-value"
+            style="color:var(--accent-amber)">Rp 18.400.000</span></div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <div class="accordion-header" onclick="toggleAccordion(this)"><span>Detail Rekap Kasbon Juli (22 Crew)</span><span
+          class="arrow">▼</span></div>
+      <div class="accordion-body">
+        <input type="text" class="table-search" placeholder="Cari nama crew..."
+          onkeyup="filterTable(this,'kasbon-table')" style="margin-bottom:0.8rem">
+        <div class="table-wrap">
+          <table id="kasbon-table">
+            <thead>
+              <tr>
+                <th>Nama</th>
+                <th>Outlet</th>
+                <th>ACC</th>
+                <th>Diajukan</th>
+                <th>Sisa Sebelumnya</th>
+                <th>Potongan ACC</th>
+                <th>Sisa Juli</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Mochamad Nurfauzi Rayhan</td>
+                <td>Cihanjuang</td>
+                <td>Rp 350.000</td>
+                <td>Rp 350.000</td>
+                <td>Rp 200.000</td>
+                <td>Rp 400.000</td>
+                <td>Rp 150.000</td>
+              </tr>
+              <tr>
+                <td>Arif Wijoyo</td>
+                <td>Ambon</td>
+                <td>Rp 300.000</td>
+                <td>Rp 500.000</td>
+                <td>Rp 200.000</td>
+                <td>Rp 500.000</td>
+                <td>Rp 0</td>
+              </tr>
+              <tr>
+                <td>Taufik Maulana</td>
+                <td>Ambon</td>
+                <td>Rp 200.000</td>
+                <td>Rp 200.000</td>
+                <td>Rp 200.000</td>
+                <td>Rp 400.000</td>
+                <td>Rp 0</td>
+              </tr>
+              <tr>
+                <td>Muhammad Rizal</td>
+                <td>Kopo</td>
+                <td>Rp 350.000</td>
+                <td>Rp 350.000</td>
+                <td>Rp 200.000</td>
+                <td>Rp 400.000</td>
+                <td>Rp 150.000</td>
+              </tr>
+              <tr>
+                <td>Indra Sukmawandi</td>
+                <td>Uber</td>
+                <td>Rp 400.000</td>
+                <td>Rp 400.000</td>
+                <td>Rp 200.000</td>
+                <td>Rp 500.000</td>
+                <td>Rp 100.000</td>
+              </tr>
+              <tr>
+                <td>Fadlan Gani</td>
+                <td>Amir</td>
+                <td>Rp 500.000</td>
+                <td>Rp 500.000</td>
+                <td>Rp 200.000</td>
+                <td>Rp 500.000</td>
+                <td>Rp 200.000</td>
+              </tr>
+              <tr>
+                <td>Wina Fitria</td>
+                <td>Tubagus Ismail</td>
+                <td>Rp 500.000</td>
+                <td>Rp 500.000</td>
+                <td>Rp 200.000</td>
+                <td>Rp 500.000</td>
+                <td>Rp 200.000</td>
+              </tr>
+              <tr>
+                <td>Dea Amalia</td>
+                <td>Pajajaran</td>
+                <td>Rp 500.000</td>
+                <td>Rp 600.000</td>
+                <td>Rp 500.000</td>
+                <td>Rp 600.000</td>
+                <td>Rp 400.000</td>
+              </tr>
+              <tr>
+                <td>Agil Saputra</td>
+                <td>Garut</td>
+                <td>Rp 500.000</td>
+                <td>Rp 500.000</td>
+                <td>Rp 250.000</td>
+                <td>Rp 500.000</td>
+                <td>Rp 250.000</td>
+              </tr>
+              <tr>
+                <td>Jihan Sintani</td>
+                <td>Pajajaran</td>
+                <td>Rp 750.000</td>
+                <td>Rp 1.000.000</td>
+                <td>Rp 250.000</td>
+                <td>Rp 600.000</td>
+                <td>Rp 400.000</td>
+              </tr>
+              <tr>
+                <td>Agung Minargo</td>
+                <td>Ambon</td>
+                <td>Rp 600.000</td>
+                <td>Rp 600.000</td>
+                <td>Rp 300.000</td>
+                <td>Rp 600.000</td>
+                <td>Rp 300.000</td>
+              </tr>
+              <tr>
+                <td>Deden Muhamad Kurniadi</td>
+                <td>Buah Batu</td>
+                <td>Rp 250.000</td>
+                <td>Rp 500.000</td>
+                <td>Rp 850.000</td>
+                <td>Rp 600.000</td>
+                <td>Rp 500.000</td>
+              </tr>
+              <tr>
+                <td>Krisna Miftahul Rizki</td>
+                <td>Kota Baru</td>
+                <td>Rp 200.000</td>
+                <td>Rp 200.000</td>
+                <td>Rp 900.000</td>
+                <td>Rp 600.000</td>
+                <td>Rp 500.000</td>
+              </tr>
+              <tr>
+                <td>Raihan Muhammad Rizki</td>
+                <td>Ambon</td>
+                <td>Rp 100.000</td>
+                <td>Rp 200.000</td>
+                <td>Rp 1.000.000</td>
+                <td>Rp 600.000</td>
+                <td>Rp 500.000</td>
+              </tr>
+              <tr>
+                <td>Fahrizal Rudiansyah</td>
+                <td>Kopo</td>
+                <td>Rp 1.500.000</td>
+                <td>Rp 2.500.000</td>
+                <td>Rp 1.000.000</td>
+                <td>Rp 1.100.000</td>
+                <td style="color:var(--accent-rose);font-weight:700">Rp 1.400.000</td>
+              </tr>
+              <tr>
+                <td>Ferry Putra Yatama</td>
+                <td>Kota Baru</td>
+                <td>Rp 750.000</td>
+                <td>Rp 1.000.000</td>
+                <td>—</td>
+                <td>Rp 500.000</td>
+                <td>Rp 250.000</td>
+              </tr>
+              <tr>
+                <td>Bayu Permana Sidik</td>
+                <td>Garut</td>
+                <td>Rp 500.000</td>
+                <td>Rp 700.000</td>
+                <td>—</td>
+                <td>Rp 300.000</td>
+                <td>Rp 200.000</td>
+              </tr>
+              <tr>
+                <td>Deril Juliana</td>
+                <td>Buah Batu</td>
+                <td>Rp 800.000</td>
+                <td>Rp 800.000</td>
+                <td>—</td>
+                <td>Rp 500.000</td>
+                <td>Rp 300.000</td>
+              </tr>
+              <tr>
+                <td>Fazar Ali Saputra</td>
+                <td>Amir</td>
+                <td>Rp 200.000</td>
+                <td>Rp 200.000</td>
+                <td>—</td>
+                <td>Rp 200.000</td>
+                <td>Rp 0</td>
+              </tr>
+              <tr>
+                <td>Sipa Fauziah</td>
+                <td>Garut</td>
+                <td>Rp 200.000</td>
+                <td>Rp 200.000</td>
+                <td>—</td>
+                <td>Rp 200.000</td>
+                <td>Rp 0</td>
+              </tr>
+              <tr>
+                <td>Erik</td>
+                <td>Garut</td>
+                <td>Rp 250.000</td>
+                <td>Rp 250.000</td>
+                <td>—</td>
+                <td>Rp 250.000</td>
+                <td>Rp 0</td>
+              </tr>
+              <tr>
+                <td>Ridho Saefuloh</td>
+                <td>Ambon</td>
+                <td>Rp 800.000</td>
+                <td>Rp 800.000</td>
+                <td>—</td>
+                <td>Rp 500.000</td>
+                <td>Rp 300.000</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== EVALUASI ===== -->
+  <section class="section" id="evaluasi">
+    <div class="section-label">KPI 04</div>
+    <h2>Evaluasi Kinerja Crew</h2>
+    <p class="section-desc">NGOPS, penilaian individu, dan skor kepuasan outlet.</p>
+    <div class="grid-2">
+      <div class="glass-panel">
+        <h3>Penilaian Individu Juni</h3>
+        <div class="kpi-row"><span class="kpi-label">Pengumuman Terkirim</span><span class="kpi-value">25
+            Juli</span><span class="tag tag-amber" style="margin-left:8px">Sesuai standar</span></div>
+        <div class="kpi-row"><span class="kpi-label">Crew yang Mengisi</span><span class="kpi-value"
+            style="color:var(--accent-emerald)">100%</span><span class="tag tag-green"
+            style="margin-left:8px">Full</span></div>
+      </div>
+      <div class="glass-panel">
+        <h3>Skor Kepuasan Outlet</h3>
+        <div style="text-align:center;padding:1rem 0">
+          <div style="font-size:3rem;font-weight:900;font-family:'JetBrains Mono',monospace;color:var(--accent-amber)">
+            4.3</div>
+          <div style="color:var(--text-muted);font-size:0.75rem">dari skala 5 — 15 responden</div>
+        </div>
+      </div>
+    </div>
+    <div class="glass-panel">
+      <h3>NGOPS & Temuan</h3>
+      <div class="kpi-row"><span class="kpi-label">Wawancara NGOPS</span><span class="kpi-value">Pending</span><span
+          class="tag tag-amber" style="margin-left:8px">Menunggu Renewal Aspek</span></div>
+      <div class="callout insight" style="margin-top:0.8rem">
+        <div class="callout-icon">i</div>
+        <div class="callout-text"><strong>Temuan Penting:</strong> Penilaian teratas dicapai secara tidak objektif
+          karena kerjasama internal saat pengisian. Hal ini menyebabkan diperlukannya <strong>renewal aspek
+            penilaian.</strong></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROYEK ===== -->
+  <section class="section" id="proyek">
+    <div class="section-label">KPI 05</div>
+    <h2>Dukungan Proyek & Komunikasi</h2>
+    <p class="section-desc">SOP baru, sosialisasi, dan meeting leader.</p>
+    <div class="glass-panel">
+      <h3>PMD 5 SOP Baru — Sistem 3 Tier</h3>
+      <p style="margin-bottom:1.2rem">Perancangan dilakukan dengan pendekatan paling mudah dipahami — sistem tiga lapis:
+      </p>
+      <div class="grid-3">
+        <div class="tier-card" style="border-color:rgba(139,92,246,0.2)">
+          <div class="tier-num" style="color:var(--accent-violet)">Tier 1</div>
+          <div class="tier-title">Dokumen Resmi</div>
+          <div class="tier-desc">Dokumen resmi APPROVED disimpan utuh sebagai acuan hukum internal</div>
+        </div>
+        <div class="tier-card" style="border-color:rgba(34,211,238,0.2)">
+          <div class="tier-num" style="color:var(--accent-cyan)">Tier 2</div>
+          <div class="tier-title">Hub SOP Digital</div>
+          <div class="tier-desc">Web mobile-friendly (<a href="https://sop-pt-altri.vercel.app/" target="_blank"
+              style="color:var(--accent-cyan)">sop-pt-altri.vercel.app</a>) dengan bahasa dan UI mudah dipahami</div>
+        </div>
+        <div class="tier-card" style="border-color:rgba(52,211,153,0.2)">
+          <div class="tier-num" style="color:var(--accent-emerald)">Tier 3</div>
+          <div class="tier-title">Printed Media</div>
+          <div class="tier-desc">Media cetak dengan QR code ke dok resmi, grafis dan teks yang mudah dipahami</div>
+        </div>
+      </div>
+      <p style="margin-top:1rem;font-size:0.8rem;color:var(--text-secondary)">Pemantauan penerapan = tugas Supervisor
+        dan Leader. Sosialisasi ditinjau setelah <strong>diberlakukan 3 bulan.</strong></p>
+    </div>
+    <div class="grid-2">
+      <div class="glass-panel">
+        <h3>Meeting Leader + PMD SOP</h3>
+        <p>Pemaparan kepada leader secara mendetail dengan <strong>tanya jawab dan kuis interaktif</strong>. Ditinjau
+          setelah 3 bulan.</p>
+      </div>
+      <div class="glass-panel">
+        <h3>Promo & DW Request</h3>
+        <p>Tiga promo jalan bareng bulan Juli:</p>
+        <ul>
+          <li>Bundling Holiday (s/d 10 Juli)</li>
+          <li>All Plate Sushi 10K Midweek</li>
+          <li>Kopi Priangan Paket Hemat (mulai 24 Juli)</li>
+        </ul>
+        <div class="callout warning" style="margin-top:0.8rem">
+          <div class="callout-icon">!</div>
+          <div class="callout-text">Permintaan daily worker <strong>masih mendadak</strong>, belum H-1.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== EXECUTIVE ===== -->
+  <section class="section" id="executive">
+    <div class="section-label">KPI 06</div>
+    <h2>Executive Support & Laporan Investor</h2>
+    <div class="grid-2">
+      <div class="glass-panel">
+        <h3>Laporan Dividen Investor</h3>
+        <div class="kpi-row"><span class="kpi-label">Tanggal Terkirim</span><span class="kpi-value"
+            style="color:var(--accent-emerald)">13 Juli</span><span class="tag tag-green" style="margin-left:8px">Tepat
+            Waktu</span></div>
+        <div class="kpi-row"><span class="kpi-label">SLA Deadline</span><span class="kpi-value">Maks tgl 15</span></div>
+        <div class="callout success" style="margin-top:0.8rem">
+          <div class="callout-icon">+</div>
+          <div class="callout-text"><strong>Improvement!</strong> Juni telat 4 hari. Juli terkirim 2 hari sebelum
+            deadline.</div>
+        </div>
+      </div>
+      <div class="glass-panel">
+        <h3>Laporan Tambahan</h3>
+        <p>Selain report bulanan:</p>
+        <ul>
+          <li><strong>Riset Manpower Kopi Priangan</strong> — Analisa kebutuhan barista untuk extend jam operasional
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SISTEM ===== -->
+  <section class="section" id="sistem">
+    <div class="section-label">KPI 07</div>
+    <h2>Sistem Web & HRIS</h2>
+    <div class="glass-panel">
+      <div class="grid-4">
+        <div style="text-align:center;padding:0.8rem">
+          <div style="font-weight:700;font-size:0.82rem;margin-bottom:0.3rem">Sistem Penilaian Web</div><span
+            class="badge badge-done">Berfungsi</span>
+        </div>
+        <div style="text-align:center;padding:0.8rem">
+          <div style="font-weight:700;font-size:0.82rem;margin-bottom:0.3rem">Database Supabase</div><span
+            class="badge badge-done">Aktif</span>
+        </div>
+        <div style="text-align:center;padding:0.8rem">
+          <div style="font-weight:700;font-size:0.82rem;margin-bottom:0.3rem">Refresh DB Rutin</div><span
+            class="badge badge-done">Aktif</span>
+        </div>
+        <div style="text-align:center;padding:0.8rem">
+          <div style="font-weight:700;font-size:0.82rem;margin-bottom:0.3rem">KPI Ops Controller</div><span
+            class="badge badge-ongoing">On Process</span>
+        </div>
+      </div>
+    </div>
+    <div class="callout insight">
+      <div class="callout-icon">i</div>
+      <div class="callout-text">Tidak ada miskomunikasi di Juli. Hanya input KPI Operations Controller yang masih on
+        process.</div>
+    </div>
+  </section>
+
+  <!-- ===== ABSENSI ===== -->
+  <section class="section" id="absensi">
+    <div class="section-label">DATA</div>
+    <h2>Analisa Absensi Crew Juli</h2>
+    <p class="section-desc">Data absensi seluruh crew dianalisa ke dalam grafik — distribusi kehadiran, outlier, dan
+      temuan penting.</p>
+
+    <!-- Ringkasan Absensi -->
+    <div class="glass-panel">
+      <h3>Ringkasan Absensi Juli 2026</h3>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:0">
+        <div class="summary-stat">
+          <div class="ss-value" style="color:var(--accent-emerald)">2.653</div>
+          <div class="ss-label">Total Hadir</div>
+        </div>
+        <div class="summary-stat">
+          <div class="ss-value" style="color:var(--accent-amber)">75</div>
+          <div class="ss-label">Total Sakit</div>
+        </div>
+        <div class="summary-stat">
+          <div class="ss-value" style="color:var(--accent-cyan)">72</div>
+          <div class="ss-label">Total Izin</div>
+        </div>
+        <div class="summary-stat">
+          <div class="ss-value" style="color:var(--accent-rose)">18</div>
+          <div class="ss-label">Total Alpa</div>
+        </div>
+        <div class="summary-stat">
+          <div class="ss-value" style="color:var(--text-muted)">488</div>
+          <div class="ss-label">Total Off</div>
+        </div>
+        <div class="summary-stat">
+          <div class="ss-value" style="color:var(--accent-blue)">22</div>
+          <div class="ss-label">Total Cuti</div>
+        </div>
+        <div class="summary-stat">
+          <div class="ss-value" style="color:var(--accent-amber)">63</div>
+          <div class="ss-label">Hadir Telat</div>
+        </div>
+        <div class="summary-stat">
+          <div class="ss-value" style="color:var(--accent-rose)">28</div>
+          <div class="ss-label">(-) Absen</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Distribusi Chart -->
+    <div class="grid-2">
+      <div class="chart-box">
+        <div class="chart-title">Distribusi Kehadiran vs Ketidakhadiran</div>
+        <canvas id="chartAbsensiPie"></canvas>
+      </div>
+      <div class="chart-box">
+        <div class="chart-title">Rata-rata per Crew (dari total 119 crew aktif)</div>
+        <canvas id="chartAbsensiAvg"></canvas>
+      </div>
+    </div>
+
+    <!-- Top Absentees -->
+    <div class="chart-box">
+      <div class="chart-title">Crew dengan Kehadiran Terendah (di bawah 16 hari)</div>
+      <canvas id="chartLowAttendance"></canvas>
+    </div>
+
+    <!-- Sakit Tinggi -->
+    <div class="chart-box">
+      <div class="chart-title">Crew dengan Sakit Tertinggi</div>
+      <canvas id="chartTopSakit"></canvas>
+    </div>
+
+    <!-- Alpa -->
+    <div class="chart-box">
+      <div class="chart-title">Crew dengan Catatan Alpa</div>
+      <canvas id="chartAlpa"></canvas>
+    </div>
+
+    <!-- Hadir Telat -->
+    <div class="chart-box">
+      <div class="chart-title">Crew dengan Hadir Telat Tertinggi</div>
+      <canvas id="chartHT"></canvas>
+    </div>
+
+    <!-- Analisa Findings -->
+    <div class="glass-panel">
+      <h3>Temuan & Analisa Absensi</h3>
+      <div class="callout warning">
+        <div class="callout-icon">!</div>
+        <div class="callout-text"><strong>Alpa tersebar di 14 crew</strong> — total 18 hari. Yang paling tinggi: Yesi
+          Herdiani (3), Hardi Sugara (3), Muhammad Fathur G (2), Gilar Putra Nugraha (2). Alpa adalah pemicu utama
+          panggilan DW mendadak.</div>
+      </div>
+      <div class="callout insight">
+        <div class="callout-icon">i</div>
+        <div class="callout-text"><strong>Hadir Telat (HT) tertinggi:</strong> Fajar Febbi Aldianto (20 hari — anomali,
+          perlu verifikasi), Bilal Akbar (8), Nadila (5), M Farhan Fauzi (4). Total 63 hari HT dari seluruh crew.</div>
+      </div>
+      <div class="callout success">
+        <div class="callout-icon">+</div>
+        <div class="callout-text"><strong>Positif:</strong> Mayoritas crew (sekitar 60%) mencatat kehadiran 25–28 hari —
+          menunjukkan disiplin yang baik. Beberapa leader mencatat kehadiran sempurna: Yuliani, Muhammad Nabil, Ridwan
+          Lukmanul Hakim, Diana Putri Rulyaningrum (27 hari, 0 sakit/izin/alpa).</div>
+      </div>
+    </div>
+
+    <!-- Accordion untuk raw data -->
+    <div class="accordion-item">
+      <div class="accordion-header" onclick="toggleAccordion(this)"><span>Lihat Data Absensi Lengkap (Tabel)</span><span
+          class="arrow">▼</span></div>
+      <div class="accordion-body">
+        <input type="text" class="table-search" placeholder="Cari nama crew..."
+          onkeyup="filterTable(this,'absensi-table')" style="margin-bottom:0.8rem">
+        <div class="table-wrap" style="max-height:400px;overflow-y:auto">
+          <table id="absensi-table">
+            <thead>
+              <tr>
+                <th>Nama</th>
+                <th>H</th>
+                <th>S</th>
+                <th>I</th>
+                <th>A</th>
+                <th>OFF</th>
+                <th>C</th>
+                <th>HT</th>
+                <th>(-)</th>
+              </tr>
+            </thead>
+            <tbody id="absensiBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BLOK 1: BARISTA ===== -->
+  <section class="section" id="barista">
+    <div class="section-label">ANALISA BLOK 1</div>
+    <h2>Riset Manpower & Cost Barista</h2>
+    <p class="section-desc">Extend jam operasional Kopi Priangan Pajajaran — dari 11 jam ke 17 jam.</p>
+
+    <div class="tab-group">
+      <button class="tab-btn active" onclick="switchTab(event,'tab-existing')">Kondisi Existing</button>
+      <button class="tab-btn" onclick="switchTab(event,'tab-benchmark')">Benchmark Pasar</button>
+      <button class="tab-btn" onclick="switchTab(event,'tab-skenario')">Skenario Extend</button>
+      <button class="tab-btn" onclick="switchTab(event,'tab-rekomendasi')">Rekomendasi</button>
+    </div>
+
+    <div class="tab-content active" id="tab-existing">
+      <div class="glass-panel">
+        <h3>Tren Coverage Barista (Apr–Jul)</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Bulan</th>
+                <th>Man-day</th>
+                <th>Rata-rata/Hari</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>April</td>
+                <td>57</td>
+                <td>1.90</td>
+              </tr>
+              <tr>
+                <td>Mei</td>
+                <td>63</td>
+                <td>2.03</td>
+              </tr>
+              <tr>
+                <td>Juni</td>
+                <td>57</td>
+                <td>1.90</td>
+              </tr>
+              <tr>
+                <td style="color:var(--accent-rose)">Juli</td>
+                <td style="color:var(--accent-rose)">49</td>
+                <td style="color:var(--accent-rose);font-weight:700">1.58</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="callout danger">
+        <div class="callout-icon">!</div>
+        <div class="callout-text"><strong>Temuan Paling Keras:</strong> Tanggal 12 Juli, Fajar dan Syahdat sama-sama OFF
+          — 1 hari operasional penuh tanpa barista terjadwal. Coverage Juli: 19 hari dobel, 11 hari tunggal, 1 hari NOL.
+        </div>
+      </div>
+      <div class="glass-panel">
+        <h3>Riwayat Headcount & Man-Day</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Bulan</th>
+                <th>Barista Aktif</th>
+                <th>Man-day</th>
+                <th>Hari</th>
+                <th>Rata-rata/Hari</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>April</td>
+                <td>Fajar (FT), Virzio (PT), Muhpid (PT)</td>
+                <td>57</td>
+                <td>30</td>
+                <td>1,90</td>
+              </tr>
+              <tr>
+                <td>Mei</td>
+                <td>Fajar (FT), Virzio (PT), Muhpid (PT)</td>
+                <td>63</td>
+                <td>31</td>
+                <td>2,03</td>
+              </tr>
+              <tr>
+                <td>Juni</td>
+                <td>Fajar (FT), Syahdat (PT), Muhpid (PT)</td>
+                <td>57</td>
+                <td>30</td>
+                <td>1,90</td>
+              </tr>
+              <tr>
+                <td>Juli</td>
+                <td style="color:var(--accent-rose)">Fajar (FT), Syahdat (PT)</td>
+                <td style="color:var(--accent-rose)">49</td>
+                <td>31</td>
+                <td style="color:var(--accent-rose)">1,58</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="glass-panel">
+        <h3>211 Cup Ditanggung Server, Bukan Barista</h3>
+        <p style="margin-bottom:0.8rem">Sheet Perbantuan Server: Samsul (111 cup) + Arya (100 cup) = 211 transaksi.
+          Insentif: <strong>Rp 376.000</strong>.</p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Tanggal</th>
+                <th>Backup (cup)</th>
+                <th>Kondisi Barista</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>26 Jul</td>
+                <td style="font-weight:700">32</td>
+                <td>Fajar off</td>
+              </tr>
+              <tr>
+                <td>10 Jul</td>
+                <td style="font-weight:700">25</td>
+                <td>Syahdat off</td>
+              </tr>
+              <tr>
+                <td>19 Jul</td>
+                <td>21</td>
+                <td>Fajar off</td>
+              </tr>
+              <tr>
+                <td>22 Jul</td>
+                <td>20</td>
+                <td>Syahdat off</td>
+              </tr>
+              <tr>
+                <td>8 Jul</td>
+                <td>18</td>
+                <td>Syahdat off</td>
+              </tr>
+              <tr>
+                <td style="color:var(--accent-rose)">12 Jul</td>
+                <td>15</td>
+                <td style="color:var(--accent-rose);font-weight:700">Fajar & Syahdat off (NOL barista)</td>
+              </tr>
+              <tr>
+                <td>17 Jul</td>
+                <td>8</td>
+                <td>Syahdat off</td>
+              </tr>
+              <tr>
+                <td>15 Jul</td>
+                <td>7</td>
+                <td>Syahdat off</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout insight" style="margin-top:0.8rem">
+          <div class="callout-icon">i</div>
+          <div class="callout-text">146 dari 211 cup (69,2%) terjadi di hari coverage barista berkurang. <strong>Rp
+              376.000 = biaya tambal</strong> yang nggak masuk pos gaji barista.</div>
+        </div>
+      </div>
+      <div class="glass-panel">
+        <h3>Struktur Cost Barista</h3>
+        <div style="margin-bottom:0.8rem"><canvas id="chartBaristaCost" style="max-height:280px"></canvas></div>
+        <div class="callout warning">
+          <div class="callout-icon">!</div>
+          <div class="callout-text"><strong>Efisiensi Palsu Juli:</strong> Cost turun 16% dari Mei, tapi plus insentif
+            server jadi Rp 5.311.000 — cuma beli 49 man-day + 1 hari tanpa barista. Mei Rp 6.275.000 = 63 man-day tanpa
+            hari kosong.</div>
+        </div>
+      </div>
+      <div class="callout danger">
+        <div class="callout-icon">!</div>
+        <div class="callout-text"><strong>Turnover PT Barista = 100% per kuartal.</strong> Tarif PT Rp 85.000/shift (Rp
+          9.444/jam) = 43–57% dari referensi pasar. Head Barista Fajar gaji pokok Rp 1.900.000 flat sejak Januari.</div>
+      </div>
+    </div>
+
+    <div class="tab-content" id="tab-benchmark">
+      <div class="glass-panel">
+        <h3>Benchmark Upah Barista Pasar Indonesia</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Acuan</th>
+                <th>Angka</th>
+                <th>Sumber</th>
+                <th>Keyakinan</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>UMK Kota Bandung 2026</td>
+                <td style="font-weight:700">Rp 4.737.678</td>
+                <td>Pemprov Jabar</td>
+                <td><span class="tag tag-green">Tinggi</span></td>
+              </tr>
+              <tr>
+                <td>Barista level awal</td>
+                <td>Rp 1,7–3 jt/bln</td>
+                <td>Bloomberg Technoz</td>
+                <td><span class="tag tag-amber">Sedang</span></td>
+              </tr>
+              <tr>
+                <td>Loker barista FT Bandung</td>
+                <td>Rp 1,6–2,4 jt</td>
+                <td>Listing M Coffee</td>
+                <td><span class="tag tag-amber">Sedang</span></td>
+              </tr>
+              <tr>
+                <td>Rata-rata barista nasional</td>
+                <td>Rp 3.062.360</td>
+                <td>Indeed (2023)</td>
+                <td><span class="tag tag-red">Rendah</span></td>
+              </tr>
+              <tr>
+                <td>Rata-rata barista Bandung</td>
+                <td>Rp 3.987.689</td>
+                <td>Kredit Pintar</td>
+                <td><span class="tag tag-red">Rendah</span></td>
+              </tr>
+              <tr>
+                <td>PT jaringan besar</td>
+                <td>Rp 150–200rb/9 jam</td>
+                <td>Hipwee (Starbucks)</td>
+                <td><span class="tag tag-amber">Rendah–Sedang</span></td>
+              </tr>
+              <tr>
+                <td>Barista freelance</td>
+                <td>Rp 300–500rb/shift</td>
+                <td>Jobstreet</td>
+                <td><span class="tag tag-amber">Sedang</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="callout danger">
+        <div class="callout-icon">!</div>
+        <div class="callout-text"><strong>PT barista Balista Rp 9.444/jam vs pasar Rp 16.667–22.222/jam</strong> —
+          43–57% dari referensi pasar. Ini menjelaskan turnover 100%.</div>
+      </div>
+    </div>
+
+    <div class="tab-content" id="tab-skenario">
+      <div class="glass-panel">
+        <h3>Rancangan Shift 17 Jam (07.00–24.00)</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Shift</th>
+                <th>Jam</th>
+                <th>Fungsi</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="color:var(--accent-amber);font-weight:700">Opening</td>
+                <td>07.00–16.00</td>
+                <td>Buka bar, brew batch pagi, prep, traffic sarapan & makan siang</td>
+              </tr>
+              <tr>
+                <td style="color:var(--accent-violet);font-weight:700">Middle</td>
+                <td>12.00–21.00</td>
+                <td>Tumpang tindih puncak siang sampai malam</td>
+              </tr>
+              <tr>
+                <td style="color:var(--accent-cyan);font-weight:700">Closing</td>
+                <td>15.00–24.00</td>
+                <td>Puncak malam, closing, cleaning, prep besok</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="font-size:0.78rem;color:var(--text-secondary);margin-top:0.8rem">Coverage tunggal: 07–12 & 21–24.
+          Dobel: 12–21 (9 jam puncak). Kebutuhan: 91 man-day/bulan.</p>
+      </div>
+      <div class="glass-panel">
+        <h3>3 Skenario Cost</h3>
+        <p style="margin-bottom:0.8rem;font-size:0.78rem;color:var(--text-secondary)">Asumsi: FT baru Rp 1.650.000. PT
+          tetap Rp 85.000/shift.</p>
+        <div style="margin-bottom:0.8rem"><canvas id="chartSkenario" style="max-height:220px"></canvas></div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Skenario</th>
+                <th>Komposisi</th>
+                <th>Man-day</th>
+                <th>Cost/Bulan</th>
+                <th>Delta</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>A. Semua PT</td>
+                <td>1 FT + 3 PT</td>
+                <td>26 + 65</td>
+                <td>Rp 8.590.000</td>
+                <td style="color:var(--accent-rose)">+74,1%</td>
+              </tr>
+              <tr>
+                <td style="color:var(--accent-amber)">B. +1 FT</td>
+                <td>2 FT + 2 PT</td>
+                <td>52 + 39</td>
+                <td style="font-weight:700">Rp 8.030.000</td>
+                <td style="color:var(--accent-amber)">+62,7%</td>
+              </tr>
+              <tr>
+                <td style="color:var(--accent-emerald)">C. +2 FT</td>
+                <td>3 FT + 1 PT</td>
+                <td>78 + 13</td>
+                <td style="font-weight:700">Rp 7.470.000</td>
+                <td style="color:var(--accent-emerald)">+51,4%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout success" style="margin-top:0.8rem">
+          <div class="callout-icon">+</div>
+          <div class="callout-text"><strong>Skenario C paling efisien.</strong> Jam naik 54,5% tapi biaya cuma 51,4%. FT
+            25,3% lebih murah per man-day dari PT. BEP di 19,4 shift/bulan. Target penjualan tambahan: sekitar 8
+            cup/hari di jam baru.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-content" id="tab-rekomendasi">
+      <div class="glass-panel">
+        <h3>Rekomendasi: 3 Tahap, Jangan Langsung Loncat</h3>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="tl-title" style="color:var(--accent-amber)">Tahap 1 — Agustus: Tutup Lubang Existing</div>
+            <div class="tl-desc">Isi slot PT pengganti Muhpid (min 22 shift/bulan), kembalikan coverage ke 2,3
+              barista/hari. Tambahan cost Rp 1.870.000. Ini perbaikan kondisi normal.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="tl-title" style="color:var(--accent-violet)">Tahap 2 — September: Soft Extend 15 Jam</div>
+            <div class="tl-desc">Buka 08.00–23.00 (4 minggu) dengan Skenario B. Catat transaksi per jam di slot baru
+              untuk validasi demand.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="tl-title" style="color:var(--accent-emerald)">Tahap 3 — Oktober: Keputusan Berbasis Data</div>
+            <div class="tl-desc">Slot terbukti → 07.00–24.00 penuh (Skenario C). Tidak terbukti → kunci 08.00–23.00.
+            </div>
+          </div>
+        </div>
+        <div class="callout warning" style="margin-top:0.8rem">
+          <div class="callout-icon">!</div>
+          <div class="callout-text"><strong>Hentikan pola server menambal bar.</strong> Insentif Rp 376.000 menutupi
+            masalah struktural. Setelah coverage benar, angka ini harus turun sendiri.</div>
+        </div>
+        <div class="callout success">
+          <div class="callout-icon">+</div>
+          <div class="callout-text"><strong>Status:</strong> Proses rekrutmen dan interview barista sudah dilakukan.
+            Angka di atas untuk penetapan skema dan penawaran.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BLOK 2: GAJI POKOK ===== -->
+  <section class="section" id="gaji">
+    <div class="section-label">ANALISA BLOK 2</div>
+    <h2>Analisa Gaji Pokok Jan–Jul 2026</h2>
+    <p class="section-desc">Deep dive ke struktur gaji pokok 129 crew — total payroll naik tapi rata-rata per crew
+      justru turun.</p>
+
+    <div class="grid-2">
+      <div class="glass-panel">
+        <h3>Agregat Januari vs Juli</h3>
+        <div style="margin-bottom:0.8rem"><canvas id="chartGaji" style="max-height:230px"></canvas></div>
+      </div>
+      <div class="glass-panel">
+        <h3>Angka Kunci</h3>
+        <div class="kpi-row"><span class="kpi-label">Crew (Nilai Bulat)</span><span class="kpi-value">111 →
+            129</span><span class="tag tag-green" style="margin-left:8px">+18</span></div>
+        <div class="kpi-row"><span class="kpi-label">Total Gaji Pokok</span><span class="kpi-value"
+            style="font-size:0.82rem">Rp 187 jt → 213,9 jt</span><span class="tag tag-green"
+            style="margin-left:8px">+14,3%</span></div>
+        <div class="kpi-row"><span class="kpi-label">Rata-rata/Crew</span><span class="kpi-value"
+            style="font-size:0.82rem">1.685.135 → 1.657.364</span><span class="tag tag-red"
+            style="margin-left:8px">-1,65%</span></div>
+        <div class="kpi-row"><span class="kpi-label">Median</span><span class="kpi-value">Rp 1.550.000</span><span
+            class="tag tag-amber" style="margin-left:8px">Flat 7 bln</span></div>
+        <div class="kpi-row"><span class="kpi-label">Nominal Terbanyak</span><span class="kpi-value"
+            style="font-size:0.78rem">Rp 1.550.000 (48 org, 37,2%)</span></div>
+      </div>
+    </div>
+
+    <div class="callout insight">
+      <div class="callout-icon">i</div>
+      <div class="callout-text"><strong>Temuan Utama:</strong> Total payroll naik 14,3%, tapi murni dari penambahan
+        orang, bukan kenaikan upah. Rata-rata turun 1,65%, median flat 7 bulan. Efek dilusi — crew baru masuk band
+        terbawah, penerima tertinggi keluar.</div>
+    </div>
+
+    <div class="chart-box">
+      <div class="chart-title">Sebaran Band Gaji Pokok Juli (129 Crew)</div><canvas id="chartBand"></canvas>
+    </div>
+
+    <div class="callout warning">
+      <div class="callout-icon">!</div>
+      <div class="callout-text">Band Rp 1.500.000–1.550.000 menampung <strong>72 dari 129 crew (55,8%)</strong>.
+        Kompresi memburuk dari 53,2% di Januari. Rentang 2,4x (tanpa Central: 1,84x).</div>
+    </div>
+
+    <div class="accordion-item">
+      <div class="accordion-header" onclick="toggleAccordion(this)"><span>Detail Kenaikan Gaji (31 Crew)</span><span
+          class="arrow">▼</span></div>
+      <div class="accordion-body">
+        <p style="margin-bottom:0.8rem;font-size:0.78rem;color:var(--text-secondary)">Langkah standar Rp 50.000 (3,2%/7
+          bulan, ±5,5% setahun). Di atas standar:</p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Nama</th>
+                <th>Jan</th>
+                <th>Jul</th>
+                <th>Naik</th>
+                <th>%</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Ridho Setiawan</td>
+                <td>1.550.000</td>
+                <td>1.750.000</td>
+                <td style="color:var(--accent-emerald)">+200.000</td>
+                <td>12,9%</td>
+              </tr>
+              <tr>
+                <td>Dwyzha Ramadhany S.</td>
+                <td>1.700.000</td>
+                <td>1.900.000</td>
+                <td style="color:var(--accent-emerald)">+200.000</td>
+                <td>11,8%</td>
+              </tr>
+              <tr>
+                <td>Purwanti Ayu Rahayu</td>
+                <td>1.750.000</td>
+                <td>1.900.000</td>
+                <td style="color:var(--accent-emerald)">+150.000</td>
+                <td>8,6%</td>
+              </tr>
+              <tr>
+                <td>Alfya Putri Melsya</td>
+                <td>1.550.000</td>
+                <td>1.650.000</td>
+                <td>+100.000</td>
+                <td>6,5%</td>
+              </tr>
+              <tr>
+                <td>Dea Amalia</td>
+                <td>1.550.000</td>
+                <td>1.650.000</td>
+                <td>+100.000</td>
+                <td>6,5%</td>
+              </tr>
+              <tr>
+                <td>Agil Saputra</td>
+                <td>1.550.000</td>
+                <td>1.650.000</td>
+                <td>+100.000</td>
+                <td>6,5%</td>
+              </tr>
+              <tr>
+                <td>Algi M. Oktapiandi</td>
+                <td>1.600.000</td>
+                <td>1.700.000</td>
+                <td>+100.000</td>
+                <td>6,3%</td>
+              </tr>
+              <tr>
+                <td>Edwin Kurniadi</td>
+                <td>1.900.000</td>
+                <td>2.000.000</td>
+                <td>+100.000</td>
+                <td>5,3%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <div class="accordion-header" onclick="toggleAccordion(this)"><span>Skema Penyesuaian Gaji Awal Masuk (3
+          Tier)</span><span class="arrow">▼</span></div>
+      <div class="accordion-body">
+        <p style="margin-bottom:0.8rem;font-size:0.78rem;color:var(--text-secondary)">Gaji pokok crew baru lebih tinggi
+          karena belum punya hak persenan — diangkat sebagai pengganti, lalu diturunkan bertahap.</p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Bulan</th>
+                <th>Kategori</th>
+                <th>Berpengalaman</th>
+                <th>Non Pengalaman</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Bln 1</td>
+                <td>Dine In</td>
+                <td>Rp 2.000.000</td>
+                <td>Rp 1.750.000</td>
+              </tr>
+              <tr>
+                <td>Bln 1</td>
+                <td>Express</td>
+                <td>Rp 2.000.000</td>
+                <td>Rp 1.750.000</td>
+              </tr>
+              <tr>
+                <td>Bln 2</td>
+                <td>Dine In</td>
+                <td>Rp 2.000.000</td>
+                <td>Rp 1.750.000</td>
+              </tr>
+              <tr>
+                <td>Bln 2</td>
+                <td>Express</td>
+                <td>Rp 1.750.000 + 1x persenan</td>
+                <td>Rp 1.500.000 + 1x</td>
+              </tr>
+              <tr>
+                <td>Bln 3</td>
+                <td>Dine In</td>
+                <td>Rp 1.750.000 + 1x</td>
+                <td>Rp 1.500.000 + 1x</td>
+              </tr>
+              <tr>
+                <td>Bln 3</td>
+                <td>Express</td>
+                <td>Rp 1.500.000 + 2x</td>
+                <td>Rp 1.250.000 + 2x</td>
+              </tr>
+              <tr>
+                <td>Bln 4+</td>
+                <td>Semua</td>
+                <td colspan="2">Rp 1.500.000 + persenan penuh (3x)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <div class="accordion-header" onclick="toggleAccordion(this)"><span>Uji Silang Skema ke Data Juli</span><span
+          class="arrow">▼</span></div>
+      <div class="accordion-body">
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Nama</th>
+                <th>Outlet</th>
+                <th>Masa Kerja</th>
+                <th>Gaji Jul</th>
+                <th>Posisi Skema</th>
+                <th>Keyakinan</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Chelsy Nurfitri S.</td>
+                <td>Garut</td>
+                <td>2 bln 8 hr</td>
+                <td>2.000.000</td>
+                <td>Bln 1–2, Dine In, berpengalaman</td>
+                <td><span class="tag tag-green">Tinggi</span></td>
+              </tr>
+              <tr>
+                <td>Erik</td>
+                <td>Garut</td>
+                <td>2 bln 24 hr</td>
+                <td>1.750.000</td>
+                <td>Bln 1–2 non pengalaman / bln 3 berpengalaman</td>
+                <td><span class="tag tag-amber">Sedang</span></td>
+              </tr>
+              <tr>
+                <td>Muhammad Kalbadri</td>
+                <td>Garut</td>
+                <td>2 bln 22 hr</td>
+                <td>1.750.000</td>
+                <td>Sama seperti Erik</td>
+                <td><span class="tag tag-amber">Sedang</span></td>
+              </tr>
+              <tr>
+                <td>Alvian Wibisono</td>
+                <td>Uj. Berung</td>
+                <td>2 bln 24 hr</td>
+                <td>1.250.000</td>
+                <td>Bln 3, Express, non pengalaman + 2x</td>
+                <td><span class="tag tag-green">Tinggi</span></td>
+              </tr>
+              <tr>
+                <td>Deden M. Kurniadi</td>
+                <td>Buah Batu</td>
+                <td>1 thn 10 bln</td>
+                <td>1.550.000</td>
+                <td>Bln 4+, basis + 1 langkah</td>
+                <td><span class="tag tag-green">Tinggi</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <div class="accordion-header" onclick="toggleAccordion(this)"><span>Koreksi Temuan & Risiko Baru</span><span
+          class="arrow">▼</span></div>
+      <div class="accordion-body">
+        <div class="callout success">
+          <div class="callout-icon">+</div>
+          <div class="callout-text"><strong>Koreksi 1:</strong> Penurunan gaji 7 nama di Maret bukan kesalahan input —
+            skema awal masuk jalan sesuai desain. Cabut dari slide.</div>
+        </div>
+        <div class="callout insight">
+          <div class="callout-icon">i</div>
+          <div class="callout-text"><strong>Koreksi 2:</strong> Band Rp 1.750.000 berisi 2 populasi berlawanan — crew
+            baru (akan turun) dan crew lama (naik). Nominal sama, arah berlawanan.</div>
+        </div>
+        <div class="callout warning">
+          <div class="callout-icon">!</div>
+          <div class="callout-text"><strong>Koreksi 3:</strong> Klaim kompresi band diturunkan — rentang 1,84x itu gaji
+            pokok, bukan total kompensasi. Perlu data persenan.</div>
+        </div>
+        <div class="callout danger">
+          <div class="callout-icon">!</div>
+          <div class="callout-text"><strong>Risiko Baru:</strong> 7 crew Garut masuk bulan ke-4 (Ags–Sep) — gaji pokok
+            turun ~Rp 2.000.000/bulan. Perlu komunikasi karena yang terlihat di slip adalah pokok turun. Garut = 474
+            pelamar tapi 0 masukan.</div>
+        </div>
+        <div class="callout warning">
+          <div class="callout-icon">?</div>
+          <div class="callout-text"><strong>Belum Terjawab:</strong> Dwi Pranowo (Central, 3 thn 3 bln) Rp 1.450.000
+            flat 7 bulan — di bawah basis Rp 1.500.000. Satu-satunya anomali.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout warning" style="margin-top:0.8rem">
+      <div class="callout-icon">i</div>
+      <div class="callout-text"><strong>Disclaimer:</strong> Nominal non-bulat (prorata) dikeluarkan dari perhitungan.
+        Angka = gaji pokok utuh 129 crew per Juli 2026. Gaji pokok bukan total kompensasi — perlu data persenan per
+        outlet untuk perbandingan kesejahteraan.</div>
+    </div>
+  </section>
+
+  <!-- ===== BLOK 3: BUKU RESEP ===== -->
+  <section class="section" id="bukuresep">
+    <div class="section-label">ANALISA BLOK 3</div>
+    <h2>Buku Resep Digital Balista</h2>
+    <p class="section-desc">Rilis besar: UI redesign, security overlay, monitoring login, dan bug fixes.</p>
+
+    <div class="glass-panel">
+      <h3>Changelog Lengkap</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Area</th>
+              <th>Perubahan</th>
+              <th>Detail Teknis</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span style="color:var(--accent-violet)">UI/UX</span></td>
+              <td>Redesain Antarmuka</td>
+              <td>Glassmorphism, rounded-2xl, identitas warna Balista</td>
+            </tr>
+            <tr>
+              <td><span style="color:var(--accent-violet)">UI/UX</span></td>
+              <td>Animasi</td>
+              <td>Floating hover kartu resep, slide-up & fade-in</td>
+            </tr>
+            <tr>
+              <td><span style="color:var(--accent-cyan)">Bug Fix</span></td>
+              <td>Kategori Galeri</td>
+              <td>SQL Join ke tabel kategori — grup dinamis yang benar</td>
+            </tr>
+            <tr>
+              <td><span style="color:var(--accent-cyan)">Bug Fix</span></td>
+              <td>Error 400</td>
+              <td>Hapus query kolom yang tidak ada pada profiles</td>
+            </tr>
+            <tr>
+              <td><span style="color:var(--accent-cyan)">Bug Fix</span></td>
+              <td>Data Fiktif</td>
+              <td>Staff dummy dihapus permanen</td>
+            </tr>
+            <tr>
+              <td><span style="color:var(--accent-emerald)">Auth</span></td>
+              <td>Login Activity</td>
+              <td>Dasbor sesi real-time, deteksi Online/Aktif, info browser</td>
+            </tr>
+            <tr>
+              <td><span style="color:var(--accent-emerald)">Auth</span></td>
+              <td>Tambah Akun</td>
+              <td>Secondary Client — Admin nggak logout saat daftarkan crew baru</td>
+            </tr>
+            <tr>
+              <td><span style="color:var(--accent-emerald)">Auth</span></td>
+              <td>Ubah Password</td>
+              <td>Self-service dari Manajemen Tim</td>
+            </tr>
+            <tr>
+              <td><span style="color:var(--accent-rose)">Security</span></td>
+              <td>Watermark Dicabut</td>
+              <td>Mengganggu keterbacaan resep</td>
+            </tr>
+            <tr>
+              <td><span style="color:var(--accent-rose)">Security</span></td>
+              <td>Security Overlay</td>
+              <td>Tab blur → peringatan pelanggaran Hak Cipta</td>
+            </tr>
+            <tr>
+              <td><span style="color:var(--accent-rose)">Security</span></td>
+              <td>Proteksi Screenshot</td>
+              <td>Share → Print memicu layar merah peringatan</td>
+            </tr>
+            <tr>
+              <td><span style="color:var(--accent-rose)">Security</span></td>
+              <td>Debugger Trap</td>
+              <td>DevTools → layar beku hitam "Akses Ditolak"</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="glass-panel">
+      <h3>Risiko yang Perlu Disebut Duluan</h3>
+      <ul>
+        <li><strong>Proteksi screenshot & DevTools = penghalang, bukan pencegah.</strong> Screenshot perangkat, foto HP
+          lain, atau JS dimatikan tetap lolos.</li>
+        <li><strong>Debugger Trap punya biaya sampingan</strong> — mengunci orang yang berhak (debugging, auditor).
+          Perlu bypass berbasis peran.</li>
+        <li><strong>Redaksi peringatan hukum perlu ditinjau</strong> — klaim UU ITE perlu verifikasi. Sandingkan dengan
+          klausul kerahasiaan kontrak kerja.</li>
+        <li><strong>Database masih Supabase tier gratis.</strong> Monitoring login paling terganggu kalau DB tidur.
+          Fitur keamanan di atas infra yang bisa berhenti sendiri.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===== BLOK 4: DAILY WORKER ===== -->
+  <section class="section" id="dailyworker">
+    <div class="section-label">ANALISA BLOK 4</div>
+    <h2>Peningkatan Kebutuhan Daily Worker</h2>
+    <p class="section-desc">Analisa HR & bisnis: kenapa cost DW naik 88,3%, dan apa yang sebenarnya terjadi.</p>
+
+    <div class="chart-box">
+      <div class="chart-title">Tren Cost Daily Worker Pajajaran</div><canvas id="chartDW"></canvas>
+    </div>
+
+    <div class="grid-2">
+      <div class="glass-panel">
+        <h3>Angka Kunci DW</h3>
+        <div class="kpi-row"><span class="kpi-label">Cost DW Juli</span><span class="kpi-value"
+            style="color:var(--accent-rose)">Rp 1.855.000</span></div>
+        <div class="kpi-row"><span class="kpi-label">Kehadiran DW Juli</span><span class="kpi-value">28 hari</span>
+        </div>
+        <div class="kpi-row"><span class="kpi-label">Jun → Jul</span><span class="kpi-value">+54,6%</span><span
+            class="tag tag-red" style="margin-left:8px">Naik</span></div>
+        <div class="kpi-row"><span class="kpi-label">Jan → Jul</span><span class="kpi-value"
+            style="color:var(--accent-rose)">+88,3%</span><span class="tag tag-red"
+            style="margin-left:8px">Signifikan</span></div>
+        <div class="kpi-row"><span class="kpi-label">Total Gap Cost Pajajaran</span><span class="kpi-value"
+            style="color:var(--accent-rose)">Rp 2.231.000</span><span class="tag tag-violet" style="margin-left:8px">DW
+            + Insentif Server</span></div>
+      </div>
+      <div class="glass-panel">
+        <h3>Temuan HR</h3>
+        <ul>
+          <li><strong>DW = penyerap absensi, bukan alat kapasitas.</strong> Dipanggil reaktif untuk menutup OFF dan
+            Alpa.</li>
+          <li><strong>Alpa = bagian paling mahal.</strong> OFF terjadwal bisa diantisipasi. Alpa mendadak.</li>
+          <li><strong>Steward = titik lemah struktural.</strong> Gilar satu-satunya FT. Reivan 14 kali/bulan (45% hari).
+          </li>
+          <li><strong>KBP = bukti lonjakan bukan karena promo.</strong> KBP nol DW padahal 3 promo jalan.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="glass-panel">
+      <h3>Ambon & Ujung Berung — Perlu Stok DW</h3>
+      <div class="grid-2">
+        <div>
+          <h4 style="color:var(--accent-amber);font-size:0.85rem;margin-bottom:0.4rem">Ambon (15 crew)</h4>
+          <p style="font-size:0.78rem;color:var(--text-secondary)">Beban absensi tertinggi. Juni: 22 Ijin (1,47/crew), 7
+            Sakit, 7 HT. Total 29 hari kerja hilang. Nol riwayat DW.</p>
+        </div>
+        <div>
+          <h4 style="color:var(--accent-cyan);font-size:0.85rem;margin-bottom:0.4rem">Ujung Berung (7 crew)</h4>
+          <p style="font-size:0.78rem;color:var(--text-secondary)">Roster tertipis. Leader (Purwanti) 6 hari tidak hadir
+            di Juni. Tanpa DW, crew lain kerja kelebihan jam tanpa tercatat.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="glass-panel">
+      <h3>Strategi & Action Plan Agustus (7 Poin)</h3>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="tl-title">1. Aktivasi Stok DW per Outlet</div>
+          <div class="tl-desc">Pajajaran 3 aktif (fokus Steward), KBP 2 standby, Ambon 2 baru, Ujung Berung 2 baru.
+            Target respon &lt; 24 jam.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="tl-title">2. Kolom Alasan Pemanggilan di Form DW</div>
+          <div class="tl-desc">3 kode: mengganti OFF, menutup Sakit/Alpa, menambah kapasitas promo. Biaya nol, dampak
+            besar.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="tl-title">3. Perketat SLA H-1 dengan Pengecualian Jujur</div>
+          <div class="tl-desc">Hari-H hanya sah untuk Sakit & Alpa. OFF hari-H = catatan kualitas perencanaan leader.
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="tl-title">4. Batas 20 Shift DW per Outlet per Bulan</div>
+          <div class="tl-desc">Di atas 20 → review headcount FT/PT. Dari BEP 23,4 shift dengan margin keamanan.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="tl-title">5. Konversi 14 Ad Hoc → 1 PT Steward (min 12 shift)</div>
+          <div class="tl-desc">Biaya setara, jadwal terencana, Gilar berhenti jadi titik tunggal kegagalan.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="tl-title">6. Cost DW Masuk KPI Leader</div>
+          <div class="tl-desc">Porsi Alpa = beban leader. Porsi promo = beban perencanaan kampanye.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="tl-title">7. Lengkapi Data Maret–Mei</div>
+          <div class="tl-desc">Tren punya lubang 3 bulan. Klaim "meningkat" dari 4 titik data tidak berurutan.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout success">
+      <div class="callout-icon">+</div>
+      <div class="callout-text"><strong>Ukuran Keberhasilan Agustus:</strong> (1) Respon DW &lt; 24 jam, (2) Panggilan
+        hari-H dari OFF terjadwal turun ke nol, (3) Insentif server turun dari Rp 376.000.</div>
+    </div>
+  </section>
+
+  <!-- ===== PENUTUP ===== -->
+  <section class="section" id="penutup">
+    <div class="section-label">CLOSING</div>
+    <h2>Penutup & Rencana Agustus</h2>
+    <div class="grid-2">
+      <div class="glass-panel">
+        <h3>Kendala Terbesar Juli</h3>
+        <p>Challenge pemaparan SOP baru dan permintaan daily worker mendadak — tidak signifikan, lebih ke challenge
+          daripada masalah besar.</p>
+      </div>
+      <div class="glass-panel">
+        <h3>Fokus Utama Agustus</h3>
+        <ul>
+          <li><strong>Stock Daily Worker</strong> — Aktivasi stok DW per outlet</li>
+          <li><strong>Sidak Outlet</strong> — Inspeksi outlet menggunakan Form Airtable</li>
+        </ul>
+      </div>
+    </div>
+    <div class="glass-panel">
+      <h3>Dukungan dari Manajemen</h3>
+      <p>Sama seperti bulan sebelumnya — konsistensi dukungan dan koordinasi dari Supervisor.</p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>Report Kinerja EPA — Juli 2026 &middot; Executive PA &middot; PT Altri</p>
+    <p style="margin-top:0.3rem">Presentasi HRVP &middot; 18 Agustus 2026</p>
+  </footer>
+
+  <!-- ===== SCRIPTS ===== -->
+  <script>
+    // === Intersection Observer ===
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.06 });
+    document.querySelectorAll('.section').forEach(s => observer.observe(s));
+
+    // === Nav Progress ===
+    window.addEventListener('scroll', () => {
+      const h = document.documentElement;
+      document.getElementById('navProgress').style.width = (h.scrollTop / (h.scrollHeight - h.clientHeight) * 100) + '%';
+      const sections = document.querySelectorAll('.section, .hero');
+      let cur = '';
+      sections.forEach(s => { if (s.getBoundingClientRect().top <= 150) cur = s.id; });
+      document.querySelectorAll('.nav-link').forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + cur));
+    });
+
+    // === Counter ===
+    const cObs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        const el = e.target, t = parseInt(el.dataset.target);
+        if (!t) return;
+        let c = 0; const s = Math.ceil(t / 50);
+        const ti = setInterval(() => { c += s; if (c >= t) { c = t; clearInterval(ti); } el.textContent = c.toLocaleString('id-ID'); }, 25);
+        cObs.unobserve(el);
+      });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('[data-target]').forEach(el => cObs.observe(el));
+
+    // === Accordion ===
+    function toggleAccordion(h) { h.parentElement.classList.toggle('open'); }
+
+    // === Table Filter ===
+    function filterTable(input, tableId) {
+      const f = input.value.toLowerCase();
+      const rows = document.getElementById(tableId).querySelector('tbody').rows;
+      for (let i = 0; i < rows.length; i++) rows[i].style.display = rows[i].textContent.toLowerCase().includes(f) ? '' : 'none';
+    }
+
+    // === Tabs ===
+    function switchTab(e, id) {
+      e.target.closest('.section').querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      e.target.closest('.section').querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+      e.target.classList.add('active');
+      document.getElementById(id).classList.add('active');
+    }
+
+    // === Chart.js Defaults ===
+    Chart.defaults.color = '#64748b';
+    Chart.defaults.borderColor = 'rgba(0,0,0,0.06)';
+    Chart.defaults.font.family = "'Poppins', sans-serif";
+    Chart.defaults.font.size = 11;
+
+    // === ATTENDANCE DATA ===
+    const absensiData = [
+      ["Dandi Adde Trisna", 26, 0, 1, 0, 4, 0, 0, 0], ["Aldi Sabarna", 23, 1, 1, 0, 5, 0, 1, 0], ["Nabilah Maharani", 26, 0, 1, 0, 4, 0, 0, 0], ["Triyas Sukmawardana", 26, 0, 0, 0, 5, 0, 0, 0], ["Alif Miqel Asyadan", 26, 0, 0, 0, 5, 0, 0, 0], ["Yuliani", 27, 0, 0, 0, 4, 0, 0, 0], ["Dede Supriatna (Rangga)", 22, 3, 0, 0, 5, 1, 0, 0], ["Muhammad Nabil", 27, 0, 0, 0, 4, 0, 0, 0], ["Dwyzha Ramadhany S.", 25, 0, 1, 0, 4, 1, 0, 0], ["Kresna Eka Rahayana", 23, 2, 1, 0, 5, 0, 0, 1], ["Heppy Yani", 15, 1, 0, 0, 3, 0, 1, 2], ["Lexsa Azka Bintang A.", 24, 2, 1, 0, 4, 0, 0, 0], ["Salsabilla Amanah", 24, 2, 0, 0, 5, 0, 0, 0], ["Karlina Sawaliah", 4, 1, 0, 0, 1, 0, 0, 4], ["Agung Minargo", 26, 0, 0, 0, 4, 0, 0, 0], ["Siti Patonah", 26, 0, 0, 0, 4, 0, 1, 0], ["Pitria Humaira", 25, 0, 1, 0, 4, 0, 0, 0], ["Ajeng Adistya", 24, 0, 1, 0, 4, 2, 0, 1], ["Ridwan Lukmanul Hakim", 27, 0, 0, 0, 4, 0, 0, 0], ["Taufik Maulana", 22, 1, 1, 0, 5, 0, 2, 0], ["Dina Apriani", 25, 1, 0, 0, 5, 0, 0, 0], ["Rahmadani", 23, 0, 0, 0, 6, 1, 1, 0], ["Diana Putri R.", 27, 0, 0, 0, 4, 0, 0, 0], ["Ridho Saefuloh", 25, 1, 1, 0, 4, 0, 0, 0], ["M. Rafie Rashad R.", 24, 0, 1, 0, 5, 0, 1, 0], ["Rifandi Putra H.", 28, 0, 0, 0, 3, 0, 0, 0], ["Nazwa Maulanu Azkia", 25, 0, 1, 0, 5, 0, 0, 0], ["Arif Wijoyo", 25, 0, 0, 0, 3, 0, 2, 0], ["Raihan M. Rizki", 23, 1, 1, 0, 5, 1, 0, 1], ["Sukma Sanjaya", 26, 0, 0, 0, 5, 0, 0, 0], ["Wina Fitria", 27, 0, 0, 0, 4, 0, 0, 0], ["Rafi Rifaldy", 21, 4, 0, 1, 4, 0, 1, 1], ["M. Fathur G", 10, 0, 0, 2, 3, 0, 0, 2], ["Nela Maula Anjani", 24, 2, 0, 0, 5, 0, 0, 1], ["Ira Farika", 25, 1, 0, 0, 5, 0, 0, 0], ["Purwanti Ayu Rahayu", 27, 0, 0, 0, 4, 0, 0, 0], ["Wiyanka Adi Syahran", 25, 0, 0, 0, 5, 1, 0, 0], ["Alip Anggoro", 24, 0, 1, 0, 5, 1, 0, 0], ["Salsa Dewi Anjani", 26, 0, 0, 0, 5, 0, 0, 0], ["Indra Sukmawandi", 26, 0, 1, 0, 4, 0, 0, 1], ["Rehan Afrizal", 27, 0, 0, 0, 4, 0, 0, 0], ["Alvian Wibisono", 26, 0, 0, 0, 5, 0, 0, 0], ["Fadlan Gani", 24, 1, 1, 0, 5, 0, 0, 0], ["Maharani", 26, 0, 1, 0, 4, 0, 0, 0], ["Alifya Salsabila", 25, 0, 0, 0, 5, 1, 0, 0], ["Shandyka Nur M.", 24, 1, 1, 0, 4, 0, 1, 0], ["Adinda Lovysa C.S.", 25, 0, 2, 0, 4, 0, 0, 1], ["Vanessa Flora W.", 19, 4, 2, 1, 5, 0, 0, 2], ["Enur Komariah", 26, 0, 1, 0, 4, 0, 0, 0], ["Fazar Ali Saputra", 26, 0, 1, 0, 4, 0, 0, 0], ["Yesi Herdiani", 21, 0, 2, 3, 5, 0, 0, 1], ["M. Saeful Anwar", 22, 3, 0, 1, 5, 0, 0, 0], ["Aldi Zidan Fadilah", 26, 0, 0, 0, 5, 0, 0, 0], ["Silvia Febriani", 23, 3, 1, 0, 4, 0, 0, 1], ["Salsabila Setiawan", 25, 0, 1, 0, 5, 0, 0, 0], ["Dhainar Syuhada P.", 25, 2, 0, 0, 4, 0, 0, 0], ["Mochamad Nurfauzi R.", 21, 0, 2, 0, 4, 2, 2, 0], ["Jamilia Shabirah", 27, 0, 0, 0, 4, 0, 0, 0], ["Bilal Akbar", 16, 0, 1, 1, 5, 0, 8, 0], ["Putri Rizky Rahayu", 23, 0, 0, 0, 5, 1, 2, 1], ["Karima Akhlaqunnisa", 25, 0, 0, 0, 5, 1, 0, 0], ["Saeful Hidayatullah", 26, 0, 0, 0, 5, 0, 0, 0], ["Kayla Rizkiah", 27, 0, 0, 0, 3, 0, 0, 0], ["M. Rizal", 26, 0, 0, 0, 4, 0, 0, 0], ["Fahrizal Rudiansyah", 26, 0, 0, 0, 5, 0, 0, 0], ["Teguh Ramadani", 26, 0, 0, 0, 3, 0, 0, 0], ["M Fahmi Solihin", 25, 1, 0, 0, 4, 0, 0, 1], ["Aldi", 26, 0, 0, 0, 4, 0, 0, 0], ["Tiara Dwie Putri R.", 26, 0, 0, 0, 4, 0, 0, 0], ["Krisna Miftahul Rizki", 21, 0, 3, 0, 5, 0, 2, 0], ["Febri Purnamasari", 13, 8, 3, 0, 5, 0, 2, 1], ["Hana Hoirunisa", 25, 0, 1, 0, 5, 0, 0, 0], ["Adinda Trisnawanti", 27, 0, 0, 0, 4, 0, 0, 0], ["Juwita Andrikni P.", 25, 0, 1, 0, 5, 0, 0, 0], ["Ifda Noer Arifah", 27, 0, 0, 0, 4, 0, 0, 0], ["Akhmad Naufal F.", 26, 0, 1, 0, 4, 0, 0, 0], ["Ferry Putra Yatama", 23, 1, 2, 0, 5, 0, 0, 0], ["Noor Renal Anwari M", 22, 2, 2, 0, 4, 0, 1, 0], ["Yalaita Qaumi S.O.", 26, 0, 0, 0, 5, 0, 0, 0], ["Rida Putri Arifiana", 25, 0, 1, 0, 5, 0, 0, 0], ["Resyahdan Seva Akbar", 24, 0, 2, 0, 5, 0, 0, 0], ["Satriyo Bintang N.", 25, 0, 1, 0, 5, 0, 0, 1], ["Ihwan Wahab", 21, 2, 0, 0, 4, 0, 0, 1], ["Edwin Kurniadi", 24, 0, 1, 0, 4, 0, 2, 0], ["Alfya Putri Melsya", 23, 2, 0, 0, 4, 0, 2, 1], ["Dea Amalia", 26, 0, 0, 0, 5, 0, 0, 0], ["Jihan Sintani", 25, 0, 1, 0, 4, 0, 1, 0], ["Nazalla Agustin R.P.", 25, 0, 1, 0, 5, 0, 0, 1], ["Arya Raihan Mandiri", 26, 0, 1, 0, 4, 0, 0, 0], ["Syamsul Hidayat", 25, 0, 1, 0, 5, 0, 0, 1], ["Fajar Febbi Aldianto", 7, 0, 0, 0, 4, 0, 20, 0], ["Algi M. Oktapiandi", 26, 0, 0, 0, 5, 0, 0, 0], ["Langgeng Supriadi", 27, 0, 0, 0, 4, 0, 0, 0], ["Rulian Rizki R.", 25, 0, 0, 1, 5, 0, 0, 0], ["Jaenal Arif", 23, 0, 1, 0, 5, 0, 2, 0], ["Agil Saputra", 24, 0, 2, 0, 5, 0, 0, 0], ["Karismayanti", 24, 0, 2, 0, 5, 0, 0, 0], ["Marchelle Praja Y.S.", 0, 0, 0, 0, 0, 0, 0, 0], ["Gilar Putra Nugraha", 25, 0, 0, 2, 4, 0, 0, 0], ["Rio Hardiansyah", 9, 0, 1, 0, 1, 0, 0, 0], ["Karina Anastasya", 27, 0, 0, 0, 4, 0, 0, 0], ["Nadira Nur Aprilia", 25, 1, 0, 0, 5, 0, 0, 0], ["Cameila Dwi Putriana", 27, 0, 0, 0, 4, 0, 0, 0], ["Ridho Setiawan", 27, 0, 0, 0, 4, 0, 0, 0], ["Alke Nur Effriliani", 27, 0, 0, 0, 4, 0, 0, 0], ["Irania Aulia P.I.", 26, 0, 0, 0, 5, 0, 0, 0], ["Deril Juliana", 25, 1, 0, 0, 5, 0, 0, 0], ["Ari Rizki", 25, 1, 0, 0, 5, 0, 0, 0], ["Deden Muhamad K.", 26, 0, 0, 0, 5, 0, 0, 0], ["Dimas Ramdani", 22, 1, 1, 1, 5, 1, 0, 0], ["Anisa Sakinah R.", 23, 1, 1, 0, 5, 0, 1, 0], ["Ahyana Juliana", 21, 1, 0, 0, 5, 3, 0, 2], ["Mochamad Ruzaeni", 26, 0, 0, 0, 5, 0, 0, 0], ["Permana Abdul Roup", 7, 0, 0, 0, 2, 0, 0, 0], ["Nenda Sanusi", 25, 0, 1, 0, 4, 1, 0, 0], ["Tiara Nurfadilah", 16, 10, 3, 0, 2, 0, 0, 1], ["Muhamad Ramdan", 26, 0, 0, 0, 5, 0, 0, 0], ["Widya Shelby", 25, 0, 1, 0, 5, 0, 0, 0], ["Luis Apriadi N.I.", 25, 1, 0, 0, 4, 1, 0, 0], ["Adinda Shofiyatul M.", 26, 0, 0, 0, 5, 0, 0, 0], ["M Hasan Gaos", 26, 0, 0, 0, 5, 0, 0, 0], ["Erik", 25, 0, 0, 1, 5, 0, 0, 0], ["Hardi Sugara", 22, 1, 2, 3, 3, 0, 0, 0], ["Agil Saputra (Garut)", 27, 0, 0, 0, 4, 0, 0, 0], ["M Farhan Fauzi", 21, 0, 1, 0, 5, 0, 4, 0], ["Muhammad Kalbadri", 20, 4, 0, 1, 5, 0, 1, 0], ["Bayu Permana Sidik", 25, 0, 0, 0, 4, 0, 2, 0], ["Apuk Lawai", 23, 3, 0, 0, 5, 0, 0, 0], ["Rayinda Fayza K.A.", 24, 2, 0, 0, 5, 0, 0, 0], ["Sipa Fauziah", 24, 1, 1, 0, 5, 0, 0, 0], ["Chelsy Nurfitri S.", 25, 1, 0, 0, 4, 0, 1, 0], ["Nadila", 10, 0, 0, 0, 2, 0, 5, 0], ["Vania Listiani", 13, 1, 1, 0, 2, 0, 0, 0], ["Muhammad Ruzaeni", 9, 0, 0, 0, 1, 0, 0, 0]
+    ];
+
+    // Populate table
+    const absensiBody = document.getElementById('absensiBody');
+    absensiData.forEach(r => {
+      const tr = document.createElement('tr');
+      r.forEach((c, i) => {
+        const td = document.createElement('td');
+        td.textContent = c;
+        if (i === 1 && c < 16) td.style.cssText = 'color:var(--accent-rose);font-weight:700';
+        if (i === 2 && c >= 4) td.style.cssText = 'color:var(--accent-rose);font-weight:700';
+        if (i === 4 && c >= 2) td.style.cssText = 'color:var(--accent-rose);font-weight:700';
+        if (i === 7 && c >= 4) td.style.cssText = 'color:var(--accent-amber);font-weight:700';
+        tr.appendChild(td);
+      });
+      absensiBody.appendChild(tr);
+    });
+
+    // === ABSENSI CHARTS ===
+
+    // Active crew (exclude Marchelle with 0 total)
+    const active = absensiData.filter(r => r[1] + r[2] + r[3] + r[4] + r[5] + r[6] + r[7] + r[8] > 0);
+    const totH = active.reduce((s, r) => s + r[1], 0);
+    const totS = active.reduce((s, r) => s + r[2], 0);
+    const totI = active.reduce((s, r) => s + r[3], 0);
+    const totA = active.reduce((s, r) => s + r[4], 0);
+    const totOff = active.reduce((s, r) => s + r[5], 0);
+    const totC = active.reduce((s, r) => s + r[6], 0);
+    const totHT = active.reduce((s, r) => s + r[7], 0);
+    const totMin = active.reduce((s, r) => s + r[8], 0);
+
+    // Pie
+    new Chart(document.getElementById('chartAbsensiPie'), {
+      type: 'doughnut',
+      data: {
+        labels: ['Hadir', 'Sakit', 'Izin', 'Alpa', 'Off', 'Cuti', 'Hadir Telat', '(-)'],
+        datasets: [{
+          data: [totH, totS, totI, totA, totOff, totC, totHT, totMin],
+          backgroundColor: ['rgba(52,211,153,0.7)', 'rgba(251,191,36,0.7)', 'rgba(34,211,238,0.7)', 'rgba(251,113,133,0.7)', 'rgba(100,100,120,0.4)', 'rgba(96,165,250,0.5)', 'rgba(251,191,36,0.4)', 'rgba(251,113,133,0.4)'],
+          borderWidth: 0
+        }]
+      },
+      options: { responsive: true, plugins: { legend: { position: 'right', labels: { padding: 12, usePointStyle: true, pointStyle: 'circle', font: { size: 10 } } } }, cutout: '55%' }
+    });
+
+    // Average per crew
+    new Chart(document.getElementById('chartAbsensiAvg'), {
+      type: 'bar',
+      data: {
+        labels: ['Hadir', 'Sakit', 'Izin', 'Alpa', 'Off', 'Cuti', 'HT', '(-)'],
+        datasets: [{
+          data: [totH / active.length, totS / active.length, totI / active.length, totA / active.length, totOff / active.length, totC / active.length, totHT / active.length, totMin / active.length].map(v => +v.toFixed(2)),
+          backgroundColor: ['rgba(52,211,153,0.6)', 'rgba(251,191,36,0.6)', 'rgba(34,211,238,0.6)', 'rgba(251,113,133,0.6)', 'rgba(100,100,120,0.3)', 'rgba(96,165,250,0.5)', 'rgba(251,191,36,0.4)', 'rgba(251,113,133,0.4)'],
+          borderRadius: 6
+        }]
+      },
+      options: { responsive: true, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true } } }
+    });
+
+    // Low Attendance
+    const low = active.filter(r => r[1] < 16).sort((a, b) => a[1] - b[1]);
+    new Chart(document.getElementById('chartLowAttendance'), {
+      type: 'bar',
+      data: {
+        labels: low.map(r => r[0]),
+        datasets: [
+          { label: 'Hadir', data: low.map(r => r[1]), backgroundColor: 'rgba(52,211,153,0.6)', borderRadius: 4 },
+          { label: 'Sakit', data: low.map(r => r[2]), backgroundColor: 'rgba(251,191,36,0.6)', borderRadius: 4 },
+          { label: 'Izin', data: low.map(r => r[3]), backgroundColor: 'rgba(34,211,238,0.6)', borderRadius: 4 },
+          { label: 'Alpa', data: low.map(r => r[4]), backgroundColor: 'rgba(251,113,133,0.6)', borderRadius: 4 },
+          { label: 'HT', data: low.map(r => r[7]), backgroundColor: 'rgba(251,191,36,0.3)', borderRadius: 4 }
+        ]
+      },
+      options: { responsive: true, indexAxis: 'y', plugins: { legend: { position: 'top', labels: { usePointStyle: true, pointStyle: 'circle', font: { size: 10 } } } }, scales: { x: { stacked: true }, y: { stacked: true } } }
+    });
+
+    // Top Sakit
+    const topSakit = active.filter(r => r[2] >= 3).sort((a, b) => b[2] - a[2]);
+    new Chart(document.getElementById('chartTopSakit'), {
+      type: 'bar',
+      data: {
+        labels: topSakit.map(r => r[0]),
+        datasets: [{ label: 'Hari Sakit', data: topSakit.map(r => r[2]), backgroundColor: 'rgba(251,191,36,0.6)', borderColor: '#fbbf24', borderWidth: 1, borderRadius: 6 }]
+      },
+      options: { responsive: true, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true } } }
+    });
+
+    // Alpa
+    const alpaList = active.filter(r => r[4] > 0).sort((a, b) => b[4] - a[4]);
+    new Chart(document.getElementById('chartAlpa'), {
+      type: 'bar',
+      data: {
+        labels: alpaList.map(r => r[0]),
+        datasets: [{ label: 'Hari Alpa', data: alpaList.map(r => r[4]), backgroundColor: 'rgba(251,113,133,0.6)', borderColor: '#fb7185', borderWidth: 1, borderRadius: 6 }]
+      },
+      options: { responsive: true, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true, ticks: { stepSize: 1 } } } }
+    });
+
+    // Hadir Telat
+    const htList = active.filter(r => r[7] >= 2).sort((a, b) => b[7] - a[7]);
+    new Chart(document.getElementById('chartHT'), {
+      type: 'bar',
+      data: {
+        labels: htList.map(r => r[0]),
+        datasets: [{ label: 'Hari Hadir Telat', data: htList.map(r => r[7]), backgroundColor: 'rgba(251,191,36,0.4)', borderColor: '#fbbf24', borderWidth: 1, borderRadius: 6 }]
+      },
+      options: { responsive: true, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true } } }
+    });
+
+    // === OTHER CHARTS ===
+
+    // Pelamar
+    new Chart(document.getElementById('chartPelamar'), {
+      type: 'bar',
+      data: {
+        labels: ['Mei', 'Juni', 'Juli'],
+        datasets: [
+          { label: 'Total Pelamar', data: [1771, 1862, 1902], backgroundColor: 'rgba(139,92,246,0.5)', borderColor: '#8b5cf6', borderWidth: 1, borderRadius: 6 },
+          { label: 'Pelamar Garut', data: [757, 465, 474], backgroundColor: 'rgba(34,211,238,0.4)', borderColor: '#22d3ee', borderWidth: 1, borderRadius: 6 }
+        ]
+      },
+      options: { responsive: true, plugins: { legend: { position: 'top' } }, scales: { y: { beginAtZero: true } } }
+    });
+
+    // Kasbon
+    new Chart(document.getElementById('chartKasbon'), {
+      type: 'line',
+      data: {
+        labels: ['Mei', 'Juni', 'Juli'],
+        datasets: [{ label: 'Sisa Pinjaman (jt)', data: [32.85, 30.15, 18.4], borderColor: '#8b5cf6', backgroundColor: 'rgba(139,92,246,0.1)', fill: true, tension: 0.4, pointRadius: 5, pointBackgroundColor: '#8b5cf6' }]
+      },
+      options: { responsive: true, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true } } }
+    });
+
+
+    // Barista Cost
+    new Chart(document.getElementById('chartBaristaCost'), {
+      type: 'bar',
+      data: {
+        labels: ['Apr', 'Mei', 'Jun', 'Jul', 'Jul (Real)'],
+        datasets: [
+          { label: 'Head Barista', data: [3095000, 3145000, 3040000, 3065000, 3065000], backgroundColor: 'rgba(139,92,246,0.6)', borderRadius: 4 },
+          { label: 'Part Time', data: [2784000, 3130000, 2295000, 1870000, 1870000], backgroundColor: 'rgba(34,211,238,0.5)', borderRadius: 4 },
+          { label: 'Insentif Server', data: [0, 0, 0, 0, 376000], backgroundColor: 'rgba(251,113,133,0.5)', borderRadius: 4 }
+        ]
+      },
+      options: { responsive: true, plugins: { legend: { position: 'top' } }, scales: { x: { stacked: true }, y: { stacked: true, ticks: { callback: v => 'Rp ' + (v / 1e6).toFixed(1) + 'jt' } } } }
+    });
+
+    // Skenario
+    new Chart(document.getElementById('chartSkenario'), {
+      type: 'bar',
+      data: {
+        labels: ['Juli (Now)', 'A: Semua PT', 'B: +1 FT', 'C: +2 FT'],
+        datasets: [{
+          data: [4935000, 8590000, 8030000, 7470000],
+          backgroundColor: ['rgba(255,255,255,0.08)', 'rgba(251,113,133,0.4)', 'rgba(251,191,36,0.4)', 'rgba(52,211,153,0.4)'],
+          borderColor: ['rgba(255,255,255,0.15)', '#fb7185', '#fbbf24', '#34d399'], borderWidth: 1.5, borderRadius: 8
+        }]
+      },
+      options: { responsive: true, indexAxis: 'y', plugins: { legend: { display: false } }, scales: { x: { ticks: { callback: v => 'Rp ' + (v / 1e6).toFixed(1) + 'jt' } } } }
+    });
+
+    // Gaji
+    new Chart(document.getElementById('chartGaji'), {
+      type: 'bar',
+      data: {
+        labels: ['Januari', 'Juli'],
+        datasets: [
+          { label: 'Total (jt)', data: [187.05, 213.9], backgroundColor: ['rgba(139,92,246,0.4)', 'rgba(139,92,246,0.7)'], borderRadius: 8 },
+          { label: 'Rata-rata (jt)', data: [1.685, 1.657], backgroundColor: ['rgba(34,211,238,0.4)', 'rgba(34,211,238,0.7)'], borderRadius: 8, yAxisID: 'y1' }
+        ]
+      },
+      options: { responsive: true, plugins: { legend: { position: 'top' } }, scales: { y: { title: { display: true, text: 'Total (jt)' } }, y1: { position: 'right', title: { display: true, text: 'Avg (jt)' }, grid: { display: false } } } }
+    });
+
+    // Band
+    new Chart(document.getElementById('chartBand'), {
+      type: 'bar',
+      data: {
+        labels: ['1,25', '1,45', '1,5', '1,55', '1,6', '1,65', '1,7', '1,75', '1,9', '2,0', '2,25', '2,3', '2,85', '3,0'],
+        datasets: [{
+          label: 'Crew', data: [1, 1, 24, 48, 7, 11, 5, 13, 5, 9, 1, 2, 1, 1],
+          backgroundColor: ['rgba(251,113,133,0.5)', 'rgba(255,255,255,0.08)', 'rgba(139,92,246,0.35)', 'rgba(139,92,246,0.7)', 'rgba(96,165,250,0.35)', 'rgba(96,165,250,0.45)', 'rgba(34,211,238,0.35)', 'rgba(34,211,238,0.5)', 'rgba(52,211,153,0.35)', 'rgba(52,211,153,0.5)', 'rgba(251,191,36,0.25)', 'rgba(251,191,36,0.35)', 'rgba(251,191,36,0.45)', 'rgba(251,191,36,0.6)'],
+          borderRadius: 4
+        }]
+      },
+      options: { responsive: true, plugins: { legend: { display: false }, tooltip: { callbacks: { label: c => c.parsed.y + ' crew' } } }, scales: { y: { beginAtZero: true, title: { display: true, text: 'Jumlah Crew' } }, x: { title: { display: true, text: 'Gaji Pokok (jt Rp)' } } } }
+    });
+
+    // DW
+    new Chart(document.getElementById('chartDW'), {
+      type: 'line',
+      data: {
+        labels: ['Jan', 'Feb', 'Jun', 'Jul'],
+        datasets: [{ label: 'Cost DW', data: [985000, 375000, 1200000, 1855000], borderColor: '#fb7185', backgroundColor: 'rgba(251,113,133,0.08)', fill: true, tension: 0.3, pointRadius: 5, pointBackgroundColor: '#fb7185', spanGaps: true }]
+      },
+      options: { responsive: true, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true, ticks: { callback: v => 'Rp ' + (v / 1e3).toFixed(0) + 'rb' } } } }
+    });
+  </script>
+
+</body>
+
+</html>
