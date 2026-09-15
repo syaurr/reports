@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analisa Kelayakan BPJS Kesehatan 2026 - Balista Sushi & Tea</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chosen Palette: Neutral Warm Cream & Deep Slate with Emerald and Amber Accents -->
+    <!-- Application Structure Plan: Dynamic single-page dashboard designed for executive and HR workflows at Balista Sushi & Tea. Features executive metric cards, interactive filtering (by outlet, region, status), responsive interactive data table, Chart.js regional distribution and financial impact visualizers, an interactive financial impact simulator (comparing actual vs EDABU UMK floor calculations), and a legal compliance & risk assessment breakdown based on PP 35/2021, Perpres 82/2018, PP 86/2013, and UU 24/2011. Designed to prioritize immediate actionable workforce management without requiring multi-page navigation. -->
+    <!-- Visualization & Content Choices: 1. Employee status distribution -> Goal: Inform/Organize -> Chart.js Stacked Bar Chart -> Interaction: Hover tooltips, dynamic section updates -> Justification: Directly shows compliance coverage per outlet without clutter. 2. Regional financial impact -> Goal: Compare -> Chart.js Grouped Bar Chart -> Interaction: Interactive baseline toggle -> Justification: Clearly illustrates the invisible financial burden caused by EDABU UMK floor baseline. 3. Interactive Salary & EDABU Impact Calculator -> Goal: Simulate -> Pure JS DOM Manipulation -> Interaction: Employee picker and custom wage inputs -> Justification: Gives HR instant calculation of net salary deduction vs company contribution under 2026 UMK rules. NO SVG graphics or Mermaid JS used. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 320px;
+            max-height: 400px;
+        }
+
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 360px;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-stone-50 text-stone-800 font-sans antialiased">
+    <header class="bg-stone-900 text-stone-100 sticky top-0 z-50 shadow-md">
+        <div
+            class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col md:flex-row items-center justify-between gap-4">
+            <div>
+                <h1 class="text-xl sm:text-2xl font-bold tracking-tight text-amber-400">Balista HR Intelligence</h1>
+                <p class="text-xs sm:text-sm text-stone-400">Analisa Kelayakan BPJS Kesehatan & Proyeksi Beban UMK 2026
+                </p>
+            </div>
+            <nav class="flex flex-wrap gap-2 text-xs sm:text-sm">
+                <a href="#ringkasan"
+                    class="px-3 py-1.5 rounded-lg bg-stone-800 hover:bg-stone-700 text-stone-200 transition">Ringkasan</a>
+                <a href="#visualisasi"
+                    class="px-3 py-1.5 rounded-lg bg-stone-800 hover:bg-stone-700 text-stone-200 transition">Grafik
+                    Analisa</a>
+                <a href="#kalkulator"
+                    class="px-3 py-1.5 rounded-lg bg-stone-800 hover:bg-stone-700 text-stone-200 transition">Kalkulator
+                    EDABU</a>
+                <a href="#tabel-data"
+                    class="px-3 py-1.5 rounded-lg bg-stone-800 hover:bg-stone-700 text-stone-200 transition">Daftar
+                    Pekerja</a>
+                <a href="#regulasi"
+                    class="px-3 py-1.5 rounded-lg bg-stone-800 hover:bg-stone-700 text-stone-200 transition">Aturan
+                    Hukum</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-10">
+
+        <section id="ringkasan" class="space-y-4">
+            <div class="border-l-4 border-amber-500 pl-4 py-1">
+                <h2 class="text-xl font-bold text-stone-900">Evaluasi Eksekutif Kepesertaan BPJS</h2>
+                <p class="text-sm text-stone-600 mt-1">
+                    Bagian ini menyajikan gambaran cepat total tenaga kerja Balista Sushi & Tea di seluruh cabang
+                    wilayah Jawa Barat. Perhitungan kelayakan didasarkan pada batas probasi 3 bulan sesuai Peraturan
+                    Pemerintah Nomor 35 Tahun 2021, disilangkan dengan penetapan UMK 2026 setempat untuk mengukur
+                    kepatuhan hukum dan dampaknya pada kas operasional.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="bg-white p-5 rounded-xl border border-stone-200 shadow-sm">
+                    <p class="text-xs font-semibold text-stone-500 uppercase tracking-wider">Total Karyawan</p>
+                    <p class="text-3xl font-extrabold text-stone-900 mt-2" id="stat-total">139</p>
+                    <p class="text-xs text-stone-500 mt-1">Terdaftar di 14 Outlet</p>
+                </div>
+                <div class="bg-white p-5 rounded-xl border border-stone-200 shadow-sm">
+                    <p class="text-xs font-semibold text-emerald-600 uppercase tracking-wider">Status YA (Layak)</p>
+                    <p class="text-3xl font-extrabold text-emerald-600 mt-2" id="stat-ya">118</p>
+                    <p class="text-xs text-stone-500 mt-1">Masa kerja &ge; 3 Bulan</p>
+                </div>
+                <div class="bg-white p-5 rounded-xl border border-stone-200 shadow-sm">
+                    <p class="text-xs font-semibold text-amber-600 uppercase tracking-wider">Status TIDAK (Probasi)</p>
+                    <p class="text-3xl font-extrabold text-amber-600 mt-2" id="stat-tidak">21</p>
+                    <p class="text-xs text-stone-500 mt-1">Masa kerja &lt; 3 Bulan</p>
+                </div>
+                <div class="bg-white p-5 rounded-xl border border-stone-200 shadow-sm">
+                    <p class="text-xs font-semibold text-indigo-600 uppercase tracking-wider">Estimasi Perusahaan / Bln
+                    </p>
+                    <p class="text-3xl font-extrabold text-indigo-700 mt-2" id="stat-beban">Rp21.2M</p>
+                    <p class="text-xs text-stone-500 mt-1">Berdasarkan 4% Baseline UMK EDABU</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="visualisasi" class="space-y-6">
+            <div class="border-l-4 border-amber-500 pl-4 py-1">
+                <h2 class="text-xl font-bold text-stone-900">Visualisasi Distribusi & Dampak Keuangan</h2>
+                <p class="text-sm text-stone-600 mt-1">
+                    Grafik interaktif ini memetakan persebaran kelayakan karyawan per outlet serta perbandingan beban
+                    iuran aktual versus ketentuan sistem EDABU BPJS Kesehatan. Sistem EDABU secara otomatis mengunci
+                    batas bawah perhitungan menggunakan UMK setempat, menciptakan selisih pembiayaan yang signifikan
+                    pada gaji aktual karyawan.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div class="bg-white p-5 rounded-xl border border-stone-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-base font-bold text-stone-800 mb-1">Status Kelayakan per Outlet</h3>
+                        <p class="text-xs text-stone-500 mb-4">Jumlah karyawan layak (YA) vs masa percobaan (TIDAK)</p>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="chartOutlet"></canvas>
+                    </div>
+                </div>
+
+                <div class="bg-white p-5 rounded-xl border border-stone-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-base font-bold text-stone-800 mb-1">Perbandingan Besaran UMK 2026 Wilayah</h3>
+                        <p class="text-xs text-stone-500 mb-4">Dasar perhitungan minimal iuran EDABU per daerah
+                            operasional</p>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="chartUMK"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="kalkulator" class="bg-stone-900 text-stone-100 p-6 rounded-2xl shadow-lg space-y-6">
+            <div class="border-l-4 border-amber-400 pl-4 py-1">
+                <h2 class="text-xl font-bold text-amber-400">Simulasi & Kalkulator Beban Iuran EDABU</h2>
+                <p class="text-sm text-stone-300 mt-1">
+                    Fitur ini membantu HRD dan manajemen menghitung langsung potongan 1% karyawan dan tanggungan 4%
+                    perusahaan. Pilih nama karyawan dari daftar untuk melihat bagaimana sistem EDABU mengoreksi batas
+                    bawah gaji pokok ke angka UMK setempat.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-end">
+                <div>
+                    <label for="calc-select" class="block text-xs font-medium text-stone-300 mb-2">Pilih
+                        Karyawan</label>
+                    <select id="calc-select"
+                        class="w-full bg-stone-800 border border-stone-700 text-stone-100 rounded-lg p-2.5 text-sm focus:ring-amber-500 focus:border-amber-500">
+                    </select>
+                </div>
+                <div>
+                    <p class="text-xs text-stone-400">Lokasi Outlet / Wilayah UMK</p>
+                    <p id="calc-outlet" class="text-base font-semibold text-amber-300 mt-1">Central (Kota Bandung)</p>
+                </div>
+                <div>
+                    <p class="text-xs text-stone-400">Status Probasi Karyawan</p>
+                    <p id="calc-status" class="text-base font-semibold text-emerald-400 mt-1">YA (Layak Didaftarkan)</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 pt-4 border-t border-stone-800">
+                <div class="bg-stone-800 p-4 rounded-xl">
+                    <p class="text-xs text-stone-400">Gaji Pokok Aktual</p>
+                    <p id="calc-gaji-aktual" class="text-xl font-bold text-white mt-1">Rp1.500.000</p>
+                    <p class="text-xs text-stone-400 mt-1">Nominal pada data riil</p>
+                </div>
+                <div class="bg-stone-800 p-4 rounded-xl">
+                    <p class="text-xs text-stone-400">Dasar EDABU (UMK 2026)</p>
+                    <p id="calc-umk-base" class="text-xl font-bold text-amber-400 mt-1">Rp4.737.678</p>
+                    <p class="text-xs text-stone-400 mt-1">Batas minimum sistem BPJS</p>
+                </div>
+                <div class="bg-stone-800 p-4 rounded-xl">
+                    <p class="text-xs text-stone-400">Potongan Karyawan (1%)</p>
+                    <p id="calc-potongan" class="text-xl font-bold text-rose-400 mt-1">Rp47.377</p>
+                    <p id="calc-potongan-note" class="text-xs text-rose-300 mt-1">~3.16% dari gaji pokok aktual</p>
+                </div>
+                <div class="bg-stone-800 p-4 rounded-xl">
+                    <p class="text-xs text-stone-400">Beban Perusahaan (4%)</p>
+                    <p id="calc-tanggungan" class="text-xl font-bold text-sky-400 mt-1">Rp189.507</p>
+                    <p id="calc-tanggungan-note" class="text-xs text-sky-300 mt-1">Selisih +Rp129.507 vs gaji riil</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="tabel-data" class="space-y-4">
+            <div class="border-l-4 border-amber-500 pl-4 py-1">
+                <h2 class="text-xl font-bold text-stone-900">Data Evaluasi Kepesertaan Karyawan</h2>
+                <p class="text-sm text-stone-600 mt-1">
+                    Gunakan filter dan kolom pencarian di bawah untuk menyaring karyawan berdasarkan outlet, wilayah
+                    administratif UMK, atau status kelayakan pendaftaran BPJS Kesehatan.
+                </p>
+            </div>
+
+            <div class="bg-white p-4 rounded-xl border border-stone-200 shadow-sm space-y-4">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div>
+                        <label for="filter-search" class="block text-xs font-medium text-stone-700 mb-1">Cari Nama
+                            Karyawan</label>
+                        <input type="text" id="filter-search" placeholder="Ketik nama karyawan..."
+                            class="w-full bg-stone-50 border border-stone-300 rounded-lg px-3 py-2 text-sm focus:ring-amber-500 focus:border-amber-500">
+                    </div>
+                    <div>
+                        <label for="filter-outlet" class="block text-xs font-medium text-stone-700 mb-1">Filter
+                            Outlet</label>
+                        <select id="filter-outlet"
+                            class="w-full bg-stone-50 border border-stone-300 rounded-lg px-3 py-2 text-sm focus:ring-amber-500 focus:border-amber-500">
+                            <option value="ALL">Semua Outlet</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="filter-status" class="block text-xs font-medium text-stone-700 mb-1">Filter Status
+                            Kelayakan</label>
+                        <select id="filter-status"
+                            class="w-full bg-stone-50 border border-stone-300 rounded-lg px-3 py-2 text-sm focus:ring-amber-500 focus:border-amber-500">
+                            <option value="ALL">Semua Status</option>
+                            <option value="YA">YA (Layak / &ge;3 Bulan)</option>
+                            <option value="TIDAK">TIDAK (Probasi / &lt;3 Bulan)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="filter-region" class="block text-xs font-medium text-stone-700 mb-1">Filter Wilayah
+                            UMK</label>
+                        <select id="filter-region"
+                            class="w-full bg-stone-50 border border-stone-300 rounded-lg px-3 py-2 text-sm focus:ring-amber-500 focus:border-amber-500">
+                            <option value="ALL">Semua Wilayah</option>
+                            <option value="Kota Bandung">Kota Bandung</option>
+                            <option value="Kota Cimahi">Kota Cimahi</option>
+                            <option value="Kab. Bandung Barat">Kab. Bandung Barat</option>
+                            <option value="Kab. Bandung">Kab. Bandung</option>
+                            <option value="Kab. Garut">Kab. Garut</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="overflow-x-auto border border-stone-200 rounded-lg">
+                    <table class="w-full text-left text-xs sm:text-sm text-stone-700">
+                        <thead
+                            class="bg-stone-100 text-stone-900 uppercase tracking-wider text-[11px] border-b border-stone-200">
+                            <tr>
+                                <th class="py-3 px-4 font-bold">Nama Karyawan</th>
+                                <th class="py-3 px-4 font-bold">Outlet</th>
+                                <th class="py-3 px-4 font-bold">Masa Kerja</th>
+                                <th class="py-3 px-4 font-bold">Gaji Pokok</th>
+                                <th class="py-3 px-4 font-bold">UMK Baseline</th>
+                                <th class="py-3 px-4 font-bold">Status</th>
+                                <th class="py-3 px-4 font-bold">Alasan & Evaluasi</th>
+                            </tr>
+                        </thead>
+                        <tbody id="table-body" class="divide-y divide-stone-200 bg-white">
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="flex flex-col sm:flex-row items-center justify-between text-xs text-stone-500 pt-2 gap-2">
+                    <p id="table-count-info">Menampilkan 0 dari 0 karyawan</p>
+                    <p class="italic">Catatan: Batas bawah iuran menggunakan penetapan UMK 2026 per wilayah outlet.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="regulasi" class="space-y-6">
+            <div class="border-l-4 border-amber-500 pl-4 py-1">
+                <h2 class="text-xl font-bold text-stone-900">Landasan Hukum & Matriks Risiko Penundaan</h2>
+                <p class="text-sm text-stone-600 mt-1">
+                    Ringkasan regulasi ketenagakerjaan dan jaminan sosial yang menjadi dasar analisa status kelayakan
+                    pendaftaran BPJS Kesehatan untuk unit bisnis Balista Sushi & Tea.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-white p-5 rounded-xl border border-stone-200 shadow-sm space-y-3">
+                    <h3 class="text-base font-bold text-stone-900">Regulasi Utama</h3>
+                    <div class="space-y-2 text-xs sm:text-sm text-stone-700">
+                        <p>
+                            <span class="font-bold text-stone-900">PP Nomor 35 Tahun 2021:</span> Mengatur bahwa
+                            Perjanjian Kerja Waktu Tidak Tertentu (PKWTT) dapat mensyaratkan masa percobaan kerja paling
+                            lama 3 bulan. Pekerja yang telah melewati 3 bulan wajib memperoleh kepastian fasilitas kerja
+                            dan kepesertaan jaminan sosial.
+                        </p>
+                        <p>
+                            <span class="font-bold text-stone-900">Perpres Nomor 82 Tahun 2018:</span> Menentukan tarif
+                            iuran BPJS Kesehatan segmen Pekerja Penerima Upah (PPU) sebesar 5% dari gaji bulanan, dengan
+                            skema pembagian 4% ditanggung perusahaan dan 1% dipotong dari gaji pekerja.
+                        </p>
+                        <p>
+                            <span class="font-bold text-stone-900">Keputusan Gubernur Jabar No
+                                561/Kep.862-Kesra/2025:</span> Landasan resmi penetapan UMK tahun 2026 untuk Kota
+                            Bandung, Cimahi, Kabupaten Bandung Barat, Kabupaten Bandung, dan Kabupaten Garut.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-white p-5 rounded-xl border border-stone-200 shadow-sm space-y-3">
+                    <h3 class="text-base font-bold text-stone-900">Tahapan Sanksi PP Nomor 86 Tahun 2013</h3>
+                    <div class="space-y-2 text-xs sm:text-sm text-stone-700">
+                        <p>
+                            <span class="font-bold text-amber-700">1. Teguran Tertulis:</span> Dikeluarkan oleh BPJS
+                            Kesehatan maksimal 2 kali berturut-turut masing-masing dalam tenggat 10 hari kerja.
+                        </p>
+                        <p>
+                            <span class="font-bold text-amber-800">2. Denda Finansial:</span> Penagihan denda atas
+                            keterlambatan pendaftaran maupun tunggakan iuran bulanan.
+                        </p>
+                        <p>
+                            <span class="font-bold text-rose-700">3. Sanksi TMP2T:</span> Penghentian pelayanan publik
+                            tertentu oleh Pemda atau sistem OSS, meliputi pemblokiran izin usaha, pembekuan NIB, hingga
+                            larangan mengikuti tender resmi.
+                        </p>
+                        <p>
+                            <span class="font-bold text-rose-900">Risiko Pidana UU 24/2011 Pasal 55:</span> Pemotongan
+                            gaji karyawan tanpa penyetoran iuran ke BPJS dapat diancam pidana penjara paling lama 8
+                            tahun atau denda maksimal Rp1 miliar.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const umkData = {
+            "Kota Bandung": 4737678,
+            "Kota Cimahi": 4090568,
+            "Kab. Bandung Barat": 3984711,
+            "Kab. Bandung": 3972202,
+            "Kab. Garut": 2472227
+        };
+
+        const outletRegionMap = {
+            "Central": "Kota Bandung",
+            "Kiaracondong": "Kota Bandung",
+            "Setrasari": "Kota Bandung",
+            "Ambon": "Kota Bandung",
+            "Tubagus Ismail": "Kota Bandung",
+            "Ujung Berung": "Kota Bandung",
+            "Pajajaran": "Kota Bandung",
+            "Buah Batu": "Kota Bandung",
+            "Kopo": "Kota Bandung",
+            "Cimahi Amir": "Kota Cimahi",
+            "Cimahi Cihanjuang": "Kota Cimahi",
+            "Kota Baru Parahyangan": "Kab. Bandung Barat",
+            "Soreang": "Kab. Bandung",
+            "Garut": "Kab. Garut"
+        };
+
+        const rawEmployees = [
+            { nama: "Zainal Arifin", outlet: "Central", masa: "11 Tahun 9 Bulan 3 Hari", gaji: 3000000, status: "YA" },
+            { nama: "Ramika Supriadi", outlet: "Central", masa: "10 Tahun 7 Bulan 7 Hari", gaji: 2850000, status: "YA" },
+            { nama: "Neneng Royani", outlet: "Central", masa: "8 Tahun 1 Bulan 14 Hari", gaji: 2300000, status: "YA" },
+            { nama: "Dwi Pranowo", outlet: "Central", masa: "3 Tahun 4 Bulan 12 Hari", gaji: 1450000, status: "YA" },
+            { nama: "Maulana Haris", outlet: "Central", masa: "1 Tahun 4 Bulan 21 Hari", gaji: 1500000, status: "YA" },
+            { nama: "Riki Rama Dani", outlet: "Central", masa: "1 Tahun 3 Bulan 27 Hari", gaji: 1750000, status: "YA" },
+            { nama: "Dandi Adde Trisna", outlet: "Kiaracondong", masa: "4 Tahun 11 Bulan 14 Hari", gaji: 2000000, status: "YA" },
+            { nama: "Yuliani", outlet: "Kiaracondong", masa: "2 Tahun 2 Bulan 22 Hari", gaji: 1600000, status: "YA" },
+            { nama: "Nabilah Maharani", outlet: "Kiaracondong", masa: "2 Tahun 0 Bulan 13 Hari", gaji: 1750000, status: "YA" },
+            { nama: "Triyas Sukmawardana", outlet: "Kiaracondong", masa: "1 Tahun 3 Bulan 12 Hari", gaji: 1550000, status: "YA" },
+            { nama: "Aldi Sabarna", outlet: "Kiaracondong", masa: "0 Tahun 10 Bulan 13 Hari", gaji: 1550000, status: "YA" },
+            { nama: "Alif Miqel Asyadan", outlet: "Kiaracondong", masa: "0 Tahun 5 Bulan 0 Hari", gaji: 1500000, status: "YA" },
+            { nama: "Dede Supriatna (Rangga)", outlet: "Setrasari", masa: "10 Tahun 8 Bulan 22 Hari", gaji: 2250000, status: "YA" },
+            { nama: "Dwyzha Ramadhany Septian", outlet: "Setrasari", masa: "3 Tahun 9 Bulan 29 Hari", gaji: 1900000, status: "YA" },
+            { nama: "Muhammad Nabil", outlet: "Setrasari", masa: "2 Tahun 3 Bulan 22 Hari", gaji: 1650000, status: "YA" },
+            { nama: "Salsabilla Amanah", outlet: "Setrasari", masa: "0 Tahun 5 Bulan 2 Hari", gaji: 1500000, status: "YA" },
+            { nama: "Karlina Sawaliah", outlet: "Setrasari", masa: "0 Tahun 1 Bulan 20 Hari", gaji: 1500000, status: "TIDAK" },
+            { nama: "Nanda Fahri Ali", outlet: "Setrasari", masa: "0 Tahun 0 Bulan 11 Hari", gaji: 1500000, status: "TIDAK" },
+            { nama: "Farel Akmal Afrizal", outlet: "Setrasari", masa: "0 Tahun 0 Bulan 11 Hari", gaji: 1500000, status: "TIDAK" },
+            { nama: "Agung Minargo", outlet: "Ambon", masa: "4 Tahun 11 Bulan 14 Hari", gaji: 2000000, status: "YA" },
+            { nama: "Siti Patonah", outlet: "Ambon", masa: "3 Tahun 10 Bulan 0 Hari", gaji: 1850000, status: "YA" },
+            { nama: "Raihan Muhammad Rizki", outlet: "Ambon", masa: "2 Tahun 9 Bulan 2 Hari", gaji: 1650000, status: "YA" },
+            { nama: "Ridho Saefuloh", outlet: "Ambon", masa: "2 Tahun 7 Bulan 11 Hari", gaji: 1650000, status: "YA" },
+            { nama: "Pitria Humaira", outlet: "Ambon", masa: "2 Tahun 1 Bulan 23 Hari", gaji: 1600000, status: "YA" },
+            { nama: "Diana Putri Rulyaningrum", outlet: "Ambon", masa: "2 Tahun 1 Bulan 6 Hari", gaji: 1600000, status: "YA" },
+            { nama: "Ridwan Lukmanul Hakim", outlet: "Ambon", masa: "1 Tahun 11 Bulan 20 Hari", gaji: 1700000, status: "YA" },
+            { nama: "Taufik Maulana", outlet: "Ambon", masa: "1 Tahun 10 Bulan 8 Hari", gaji: 1550000, status: "YA" },
+            { nama: "Dina Apriani", outlet: "Ambon", masa: "1 Tahun 10 Bulan 1 Hari", gaji: 1550000, status: "YA" },
+            { nama: "Rahmadani", outlet: "Ambon", masa: "1 Tahun 9 Bulan 17 Hari", gaji: 1550000, status: "YA" },
+            { nama: "Muhammad Rafie Rashad Ramadhan", outlet: "Ambon", masa: "0 Tahun 8 Bulan 17 Hari", gaji: 1550000, status: "YA" },
+            { nama: "Nazwa Maulani Azkia", outlet: "Ambon", masa: "0 Tahun 7 Bulan 22 Hari", gaji: 1550000, status: "YA" },
+            { nama: "Arif Wijoyo", outlet: "Ambon", masa: "0 Tahun 7 Bulan 8 Hari", gaji: 1500000, status: "YA" },
+            { nama: "Rifandi Putra Haryadi", outlet: "Ambon", masa: "0 Tahun 3 Bulan 24 Hari", gaji: 1500000, status: "YA" },
+            { nama: "Mochamad Irfan Ramadhan", outlet: "Ambon", masa: "0 Tahun 0 Bulan 11 Hari", gaji: 1500000, status: "TIDAK" },
+            { nama: "Salma Siti Nurhanifah", outlet: "Ambon", masa: "0 Tahun 0 Bulan 13 Hari", gaji: 1500000, status: "TIDAK" },
+            { nama: "Ajeng Febriliayanti", outlet: "Ambon", masa: "0 Tahun 0 Bulan 11 Hari", gaji: 1500000, status: "TIDAK" },
+            { nama: "Sukma Sanjaya", outlet: "Tubagus Ismail", masa: "3 Tahun 8 Bulan 24 Hari", gaji: 1900000, status: "YA" },
+            { nama: "Wina Fitria", outlet: "Tubagus Ismail", masa: "0 Tahun 7 Bulan 3 Hari", gaji: 1500000, status: "YA" },
+            { nama: "Rafi Rifaldy", outlet: "Tubagus Ismail", masa: "0 Tahun 7 Bulan 2 Hari", gaji: 1500000, status: "YA" },
+            { nama: "Ira Farika", outlet: "Tubagus Ismail", masa: "0 Tahun 5 Bulan 2 Hari", gaji: 1500000, status: "YA" },
+            { nama: "Nela Maula Anjani", outlet: "Tubagus Ismail", masa: "0 Tahun 5 Bulan 2 Hari", gaji: 1500000, status: "YA" },
+            { nama: "Adam Fauzan", outlet: "Tubagus Ismail", masa: "0 Tahun 1 Bulan 12 Hari", gaji: 1500000, status: "TIDAK" },
+            { nama: "Purwanti Ayu Rahayu", outlet: "Ujung Berung", masa: "4 Tahun 3 Bulan 0 Hari", gaji: 1900000, status: "YA" },
+            { nama: "Wiyanka Adi Syahran", outlet: "Ujung Berung", masa: "2 Tahun 0 Bulan 12 Hari", gaji: 1600000, status: "YA" },
+            { nama: "Alip Anggoro", outlet: "Ujung Berung", masa: "1 Tahun 10 Bulan 7 Hari", gaji: 1550000, status: "YA" },
+            { nama: "Salsa Dewi Anjani", outlet: "Ujung Berung", masa: "1 Tahun 4 Bulan 12 Hari", gaji: 1550000, status: "YA" },
+            { nama: "Indra Sukmawandi", outlet: "Ujung Berung", masa: "0 Tahun 11 Bulan 26 Hari", gaji: 1550000, status: "YA" },
+            { nama: "Rehan Afrizal", outlet: "Ujung Berung", masa: "0 Tahun 9 Bulan 12 Hari", gaji: 1550000, status: "YA" },
+            { nama: "Alvian Wibisono", outlet: "Ujung Berung", masa: "0 Tahun 3 Bulan 21 Hari", gaji: 1500000, status: "YA" },
+            { nama: "Fadlan Gani", outlet: "Cimahi Amir", masa: "5 Tahun 6 Bulan 20 Hari", gaji: 2000000, status: "YA" },
+            { nama: "Alifya Salsabila", outlet: "Cimahi Amir", masa: "2 Tahun 6 Bulan 17 Hari", gaji: 1700000, status: "YA" },
+            { nama: "Maharani", outlet: "Cimahi Amir", masa: "2 Tahun 2 Bulan 10 Hari", gaji: 1650000, status: "YA" },
+            { nama: "Adinda Lovysa Cahya Saleha", outlet: "Cimahi Amir", masa: "1 Tahun 9 Bulan 27 Hari", gaji: 1600000, status: "YA" },
+            { nama: "Vanessa Flora Wijaya", outlet: "Cimahi Amir", masa: "1 Tahun 1 Bulan 3 Hari", gaji: 1550000, status: "YA" },
+            { nama: "Fazar Ali Saputra", outlet: "Cimahi Amir", masa: "0 Tahun 9 Bulan 12 Hari", gaji: 1550000, status: "YA" },
+            { nama: "Muhammad Saeful Anwar", outlet: "Cimahi Amir", masa: "0 Tahun 7 Bulan 30 Hari", gaji: 1550000, status: "YA" },
+            { nama: "Enur Komariah", outlet: "Cimahi Amir", masa: "0 Tahun 4 Bulan 30 Hari", gaji: 1500000, status: "YA" },
+            { nama: "Silvia Febriani", outlet: "Cimahi Amir", masa: "0 Tahun 3 Bulan 14 Hari", gaji: 1500000, status: "YA" },
+            { nama: "Salsabila Setiawan", outlet: "Cimahi Amir", masa: "0 Tahun 3 Bulan 3 Hari", gaji: 1500000, status: "YA" },
+            { nama: "Dhainar Syuhada Putra", outlet: "Cimahi Amir", masa: "0 Tahun 3 Bulan 3 Hari", gaji: 1500000, status: "YA" },
+            { nama: "Maulana Yusuf Santosa", outlet: "Cimahi Amir", masa: "0 Tahun 0 Bulan 17 Hari", gaji: 1500000, status: "TIDAK" },
+            { nama: "Reivan Muhammad Arief", outlet: "Cimahi Amir", masa: "0 Tahun 0 Bulan 10 Hari", gaji: 1500000, status: "TIDAK" },
+            { nama: "Mochamad Nurfauzi Rayhan", outlet: "Cimahi Cihanjuang", masa: "2 Tahun 2 Bulan 14 Hari", gaji: 2000000, status: "YA" },
+            { nama: "Karima Akhlaqunnisa", outlet: "Cimahi Cihanjuang", masa: "2 Tahun 2 Bulan 10 Hari", gaji: 1650000, status: "YA" },
+            { nama: "Jamilia Shabirah", outlet: "Cimahi Cihanjuang", masa: "1 Tahun 11 Bulan 8 Hari", gaji: 1550000, status: "YA" },
+            { nama: "Bilal Akbar", outlet: "Cimahi Cihanjuang", masa: "1 Tahun 4 Bulan 27 Hari", gaji: 1550000, status: "YA" },
+            { nama: "Putri Rizky Rahayu", outlet: "Cimahi Cihanjuang", masa: "1 Tahun 3 Bulan 25 Hari", gaji: 1550000, status: "YA" },
+            { nama: "Saeful Hidayatullah", outlet: "Cimahi Cihanjuang", masa: "0 Tahun 3 Bulan 14 Hari", gaji: 1500000, status: "YA" },
+            { nama: "Krisna Miftahul Rizki", outlet: "Kota Baru Parahyangan", masa: "3 Tahun 6 Bulan 8 Hari", gaji: 2000000, status: "YA" },
+            { nama: "Hana Hoirunisa", outlet: "Kota Baru Parahyangan", masa: "2 Tahun 4 Bulan 23 Hari", gaji: 1650000, status: "YA" },
+            { nama: "Adinda Trisnawanti", outlet: "Kota Baru Parahyangan", masa: "1 Tahun 9 Bulan 27 Hari", gaji: 1600000, status: "YA" },
+            { nama: "Juwita Andrikni Putri", outlet: "Kota Baru Parahyangan", masa: "1 Tahun 9 Bulan 16 Hari", gaji: 1550000, status: "YA" },
+            { nama: "Ifda Noer Arifah", outlet: "Kota Baru Parahyangan", masa: "1 Tahun 7 Bulan 5 Hari", gaji: 1550000, status: "YA" },
+            { nama: "Akhmad Naufal Fadhlurahman", outlet: "Kota Baru Parahyangan", masa: "1 Tahun 2 Bulan 23 Hari", gaji: 1550000, status: "YA" },
+            { nama: "Ferry Putra Yatama", outlet: "Kota Baru Parahyangan", masa: "1 Tahun 1 Bulan 26 Hari", gaji: 1550000, status: "YA" },
+            { nama: "Noor Renal Anwari M", outlet: "Kota Baru Parahyangan", masa: "1 Tahun 1 Bulan 15 Hari", gaji: 1550000, status: "YA" },
+            { nama: "Yalaita Qaumi Syaza Oktavia", outlet: "Kota Baru Parahyangan", masa: "1 Tahun 1 Bulan 4 Hari", gaji: 1550000, status: "YA" },
+            { nama: "Rida Putri Arifiana", outlet: "Kota Baru Parahyangan", masa: "1 Tahun 0 Bulan 23 Hari", gaji: 1550000, status: "YA" },
+            { nama: "Resyahdan Seva Akbar", outlet: "Kota Baru Parahyangan", masa: "0 Tahun 7 Bulan 6 Hari", gaji: 1500000, status: "YA" },
+            { nama: "Satriyo Bintang Nurhafid", outlet: "Kota Baru Parahyangan", masa: "0 Tahun 4 Bulan 7 Hari", gaji: 1500000, status: "YA" },
+            { nama: "Ihwan Wahab", outlet: "Kota Baru Parahyangan", masa: "0 Tahun 2 Bulan 11 Hari", gaji: 1500000, status: "TIDAK" },
+            { nama: "Edwin Kurniadi", outlet: "Pajajaran", masa: "3 Tahun 1 Bulan 3 Hari", gaji: 2000000, status: "YA" },
+            { nama: "Alfya Putri Melsya", outlet: "Pajajaran", masa: "1 Tahun 11 Bulan 25 Hari", gaji: 1650000, status: "YA" },
+            { nama: "Dea Amalia", outlet: "Pajajaran", masa: "1 Tahun 9 Bulan 19 Hari", gaji: 1650000, status: "YA" },
+            { nama: "Nazalla Agustin Ririn Panday", outlet: "Pajajaran", masa: "0 Tahun 9 Bulan 11 Hari", gaji: 1550000, status: "YA" },
+            { nama: "Arya Raihan Mandiri", outlet: "Pajajaran", masa: "0 Tahun 8 Bulan 16 Hari", gaji: 1550000, status: "YA" },
+            { nama: "Jihan Sintani", outlet: "Pajajaran", masa: "1 Tahun 8 Bulan 1 Hari", gaji: 1550000, status: "YA" },
+            { nama: "Algi M. Oktapiandi", outlet: "Pajajaran", masa: "2 Tahun 10 Bulan 13 Hari", gaji: 1700000, status: "YA" },
+            { nama: "Rulian Rizki Rahadiansyah", outlet: "Pajajaran", masa: "0 Tahun 9 Bulan 12 Hari", gaji: 1500000, status: "YA" },
+            { nama: "Jaenal Arif", outlet: "Pajajaran", masa: "0 Tahun 8 Bulan 27 Hari", gaji: 1550000, status: "YA" },
+            { nama: "Syamsul Hidayat", outlet: "Pajajaran", masa: "0 Tahun 8 Bulan 0 Hari", gaji: 1550000, status: "YA" },
+            { nama: "Karismayanti", outlet: "Pajajaran", masa: "0 Tahun 8 Bulan 0 Hari", gaji: 1550000, status: "YA" },
+            { nama: "Gilar Putra Nugraha", outlet: "Pajajaran", masa: "0 Tahun 7 Bulan 14 Hari", gaji: 1550000, status: "YA" },
+            { nama: "Fajar Febbi Aldianto", outlet: "Pajajaran", masa: "0 Tahun 8 Bulan 24 Hari", gaji: 1900000, status: "YA" },
+            { nama: "Langgeng Septiadi", outlet: "Pajajaran", masa: "0 Tahun 5 Bulan 1 Hari", gaji: 1500000, status: "YA" },
+            { nama: "Marchelle Praja Yuga Sonjaya", outlet: "Pajajaran", masa: "0 Tahun 3 Bulan 24 Hari", gaji: 1500000, status: "YA" },
+            { nama: "Ridho Setiawan", outlet: "Buah Batu", masa: "1 Tahun 11 Bulan 27 Hari", gaji: 1750000, status: "YA" },
+            { nama: "Karina Anastasya", outlet: "Buah Batu", masa: "1 Tahun 11 Bulan 29 Hari", gaji: 1550000, status: "YA" },
+            { nama: "Nadira Nur Aprilia", outlet: "Buah Batu", masa: "1 Tahun 11 Bulan 29 Hari", gaji: 1700000, status: "YA" },
+            { nama: "Cameila Dwi Putriana", outlet: "Buah Batu", masa: "1 Tahun 11 Bulan 29 Hari", gaji: 1550000, status: "YA" },
+            { nama: "Alke Nur Effriliani", outlet: "Buah Batu", masa: "2 Tahun 0 Bulan 13 Hari", gaji: 1550000, status: "YA" },
+            { nama: "Irania Aulia Putri Ilhami", outlet: "Buah Batu", masa: "1 Tahun 11 Bulan 4 Hari", gaji: 1550000, status: "YA" },
+            { nama: "Deril Juliana", outlet: "Buah Batu", masa: "1 Tahun 11 Bulan 4 Hari", gaji: 1550000, status: "YA" },
+            { nama: "Ari Rizki", outlet: "Buah Batu", masa: "1 Tahun 11 Bulan 4 Hari", gaji: 1550000, status: "YA" },
+            { nama: "Deden Muhamad Kurniadi", outlet: "Buah Batu", masa: "1 Tahun 11 Bulan 4 Hari", gaji: 1550000, status: "YA" },
+            { nama: "Dimas Ramdani", outlet: "Buah Batu", masa: "1 Tahun 8 Bulan 5 Hari", gaji: 1550000, status: "YA" },
+            { nama: "Anisa Sakinah Ramadanti", outlet: "Buah Batu", masa: "1 Tahun 7 Bulan 30 Hari", gaji: 1550000, status: "YA" },
+            { nama: "Mochamad Ruzaeni", outlet: "Buah Batu", masa: "0 Tahun 5 Bulan 30 Hari", gaji: 1500000, status: "YA" },
+            { nama: "Permana Abdul Roup", outlet: "Buah Batu", masa: "0 Tahun 1 Bulan 22 Hari", gaji: 1500000, status: "TIDAK" },
+            { nama: "Eneng Rini Antika", outlet: "Buah Batu", masa: "0 Tahun 0 Bulan 11 Hari", gaji: 1500000, status: "TIDAK" },
+            { nama: "Kayla Rizkiah", outlet: "Kopo", masa: "4 Tahun 0 Bulan 12 Hari", gaji: 1900000, status: "YA" },
+            { nama: "Muhammad Rizal", outlet: "Kopo", masa: "1 Tahun 4 Bulan 17 Hari", gaji: 1550000, status: "YA" },
+            { nama: "Fahrizal Rudiansyah", outlet: "Kopo", masa: "2 Tahun 6 Bulan 4 Hari", gaji: 1650000, status: "YA" },
+            { nama: "Teguh Ramadani", outlet: "Kopo", masa: "1 Tahun 3 Bulan 28 Hari", gaji: 1550000, status: "YA" },
+            { nama: "M Fahmi Solihin", outlet: "Kopo", masa: "1 Tahun 1 Bulan 15 Hari", gaji: 1550000, status: "YA" },
+            { nama: "Aldi", outlet: "Kopo", masa: "0 Tahun 10 Bulan 14 Hari", gaji: 1550000, status: "YA" },
+            { nama: "Tiara Dwie Putri Rusmawaty", outlet: "Kopo", masa: "0 Tahun 4 Bulan 8 Hari", gaji: 1500000, status: "YA" },
+            { nama: "Nenda Sanusi", outlet: "Soreang", masa: "10 Tahun 1 Bulan 10 Hari", gaji: 2300000, status: "YA" },
+            { nama: "Tiara Nurfadilah", outlet: "Soreang", masa: "1 Tahun 4 Bulan 17 Hari", gaji: 1550000, status: "YA" },
+            { nama: "Muhamad Ramdan", outlet: "Soreang", masa: "1 Tahun 2 Bulan 5 Hari", gaji: 1550000, status: "YA" },
+            { nama: "Widya Shelby", outlet: "Soreang", masa: "0 Tahun 11 Bulan 19 Hari", gaji: 1550000, status: "YA" },
+            { nama: "Luis Apriadi Nur Ilham", outlet: "Soreang", masa: "1 Tahun 5 Bulan 22 Hari", gaji: 1550000, status: "YA" },
+            { nama: "Adinda Shofiyatul Marhamah", outlet: "Soreang", masa: "0 Tahun 2 Bulan 18 Hari", gaji: 1500000, status: "TIDAK" },
+            { nama: "M Hasan Gaos", outlet: "Soreang", masa: "0 Tahun 2 Bulan 13 Hari", gaji: 1500000, status: "TIDAK" },
+            { nama: "Ferlin Cintya Ramadhany", outlet: "Soreang", masa: "0 Tahun 0 Bulan 19 Hari", gaji: 1500000, status: "TIDAK" },
+            { nama: "Erik", outlet: "Garut", masa: "0 Tahun 3 Bulan 21 Hari", gaji: 1750000, status: "YA" },
+            { nama: "Hardi Sugara", outlet: "Garut", masa: "2 Tahun 6 Bulan 30 Hari", gaji: 1700000, status: "YA" },
+            { nama: "Agil Saputra", outlet: "Garut", masa: "1 Tahun 10 Bulan 5 Hari", gaji: 1650000, status: "YA" },
+            { nama: "M Farhan Fauzi", outlet: "Garut", masa: "0 Tahun 3 Bulan 21 Hari", gaji: 1500000, status: "YA" },
+            { nama: "Muhammad Kalbadri", outlet: "Garut", masa: "0 Tahun 3 Bulan 19 Hari", gaji: 1500000, status: "YA" },
+            { nama: "Bayu Permana Sidik", outlet: "Garut", masa: "0 Tahun 3 Bulan 20 Hari", gaji: 1500000, status: "YA" },
+            { nama: "Rayinda Fayza Kulla Azmina", outlet: "Garut", masa: "0 Tahun 3 Bulan 20 Hari", gaji: 1500000, status: "YA" },
+            { nama: "Chelsy Nurfitri Syawalliya", outlet: "Garut", masa: "0 Tahun 3 Bulan 5 Hari", gaji: 1500000, status: "YA" },
+            { nama: "Nadila", outlet: "Garut", masa: "0 Tahun 1 Bulan 30 Hari", gaji: 1500000, status: "TIDAK" },
+            { nama: "Vania Listiani", outlet: "Garut", masa: "0 Tahun 1 Bulan 30 Hari", gaji: 1500000, status: "TIDAK" },
+            { nama: "Rachel April Riadi", outlet: "Garut", masa: "0 Tahun 1 Bulan 7 Hari", gaji: 1500000, status: "TIDAK" },
+            { nama: "Muhammad Rangga Fauzy", outlet: "Garut", masa: "0 Tahun 1 Bulan 6 Hari", gaji: 1500000, status: "TIDAK" },
+            { nama: "Rahmat Hidayat", outlet: "Garut", masa: "0 Tahun 0 Bulan 25 Hari", gaji: 1500000, status: "TIDAK" },
+            { nama: "Riska Herdiani", outlet: "Garut", masa: "0 Tahun 0 Bulan 18 Hari", gaji: 1500000, status: "TIDAK" }
+        ];
+
+        function formatRupiah(val) {
+            return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumFractionDigits: 0 }).format(val);
+        }
+
+        function initApp() {
+            populateSelects();
+            renderTable();
+            renderCharts();
+            setupCalculator();
+            setupEventListeners();
+            updateExecutiveStats();
+        }
+
+        function populateSelects() {
+            const outletSelect = document.getElementById('filter-outlet');
+            const calcSelect = document.getElementById('calc-select');
+            const outlets = [...new Set(rawEmployees.map(e => e.outlet))].sort();
+
+            outlets.forEach(o => {
+                const opt = document.createElement('option');
+                opt.value = o;
+                opt.textContent = o;
+                outletSelect.appendChild(opt);
+            });
+
+            rawEmployees.forEach((e, idx) => {
+                const opt = document.createElement('option');
+                opt.value = idx;
+                opt.textContent = `${e.nama} (${e.outlet})`;
+                calcSelect.appendChild(opt);
+            });
+        }
+
+        function getFilteredData() {
+            const search = document.getElementById('filter-search').value.toLowerCase();
+            const outlet = document.getElementById('filter-outlet').value;
+            const status = document.getElementById('filter-status').value;
+            const region = document.getElementById('filter-region').value;
+
+            return rawEmployees.filter(e => {
+                const eRegion = outletRegionMap[e.outlet];
+                const matchSearch = e.nama.toLowerCase().includes(search);
+                const matchOutlet = outlet === 'ALL' || e.outlet === outlet;
+                const matchStatus = status === 'ALL' || e.status === status;
+                const matchRegion = region === 'ALL' || eRegion === region;
+                return matchSearch && matchOutlet && matchStatus && matchRegion;
+            });
+        }
+
+        function renderTable() {
+            const tbody = document.getElementById('table-body');
+            const filtered = getFilteredData();
+            tbody.innerHTML = '';
+
+            filtered.forEach(e => {
+                const region = outletRegionMap[e.outlet];
+                const umk = umkData[region];
+                const tr = document.createElement('tr');
+                tr.className = 'hover:bg-stone-50 transition';
+
+                const statusBadge = e.status === 'YA'
+                    ? `<span class="px-2 py-0.5 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800">YA</span>`
+                    : `<span class="px-2 py-0.5 rounded-full text-xs font-bold bg-amber-100 text-amber-800">TIDAK</span>`;
+
+                const alasanText = e.status === 'YA'
+                    ? `Melewati masa percobaan 3 bulan (PP 35/2021). Wajib didaftarkan dengan dasar UMK ${region} (${formatRupiah(umk)}).`
+                    : `Masih dalam masa percobaan di bawah 3 bulan. Pendaftaran ditunda hingga evaluasi kelulusan.`;
+
+                tr.innerHTML = `
+                    <td class="py-3 px-4 font-semibold text-stone-900">${e.nama}</td>
+                    <td class="py-3 px-4">${e.outlet}</td>
+                    <td class="py-3 px-4">${e.masa}</td>
+                    <td class="py-3 px-4">${formatRupiah(e.gaji)}</td>
+                    <td class="py-3 px-4 font-mono">${formatRupiah(umk)}</td>
+                    <td class="py-3 px-4">${statusBadge}</td>
+                    <td class="py-3 px-4 text-xs text-stone-600 max-w-xs">${alasanText}</td>
+                `;
+                tbody.appendChild(tr);
+            });
+
+            document.getElementById('table-count-info').textContent = `Menampilkan ${filtered.length} dari ${rawEmployees.length} karyawan`;
+        }
+
+        function updateExecutiveStats() {
+            const total = rawEmployees.length;
+            const ya = rawEmployees.filter(e => e.status === 'YA').length;
+            const tidak = rawEmployees.filter(e => e.status === 'TIDAK').length;
+
+            let totalBebanPrsh = 0;
+            rawEmployees.forEach(e => {
+                if (e.status === 'YA') {
+                    const reg = outletRegionMap[e.outlet];
+                    const umk = umkData[reg];
+                    totalBebanPrsh += umk * 0.04;
+                }
+            });
+
+            document.getElementById('stat-total').textContent = total;
+            document.getElementById('stat-ya').textContent = ya;
+            document.getElementById('stat-tidak').textContent = tidak;
+            document.getElementById('stat-beban').textContent = formatRupiah(totalBebanPrsh);
+        }
+
+        function renderCharts() {
+            const outletMap = {};
+            rawEmployees.forEach(e => {
+                if (!outletMap[e.outlet]) {
+                    outletMap[e.outlet] = { ya: 0, tidak: 0 };
+                }
+                if (e.status === 'YA') outletMap[e.outlet].ya++;
+                else outletMap[e.outlet].tidak++;
+            });
+
+            const outletLabels = Object.keys(outletMap);
+            const dataYa = outletLabels.map(o => outletMap[o].ya);
+            const dataTidak = outletLabels.map(o => outletMap[o].tidak);
+
+            const ctxOutlet = document.getElementById('chartOutlet').getContext('2d');
+            new Chart(ctxOutlet, {
+                type: 'bar',
+                data: {
+                    labels: outletLabels.map(l => l.length > 14 ? l.slice(0, 14) + '...' : l),
+                    datasets: [
+                        { label: 'Layak (YA)', data: dataYa, backgroundColor: '#10b981' },
+                        { label: 'Probasi (TIDAK)', data: dataTidak, backgroundColor: '#f59e0b' }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: { stacked: true, ticks: { font: { size: 10 } } },
+                        y: { stacked: true, beginAtZero: true }
+                    },
+                    plugins: {
+                        tooltip: {
+                            callbacks: {
+                                title: (items) => outletLabels[items[0].dataIndex]
+                            }
+                        }
+                    }
+                }
+            });
+
+            const regionNames = Object.keys(umkData);
+            const regionUmks = Object.values(umkData);
+
+            const ctxUMK = document.getElementById('chartUMK').getContext('2d');
+            new Chart(ctxUMK, {
+                type: 'bar',
+                data: {
+                    labels: regionNames,
+                    datasets: [{
+                        label: 'Besaran UMK 2026 (Rp)',
+                        data: regionUmks,
+                        backgroundColor: '#0284c7'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                callback: function (value) {
+                                    return 'Rp ' + (value / 1000000).toFixed(1) + ' Jt';
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        function setupCalculator() {
+            const select = document.getElementById('calc-select');
+            updateCalcView(select.value);
+        }
+
+        function updateCalcView(empIndex) {
+            const emp = rawEmployees[empIndex];
+            const region = outletRegionMap[emp.outlet];
+            const umk = umkData[region];
+
+            const potKaryawan = Math.round(umk * 0.01);
+            const tangPrsh = Math.round(umk * 0.04);
+            const potPctAktual = ((potKaryawan / emp.gaji) * 100).toFixed(2);
+            const tanggunganIdeal = Math.round(emp.gaji * 0.04);
+            const selisihBeban = tangPrsh - tanggunganIdeal;
+
+            document.getElementById('calc-outlet').textContent = `${emp.outlet} (${region})`;
+            document.getElementById('calc-status').textContent = emp.status === 'YA' ? 'YA (Wajib Didaftarkan)' : 'TIDAK (Masa Probasi)';
+            document.getElementById('calc-gaji-aktual').textContent = formatRupiah(emp.gaji);
+            document.getElementById('calc-umk-base').textContent = formatRupiah(umk);
+            document.getElementById('calc-potongan').textContent = formatRupiah(potKaryawan);
+            document.getElementById('calc-potongan-note').textContent = `~${potPctAktual}% dari gaji pokok riil`;
+            document.getElementById('calc-tanggungan').textContent = formatRupiah(tangPrsh);
+            document.getElementById('calc-tanggungan-note').textContent = `Selisih +${formatRupiah(selisihBeban)} vs riil`;
+        }
+
+        function setupEventListeners() {
+            ['filter-search', 'filter-outlet', 'filter-status', 'filter-region'].forEach(id => {
+                document.getElementById(id).addEventListener('input', renderTable);
+                document.getElementById(id).addEventListener('change', renderTable);
+            });
+
+            document.getElementById('calc-select').addEventListener('change', (e) => {
+                updateCalcView(e.target.value);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', initApp);
+    </script>
+</body>
+
+</html>
