@@ -1027,6 +1027,165 @@
             color: #fff;
             border-color: var(--text2);
         }
+
+        /* SECTION BACKGROUND TRANSITIONS */
+        #s1 {
+            background-color: #ffffff;
+        }
+
+        #s2 {
+            background-color: #faf6ee;
+            border-top: 1px solid #eee4cf;
+            border-bottom: 1px solid #eee4cf;
+        }
+
+        #s3 {
+            background-color: #ffffff;
+        }
+
+        #s4 {
+            background-color: #f6f1e7;
+            border-top: 1px solid #ebdcc5;
+            border-bottom: 1px solid #ebdcc5;
+        }
+
+        #s5 {
+            background-color: #ffffff;
+        }
+
+        #s6 {
+            background-color: #f7f4ec;
+            border-top: 1px solid #eadfc9;
+            border-bottom: 1px solid #eadfc9;
+        }
+
+        #action-plan {
+            background: linear-gradient(180deg, #fbf7ee 0%, #f4e3be 100%);
+            border-top: 2px solid #ecd8ab;
+        }
+
+        /* TROPHY PODIUM STYLES */
+        .podium-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.15fr 1fr;
+            gap: 1rem;
+            align-items: flex-end;
+            margin-top: 0.5rem;
+        }
+
+        @media (max-width: 640px) {
+            .podium-grid {
+                grid-template-columns: 1fr;
+                align-items: stretch;
+            }
+
+            .podium-gold {
+                order: -1;
+                transform: none !important;
+            }
+        }
+
+        .podium-card {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 1.25rem 1rem;
+            text-align: center;
+            border: 1px solid #e0e0e0;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .podium-gold {
+            border: 2px solid #f2d086;
+            background: linear-gradient(180deg, #fffcf5 0%, #ffffff 100%);
+            box-shadow: 0 8px 24px rgba(242, 208, 134, 0.28);
+            transform: translateY(-8px);
+        }
+
+        .podium-silver {
+            border: 1.5px solid #cfd8dc;
+            background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+        }
+
+        .podium-bronze {
+            border: 1.5px solid #e0b987;
+            background: linear-gradient(180deg, #fffbf5 0%, #ffffff 100%);
+        }
+
+        .podium-cup {
+            margin-bottom: 0.5rem;
+        }
+
+        .podium-rank-badge {
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 3px 10px;
+            border-radius: 12px;
+            margin-bottom: 0.5rem;
+        }
+
+        .rank-gold {
+            background: #fdf3d8;
+            color: #996515;
+        }
+
+        .rank-silver {
+            background: #eceff1;
+            color: #455a64;
+        }
+
+        .rank-bronze {
+            background: #fbeee0;
+            color: #8d5b24;
+        }
+
+        .podium-name {
+            font-size: 0.92rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 2px;
+        }
+
+        .podium-outlet {
+            font-size: 0.76rem;
+            color: #777;
+            margin-bottom: 0.6rem;
+        }
+
+        .podium-score {
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: var(--text2);
+        }
+
+        .btn-aspect-podium {
+            font-family: var(--font);
+            font-size: 0.76rem;
+            font-weight: 600;
+            padding: 6px 12px;
+            border-radius: 20px;
+            border: 1px solid #dcdcdc;
+            background: #ffffff;
+            color: #444;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-aspect-podium:hover {
+            border-color: var(--text2);
+            color: var(--text2);
+        }
+
+        .btn-aspect-podium.active {
+            background: var(--text2);
+            border-color: var(--text2);
+            color: #ffffff;
+            box-shadow: 0 2px 8px rgba(3, 63, 63, 0.25);
+        }
     </style>
 </head>
 
@@ -1074,7 +1233,7 @@
                 <div class="sop-stamp-card">
                     <div class="sop-stamp">PARTIALLY ACHIEVED</div>
                     <div class="sop-stamp-text">
-                        <strong>Hasil Evaluasi 5 SOP: Sebagian Tercapai (Skor Rata-Rata 76,0 / 100)</strong>
+                        <strong>Sebagian Tercapai (Skor Rata-Rata 76,0 / 100)</strong>
                         <span>SOP Presensi, Grooming, dan Teamwork TERCAPAI dengan baik berkat sistem denda dan
                             checklist operasional. Namun, SOP Coaching dan Briefing Mingguan BELUM TERCAPAI di seluruh
                             cabang karena fungsi kontrol leader masih pasif.</span>
@@ -1086,14 +1245,12 @@
                     <!-- KIRI: POIN TEMUAN SIDAK -->
                     <div
                         style="background:#fcfcfc; border:1px solid #eee; border-radius:10px; padding:1.2rem; border-left:4px solid var(--gold);">
-                        <strong
-                            style="font-size:0.95rem; color:var(--text); display:block; margin-bottom:0.6rem;">Temuan
-                            Kunci Hasil Sidak Lapangan</strong>
+                        <strong style="font-size:0.95rem; color:var(--text); display:block; margin-bottom:0.6rem;">Key
+                            Points Sidak Lapangan</strong>
                         <ul class="point-list" style="margin:0;">
                             <li class="warn">
                                 <strong>Kepemimpinan Pasif di Tiga Cabang</strong>
-                                <div class="point-desc">Leader di Kopo, Kiaracondong, dan Soreang terpantau pasif serta
-                                    enggan memberi teguran langsung saat terjadi ketidaksesuaian SOP kerja.</div>
+                                <div class="point-desc">Leader di Kopo, Kiaracondong, dan Soreang</div>
                             </li>
                             <li class="good">
                                 <strong>Kepatuhan Presensi &amp; Grooming</strong>
@@ -1111,19 +1268,14 @@
                         <ul class="point-list" style="margin:0;">
                             <li class="warn">
                                 <strong>Training Khusus Leader Intensif oleh Supervisor</strong>
-                                <div class="point-desc">Supervisor (SPV) menjalankan pendampingan dan training intensif
-                                    langsung di cabang dengan target spesifik pemulihan fungsi briefing mingguan dan
+                                <div class="point-desc">Target spesifik pemulihan fungsi briefing mingguan dan
                                     keberanian menegur kru secara asertif.</div>
                             </li>
                             <li class="good">
-                                <strong>Standardisasi Wadah Telur Higienis</strong>
-                                <div class="point-desc">Inisiatif wadah telur plastik dari Kircon disahkan menjadi
-                                    standar operasional SOP Purchasing untuk pencegahan hama di seluruh outlet.</div>
+                                <strong>Standardisasi Wadah Telur Higienis Plastik - Kircon</strong>
                             </li>
                             <li class="warn">
                                 <strong>Eskalasi Relokasi Ruko Kopo &amp; Kircon</strong>
-                                <div class="point-desc">Kerusakan ruko bocor di Kopo dan keterbatasan layout di Kircon
-                                    diproses menjadi proposal relokasi resmi ke tingkat pimpinan puncak.</div>
                             </li>
                         </ul>
                     </div>
@@ -1683,14 +1835,14 @@
                         <div>
                             <div
                                 style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem;">
-                                <strong style="font-size:0.95rem; color:var(--red);">Tindak Lanjut Klarifikasi
-                                    Diperlukan: Penyalahgunaan Uang Denda Kru</strong>
-                                <span class="badge badge-red">Integritas Kritis</span>
+                                <strong style="font-size:0.95rem; color:var(--red);">Penyalahgunaan Uang Denda
+                                    Kru</strong>
+                                <span class="badge badge-red">Tindak Lanjut Klarifikasi
+                                    Diperlukan</span>
                             </div>
                             <p style="font-size:0.82rem; color:#444; line-height:1.6; margin-bottom:0.75rem;">
                                 Laporan kesaksian kru membongkar bahwa Erik menggunakan <strong>uang denda kas
-                                    kru</strong> untuk menutupi komplain pribadi dengan driver ojek online. Uang denda
-                                yang seharusnya masuk kas operasional dialihkan secara sepihak tanpa transparansi.
+                                    kru</strong> untuk menutupi komplain pribadi dengan driver ojek online.
                             </p>
                             <ul class="point-list" style="margin:0;">
                                 <li class="warn">
@@ -1708,7 +1860,7 @@
                         <div>
                             <div
                                 style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem;">
-                                <strong style="font-size:0.95rem; color:var(--text2);">Kuesioner Kru: Kelayakan Diangkat
+                                <strong style="font-size:0.95rem; color:var(--text2);">Kelayakan Diangkat
                                     sebagai Leader</strong>
                                 <span class="badge badge-red">85,7% Menolak/Ragu</span>
                             </div>
@@ -2524,25 +2676,28 @@
                         <tbody>
                             <tr>
                                 <td><strong>Garut</strong></td>
-                                <td>Fadila Lupiana</td>
-                                <td><strong>11 Hari</strong><br><span style="font-size:0.75rem; color:#666;">(16-23,
+                                <td>Fadila Lupiana (11 Hari)<br>Almi (3 Hari)</td>
+                                <td><strong>14 Hari</strong><br><span style="font-size:0.75rem; color:#666;">(7-9,
+                                        16-23,
                                         25-27 Sep)</span></td>
-                                <td>Rp825.000</td>
+                                <td>Rp1.050.000<br><span style="font-size:0.75rem; color:#666;">(Rp825.000 +
+                                        Rp225.000)</span></td>
                                 <td>Erik sakit 10 hari, Revalina hadir 11 hari, Sipa hadir 1 hari</td>
                                 <td><span class="status-ok">Cukup Efektif</span><br><span
-                                        style="font-size:0.75rem; color:#666;">Nutup absen sakit Erik, namun kru lain
-                                        tetap padat</span></td>
+                                        style="font-size:0.75rem; color:#666;">Nutup absen sakit Erik dan kekosongan
+                                        awal bulan, kru tetap padat</span></td>
                             </tr>
                             <tr>
                                 <td><strong>Pajajaran</strong></td>
-                                <td>Almi (3 Hari)<br>Teuku Rayfa (3 Hari)</td>
-                                <td><strong>6 Hari</strong><br><span style="font-size:0.75rem; color:#666;">(5-9, 15
+                                <td>Teuku Rayfa (3 Hari)</td>
+                                <td><strong>3 Hari</strong><br><span style="font-size:0.75rem; color:#666;">(5-6, 15
                                         Sep)</span></td>
-                                <td>Rp450.000<br><span style="font-size:0.75rem; color:#666;">(@ Rp225.000)</span></td>
+                                <td>Rp225.000</td>
                                 <td>Dea Amalia sakit 7 hari</td>
-                                <td><span class="status-ok">Seimbang &amp; Efektif</span><br><span
-                                        style="font-size:0.75rem; color:#666;">6 hari DW sebanding meng-cover 7 hari
-                                        sakit Dea Amalia; hadir telat Fajar ditangani terpisah via eskalasi</span></td>
+                                <td><span class="status-warn">Perlu Perhatian</span><br><span
+                                        style="font-size:0.75rem; color:#666;">3 hari DW hanya menutup sebagian sakit
+                                        Dea Amalia (7 hari), hadir telat Fajar ditangani terpisah via eskalasi</span>
+                                </td>
                             </tr>
                             <tr>
                                 <td><strong>Kota Baru Parahyangan</strong></td>
@@ -2855,6 +3010,69 @@
                 </div>
             </div>
 
+            <!-- KOMPARASI TURNOVER DENGAN BULAN SEBELUMNYA (JULI & AGUSTUS) -->
+            <div class="card" style="margin-bottom:1.25rem;">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem;">
+                    <div>
+                        <h3 style="margin-bottom:0.2rem;">Komparasi Dinamika Turnover (Juli, Agustus, September 2026)
+                        </h3>
+                        <p style="font-size:0.83rem; color:#666;">Tren perbandingan intake crew baru dan crew resign
+                            selama 3 bulan operasional terakhir</p>
+                    </div>
+                    <span class="badge badge-green">Retensi Menguat (Net +9 Kru)</span>
+                </div>
+
+                <div class="bento bento-2" style="margin-bottom:1rem;">
+                    <div class="tbl-wrap">
+                        <table style="font-size:0.82rem;">
+                            <thead>
+                                <tr style="background:#f4f9f4;">
+                                    <th>Periode Bulan</th>
+                                    <th>Crew Baru Masuk</th>
+                                    <th>Crew Resign</th>
+                                    <th>Net Pertumbuhan</th>
+                                    <th>Catatan Stabilitas</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Juli 2026</strong></td>
+                                    <td>6 Orang</td>
+                                    <td>5 Orang (FT)</td>
+                                    <td><span class="hl">+1 Orang</span></td>
+                                    <td>Turnover moderat, pengisian berimbang</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Agustus 2026</strong></td>
+                                    <td>7 Orang</td>
+                                    <td>6 Orang (1 dadakan)</td>
+                                    <td><span class="hl">+1 Orang</span></td>
+                                    <td>Turnover naik tipis, 1 kasus resign tanpa pemberitahuan</td>
+                                </tr>
+                                <tr style="background:#f9fcf9; font-weight:600;">
+                                    <td><strong>September 2026</strong></td>
+                                    <td><strong class="hl-green">12 Orang</strong></td>
+                                    <td><strong class="hl-green">3 Orang</strong> (1 dadakan)</td>
+                                    <td><strong class="hl-green">+9 Orang</strong></td>
+                                    <td>Intake meningkat pesat untuk formasi baru, tingkat resign terpangkas 50%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div style="display:flex; flex-direction:column; justify-content:space-between;">
+                        <div class="chart-wrap" style="height:190px;">
+                            <canvas id="c_turnoverCompare"></canvas>
+                        </div>
+                        <div
+                            style="font-size:0.78rem; color:#555; background:#f9f9f9; padding:0.6rem 0.8rem; border-radius:6px; border-left:3px solid var(--green); margin-top:0.5rem;">
+                            Rasio retensi September mencatatkan perbaikan dengan penurunan angka resign ke 3 orang
+                            bersamaan dengan keberhasilan onboarding 12 kru baru.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- KANDIDAT GUGUR -->
             <div class="card">
                 <h3>Kandidat Gugur Pelatihan (6 Orang)</h3>
@@ -2932,11 +3150,46 @@
                     </ul>
                 </div>
                 <div class="card">
-                    <h3>Laporan Dividen Investor</h3>
-                    <ul class="point-list">
-                        <li><strong>Target laporan dividen</strong> Penyusunan laporan dividen investor dijadwalkan
-                            rampung dan didistribusikan pada <span class="hl">12 Oktober</span>.</li>
-                    </ul>
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem;">
+                        <h3>Laporan Dividen Investor</h3>
+                        <span class="badge badge-green">Target Terjadwal 12 Okt</span>
+                    </div>
+                    <div class="tbl-wrap" style="margin-top:0.5rem;">
+                        <table style="font-size:0.8rem;">
+                            <thead>
+                                <tr style="background:#f4f9f4;">
+                                    <th>Periode Laporan</th>
+                                    <th>Tanggal Pengiriman</th>
+                                    <th>Batas SLA</th>
+                                    <th>Status Ketepatan Waktu</th>
+                                    <th>Catatan Operasional</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Juli 2026</strong></td>
+                                    <td>13 Juli</td>
+                                    <td>Maks tgl 15</td>
+                                    <td><span class="status-ok">Tepat Waktu</span></td>
+                                    <td>Terkirim 2 hari sebelum batas deadline SLA</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Agustus 2026</strong></td>
+                                    <td>15 Agustus</td>
+                                    <td>Maks tgl 15</td>
+                                    <td><span class="status-warn">Batas SLA</span></td>
+                                    <td>Sempat tertahan karena penanganan kendala payroll</td>
+                                </tr>
+                                <tr style="background:#f9fcf9; font-weight:600;">
+                                    <td><strong>September 2026</strong></td>
+                                    <td>12 Oktober</td>
+                                    <td>Maks tgl 15</td>
+                                    <td><span class="status-ok">Target Aman</span></td>
+                                    <td>Proses rekap dipercepat dengan target 3 hari sebelum SLA</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
 
@@ -2959,14 +3212,14 @@
                             <strong
                                 style="font-size:0.95rem; color:var(--text); display:block; margin-bottom:0.5rem;">Kalibrasi
                                 Rata-Rata Nilai Pibalista</strong>
-                            <div class="chart-wrap" style="height:190px;">
+                            <div class="chart-wrap" style="height:230px;">
                                 <canvas id="c_trend"></canvas>
                             </div>
                         </div>
                         <div
                             style="font-size:0.8rem; color:#555; line-height:1.5; margin-top:0.75rem; padding-top:0.6rem; border-top:1px solid #f0f0f0;">
-                            <strong>Catatan Kalibrasi:</strong> Skor rata-rata bergeser dari 77,93 (Juni-Juli) ke <span
-                                class="hl">70,85</span> (Agustus-September) akibat penyesuaian skala menjadi 120 poin
+                            Skor rata-rata bergeser dari 77,93 (Juni-Juli) ke <span class="hl">70,85</span>
+                            (Agustus-September) akibat penyesuaian skala menjadi <strong>120 poin</strong>
                             dan penambahan porsi bobot spesialis divisi sebesar 60%.
                         </div>
                     </div>
@@ -2976,122 +3229,62 @@
                         style="background:#fff; border:1px solid #eee; border-radius:10px; padding:1.2rem; display:flex; flex-direction:column; justify-content:space-between;">
                         <div>
                             <strong
-                                style="font-size:0.95rem; color:var(--text); display:block; margin-bottom:0.5rem;">Rata-Rata
-                                Nilai per Aspek Operasional</strong>
-                            <div class="chart-wrap" style="height:190px;">
+                                style="font-size:0.95rem; color:var(--text); display:block; margin-bottom:0.5rem;">Profil
+                                Hexagonal Nilai per Aspek Operasional</strong>
+                            <div class="chart-wrap" style="height:230px;">
                                 <canvas id="c_stock"></canvas>
                             </div>
                         </div>
                         <div
                             style="font-size:0.8rem; color:#555; line-height:1.5; margin-top:0.75rem; padding-top:0.6rem; border-top:1px solid #f0f0f0;">
-                            <strong>Proporsi Bobot:</strong> Nilai stock opname 6,4 poin proporsional karena batas bobot
-                            maksimalnya memang hanya 10 poin (berbeda dari pembuatan 30 poin). Standardisasi dan audit
-                            inventori berkala dikelola langsung oleh Divisi Purchasing.
+                            Nilai <strong>stock opname</strong> 6,4 poin proporsional
+                            karena batas bobot maksimalnya 10 poin, sehingga tidak rancu saat disandingkan dengan
+                            pembuatan (bobot 30 poin).
                         </div>
                     </div>
                 </div>
 
-                <!-- BENTO ROW 2: MATRIKS TOP 3 KRU PER ASPEK (REVISI 13 - TIDAK PERLU HOVER) -->
+                <!-- BENTO ROW 2: MATRIKS TOP 3 KRU PER ASPEK (TROPHY PODIUM INTERAKTIF) -->
                 <div
                     style="background:#fff; border:1px solid #eee; border-radius:10px; padding:1.25rem; margin-bottom:1.25rem;">
                     <div
-                        style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem;">
+                        style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem; flex-wrap:wrap; gap:0.5rem;">
                         <div>
-                            <strong style="font-size:0.95rem; color:var(--text);">Matriks Top 3 Kru Terbaik di Setiap
-                                Aspek Operasional</strong>
-                            <div style="font-size:0.78rem; color:#666;">Peringkat pertama, kedua, dan ketiga langsung
-                                terlihat lengkap dengan nama dan cabang</div>
+                            <strong style="font-size:0.95rem; color:var(--text);">Podium Top 3 Kru Terbaik per Aspek
+                                Operasional</strong>
+                            <div style="font-size:0.78rem; color:#666;">Pilih tombol aspek untuk menampilkan juara 1, 2,
+                                dan 3 secara interaktif</div>
                         </div>
-                        <span class="badge badge-green">Semua Aspek Terbaca</span>
+                        <span class="badge badge-green">Piala &amp; Peringkat Terbaca</span>
                     </div>
 
-                    <div class="tbl-wrap">
-                        <table style="font-size:0.82rem;">
-                            <thead>
-                                <tr style="background:#f4f9f4;">
-                                    <th>Aspek Operasional</th>
-                                    <th>Juara 1 (Tertinggi)</th>
-                                    <th>Juara 2</th>
-                                    <th>Juara 3</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><strong>1. Persiapan</strong></td>
-                                    <td><strong style="color:var(--text2);">Ifda Noer Arifah</strong> (KBP) &bull; <span
-                                            class="hl-green">16,8</span></td>
-                                    <td><strong>Alifya</strong> (Amir) &bull; 16,7</td>
-                                    <td><strong>Rachel April Riadi</strong> (Garut) &bull; 16,4</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>2. Penerimaan</strong></td>
-                                    <td><strong style="color:var(--text2);">Rachel April Riadi</strong> (Garut) &bull;
-                                        <span class="hl-green">17,6</span>
-                                    </td>
-                                    <td><strong>Adinda Lovysa</strong> (Amir) &bull; 16,7</td>
-                                    <td><strong>Rida</strong> (KBP) &bull; 16,6</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>3. Pembuatan</strong></td>
-                                    <td><strong style="color:var(--text2);">Resyahdan</strong> (KBP) &bull; <span
-                                            class="hl-green">25,2</span></td>
-                                    <td><strong>Ferry</strong> (KBP) &bull; <span class="hl-green">25,2</span></td>
-                                    <td><strong>Algi</strong> (Pajajaran) &bull; 25,1</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>4. Pengemasan</strong></td>
-                                    <td><strong style="color:var(--text2);">Ifda Noer Arifah</strong> (KBP) &bull; <span
-                                            class="hl-green">12,7</span></td>
-                                    <td><strong>Yalaita</strong> (KBP) &bull; 12,6</td>
-                                    <td><strong>Hana</strong> (KBP) &bull; 12,5</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>5. Stock Opname</strong></td>
-                                    <td><strong style="color:var(--text2);">Ifda Noer Arifah</strong> (KBP) &bull; <span
-                                            class="hl-green">8,6</span></td>
-                                    <td><strong>Jamilia</strong> (Cihanjuang) &bull; 8,5</td>
-                                    <td><strong>Agung Minargo</strong> (Ambon) &bull; 8,4</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>6. Kebersihan</strong></td>
-                                    <td><strong style="color:var(--text2);">Agung Minargo</strong> (Ambon) &bull; <span
-                                            class="hl-green">9,1</span></td>
-                                    <td><strong>Jihan</strong> (Pajajaran) &bull; 9,0</td>
-                                    <td><strong>Ifda Noer Arifah</strong> (KBP) &bull; 8,6</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>7. Kedisiplinan</strong></td>
-                                    <td><strong style="color:var(--text2);">Agung Minargo</strong> (Ambon) &bull; <span
-                                            class="hl-green">4,9</span></td>
-                                    <td><strong>Ifda Noer Arifah</strong> (KBP) &bull; 4,5</td>
-                                    <td><strong>Rachel April Riadi</strong> (Garut) &bull; 4,5</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>8. Kerja Sama</strong></td>
-                                    <td><strong style="color:var(--text2);">Agung Minargo</strong> (Ambon) &bull; <span
-                                            class="hl-green">4,8</span></td>
-                                    <td><strong>Jamilia</strong> (Cihanjuang) &bull; 4,5</td>
-                                    <td><strong>Siti Patonah</strong> (Ambon) &bull; 4,3</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>9. Kepatuhan SOP</strong></td>
-                                    <td><strong style="color:var(--text2);">Siti Patonah</strong> (Ambon) &bull; <span
-                                            class="hl-green">4,5</span></td>
-                                    <td><strong>Agung Minargo</strong> (Ambon) &bull; 4,4</td>
-                                    <td><strong>Jihan</strong> (Pajajaran) &bull; 4,4</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>10. Penanganan Komplain</strong></td>
-                                    <td><strong style="color:var(--text2);">Rachel April Riadi</strong> (Garut) &bull;
-                                        <span class="hl-green">4,2</span>
-                                    </td>
-                                    <td><strong>Karima</strong> (Cihanjuang) &bull; <span class="hl-green">4,2</span>
-                                    </td>
-                                    <td><strong>Putri Rizky</strong> (Cihanjuang) &bull; <span
-                                            class="hl-green">4,2</span></td>
-                                </tr>
-                            </tbody>
-                        </table>
+                    <!-- ASPEC SELECTOR BUTTONS -->
+                    <div id="aspectNavPodium" style="display:flex; flex-wrap:wrap; gap:0.4rem; margin-bottom:1.25rem;">
+                        <button type="button" class="btn-aspect-podium active" onclick="renderTrophyAspect(0)">Persiapan
+                            (20)</button>
+                        <button type="button" class="btn-aspect-podium" onclick="renderTrophyAspect(1)">Penerimaan
+                            (20)</button>
+                        <button type="button" class="btn-aspect-podium" onclick="renderTrophyAspect(2)">Pembuatan
+                            (30)</button>
+                        <button type="button" class="btn-aspect-podium" onclick="renderTrophyAspect(3)">Pengemasan
+                            (15)</button>
+                        <button type="button" class="btn-aspect-podium" onclick="renderTrophyAspect(4)">Stock Opname
+                            (10)</button>
+                        <button type="button" class="btn-aspect-podium" onclick="renderTrophyAspect(5)">Kebersihan
+                            (10)</button>
+                        <button type="button" class="btn-aspect-podium" onclick="renderTrophyAspect(6)">Kedisiplinan
+                            (5)</button>
+                        <button type="button" class="btn-aspect-podium" onclick="renderTrophyAspect(7)">Kerja Sama
+                            (5)</button>
+                        <button type="button" class="btn-aspect-podium" onclick="renderTrophyAspect(8)">Kepatuhan SOP
+                            (5)</button>
+                        <button type="button" class="btn-aspect-podium" onclick="renderTrophyAspect(9)">Penanganan
+                            Komplain (5)</button>
+                    </div>
+
+                    <!-- TROPHY DISPLAY AREA -->
+                    <div id="trophyDisplayArea">
+                        <!-- Konten dirender oleh fungsi renderTrophyAspect() -->
                     </div>
                 </div>
 
@@ -5272,7 +5465,7 @@
             <div class="card" style="margin-bottom:1.25rem">
                 <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem;">
                     <div>
-                        <h3 style="margin-bottom:0.2rem;">Evaluasi Kepemimpinan: Manajemen Konflik vs Komunikasi Asertif
+                        <h3 style="margin-bottom:0.2rem;">Manajemen Konflik vs Komunikasi Asertif
                         </h3>
                         <p style="font-size:0.83rem; color:#666;">Infografis komparasi kendala struktural kepemimpinan
                             Leader Kopo vs Leader Kiaracondong</p>
@@ -5673,9 +5866,8 @@
                             <li><strong>Volume & estimasi biaya</strong> Pengadaan 47 kaos dalaman membutuhkan anggaran
                                 sebesar <span class="hl">Rp2.585.000</span> (@ Rp55.000).</li>
                             <li><strong>Spesifikasi bahan</strong> Memakai <span class="hl-green">Cotton Combed
-                                    30s</span> warna krem muda yang sejuk dan menyerap keringat di area dapur.</li>
-                            <li><strong>Desain sablon</strong> Penempatan sablon minimalis di lengan dan punggung atas
-                                agar tetap terlihat saat mengenakan apron.</li>
+                                    30s</span> dan menyerap keringat di area dapur.</li>
+                            <li><strong>Desain sablon mini</strong>
                         </ul>
                     </div>
                     <div class="card stat" style="padding:1rem">
@@ -5691,15 +5883,9 @@
                     <ul class="point-list" style="margin:0;">
                         <li>
                             <strong>Kondisi Suhu Operasional Dapur</strong>
-                            <div class="point-desc">Temperatur area dapur dan station memasak sangat panas, sehingga
-                                bahan Cotton Combed 30s jauh lebih sejuk, menyerap keringat, dan mendukung kenyamanan
-                                gerak kru selama shift kerja.</div>
                         </li>
                         <li class="good">
                             <strong>Efisiensi Anggaran Seragam Berkelanjutan</strong>
-                            <div class="point-desc">Penggunaan kaos dalaman terbukti menekan pembengkakan biaya
-                                permintaan penggantian seragam kemeja dan apron formal yang cepat kotor atau rusak
-                                akibat noda minyak dan saus racikan.</div>
                         </li>
                     </ul>
                 </div>
@@ -5716,44 +5902,43 @@
                     </div>
                 </div>
 
-                <!-- BENTO KOMPARASI PENGELUARAN AGUSTUS VS SEPTEMBER (REVISI 17 & 18) -->
+                <!-- BENTO KOMPARASI PENGELUARAN AGUSTUS VS SEPTEMBER (PART-TIME & PERBANTUAN SERVER) -->
                 <div class="bento bento-2" style="margin-bottom:1.25rem;">
                     <div
                         style="background:#fcfcfc; border:1px solid #eee; border-left:4px solid var(--gold); border-radius:10px; padding:1.2rem;">
                         <strong
                             style="font-size:0.92rem; color:var(--text); display:block; margin-bottom:0.4rem;">Komparasi
-                            Pengeluaran Perbantuan &amp; DW (Agustus vs September)</strong>
+                            Beban Barista &amp; Perbantuan Server (Agustus vs September)</strong>
                         <div class="tbl-wrap">
                             <table style="font-size:0.78rem;">
                                 <thead>
-                                    <tr>
+                                    <tr style="background:#f4f9f4;">
                                         <th>Pos Pengeluaran</th>
-                                        <th>Agustus 2026 (agt26.html)</th>
+                                        <th>Agustus 2026</th>
                                         <th>September 2026</th>
                                         <th>Selisih / Efisiensi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td><strong>Total Biaya Daily Worker</strong></td>
-                                        <td>Rp5.250.000 <span style="font-size:0.72rem; color:#666;">(14 pekerja)</span>
+                                        <td><strong>Upah Part-time Barista</strong></td>
+                                        <td>Rp1.530.000 <span style="font-size:0.72rem; color:#666;">(18 shift)</span>
                                         </td>
-                                        <td>Rp1.500.000 <span style="font-size:0.72rem; color:#666;">(5 pekerja)</span>
+                                        <td>Rp1.885.000 <span style="font-size:0.72rem; color:#666;">(29 shift)</span>
                                         </td>
-                                        <td><span class="hl-green">Turun -Rp3.750.000 (-71%)</span></td>
+                                        <td><span class="hl">+Rp355.000 (Penambahan Jam)</span></td>
                                     </tr>
                                     <tr>
                                         <td><strong>Komisi Backup Server (Fee Cup)</strong></td>
-                                        <td>Rp0 <span style="font-size:0.72rem; color:#666;">(Belum diterapkan)</span>
-                                        </td>
+                                        <td>Rp834.000 <span style="font-size:0.72rem; color:#666;">(473 cup)</span></td>
                                         <td>Rp305.000 <span style="font-size:0.72rem; color:#666;">(161 cup)</span></td>
-                                        <td><span class="hl">+Rp305.000 (Skema Baru)</span></td>
+                                        <td><span class="hl-green">Turun -Rp529.000 (-63%)</span></td>
                                     </tr>
                                     <tr style="background:#f9f9f9; font-weight:700;">
-                                        <td><strong>Total Beban Perbantuan</strong></td>
-                                        <td>Rp5.250.000</td>
-                                        <td><strong>Rp1.805.000</strong></td>
-                                        <td><strong class="hl-green">Hemat Rp3.445.000</strong></td>
+                                        <td><strong>Total Beban Pengeluaran</strong></td>
+                                        <td>Rp2.364.000</td>
+                                        <td><strong>Rp2.190.000</strong></td>
+                                        <td><strong class="hl-green">Hemat Rp174.000 (-7,4%)</strong></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -5763,35 +5948,35 @@
                     <div
                         style="background:#fcfcfc; border:1px solid #eee; border-left:4px solid var(--text2); border-radius:10px; padding:1.2rem;">
                         <strong
-                            style="font-size:0.92rem; color:var(--text2); display:block; margin-bottom:0.4rem;">Analisa
-                            Gaji Part-time Barista (Agustus vs September)</strong>
+                            style="font-size:0.92rem; color:var(--text2); display:block; margin-bottom:0.4rem;">Rincian
+                            Realisasi Server &amp; Part-time (Agustus vs September)</strong>
                         <div class="tbl-wrap">
                             <table style="font-size:0.78rem;">
                                 <thead>
-                                    <tr>
-                                        <th>Komponen Part-time Barista</th>
+                                    <tr style="background:#f4f9f4;">
+                                        <th>Personel / Komponen</th>
                                         <th>Agustus 2026</th>
-                                        <th>September 2026 (parttime_barista.md)</th>
+                                        <th>September 2026</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td><strong>Tenaga Kerja Part-time</strong></td>
-                                        <td>Alvian Dwi Kaldesar (Pajajaran)</td>
-                                        <td>Alvian (14 shift) &amp; Kaka (15 shift) di B. Batu</td>
+                                        <td><strong>Server Arya (Backup)</strong></td>
+                                        <td>Rp501.000 <span style="font-size:0.72rem; color:#666;">(217 dine in, 67
+                                                online)</span></td>
+                                        <td>Rp123.500 <span style="font-size:0.72rem; color:#666;">(65 cup)</span></td>
                                     </tr>
                                     <tr>
-                                        <td><strong>Total Beban Upah Part-time</strong></td>
-                                        <td>Rp425.000 <span style="font-size:0.72rem; color:#666;">(DW Barista)</span>
+                                        <td><strong>Server Syamsul (Backup)</strong></td>
+                                        <td>Rp333.000 <span style="font-size:0.72rem; color:#666;">(144 dine in, 45
+                                                online)</span></td>
+                                        <td>Rp95.000 <span style="font-size:0.72rem; color:#666;">(50 cup)</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Upah Part-time Barista</strong></td>
+                                        <td>M. Syahdat P.U. Rp1.105.000 (13 shift)<br>Alvian Dwi K. Rp425.000 (5 shift)
                                         </td>
-                                        <td><strong>Rp1.885.000</strong> <span style="font-size:0.72rem; color:#666;">(@
-                                                Rp65.000/shift)</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>Dinamika Absensi &amp; Efek Samping</strong></td>
-                                        <td>Hadir sesuai jadwal panggilan shift</td>
-                                        <td><span class="hl-red">Libur Off menumpuk di akhir bulan (Alvian 16 Off, Kaka
-                                                12 Off) sehingga server cover 161 cup</span></td>
+                                        <td>Alvian Dwi K. Rp910.000 (14 shift)<br>Kaka Rp975.000 (15 shift)</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -5936,73 +6121,53 @@
         style="background: linear-gradient(180deg, #fefbf4 0%, #f7ebd0 100%); border-top: 3px solid var(--gold); border-bottom: 3px solid var(--gold); padding: 3.5rem 0 4rem 0;">
         <div class="container">
             <div class="section-label" style="background: var(--red); color: #fff;">Action Plan &amp; Evaluasi</div>
-            <div class="section-title">Realisasi Target Agustus &amp; Rencana Aksi Prioritas Oktober</div>
+            <div class="section-title">Realisasi Target Agustus &amp; Action Plan Prioritas Oktober</div>
 
             <!-- CHECKLIST REALISASI TARGET AGUSTUS DI BULAN SEPTEMBER -->
             <div class="card"
                 style="margin-bottom:1.5rem; border-left: 5px solid var(--green); box-shadow: 0 4px 20px rgba(2,32,32,0.08);">
-                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem;">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem; flex-wrap:wrap; gap:0.5rem;">
                     <div>
-                        <h3 style="margin-bottom:0.25rem;">Evaluasi Realisasi Target Rencana Aksi Agustus di Bulan
-                            September</h3>
-                        <p style="font-size:0.83rem; color:#555;">Ketercapaian komitmen rencana aksi dari laporan
-                            periode Agustus (agt26.html) terhadap realisasi riil September:</p>
+                        <h3 style="margin-bottom:0.2rem;">Realisasi Action Plan Agustus</h3>
+                        <p style="font-size:0.82rem; color:#666;">Evaluasi eksekusi komitmen Agustus sepanjang September</p>
                     </div>
-                    <span class="badge badge-green" style="font-size:0.8rem; padding:6px 14px;">4 dari 4 Terealisasi
-                        (100%)</span>
+                    <span class="badge badge-green" style="font-size:0.8rem; padding:5px 12px;">5 dari 5 Tuntas (100%)</span>
                 </div>
 
                 <div class="tbl-wrap">
-                    <table>
+                    <table style="font-size:0.82rem;">
                         <thead>
                             <tr style="background:#f4f9f4;">
-                                <th>Target Rencana Aksi (agt26.html)</th>
-                                <th>Uraian Komitmen Awal</th>
-                                <th>Realisasi di Bulan September</th>
-                                <th style="text-align:center;">Status</th>
+                                <th style="width:26%;">Target</th>
+                                <th>Realisasi September</th>
+                                <th style="width:16%; text-align:center;">Status</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td><strong>1. Sidak oleh HR</strong></td>
-                                <td>Sidak diberlakukan oleh pihak HR di bulan September untuk memastikan kondisi
-                                    operasional di outlet berjalan sesuai standar.</td>
-                                <td>Sidak terlaksana menyeluruh di 6 outlet (Soreang, Buah Batu, KBP, Amir, Kircon,
-                                    Kopo) dengan matriks radar evaluasi 6 aspek kepatuhan operasional.</td>
-                                <td style="text-align:center;"><span class="status-ok">100% Selesai</span></td>
+                                <td><strong>1. Sidak Operasional HR</strong><br><span style="font-size:0.74rem; color:#666;">Audit standar 6 outlet</span></td>
+                                <td>6 outlet (Soreang, Buah Batu, KBP, Amir, Kircon, Kopo) diaudit, hasil divisualisasikan via matriks radar 6 aspek.</td>
+                                <td style="text-align:center;"><span class="status-ok">Selesai</span></td>
                             </tr>
                             <tr>
-                                <td><strong>2. Persiapan Cabang Baru</strong></td>
-                                <td>Proses rekrutmen untuk pembukaan cabang baru harus dimulai 3 bulan sebelum outlet
-                                    baru beroperasi.</td>
-                                <td>Database pelamar berhasil dihimpun dan diverifikasi rapi: 728 kandidat Tasikmalaya
-                                    dan 1.002 kandidat Bandung siap dipanggil sesuai linimasa pembukaan cabang.</td>
-                                <td style="text-align:center;"><span class="status-ok">100% Selesai</span></td>
+                                <td><strong>2. Sourcing Cabang Baru</strong><br><span style="font-size:0.74rem; color:#666;">Pipeline H-3 bulan pembukaan</span></td>
+                                <td>728 kandidat Tasikmalaya + 1.002 kandidat Bandung tersusun dalam database siap panggil.</td>
+                                <td style="text-align:center;"><span class="status-ok">Selesai</span></td>
                             </tr>
                             <tr>
-                                <td><strong>3. Evaluasi Leader Garut</strong></td>
-                                <td>Berdasarkan 5 feedback yang masuk, perlu evaluasi menyeluruh terkait kepemimpinan di
-                                    outlet Garut melalui diskusi dengan manajemen.</td>
-                                <td>Evaluasi tuntas digelar bersama A Mika dan A Agung. Keputusan final disahkan:
-                                    restrukturisasi pembagian shift, rolling staf, sanksi tegas, serta bimbingan
-                                    langsung SPV.</td>
-                                <td style="text-align:center;"><span class="status-ok">100% Selesai</span></td>
+                                <td><strong>3. Evaluasi Leader Garut</strong><br><span style="font-size:0.74rem; color:#666;">Tindak lanjut 5 masukan kru</span></td>
+                                <td>Perombakan shift, rolling staf, sanksi disiplin, dan pendampingan SPV langsung dieksekusi.</td>
+                                <td style="text-align:center;"><span class="status-ok">Selesai</span></td>
                             </tr>
                             <tr>
-                                <td><strong>4. Percepat Slip Gaji</strong></td>
-                                <td>Target kirim slip gaji sesuai SLA (tgl 8) dengan meminta rekapitulasi outlet lebih
-                                    awal dan menetapkan deadline internal ketat.</td>
-                                <td>Slip gaji terdistribusi tanggal 7 September (H+1 penggajian), berhasil memutus tren
-                                    keterlambatan bulan Juli (tgl 12) dan Agustus (tgl 11).</td>
-                                <td style="text-align:center;"><span class="status-ok">100% Tepat Waktu</span></td>
+                                <td><strong>4. Distribusi Slip Gaji</strong><br><span style="font-size:0.74rem; color:#666;">SLA tanggal 8</span></td>
+                                <td>Terkirim 7 September, lebih cepat dari SLA. Tren keterlambatan Juli-Agustus berhasil diputus.</td>
+                                <td style="text-align:center;"><span class="status-ok">Tepat Waktu</span></td>
                             </tr>
                             <tr>
-                                <td><strong>5. Tindak Lanjut Kru Khusus (Fajar)</strong></td>
-                                <td>Tindak lanjut kasus 22 hari hadir telat (HT) Fajar Febbi Aldianto dari catatan
-                                    khusus laporan Agustus (agt26.html).</td>
-                                <td>Telah dieskalasi ke Leader Pajajaran; obrolan konseling telah terlaksana dan
-                                    penerbitan SP resmi ditunda sementara berdasarkan pertimbangan leader.</td>
-                                <td style="text-align:center;"><span class="status-ok">100% Ditindaklanjuti</span></td>
+                                <td><strong>5. Tindak Lanjut Fajar</strong><br><span style="font-size:0.74rem; color:#666;">22 hari telat hadir di Agustus</span></td>
+                                <td>Konseling dengan Leader Pajajaran selesai, pengawasan disiplin jam masuk aktif berjalan.</td>
+                                <td style="text-align:center;"><span class="status-ok">Selesai</span></td>
                             </tr>
                         </tbody>
                     </table>
@@ -6012,9 +6177,7 @@
             <!-- RENCANA AKSI PRIORITAS OKTOBER -->
             <div class="card" style="border-top: 4px solid var(--red); box-shadow: 0 4px 20px rgba(2,32,32,0.08);">
                 <div style="margin-bottom:1.25rem;">
-                    <h3 style="margin-bottom:0.25rem;">Rencana Aksi Prioritas Oktober</h3>
-                    <p style="font-size:0.83rem; color:#555;">Tiga pilar fokus tindakan operasional HR dan manajemen
-                        untuk periode kerja Oktober 2026:</p>
+                    <h3 style="margin-bottom:0.25rem;">Action Plan Prioritas Oktober</h3>
                 </div>
 
                 <div class="bento bento-3" style="margin-bottom:1rem;">
@@ -6022,21 +6185,16 @@
                     <div class="priority"
                         style="margin:0; background:#fff; border-left:4px solid var(--red); display:flex; flex-direction:column; justify-content:space-between;">
                         <div>
-                            <div class="priority-title" style="color:var(--red);">Prioritas 1: Pengawasan Intensif SPV
-                                dan Sesi Konseling</div>
+                            <div class="priority-title" style="color:var(--red);">Pengawasan Langsung oleh
+                                SPV</div>
                             <ul class="point-list" style="margin:0.5rem 0 0 0;">
                                 <li>
-                                    <strong>Pengawasan Langsung oleh SPV</strong>
-                                    <div class="point-desc">Supervisor (SPV) menjalankan monitoring harian lebih ketat
-                                        di cabang dengan dinamika tim tinggi (Garut, Kopo, dan Kiaracondong) guna
-                                        memastikan rotasi tugas adil dan meniadakan kelalaian SOP.</div>
+                                    <strong>Monitoring Harian di Lapangan</strong>
+                                    <div class="point-desc">Supervisor menjalankan pengawasan langsung secara intensif
+                                        di Garut, Kopo, dan Kiaracondong.</div>
                                 </li>
-                                <li class="warn">
-                                    <strong>Sesi Konseling Terarah &amp; NGOPS</strong>
-                                    <div class="point-desc">Pemberian sesi konseling terarah dan pembinaan NGOPS untuk
-                                        kru dengan nilai evaluasi terbawah: M Fahmi Solihin (57,47) dan Luis Apriadi
-                                        (61,17), serta Erik (56,09 - opsional mempertimbangkan riwayat sakit dan
-                                        komitmen kehadiran).</div>
+                                <li class="good">
+                                    <strong>Standardisasi Leadership</strong>
                                 </li>
                             </ul>
                         </div>
@@ -6046,20 +6204,14 @@
                     <div class="priority"
                         style="margin:0; background:#fff; border-left:4px solid var(--gold); display:flex; flex-direction:column; justify-content:space-between;">
                         <div>
-                            <div class="priority-title" style="color:#b8860b;">Prioritas 2: Penertiban Kasbon &amp;
-                                Kepatuhan Form</div>
+                            <div class="priority-title" style="color:#b8860b;">NGOPS &amp; Peer Review 3
+                                Kru Terbawah</div>
                             <ul class="point-list" style="margin:0.5rem 0 0 0;">
-                                <li>
-                                    <strong>Penutupan Celah Kasbon Non-Form</strong>
-                                    <div class="point-desc">Menertibkan temuan pinjaman Rp4.000.000 yang cair tanpa
-                                        formulir resmi. Mulai 1 Oktober seluruh pengajuan kasbon wajib melalui form
-                                        verifikasi HR sebelum disetujui.</div>
+                                <li class="warn">
+                                    <strong>Peer Review Khusus Sebelum Evaluasi</strong>
                                 </li>
-                                <li class="good">
-                                    <strong>Disiplin Potongan Payroll</strong>
-                                    <div class="point-desc">Menjaga kepatuhan pelunasan kasbon via pemotongan gaji
-                                        tanggal 6 untuk melanjutkan tren penurunan sisa pinjaman (akhir September
-                                        Rp18,30jt).</div>
+                                <li>
+                                    <strong>Pemetaan Hambatan dan Bimbingan</strong>
                                 </li>
                             </ul>
                         </div>
@@ -6069,30 +6221,20 @@
                     <div class="priority"
                         style="margin:0; background:#fff; border-left:4px solid #033f3f; display:flex; flex-direction:column; justify-content:space-between;">
                         <div>
-                            <div class="priority-title" style="color:#033f3f;">Prioritas 3: Penataan Formasi Server
-                                &amp; Kedisiplinan Part-Time</div>
+                            <div class="priority-title" style="color:#033f3f;">Denda Keterlambatan Head Bar
+                                Max 10 Menit</div>
                             <ul class="point-list" style="margin:0.5rem 0 0 0;">
-                                <li>
-                                    <strong>Pencegahan Libur Serentak Part-Time</strong>
-                                    <div class="point-desc">Evaluasi jadwal agar part-time tidak libur bersamaan saat
-                                        jam ramai, mencegah terulangnya insiden Buah Batu di mana server mem-backup
-                                        racikan 161 cup sendirian.</div>
-                                </li>
                                 <li class="warn">
-                                    <strong>Penerapan Denda Keterlambatan Head Bar</strong>
-                                    <div class="point-desc">Eksekusi sanksi denda pemotongan fee project/persenan per
-                                        hari keterlambatan bagi Head Bar mulai berlaku efektif per 10 Oktober secara
-                                        konsisten.</div>
+                                    <strong>Toleransi Keterlambatan Maksimal 10 Menit</strong>
+                                </li>
+                                <li>
+                                    <strong>Eksekusi Pemotongan Fee Project</strong>
+                                    <div class="point-desc">Sanksi denda pemotongan fee project atau persenan per hari
+                                        keterlambatan secara konsisten mulai 10 Oktober.</div>
                                 </li>
                             </ul>
                         </div>
                     </div>
-                </div>
-
-                <div class="field-note" style="margin-top:1rem;">
-                    <strong>Catatan Kebijakan:</strong> Standardisasi stock opname tidak dimasukkan ke prioritas HR
-                    karena telah ditangani terpusat oleh Divisi Purchasing. Sesi konseling kru dan pengawasan SPV
-                    dijadwalkan berjalan maksimal minggu kedua Oktober.
                 </div>
             </div>
         </div>
@@ -6408,7 +6550,7 @@
                 data: {
                     labels: ['Garut', 'Pajajaran', 'KBP'],
                     datasets: [
-                        { label: 'Hari DW Hadir', data: [11, 6, 3], backgroundColor: '#f2d086', borderRadius: 4 },
+                        { label: 'Hari DW Hadir', data: [14, 3, 3], backgroundColor: '#f2d086', borderRadius: 4 },
                         { label: 'Hari Kosong Kru Reguler (Sakit & Mutasi)', data: [30, 7, 45], backgroundColor: '#d6302a', borderRadius: 4 }
                     ]
                 },
@@ -6524,6 +6666,27 @@
                 }
             });
 
+            // TURNOVER COMPARE (JULI, AGUSTUS, SEPTEMBER)
+            const elTurnover = document.getElementById('c_turnoverCompare');
+            if (elTurnover) {
+                new Chart(elTurnover, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Juli 2026', 'Agustus 2026', 'September 2026'],
+                        datasets: [
+                            { label: 'Crew Baru Masuk', data: [6, 7, 12], backgroundColor: '#033f3f', borderRadius: 4 },
+                            { label: 'Crew Resign', data: [5, 6, 3], backgroundColor: '#d6302a', borderRadius: 4 }
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: { legend: { position: 'bottom' }, tooltip: TT },
+                        scales: { y: { beginAtZero: true, ticks: { stepSize: 2 } } }
+                    }
+                });
+            }
+
             // TREND NILAI
             new Chart(document.getElementById('c_trend'), {
                 type: 'bar',
@@ -6540,110 +6703,205 @@
                 }
             });
 
-            // STOCK OPNAME
+            // PROFIL ASPEK OPERASIONAL HEXAGONAL RADAR
             new Chart(document.getElementById('c_stock'), {
-                type: 'line',
+                type: 'radar',
                 data: {
-                    labels: ['Pembuatan', 'Persiapan', 'Penerimaan', 'Pengemasan', 'Stock Opname'],
-                    datasets: [{ label: 'Rata-rata Nilai Aspek', data: [22.4, 15.2, 13.8, 11.2, 6.4], borderColor: '#d6302a', backgroundColor: 'rgba(214,48,42,0.08)', fill: true, tension: 0.3, pointRadius: 5, borderWidth: 2 }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    layout: { padding: { top: 18 } },
-                    plugins: { legend: { position: 'bottom' }, tooltip: TT }
-                }
-            });
-
-            // TOP 3 CREW SETIAP ASPEK OPERASIONAL
-            const elTop3 = document.getElementById('c_top3Aspects'); if (elTop3) new Chart(elTop3, {
-                type: 'bar',
-                data: {
-                    labels: ['Persiapan', 'Penerimaan', 'Pembuatan', 'Pengemasan', 'Stock Opname', 'Kebersihan', 'Disiplin', 'Kerjasama', 'SOP', 'Komplain'],
+                    labels: ['Pembuatan (30)', 'Persiapan (20)', 'Penerimaan (20)', 'Pengemasan (15)', 'Stock Opname (10)', 'Kebersihan (10)'],
                     datasets: [
                         {
-                            label: 'Juara 1',
-                            data: [16.8, 17.6, 25.2, 12.7, 8.6, 9.1, 4.9, 4.8, 4.5, 4.2],
-                            backgroundColor: '#033f3f',
-                            borderRadius: 4
+                            label: 'Rata-rata Nilai Aktual',
+                            data: [22.4, 15.2, 13.8, 11.2, 6.4, 7.8],
+                            borderColor: '#d6302a',
+                            backgroundColor: 'rgba(214,48,42,0.18)',
+                            pointBackgroundColor: '#d6302a',
+                            pointRadius: 4,
+                            borderWidth: 2
                         },
                         {
-                            label: 'Juara 2',
-                            data: [16.7, 16.7, 25.2, 12.6, 8.5, 9.0, 4.5, 4.5, 4.4, 4.2],
-                            backgroundColor: '#a48d5e',
-                            borderRadius: 4
-                        },
-                        {
-                            label: 'Juara 3',
-                            data: [16.4, 16.6, 25.1, 12.5, 8.4, 8.6, 4.5, 4.3, 4.4, 4.2],
-                            backgroundColor: '#f2d086',
-                            borderRadius: 4
+                            label: 'Garis Bayang Bobot Maksimal',
+                            data: [30, 20, 20, 15, 10, 10],
+                            borderColor: '#a48d5e',
+                            borderDash: [4, 4],
+                            backgroundColor: 'transparent',
+                            pointRadius: 3,
+                            pointBackgroundColor: '#a48d5e',
+                            borderWidth: 1.5
                         }
                     ]
                 },
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
-                    layout: { padding: { top: 22 } },
                     plugins: {
-                        legend: { position: 'bottom' },
-                        tooltip: {
-                            backgroundColor: '#022020',
-                            callbacks: {
-                                label: function (context) {
-                                    const aspectIdx = context.dataIndex;
-                                    const datasetIdx = context.datasetIndex;
-                                    const crews = [
-                                        // Persiapan
-                                        ['Ifda Noer (KBP): 16.8', 'Alifya (Amir): 16.7', 'Rachel (Garut): 16.4'],
-                                        // Penerimaan
-                                        ['Rachel (Garut): 17.6', 'Adinda (Amir): 16.7', 'Rida (KBP): 16.6'],
-                                        // Pembuatan
-                                        ['Resyahdan (KBP): 25.2', 'Ferry (KBP): 25.2', 'Algi (Pajajaran): 25.1'],
-                                        // Pengemasan
-                                        ['Ifda Noer (KBP): 12.7', 'Yalaita (KBP): 12.6', 'Hana (KBP): 12.5'],
-                                        // Stock Opname
-                                        ['Ifda Noer (KBP): 8.6', 'Jamilia (Cihanjuang): 8.5', 'Agung (Ambon): 8.4'],
-                                        // Kebersihan
-                                        ['Agung (Ambon): 9.1', 'Jihan (Pajajaran): 9.0', 'Ifda Noer (KBP): 8.6'],
-                                        // Kedisiplinan
-                                        ['Agung (Ambon): 4.9', 'Ifda Noer (KBP): 4.5', 'Rachel (Garut): 4.5'],
-                                        // Kerja Sama
-                                        ['Agung (Ambon): 4.8', 'Jamilia (Cihanjuang): 4.5', 'Siti Patonah (Ambon): 4.3'],
-                                        // Kepatuhan SOP
-                                        ['Siti Patonah (Ambon): 4.5', 'Agung (Ambon): 4.4', 'Jihan (Pajajaran): 4.4'],
-                                        // Komplain
-                                        ['Rachel (Garut): 4.2', 'Karima (Cihanjuang): 4.2', 'Putri Rizky (Cihanjuang): 4.2']
-                                    ];
-                                    return crews[aspectIdx][datasetIdx];
-                                }
-                            }
-                        }
+                        legend: { position: 'bottom', labels: { font: { size: 10, weight: '600' }, boxWidth: 12, padding: 6 } },
+                        tooltip: TT
                     },
                     scales: {
-                        y: { beginAtZero: true, max: 28, grid: { color: '#eee' } },
-                        x: { grid: { display: false } }
+                        r: {
+                            beginAtZero: true,
+                            max: 30,
+                            ticks: { display: false, stepSize: 5 },
+                            grid: { color: 'rgba(0,0,0,0.06)' },
+                            pointLabels: { font: { family: 'Poppins', size: 10, weight: '600' }, color: '#022020' }
+                        }
                     }
                 }
             });
 
-            // BACKUP COMPARE (AGUSTUS VS SEPTEMBER - REVISI 17)
+            // DATA & LOGIKA PODIUM TOP 3 ASPEK OPERASIONAL
+            const top3AspectData = [
+                {
+                    title: "1. Aspek Persiapan",
+                    bobot: "Bobot Maksimal 20 Poin",
+                    note: "Kesiapan opening dan kelengkapan workstation sebelum jam operasional dimulai",
+                    first: { name: "Ifda Noer Arifah", outlet: "Kota Baru Parahyangan", score: "16,8" },
+                    second: { name: "Alifya Putri Melsya", outlet: "Cimahi Amir", score: "16,7" },
+                    third: { name: "Rachel April Riadi", outlet: "Garut", score: "16,4" }
+                },
+                {
+                    title: "2. Aspek Penerimaan",
+                    bobot: "Bobot Maksimal 20 Poin",
+                    note: "Ketelitian pengecekan bahan baku masuk dari suplier dan kesesuaian faktur",
+                    first: { name: "Rachel April Riadi", outlet: "Garut", score: "17,6" },
+                    second: { name: "Adinda Lovysa", outlet: "Cimahi Amir", score: "16,7" },
+                    third: { name: "Rida Putri Arifiana", outlet: "Kota Baru Parahyangan", score: "16,6" }
+                },
+                {
+                    title: "3. Aspek Pembuatan",
+                    bobot: "Bobot Maksimal 30 Poin",
+                    note: "Keahlian peracikan sushi dan menu panas sesuai standar cita rasa dan gramasi",
+                    first: { name: "Resyahdan Seva Akbar", outlet: "Kota Baru Parahyangan", score: "25,2" },
+                    second: { name: "Ferry Putra Yatama", outlet: "Kota Baru Parahyangan", score: "25,2" },
+                    third: { name: "Algi M. Oktapiandi", outlet: "Pajajaran", score: "25,1" }
+                },
+                {
+                    title: "4. Aspek Pengemasan",
+                    bobot: "Bobot Maksimal 15 Poin",
+                    note: "Kerapian plating, kemasan take-away, dan ketepatan perlengkapan order",
+                    first: { name: "Ifda Noer Arifah", outlet: "Kota Baru Parahyangan", score: "12,7" },
+                    second: { name: "Yalaita Qaumi Syaza", outlet: "Kota Baru Parahyangan", score: "12,6" },
+                    third: { name: "Hana Hoirunisa", outlet: "Kota Baru Parahyangan", score: "12,5" }
+                },
+                {
+                    title: "5. Aspek Stock Opname",
+                    bobot: "Bobot Maksimal 10 Poin",
+                    note: "Akurasi pencatatan fisik stok harian dan minimasi selisih barang inventori",
+                    first: { name: "Ifda Noer Arifah", outlet: "Kota Baru Parahyangan", score: "8,6" },
+                    second: { name: "Jamilia", outlet: "Cihanjuang", score: "8,5" },
+                    third: { name: "Agung Minargo", outlet: "Ambon", score: "8,4" }
+                },
+                {
+                    title: "6. Aspek Kebersihan",
+                    bobot: "Bobot Maksimal 10 Poin",
+                    note: "Kepatuhan sanitasi area kitchen, bar, dan kebersihan personal grooming",
+                    first: { name: "Agung Minargo", outlet: "Ambon", score: "9,1" },
+                    second: { name: "Jihan Sintani", outlet: "Pajajaran", score: "9,0" },
+                    third: { name: "Ifda Noer Arifah", outlet: "Kota Baru Parahyangan", score: "8,6" }
+                },
+                {
+                    title: "7. Aspek Kedisiplinan",
+                    bobot: "Bobot Maksimal 5 Poin",
+                    note: "Ketepatan waktu kehadiran shift dan ketaatan tata tertib outlet",
+                    first: { name: "Agung Minargo", outlet: "Ambon", score: "4,9" },
+                    second: { name: "Ifda Noer Arifah", outlet: "Kota Baru Parahyangan", score: "4,5" },
+                    third: { name: "Rachel April Riadi", outlet: "Garut", score: "4,5" }
+                },
+                {
+                    title: "8. Aspek Kerja Sama",
+                    bobot: "Bobot Maksimal 5 Poin",
+                    note: "Soliditas koordinasi antar-station dan inisiatif saling membantu rekan kerja",
+                    first: { name: "Agung Minargo", outlet: "Ambon", score: "4,8" },
+                    second: { name: "Jamilia", outlet: "Cihanjuang", score: "4,5" },
+                    third: { name: "Siti Patonah", outlet: "Ambon", score: "4,3" }
+                },
+                {
+                    title: "9. Aspek Kepatuhan SOP",
+                    bobot: "Bobot Maksimal 5 Poin",
+                    note: "Kepatuhan penuh pada prosedur resep, keselamatan kerja, dan standar operasional",
+                    first: { name: "Siti Patonah", outlet: "Ambon", score: "4,5" },
+                    second: { name: "Agung Minargo", outlet: "Ambon", score: "4,4" },
+                    third: { name: "Jihan Sintani", outlet: "Pajajaran", score: "4,4" }
+                },
+                {
+                    title: "10. Aspek Penanganan Komplain",
+                    bobot: "Bobot Maksimal 5 Poin",
+                    note: "Kecepatan dan keramahan respons penyelesaian keluhan pelanggan di outlet",
+                    first: { name: "Rachel April Riadi", outlet: "Garut", score: "4,2" },
+                    second: { name: "Karima", outlet: "Cihanjuang", score: "4,2" },
+                    third: { name: "Putri Rizky", outlet: "Cihanjuang", score: "4,2" }
+                }
+            ];
+
+            window.renderTrophyAspect = function (idx) {
+                const d = top3AspectData[idx];
+                if (!d) return;
+                const buttons = document.querySelectorAll('.btn-aspect-podium');
+                buttons.forEach((b, i) => {
+                    b.classList.toggle('active', i === idx);
+                });
+                const container = document.getElementById('trophyDisplayArea');
+                if (!container) return;
+                container.innerHTML = `
+                    <div style="text-align:center; margin-bottom:1.25rem;">
+                        <div style="font-size:1.05rem; font-weight:700; color:var(--text2);">${d.title}</div>
+                        <div style="font-size:0.78rem; color:#666; margin-top:2px;">${d.bobot} &bull; ${d.note}</div>
+                    </div>
+                    <div class="podium-grid">
+                        <!-- JUARA 2 -->
+                        <div class="podium-card podium-silver">
+                            <div class="podium-cup">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#78909c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.45 1-1 1H7v4h10v-4h-2c-.55 0-1-.45-1-1v-2.34"></path><path d="M6 4h12v5a6 6 0 0 1-12 0V4z"></path></svg>
+                            </div>
+                            <div class="podium-rank-badge rank-silver">Juara 2 (Perak)</div>
+                            <div class="podium-name">${d.second.name}</div>
+                            <div class="podium-outlet">${d.second.outlet}</div>
+                            <div class="podium-score">${d.second.score} <span style="font-size:0.7rem; font-weight:400; color:#666;">poin</span></div>
+                        </div>
+
+                        <!-- JUARA 1 -->
+                        <div class="podium-card podium-gold">
+                            <div class="podium-cup">
+                                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#d4af37" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.45 1-1 1H7v4h10v-4h-2c-.55 0-1-.45-1-1v-2.34"></path><path d="M6 4h12v5a6 6 0 0 1-12 0V4z"></path></svg>
+                            </div>
+                            <div class="podium-rank-badge rank-gold">Juara 1 (Emas)</div>
+                            <div class="podium-name" style="font-size:1.02rem; color:var(--text2);">${d.first.name}</div>
+                            <div class="podium-outlet">${d.first.outlet}</div>
+                            <div class="podium-score" style="font-size:1.25rem; color:#d6302a;">${d.first.score} <span style="font-size:0.75rem; font-weight:400; color:#666;">poin</span></div>
+                        </div>
+
+                        <!-- JUARA 3 -->
+                        <div class="podium-card podium-bronze">
+                            <div class="podium-cup">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#b08d57" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.45 1-1 1H7v4h10v-4h-2c-.55 0-1-.45-1-1v-2.34"></path><path d="M6 4h12v5a6 6 0 0 1-12 0V4z"></path></svg>
+                            </div>
+                            <div class="podium-rank-badge rank-bronze">Juara 3 (Perunggu)</div>
+                            <div class="podium-name">${d.third.name}</div>
+                            <div class="podium-outlet">${d.third.outlet}</div>
+                            <div class="podium-score">${d.third.score} <span style="font-size:0.7rem; font-weight:400; color:#666;">poin</span></div>
+                        </div>
+                    </div>
+                `;
+            };
+            setTimeout(() => { if (typeof window.renderTrophyAspect === 'function') window.renderTrophyAspect(0); }, 50);
+
+            // BACKUP COMPARE (AGUSTUS VS SEPTEMBER - PART-TIME & SERVER FEE)
             const backupCompareCanvas = document.getElementById('c_backupCompare');
             if (backupCompareCanvas) {
                 new Chart(backupCompareCanvas, {
                     type: 'bar',
                     data: {
-                        labels: ['Biaya Daily Worker', 'Komisi Fee Server', 'Total Beban Perbantuan'],
+                        labels: ['Upah Part-time Barista', 'Komisi Fee Server', 'Total Beban'],
                         datasets: [
                             {
-                                label: 'Agustus (agt26.html)',
-                                data: [5250000, 0, 5250000],
+                                label: 'Agustus 2026',
+                                data: [1530000, 834000, 2364000],
                                 backgroundColor: '#a48d5e',
                                 borderRadius: 4
                             },
                             {
                                 label: 'September 2026',
-                                data: [1500000, 305000, 1805000],
+                                data: [1885000, 305000, 2190000],
                                 backgroundColor: '#033f3f',
                                 borderRadius: 4
                             }
