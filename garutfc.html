@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluasi Operasional Kitchen Balista Garut (18-31 Okt)</title>
+
+    <!-- Tailwind CSS untuk tata letak yang cepat dan responsif -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Chart.js untuk grafik interaktif -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Google Fonts: Roboto -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Roboto', 'sans-serif'],
+                    },
+                    colors: {
+                        google: {
+                            blue: '#4285F4',
+                            red: '#EA4335',
+                            yellow: '#FBBC05',
+                            green: '#34A853',
+                            bg: '#F8F9FA',
+                            text: '#202124',
+                            muted: '#5F6368'
+                        }
+                    },
+                    boxShadow: {
+                        'material': '0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)',
+                        'material-hover': '0 14px 28px rgba(0,0,0,0.1), 0 10px 10px rgba(0,0,0,0.08)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #F8F9FA;
+            color: #202124;
+        }
+
+        .material-card {
+            background-color: #FFFFFF;
+            border-radius: 12px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+            border: 1px solid #e8eaed;
+        }
+
+        .material-card:hover {
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .highlight-text {
+            letter-spacing: -1px;
+        }
+    </style>
+</head>
+
+<body class="p-4 md:p-8 antialiased">
+
+    <!-- Header -->
+    <header class="max-w-7xl mx-auto mb-10 text-center md:text-left">
+        <div class="flex flex-col md:flex-row items-center md:items-baseline gap-4 mb-2">
+            <h1 class="text-3xl md:text-4xl font-bold text-google-text highlight-text">
+                Evaluasi Form Checklist - <span class="text-google-blue">Balista Garut</span>
+            </h1>
+        </div>
+        <p class="text-lg text-google-muted font-medium">Periode: 18 - 31 Oktober 2026</p>
+    </header>
+
+    <main class="max-w-7xl mx-auto space-y-10">
+
+        <!-- Bagian 1: Highlight Metrics -->
+        <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Metrik 1 -->
+            <div class="material-card p-6 flex flex-col justify-center items-center text-center">
+                <p class="text-google-muted font-medium uppercase tracking-wider text-sm mb-2">Rata-rata Telat Closing
+                </p>
+                <h2 class="text-5xl md:text-6xl font-black text-google-text highlight-text">31<span
+                        class="text-3xl text-google-muted">m</span></h2>
+                <p class="text-sm font-medium mt-1 text-google-red bg-red-50 px-3 py-1 rounded-full">Melewati batas
+                    waktu</p>
+            </div>
+
+            <!-- Metrik 2 -->
+            <div class="material-card p-6 flex flex-col justify-center items-center text-center">
+                <p class="text-google-muted font-medium uppercase tracking-wider text-sm mb-2">Paling Aktif Ops</p>
+                <h2 class="text-4xl font-black text-google-blue highlight-text leading-tight mt-2">Hardi &<br>Rahmat
+                </h2>
+            </div>
+
+            <!-- Metrik 3 -->
+            <div
+                class="material-card p-6 flex flex-col justify-center items-center text-center border-b-4 border-b-google-yellow bg-yellow-50/30">
+                <p class="text-google-muted font-medium uppercase tracking-wider text-sm mb-2 text-google-yellow">
+                    Paling Jarang Opening</p>
+                <h2 class="text-5xl md:text-6xl font-black text-google-yellow highlight-text">Agil</h2>
+                <p class="text-sm font-bold mt-2 text-google-yellow bg-yellow-100 px-3 py-1 rounded-full">0 Task (Absen
+                    Opening)</p>
+            </div>
+
+            <!-- Metrik 4 -->
+            <div
+                class="material-card p-6 flex flex-col justify-center items-center text-center border-b-4 border-b-google-red bg-red-50/30">
+                <p class="text-google-muted font-medium uppercase tracking-wider text-sm mb-2 text-google-red">Sering
+                    Siang</p>
+                <h2 class="text-4xl font-black text-google-red highlight-text leading-tight mt-2">Rahmat</h2>
+                <p class="text-sm font-bold mt-2 text-google-red bg-red-100 px-3 py-1 rounded-full">7</p>
+            </div>
+        </section>
+
+        <!-- Bagian 2: Grafik Interaktif -->
+        <section class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <!-- Grafik 1: Bar Chart -->
+            <div class="material-card p-6">
+                <h3 class="text-xl font-bold text-google-text mb-4">Distribusi Beban Kerja per Crew Laki-laki</h3>
+                <div class="relative h-80 w-full">
+                    <canvas id="workloadChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Grafik 2: Pie Chart -->
+            <div class="material-card p-6">
+                <h3 class="text-xl font-bold text-google-text mb-4">Pengisi Laporan Data/Waste (Tinggi All Crew)</h3>
+                <div class="relative h-80 w-full">
+                    <canvas id="pieChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bagian 3: Data Table Section -->
+        <section>
+            <h2 class="text-2xl font-bold text-google-text mb-6 border-b pb-2">Data Checklist Operasional (Sample 18-20
+                Okt)</h2>
+            <div class="material-card overflow-hidden overflow-x-auto">
+                <table class="w-full text-left text-sm text-google-text whitespace-nowrap">
+                    <thead class="bg-google-bg text-google-muted uppercase text-xs font-bold border-b border-gray-200">
+                        <tr>
+                            <th scope="col" class="px-6 py-4">Tanggal</th>
+                            <th scope="col" class="px-6 py-4">1. QC Bahan</th>
+                            <th scope="col" class="px-6 py-4">2. Kaldu & Air</th>
+                            <th scope="col" class="px-6 py-4">3. Defrost</th>
+                            <th scope="col" class="px-6 py-4">4. Prep Bahan</th>
+                            <th scope="col" class="px-6 py-4">5. Cek Stok</th>
+                            <th scope="col" class="px-6 py-4">6. Steward</th>
+                            <th scope="col" class="px-6 py-4">7. Stock Opname</th>
+                            <th scope="col" class="px-6 py-4">8. Kaldu Malam</th>
+                            <th scope="col" class="px-6 py-4">9. Penyelamatan</th>
+                            <th scope="col" class="px-6 py-4">10. Cleaning</th>
+                            <th scope="col" class="px-6 py-4">11. Keamanan Api</th>
+                            <th scope="col" class="px-6 py-4 border-l border-red-200 bg-red-50/50">12. Laporan Waste
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200">
+                        <tr class="hover:bg-gray-50 transition-colors">
+                            <td class="px-6 py-4 font-bold">18 Okt</td>
+                            <td class="px-6 py-4 font-medium text-google-blue">badri</td>
+                            <td class="px-6 py-4 font-medium text-google-green">rahmat</td>
+                            <td class="px-6 py-4 font-medium text-google-green">rahmat</td>
+                            <td class="px-6 py-4 font-medium text-google-blue">badri</td>
+                            <td class="px-6 py-4">badri-rahmat</td>
+                            <td class="px-6 py-4">hardi-farhan</td>
+                            <td class="px-6 py-4">chelsy-rahmat</td>
+                            <td class="px-6 py-4 font-medium text-google-red">hardi</td>
+                            <td class="px-6 py-4">hardi-farhan</td>
+                            <td class="px-6 py-4">hardi-farhan</td>
+                            <td class="px-6 py-4 font-medium text-google-red">hardi</td>
+                            <td class="px-6 py-4 font-bold text-google-yellow border-l border-red-200">all crew</td>
+                        </tr>
+                        <tr class="bg-gray-50 hover:bg-gray-100 transition-colors">
+                            <td class="px-6 py-4 font-bold">19 Okt</td>
+                            <td class="px-6 py-4">farhan erik</td>
+                            <td class="px-6 py-4 font-medium">farhan</td>
+                            <td class="px-6 py-4">farhan erik</td>
+                            <td class="px-6 py-4">erik farhan</td>
+                            <td class="px-6 py-4">erik farhan</td>
+                            <td class="px-6 py-4 font-bold text-google-yellow">all crew</td>
+                            <td class="px-6 py-4">vania/badri</td>
+                            <td class="px-6 py-4 font-medium text-google-blue">badri</td>
+                            <td class="px-6 py-4">rahmat badri</td>
+                            <td class="px-6 py-4">rahmat/badri/bayu</td>
+                            <td class="px-6 py-4 font-medium text-google-blue">badri</td>
+                            <td class="px-6 py-4 font-medium border-l border-red-200">raya</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 transition-colors">
+                            <td class="px-6 py-4 font-bold">20 Okt</td>
+                            <td class="px-6 py-4">rangga/erik</td>
+                            <td class="px-6 py-4 font-medium">rangga</td>
+                            <td class="px-6 py-4">rangga/erik</td>
+                            <td class="px-6 py-4">erik rangga</td>
+                            <td class="px-6 py-4">erik rangga</td>
+                            <td class="px-6 py-4 font-bold text-google-yellow">all crew</td>
+                            <td class="px-6 py-4">hardi nadila</td>
+                            <td class="px-6 py-4 font-medium text-google-green">rahmat</td>
+                            <td class="px-6 py-4">agil hardi</td>
+                            <td class="px-6 py-4">agil hardi</td>
+                            <td class="px-6 py-4">agil hardi</td>
+                            <td class="px-6 py-4 font-medium border-l border-red-200">raya</td>
+                        </tr>
+                        <tr class="bg-gray-50 hover:bg-gray-100 transition-colors">
+                            <td class="px-6 py-4 font-bold">21 Okt</td>
+                            <td class="px-6 py-4">rahmat farhan</td>
+                            <td class="px-6 py-4">rahmat farhan</td>
+                            <td class="px-6 py-4 font-medium text-google-green">rahmat</td>
+                            <td class="px-6 py-4">rahmat farhan</td>
+                            <td class="px-6 py-4 font-bold text-google-yellow">all crew</td>
+                            <td class="px-6 py-4 font-bold text-google-yellow">all crew</td>
+                            <td class="px-6 py-4 font-medium">farhan</td>
+                            <td class="px-6 py-4 font-medium text-purple-600">bayu agil</td>
+                            <td class="px-6 py-4 font-medium text-purple-600">bayu agil</td>
+                            <td class="px-6 py-4 font-medium text-purple-600">bayu agil</td>
+                            <td class="px-6 py-4 font-medium text-purple-600">bayu agil</td>
+                            <td class="px-6 py-4 font-medium text-purple-600 border-l border-red-200">bayu agil</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 transition-colors">
+                            <td class="px-6 py-4 font-bold">23 Okt</td>
+                            <td class="px-6 py-4 font-medium text-google-red">hardi</td>
+                            <td class="px-6 py-4 font-medium">rangga</td>
+                            <td class="px-6 py-4 font-medium">farhan</td>
+                            <td class="px-6 py-4">farhan rangga</td>
+                            <td class="px-6 py-4 font-medium text-google-red">hardi</td>
+                            <td class="px-6 py-4 font-bold text-google-yellow">all crew</td>
+                            <td class="px-6 py-4">erik rachel</td>
+                            <td class="px-6 py-4 font-medium text-purple-600">bayu agil</td>
+                            <td class="px-6 py-4 font-medium text-purple-600">bayu agil</td>
+                            <td class="px-6 py-4 font-medium text-purple-600">bayu agil</td>
+                            <td class="px-6 py-4 font-medium text-purple-600">bayu agil</td>
+                            <td class="px-6 py-4 font-medium text-purple-600 border-l border-red-200">bayu agil</td>
+                        </tr>
+                        <tr class="bg-gray-50 hover:bg-gray-100 transition-colors">
+                            <td class="px-6 py-4 font-bold">24 Okt</td>
+                            <td class="px-6 py-4">rangga erik</td>
+                            <td class="px-6 py-4">rangga erik</td>
+                            <td class="px-6 py-4">hardi farhan</td>
+                            <td class="px-6 py-4 font-medium">farhan</td>
+                            <td class="px-6 py-4 font-medium text-google-red">hardi</td>
+                            <td class="px-6 py-4 font-bold text-google-yellow">all crew</td>
+                            <td class="px-6 py-4">agil riska</td>
+                            <td class="px-6 py-4 font-medium text-google-blue">badri</td>
+                            <td class="px-6 py-4">badri rahmat bayu</td>
+                            <td class="px-6 py-4">badri bayu rahmat</td>
+                            <td class="px-6 py-4">badri rahmat</td>
+                            <td class="px-6 py-4 font-bold text-google-yellow border-l border-red-200">all crew</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 transition-colors">
+                            <td class="px-6 py-4 font-bold">25 Okt</td>
+                            <td class="px-6 py-4">rangga ridwan</td>
+                            <td class="px-6 py-4">rangga ridwan</td>
+                            <td class="px-6 py-4 font-medium text-google-red">hardi</td>
+                            <td class="px-6 py-4 font-medium">ridwan</td>
+                            <td class="px-6 py-4 font-medium text-google-red">hardi</td>
+                            <td class="px-6 py-4 font-bold text-google-yellow">all crew</td>
+                            <td class="px-6 py-4">rahmat chelsy</td>
+                            <td class="px-6 py-4 font-medium text-google-green">rahmat</td>
+                            <td class="px-6 py-4">badri rahmat bayu</td>
+                            <td class="px-6 py-4">bayu badri rahmat</td>
+                            <td class="px-6 py-4 font-medium text-google-blue">badri</td>
+                            <td class="px-6 py-4 font-bold text-google-yellow border-l border-red-200">all crew</td>
+                        </tr>
+                        <tr class="bg-gray-50 hover:bg-gray-100 transition-colors">
+                            <td class="px-6 py-4 font-bold">26 Okt</td>
+                            <td class="px-6 py-4">bayu rahmat</td>
+                            <td class="px-6 py-4 font-medium">bayu</td>
+                            <td class="px-6 py-4 font-medium text-google-green">rahmat</td>
+                            <td class="px-6 py-4">bayu rahmat</td>
+                            <td class="px-6 py-4">bayu rahmat</td>
+                            <td class="px-6 py-4">hardi rangga</td>
+                            <td class="px-6 py-4">badri vania</td>
+                            <td class="px-6 py-4 font-medium text-google-red">hardi</td>
+                            <td class="px-6 py-4">hardi rangga badri</td>
+                            <td class="px-6 py-4">hardi badri</td>
+                            <td class="px-6 py-4 font-medium text-google-red">hardi</td>
+                            <td class="px-6 py-4 font-bold text-google-yellow border-l border-red-200">all crew</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 transition-colors">
+                            <td class="px-6 py-4 font-bold">27 Okt</td>
+                            <td class="px-6 py-4 font-medium">bayu</td>
+                            <td class="px-6 py-4 font-medium text-google-green">rahmat</td>
+                            <td class="px-6 py-4 font-medium">bayu</td>
+                            <td class="px-6 py-4 font-medium">bayu</td>
+                            <td class="px-6 py-4 font-medium text-google-green">rahmat</td>
+                            <td class="px-6 py-4 font-bold text-google-yellow">all crew</td>
+                            <td class="px-6 py-4">raya - bayu</td>
+                            <td class="px-6 py-4 font-medium text-purple-600">agil</td>
+                            <td class="px-6 py-4">agil farhan rangga</td>
+                            <td class="px-6 py-4">agil farhan</td>
+                            <td class="px-6 py-4">agil farhan</td>
+                            <td class="px-6 py-4 font-bold text-google-yellow border-l border-red-200">all crew</td>
+                        </tr>
+                        <tr class="bg-gray-50 hover:bg-gray-100 transition-colors">
+                            <td class="px-6 py-4 font-bold">28 Okt</td>
+                            <td class="px-6 py-4 font-medium text-google-green">rahmat</td>
+                            <td class="px-6 py-4 font-medium text-google-green">rahmat</td>
+                            <td class="px-6 py-4 font-medium text-google-red">hardi</td>
+                            <td class="px-6 py-4 font-medium text-google-red">hardi</td>
+                            <td class="px-6 py-4">hardi rahmat</td>
+                            <td class="px-6 py-4 font-bold text-google-yellow">all crew</td>
+                            <td class="px-6 py-4">farhan rachel</td>
+                            <td class="px-6 py-4 font-medium text-purple-600">agil</td>
+                            <td class="px-6 py-4 font-medium text-google-blue">badri</td>
+                            <td class="px-6 py-4 font-bold text-google-yellow">semua</td>
+                            <td class="px-6 py-4 font-medium">farhan</td>
+                            <td class="px-6 py-4 font-medium text-google-blue border-l border-red-200">badri</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 transition-colors">
+                            <td class="px-6 py-4 font-bold">29 Okt</td>
+                            <td class="px-6 py-4 font-medium">bayu</td>
+                            <td class="px-6 py-4 font-medium text-google-green">rahmat</td>
+                            <td class="px-6 py-4 font-medium text-google-green">rahmat</td>
+                            <td class="px-6 py-4 font-medium">bayu</td>
+                            <td class="px-6 py-4 font-medium">bayu</td>
+                            <td class="px-6 py-4 font-bold text-google-yellow">all crew</td>
+                            <td class="px-6 py-4">nabila rahmat</td>
+                            <td class="px-6 py-4 font-medium text-google-red">hardi</td>
+                            <td class="px-6 py-4">rangga hardi</td>
+                            <td class="px-6 py-4 font-medium text-google-red">hardi</td>
+                            <td class="px-6 py-4">hardi rangga</td>
+                            <td class="px-6 py-4 font-bold text-google-yellow border-l border-red-200">all crew</td>
+                        </tr>
+                        <tr class="bg-gray-50 hover:bg-gray-100 transition-colors">
+                            <td class="px-6 py-4 font-bold">30 Okt</td>
+                            <td class="px-6 py-4 font-medium">farhan</td>
+                            <td class="px-6 py-4 font-medium">farhan</td>
+                            <td class="px-6 py-4 font-medium text-google-red">hardi</td>
+                            <td class="px-6 py-4 font-medium text-google-red">hardi</td>
+                            <td class="px-6 py-4 font-medium text-google-red">hardi</td>
+                            <td class="px-6 py-4 font-bold text-google-yellow">all crew</td>
+                            <td class="px-6 py-4">hardi reva</td>
+                            <td class="px-6 py-4 font-medium">rangga</td>
+                            <td class="px-6 py-4 font-medium text-google-blue">badri</td>
+                            <td class="px-6 py-4 font-bold text-google-yellow">semua</td>
+                            <td class="px-6 py-4 font-medium">bayu</td>
+                            <td class="px-6 py-4 font-medium text-google-blue border-l border-red-200">badri</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 transition-colors">
+                            <td class="px-6 py-4 font-bold">31 Okt</td>
+                            <td class="px-6 py-4">rahmat badri</td>
+                            <td class="px-6 py-4 font-medium text-google-green">rahmat</td>
+                            <td class="px-6 py-4 font-medium">bayu</td>
+                            <td class="px-6 py-4">bayu badri</td>
+                            <td class="px-6 py-4">bayu badri</td>
+                            <td class="px-6 py-4 font-bold text-google-yellow">all crew</td>
+                            <td class="px-6 py-4">riska rahmat</td>
+                            <td class="px-6 py-4 font-medium">rangga</td>
+                            <td class="px-6 py-4">hardi farhan rangga</td>
+                            <td class="px-6 py-4">rangga hardi farhan</td>
+                            <td class="px-6 py-4">farhan hardi</td>
+                            <td class="px-6 py-4 font-bold text-google-yellow border-l border-red-200">all crew</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Bagian Tambahan: Analisa Waktu Closing -->
+        <section>
+            <h2 class="text-2xl font-bold text-google-text mb-6 border-b pb-2">Analisa Waktu Keterlambatan Closing
+                (Target: 21.30)</h2>
+
+            <!-- Highlight Waktu -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
+                <!-- Highlight Terburuk -->
+                <div
+                    class="material-card p-6 flex flex-col justify-center items-center text-center border-t-4 border-t-google-red">
+                    <p class="text-google-muted font-medium uppercase tracking-wider text-xs mb-2">Keterlambatan
+                        Terburuk</p>
+                    <h3 class="text-3xl font-black text-google-red">23 Okt</h3>
+                    <p class="text-sm font-bold mt-1 text-google-text">Selesai 00:44 <span
+                            class="text-google-red bg-red-50 px-2 rounded">(Telat >3 Jam)</span></p>
+                </div>
+                <!-- Highlight Jeda Input -->
+                <div
+                    class="material-card p-6 flex flex-col justify-center items-center text-center border-t-4 border-t-google-yellow">
+                    <p class="text-google-muted font-medium uppercase tracking-wider text-xs mb-2">Rata-rata Jeda Input
+                        Form</p>
+                    <h3 class="text-3xl font-black text-google-yellow">~6 Menit</h3>
+                    <p class="text-sm font-bold mt-1 text-google-text">Jarak antara form selesai difoto & dikirim</p>
+                </div>
+                <!-- Highlight Anomali Jeda -->
+                <div
+                    class="material-card p-6 flex flex-col justify-center items-center text-center border-t-4 border-t-google-blue">
+                    <p class="text-google-muted font-medium uppercase tracking-wider text-xs mb-2">Anomali Jeda Terlama
+                    </p>
+                    <h3 class="text-3xl font-black text-google-blue">30 Okt</h3>
+                    <p class="text-sm font-bold mt-1 text-google-text">Selesai 21:59, Kirim 22:30 <span
+                            class="text-google-blue bg-blue-50 px-2 rounded">(Jeda 30m)</span></p>
+                </div>
+            </div>
+
+            <!-- Tabel Data Analisa Waktu -->
+            <div class="material-card p-6 overflow-hidden">
+                <h3 class="text-xl font-bold text-google-text mb-4">Tren & Detail Waktu Operasional</h3>
+                <div class="relative w-full h-64 mb-6 border-b border-gray-100 pb-4">
+                    <canvas id="timeChart"></canvas>
+                </div>
+
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-sm text-google-text whitespace-nowrap">
+                        <thead
+                            class="bg-google-bg text-google-muted uppercase text-xs font-bold border-b border-gray-200">
+                            <tr>
+                                <th class="px-4 py-3">Tanggal</th>
+                                <th class="px-4 py-3">Jam Selesai (Foto)</th>
+                                <th class="px-4 py-3">Jam Dikirim (Sistem)</th>
+                                <th class="px-4 py-3">Telat dari Target (21.30)</th>
+                                <th class="px-4 py-3">Jeda Input (Selesai &rarr; Kirim)</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-100">
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-4 py-3 font-bold">18 Okt</td>
+                                <td class="px-4 py-3">21:39:25</td>
+                                <td class="px-4 py-3">22:05:26</td>
+                                <td class="px-4 py-3 font-medium text-google-yellow">+ 9m 25s</td>
+                                <td class="px-4 py-3 text-google-blue font-medium">26m 1s</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-4 py-3 font-bold">19 Okt</td>
+                                <td class="px-4 py-3">22:12:35</td>
+                                <td class="px-4 py-3">22:13:00</td>
+                                <td class="px-4 py-3 font-medium text-google-red">+ 42m 35s</td>
+                                <td class="px-4 py-3">0m 25s</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-4 py-3 font-bold">20 Okt</td>
+                                <td class="px-4 py-3">22:04:46</td>
+                                <td class="px-4 py-3">22:06:22</td>
+                                <td class="px-4 py-3 font-medium text-google-yellow">+ 34m 46s</td>
+                                <td class="px-4 py-3">1m 36s</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-4 py-3 font-bold">21 Okt</td>
+                                <td class="px-4 py-3">22:19:06</td>
+                                <td class="px-4 py-3">22:20:12</td>
+                                <td class="px-4 py-3 font-medium text-google-red">+ 49m 6s</td>
+                                <td class="px-4 py-3">1m 6s</td>
+                            </tr>
+                            <tr class="bg-red-50 hover:bg-red-100">
+                                <td class="px-4 py-3 font-bold">23 Okt</td>
+                                <td class="px-4 py-3 font-bold text-google-red">00:44:00</td>
+                                <td class="px-4 py-3 text-google-red">00:46:17</td>
+                                <td class="px-4 py-3 font-bold text-google-red">+ 3 Jam 14m</td>
+                                <td class="px-4 py-3">2m 17s</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-4 py-3 font-bold">24 Okt</td>
+                                <td class="px-4 py-3">22:06:50</td>
+                                <td class="px-4 py-3">22:14:35</td>
+                                <td class="px-4 py-3 font-medium text-google-yellow">+ 36m 50s</td>
+                                <td class="px-4 py-3">7m 45s</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-4 py-3 font-bold">25 Okt</td>
+                                <td class="px-4 py-3">22:03:42</td>
+                                <td class="px-4 py-3">22:04:14</td>
+                                <td class="px-4 py-3 font-medium text-google-yellow">+ 33m 42s</td>
+                                <td class="px-4 py-3">0m 32s</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-4 py-3 font-bold">26 Okt</td>
+                                <td class="px-4 py-3">21:48:38</td>
+                                <td class="px-4 py-3">21:52:21</td>
+                                <td class="px-4 py-3 font-medium text-google-green">+ 18m 38s</td>
+                                <td class="px-4 py-3">3m 43s</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-4 py-3 font-bold">27 Okt</td>
+                                <td class="px-4 py-3">21:56:13</td>
+                                <td class="px-4 py-3">21:57:21</td>
+                                <td class="px-4 py-3 font-medium text-google-yellow">+ 26m 13s</td>
+                                <td class="px-4 py-3">1m 8s</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-4 py-3 font-bold">28 Okt</td>
+                                <td class="px-4 py-3">21:59:29</td>
+                                <td class="px-4 py-3">22:03:34</td>
+                                <td class="px-4 py-3 font-medium text-google-yellow">+ 29m 29s</td>
+                                <td class="px-4 py-3">4m 5s</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-4 py-3 font-bold">29 Okt</td>
+                                <td class="px-4 py-3">22:04:19</td>
+                                <td class="px-4 py-3">22:04:40</td>
+                                <td class="px-4 py-3 font-medium text-google-yellow">+ 34m 19s</td>
+                                <td class="px-4 py-3">0m 21s</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-4 py-3 font-bold">30 Okt</td>
+                                <td class="px-4 py-3">21:59:51</td>
+                                <td class="px-4 py-3 font-bold">22:30:21</td>
+                                <td class="px-4 py-3 font-medium text-google-yellow">+ 29m 51s</td>
+                                <td class="px-4 py-3 text-google-blue font-bold">30m 30s</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-4 py-3 font-bold">31 Okt</td>
+                                <td class="px-4 py-3">21:51:13</td>
+                                <td class="px-4 py-3">21:52:44</td>
+                                <td class="px-4 py-3 font-medium text-google-green">+ 21m 13s</td>
+                                <td class="px-4 py-3">1m 31s</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bagian 4: Rekomendasi Action Plan -->
+        <section>
+            <h2 class="text-2xl font-bold text-google-text mb-6 border-b pb-2"> Action Plan</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+                <!-- Kartu 1 -->
+                <div class="material-card p-6 border-l-4 border-l-google-red bg-white relative overflow-hidden">
+                    <h4 class="text-xl font-bold text-google-text mb-3">Rotasi Shift Agil & Badri</h4>
+                    <p class="text-google-muted font-medium leading-relaxed">
+                        Wajib dijadwalkan shift pagi (opening) untuk meratakan sebaran shift dan teamwork.
+                    </p>
+                </div>
+
+                <!-- Kartu 2 -->
+                <div class="material-card p-6 border-l-4 border-l-google-yellow bg-white relative overflow-hidden">
+                    <h4 class="text-xl font-bold text-google-text mb-3">Rotasi Rahmat</h4>
+                    <p class="text-google-muted font-medium leading-relaxed">
+                        Wajib masuk shift malam agar paham standar kebersihan dan keamanan aset.
+                    </p>
+                </div>
+
+                <!-- Kartu 3 -->
+                <div class="material-card p-6 border-l-4 border-l-google-blue bg-white relative overflow-hidden">
+                    <h4 class="text-xl font-bold text-google-text mb-3">Stop Penggunaan "All Crew"</h4>
+                    <p class="text-google-muted font-medium leading-relaxed">
+                        Form Laporan Akhir (Baris 12) wajib mencantumkan 1 nama spesifik penanggung jawab malam
+                        tersebut.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Inisialisasi Chart.js -->
+    <script>
+        // Konfigurasi Standar Font ChartJS agar sesuai Google Theme
+        Chart.defaults.font.family = "'Roboto', sans-serif";
+        Chart.defaults.color = '#5F6368';
+
+        // 1. Grafik Distribusi Beban Kerja (Bar Chart)
+        const ctxWorkload = document.getElementById('workloadChart').getContext('2d');
+        const labelsWorkload = ['Rahmat', 'Hardi', 'Farhan', 'Bayu', 'Erik', 'Rangga', 'Badri', 'Ridwan', 'Agil'];
+
+        new Chart(ctxWorkload, {
+            type: 'bar',
+            data: {
+                labels: labelsWorkload,
+                datasets: [
+                    {
+                        label: 'Opening (QC, Kaldu, Defrost, Prep, Cek Stok)',
+                        data: [14, 12, 10, 8, 8, 6, 6, 3, 0],
+                        backgroundColor: '#34A853', // Google Green
+                        borderRadius: 4
+                    },
+                    {
+                        label: 'Closing (Kaldu Malam, Penyelamatan, Cleaning, Api)',
+                        data: [7, 18, 9, 14, 0, 7, 14, 0, 12],
+                        backgroundColor: '#FBBC05', // Google Yellow
+                        borderRadius: 4
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { position: 'top' },
+                    tooltip: {
+                        backgroundColor: 'rgba(32, 33, 36, 0.9)',
+                        padding: 10,
+                        titleFont: { size: 14, weight: 'bold' },
+                        bodyFont: { size: 13 }
+                    }
+                },
+                scales: {
+                    y: {
+                        stacked: true,
+                        beginAtZero: true,
+                        grid: { color: '#E8EAED', drawBorder: false }
+                    },
+                    x: {
+                        stacked: true,
+                        grid: { display: false, drawBorder: false }
+                    }
+                }
+            }
+        });
+
+        // 2. Grafik Pengisi Laporan Data/Waste (Pie Chart)
+        const ctxPie = document.getElementById('pieChart').getContext('2d');
+        new Chart(ctxPie, {
+            type: 'doughnut', // Menggunakan variasi doughnut pie chart untuk look lebih modern
+            data: {
+                labels: ['All Crew', 'Agil', 'Badri', 'Bayu'],
+                datasets: [{
+                    data: [7, 2, 2, 2],
+                    backgroundColor: [
+                        '#EA4335', // Google Red - Anomali tertinggi
+                        '#4285F4', // Google Blue
+                        '#34A853', // Google Green
+                        '#FBBC05'  // Google Yellow
+                    ],
+                    borderWidth: 2,
+                    borderColor: '#ffffff',
+                    hoverOffset: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                cutout: '60%', // Besaran lubang doughnut
+                plugins: {
+                    legend: {
+                        position: 'right',
+                        labels: { padding: 20 }
+                    },
+                    tooltip: {
+                        backgroundColor: 'rgba(32, 33, 36, 0.9)',
+                        padding: 12,
+                        bodyFont: { size: 14 }
+                    }
+                }
+            }
+        });
+
+        // 3. Grafik Analisa Waktu Closing (Line Chart)
+        const ctxTime = document.getElementById('timeChart').getContext('2d');
+        const labelsTime = ['18', '19', '20', '21', '23', '24', '25', '26', '27', '28', '29', '30', '31'];
+
+        // Data dalam bentuk menit keterlambatan dari target 21.30
+        const dataTelatSelesai = [9, 42, 34, 49, 194, 36, 33, 18, 26, 29, 34, 29, 21];
+
+        new Chart(ctxTime, {
+            type: 'line',
+            data: {
+                labels: labelsTime,
+                datasets: [{
+                    label: 'Menit Lewat dari Target (21.30)',
+                    data: dataTelatSelesai,
+                    borderColor: '#EA4335', // Google Red
+                    backgroundColor: 'rgba(234, 67, 53, 0.1)',
+                    borderWidth: 3,
+                    pointBackgroundColor: '#EA4335',
+                    pointRadius: 5,
+                    pointHoverRadius: 8,
+                    fill: true,
+                    tension: 0.3
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        backgroundColor: 'rgba(32, 33, 36, 0.9)',
+                        padding: 10,
+                        callbacks: {
+                            label: function (context) {
+                                let val = context.raw;
+                                if (val > 60) {
+                                    return 'Telat: ' + Math.floor(val / 60) + ' Jam ' + (val % 60) + ' Menit';
+                                }
+                                return 'Telat: ' + val + ' Menit';
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: { display: true, text: 'Menit Keterlambatan' },
+                        grid: { color: '#E8EAED', borderDash: [5, 5] }
+                    },
+                    x: {
+                        title: { display: true, text: 'Tanggal (Okt)' },
+                        grid: { display: false }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
