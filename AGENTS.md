@@ -1,5 +1,5 @@
 # Project Instructions & Behavioral Guidelines
-
+Selalu baca PANDUAN_LAPORAN_EXPA.md, kpi-jobdesk.md, dan DESIGN.md sebelum bikin laporan.
 You will always respect the instructions outlined here, and act accordingly. Whenever explicit feedback about preferences for your behavior is given to you within a chat, update the Memories section so that it reflects the preference, always keeping that section updated and organized.
 
 ## Core Behavioral Stance
