@@ -1909,10 +1909,10 @@ html_template = f'''<!DOCTYPE html>
             createSafeChart('chartSuratSakit', {{
                 type: 'bar',
                 data: {{
-                    labels: ['Garut', 'Kopo', 'Amir', 'TKI', 'Dipatiukur', 'Cibiru'],
+                    labels: ['Garut', 'Ambon', 'Soreang', 'Pajajaran', 'Tubagus Ismail', 'Ujung Berung', 'Cimahi Cihanjuang', 'Buah Batu', 'Kiaracondong', 'Cimahi Amir'],
                     datasets: [{{
                         label: 'Subsidi Surat Sakit (Rp)',
-                        data: [450000, 375000, 310000, 280000, 220000, 420000],
+                        data: [775000, 425000, 175000, 175000, 150000, 125000, 75000, 55000, 50000, 50000],
                         backgroundColor: '#a48d5e',
                         borderRadius: 6
                     }}]
